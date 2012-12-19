@@ -17,11 +17,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	//1 cargamos verbos del diccionario .plist
-    //1.0 recuperamos path al resource
+	//1 load verbs from dictionary
+    //1.0 load resource path
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"];
     self.verbs = [NSMutableArray arrayWithContentsOfFile:plistPath];
-    
+    //init labels
     self.labelPresent.text = @"";
     self.labelPast.text = @"";
     self.labelParticiple.text = @"";
@@ -39,11 +39,11 @@
 }
 
 - (void)showRandomVerb{
-      //1.0 cargamos el nº total de verbos
+      //1.0 get total item count
      int array_tot = [self.verbs count];
     if(array_tot > 0){
         
-        //tiramos el dado en estado = 0
+        //only in first state, get a random element
         if(self.current_State == 0){
             self.current_Pos = (arc4random() % array_tot);
         }
@@ -54,7 +54,7 @@
         NSString *translation = self.verbs[self.current_Pos ][@"translation"];
         
         switch(self.current_State){
-            //mostrar presente
+            //show present
             case 0:
                 self.labelPresent.text = simple ;
                 self.labelPast.text = @"" ;
@@ -62,7 +62,7 @@
                 self.labelTranslation.text = translation;
                 self.current_State = 1;
                 break;
-            //mostrar pasado
+            //show past
             case 1:
                 self.labelPresent.text = simple ;
                 self.labelPast.text = past ;
@@ -70,7 +70,7 @@
                 self.labelTranslation.text = translation;
                 self.current_State = 2;
                 break;
-            //mostrar participio
+            //show participle
             case 2:
                 self.labelPresent.text = simple ;
                 self.labelPast.text = past ;
