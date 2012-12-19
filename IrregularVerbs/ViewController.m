@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Oswaldo Rubio. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "ViewController.h"
 
 @interface ViewController ()
@@ -27,9 +28,7 @@
     self.labelParticiple.text = @"";
     self.labelTranslation.text = @"";
     
-    self.current_State = 0;
-    
-    [self showRandomVerb];
+    [self showRandomVerb:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,61 +37,63 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)showRandomVerb{
-      //1.0 get total item count
-     int array_tot = [self.verbs count];
-    if(array_tot > 0){
+- (IBAction)showRandomVerb:(UISwipeGestureRecognizer *)sender {
+    int array_tot = [self.verbs count];
+    if (array_tot>0) {
+        self.current_Pos = (arc4random() % array_tot);
         
-        //only in first state, get a random element
-        if(self.current_State == 0){
-            self.current_Pos = (arc4random() % array_tot);
-        }
+        NSString *simple = self.verbs[self.current_Pos][@"simple"] ;
+;
+        self.labelPresent.text = simple;
+        self.labelTranslation.text = @"";
+        self.labelPast.text = @"" ;
+        self.labelParticiple.text = @"" ;
         
-        NSString *simple = self.verbs[self.current_Pos ][@"simple"];
-        NSString *past = self.verbs[self.current_Pos ][@"past"];
-        NSString *participle = self.verbs[self.current_Pos ][@"participle"];
-        NSString *translation = self.verbs[self.current_Pos ][@"translation"];
-        
-        switch(self.current_State){
-            //show present
-            case 0:
-                self.labelPresent.text = simple ;
-                self.labelPast.text = @"" ;
-                self.labelParticiple.text = @"" ;
-                self.labelTranslation.text = translation;
-                self.current_State = 1;
-                break;
-            //show past
-            case 1:
-                self.labelPresent.text = simple ;
-                self.labelPast.text = past ;
-                self.labelParticiple.text = @"" ;
-                self.labelTranslation.text = translation;
-                self.current_State = 2;
-                break;
-            //show participle
-            case 2:
-                self.labelPresent.text = simple ;
-                self.labelPast.text = past ;
-                self.labelParticiple.text = participle;
-                self.labelTranslation.text = translation;
-                self.current_State = 0;
-                break;
-        }
-        
-
-        
-        
-    }else{
+        //1.1 Animate new verb introduction
+        CABasicAnimation *swipeInAnimation = [CABasicAnimation
+                                              animationWithKeyPath:@"transform.translation.y"];
+        swipeInAnimation.duration = 0.4;
+        swipeInAnimation.fromValue = [NSNumber numberWithFloat:self.view.bounds.size.height];
+        swipeInAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        swipeInAnimation.toValue = [NSNumber numberWithFloat:0];
+        swipeInAnimation.removedOnCompletion = YES;
+        [self.labelPresent.layer addAnimation:swipeInAnimation forKey:@"moveAnimation"];
+    } else {
         NSLog(@"No elements in Verbs");
-   
+    }
+}
+- (IBAction)showTranslation:(UISwipeGestureRecognizer *)sender {
+    if (self.labelTranslation.text.length==0) {
+        NSString *translation = self.verbs[self.current_Pos][@"translation"];
+        self.labelTranslation.text = translation;
+        
+        //1.1 Animate new verb introduction
+        CABasicAnimation *swipeInAnimation = [CABasicAnimation
+                                              animationWithKeyPath:@"transform.translation.y"];
+        swipeInAnimation.duration = 0.2;
+        swipeInAnimation.fromValue = [NSNumber numberWithFloat:-self.labelTranslation.layer.position.y];
+        swipeInAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        swipeInAnimation.toValue = [NSNumber numberWithFloat:0];
+        swipeInAnimation.removedOnCompletion = YES;
+        [self.labelTranslation.layer addAnimation:swipeInAnimation forKey:@"moveAnimation"];
+
     }
 }
 
--(IBAction)screenTapped:(id)sender{
 
-   [self showRandomVerb];
-  
+- (IBAction)showVerbalForms:(id)sender {
+    if (self.labelPast.text.length==0) {
+        self.labelPast.text = self.verbs[self.current_Pos][@"past"];
+        self.labelParticiple.text = self.verbs[self.current_Pos][@"participle"];
+        
+        CABasicAnimation *fader = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        fader.duration=0.2;
+        fader.fromValue= @0.0;
+        fader.toValue=@1.0;
+        
+        [self.labelPast.layer addAnimation:fader forKey:@"fadeAnimation"];
+        [self.labelParticiple.layer addAnimation:fader forKey:@"fadeAnimation"];
+    }
 }
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -12,73 +12,39 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Simple Form" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZ6-mp-dja">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="l5X-hn-UYb"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Simple Form" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lZ6-mp-dja">
+                                <rect key="frame" x="20" y="75" width="280" height="56"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Simple Past" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEz-Nm-P4V">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="4uU-IN-42g"/>
-                                    <constraint firstAttribute="height" constant="55" id="rVM-GN-qwt"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Simple Past" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GEz-Nm-P4V">
+                                <rect key="frame" x="18" y="204" width="280" height="55"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Past Participle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUq-md-Ylv">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="59" id="8Ne-WS-MqX"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Past Participle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rUq-md-Ylv">
+                                <rect key="frame" x="23" y="267" width="280" height="59"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="translation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-r7-sFC">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="Oes-9X-NzU"/>
-                                    <constraint firstAttribute="height" constant="32" id="gQx-im-W55"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="translation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qza-r7-sFC">
+                                <rect key="frame" x="23" y="139" width="280" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="textColor" red="0.13054114923062077" green="0.64879021983268648" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q77-xj-apO">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="aCp-0W-8VH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="screenTapped:" destination="2" eventType="touchUpInside" id="VTX-Xy-psa"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Qza-r7-sFC" firstAttribute="leading" secondItem="rUq-md-Ylv" secondAttribute="leading" type="default" id="6b8-m2-n3R"/>
-                            <constraint firstItem="Q77-xj-apO" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="7ge-Td-aDe"/>
-                            <constraint firstItem="Qza-r7-sFC" firstAttribute="trailing" secondItem="rUq-md-Ylv" secondAttribute="trailing" type="default" id="CYa-0Z-hQ1"/>
-                            <constraint firstItem="GEz-Nm-P4V" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="18" id="UN4-eM-lQn"/>
-                            <constraint firstAttribute="trailing" secondItem="Q77-xj-apO" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="XK5-Ph-Scx"/>
-                            <constraint firstItem="Qza-r7-sFC" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="23" id="XLc-XZ-u84"/>
-                            <constraint firstItem="rUq-md-Ylv" firstAttribute="top" secondItem="GEz-Nm-P4V" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Zm1-OU-62c"/>
-                            <constraint firstItem="GEz-Nm-P4V" firstAttribute="top" secondItem="3" secondAttribute="top" constant="149" id="gJw-cX-QdJ"/>
-                            <constraint firstAttribute="trailing" secondItem="lZ6-mp-dja" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kNn-XS-0zy"/>
-                            <constraint firstItem="Qza-r7-sFC" firstAttribute="top" secondItem="lZ6-mp-dja" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nqR-xp-ooW"/>
-                            <constraint firstItem="lZ6-mp-dja" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rak-7C-DUa"/>
-                            <constraint firstAttribute="bottom" secondItem="Q77-xj-apO" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="xPo-BF-EoO"/>
-                            <constraint firstItem="lZ6-mp-dja" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="xf7-4h-NrL"/>
-                        </constraints>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Tau-tv-Y4l" appends="YES" id="sk2-h9-ezL"/>
+                            <outletCollection property="gestureRecognizers" destination="3mr-GT-cXx" appends="YES" id="YDY-It-sZI"/>
+                            <outletCollection property="gestureRecognizers" destination="aXS-1z-cSK" appends="YES" id="XUO-Yn-Fjc"/>
+                            <outletCollection property="gestureRecognizers" destination="SzD-1B-hQV" appends="YES" id="2gs-wd-lJi"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="labelParticiple" destination="rUq-md-Ylv" id="h3K-uL-qHV"/>
@@ -88,18 +54,37 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="Tau-tv-Y4l">
+                    <connections>
+                        <action selector="showRandomVerb:" destination="2" id="rfT-Br-EuR"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="3mr-GT-cXx">
+                    <connections>
+                        <action selector="showTranslation:" destination="2" id="5UX-nu-oyX"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="aXS-1z-cSK">
+                    <connections>
+                        <action selector="showVerbalForms:" destination="2" id="fLi-He-fjt"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="SzD-1B-hQV">
+                    <connections>
+                        <action selector="showVerbalForms:" destination="2" id="GMR-OI-Qym"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="138" y="42"/>
+            <point key="canvasLocation" x="4" y="44"/>
         </scene>
     </scenes>
     <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
-                <relationship kind="action" name="screenTapped:"/>
+                <relationship kind="action" name="showRandomVerb:"/>
+                <relationship kind="action" name="showTranslation:" candidateClass="UISwipeGestureRecognizer"/>
+                <relationship kind="action" name="showVerbalForms:"/>
                 <relationship kind="outlet" name="labelParticiple" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelPast" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelPresent" candidateClass="UILabel"/>
