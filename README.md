@@ -20,6 +20,5 @@ You can contact us at
 * RB - v0.2 changed button based interface for swipe based one (19/12/2012) 
 
 ## Screenshot
-![Screenshot](https://github.com/rbarbera/irregularverbs/blob/master/screenshot.png?raw=true)
-![Screenshot](https://github.com/rbarbera/irregularverbs/blob/master/screenshot_touch.png?raw=true)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/touch/screenshot_touch.png)
 
