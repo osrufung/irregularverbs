@@ -1,6 +1,7 @@
 # Irregular Verbs App
 ## Overview
-A very Simple App for review your english knowledge about 154 Irregular Verbs (present, past, participle)
+A very Simple App for review your english knowledge about 154 Irregular Verbs (present, past, participle). 
+Each time you click on Next button, a verbal form shown. The verbs are shown in Random order.
 
 The verbs were extracted from <http://www.mansioningles.com/gram53.htm>
 
