@@ -7,11 +7,14 @@ The verbs were extracted from <http://www.mansioningles.com/gram53.htm>
 
 The purpose of this App is basically to learn iOS 6, and review our english :P
 
-You can contact us at
+You can contact us at:
+
 <https://twitter.com/arrozconnori>
+
 <https://twitter.com/rbarbera>
 
 **Oswaldo Rubio**
+
 **Rafa Barberá**
 
 ## Release Notes
