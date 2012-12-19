@@ -9,13 +9,9 @@ The purpose of this App is basically to learn iOS 6, and review our english :P
 
 You can contact us at:
 
-<https://twitter.com/arrozconnori>
+**Oswaldo Rubio** <https://twitter.com/arrozconnori>
 
-<https://twitter.com/rbarbera>
-
-**Oswaldo Rubio**
-
-**Rafa Barberá**
+**Rafa Barberá** <https://twitter.com/rbarbera>
 
 ## Release Notes
 
