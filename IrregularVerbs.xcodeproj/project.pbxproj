@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		099AF61B1681FBAA001A6BF3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 099AF61A1681FBAA001A6BF3 /* README.md */; };
 		09D372DD1681BA4F00F80410 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DC1681BA4F00F80410 /* UIKit.framework */; };
 		09D372DF1681BA4F00F80410 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DE1681BA4F00F80410 /* Foundation.framework */; };
 		09D372E11681BA4F00F80410 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372E01681BA4F00F80410 /* CoreGraphics.framework */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		099AF61A1681FBAA001A6BF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		09D372D81681BA4F00F80410 /* IrregularVerbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IrregularVerbs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D372DC1681BA4F00F80410 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09D372DE1681BA4F00F80410 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,6 +60,7 @@
 		09D372CD1681BA4F00F80410 = {
 			isa = PBXGroup;
 			children = (
+				099AF61A1681FBAA001A6BF3 /* README.md */,
 				09D372E21681BA4F00F80410 /* IrregularVerbs */,
 				09D372DB1681BA4F00F80410 /* Frameworks */,
 				09D372D91681BA4F00F80410 /* Products */,
@@ -167,6 +170,7 @@
 				09D372F31681BA4F00F80410 /* Default-568h@2x.png in Resources */,
 				09D372F61681BA4F00F80410 /* MainStoryboard.storyboard in Resources */,
 				09D373001681BC5200F80410 /* verbs.plist in Resources */,
+				099AF61B1681FBAA001A6BF3 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +300,7 @@
 				09D372FE1681BA4F00F80410 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
