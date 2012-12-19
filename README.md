@@ -16,5 +16,5 @@ You can contact me at
 * v0.1 first stable version (19/12/2012)
 
 ## Screenshot
-![Screenshot](https://github.com/osrufung/irregularverbs/blob/master/screenshot.png)
+![Screenshot](https://github.com/osrufung/irregularverbs/blob/master/screenshot.png?raw=true)
 
