@@ -28,6 +28,21 @@
     self.labelParticiple.text = @"";
     self.labelTranslation.text = @"";
     
+    UISwipeGestureRecognizer *swUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showRandomVerb:)];
+    UISwipeGestureRecognizer *swDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showTranslation:)];
+    UISwipeGestureRecognizer *swLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showVerbalForms:)];
+    UISwipeGestureRecognizer *swRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showVerbalForms:)];
+    
+    swUp.direction = UISwipeGestureRecognizerDirectionUp;
+    swDown.direction = UISwipeGestureRecognizerDirectionDown;
+    swLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    swRight.direction = UISwipeGestureRecognizerDirectionRight;
+    
+    [self.view addGestureRecognizer:swUp];
+    [self.view addGestureRecognizer:swDown];
+    [self.view addGestureRecognizer:swLeft];
+    [self.view addGestureRecognizer:swRight];
+    
     [self showRandomVerb:nil];
 }
 
@@ -37,13 +52,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)showRandomVerb:(UISwipeGestureRecognizer *)sender {
+- (void)showRandomVerb:(UISwipeGestureRecognizer *)sender {
     int array_tot = [self.verbs count];
     if (array_tot>0) {
         self.current_Pos = (arc4random() % array_tot);
         
         NSString *simple = self.verbs[self.current_Pos][@"simple"] ;
-;
+
         self.labelPresent.text = simple;
         self.labelTranslation.text = @"";
         self.labelPast.text = @"" ;
@@ -62,7 +77,8 @@
         NSLog(@"No elements in Verbs");
     }
 }
-- (IBAction)showTranslation:(UISwipeGestureRecognizer *)sender {
+
+- (void)showTranslation:(UISwipeGestureRecognizer *)sender {
     if (self.labelTranslation.text.length==0) {
         NSString *translation = self.verbs[self.current_Pos][@"translation"];
         self.labelTranslation.text = translation;
@@ -80,8 +96,7 @@
     }
 }
 
-
-- (IBAction)showVerbalForms:(id)sender {
+- (void)showVerbalForms:(id)sender {
     if (self.labelPast.text.length==0) {
         self.labelPast.text = self.verbs[self.current_Pos][@"past"];
         self.labelParticiple.text = self.verbs[self.current_Pos][@"participle"];

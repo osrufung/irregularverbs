@@ -9,10 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-{
-    CGPoint posPresent;
-    CGPoint posTranslation;
-}
+
 //array mutable donde guardar las entradas de los verbos
 @property (nonatomic, strong) NSMutableArray *verbs;
 //verbo actual
@@ -23,6 +20,4 @@
 @property (nonatomic, strong) IBOutlet UILabel *labelParticiple;
 @property (nonatomic, strong) IBOutlet UILabel *labelTranslation;
 
-- (IBAction)showVerbalForms:(id)sender;
-- (IBAction)showRandomVerb:(id)sender;
 @end
