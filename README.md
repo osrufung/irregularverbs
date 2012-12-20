@@ -22,4 +22,4 @@ You can contact us at:
 * OR - v0.4 panel and shuffle option integration (20/12/2012)
 
 ## Screenshot
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot_touch.png)
+![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot.png)
