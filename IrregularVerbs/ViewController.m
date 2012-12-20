@@ -25,14 +25,14 @@
 }
  
 - (void)animateShuffleIndicator {
-    /*
+  
     if (self.verbs.randomOrder) {
         self.shuffleIndicator.layer.opacity=0.2;
         [self fadeView:self.shuffleIndicator from:0.0 to:0.2];
     } else {
         self.shuffleIndicator.layer.opacity=0.0;
         [self fadeView:self.shuffleIndicator from:0.2 to:0.0];
-    }*/
+    } 
 }
  
 #pragma mark - Setup

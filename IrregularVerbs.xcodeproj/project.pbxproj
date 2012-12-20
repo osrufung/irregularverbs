@@ -12,6 +12,7 @@
 		099AF64E16834053001A6BF3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 099AF64D16834053001A6BF3 /* QuartzCore.framework */; };
 		099AF65116834247001A6BF3 /* IrregularVerb.m in Sources */ = {isa = PBXBuildFile; fileRef = 099AF65016834246001A6BF3 /* IrregularVerb.m */; };
 		099AF69116834580001A6BF3 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099AF69016834580001A6BF3 /* PreferencesViewController.m */; };
+		099AF6931683540D001A6BF3 /* media-shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = 099AF6921683540D001A6BF3 /* media-shuffle.png */; };
 		09D372DD1681BA4F00F80410 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DC1681BA4F00F80410 /* UIKit.framework */; };
 		09D372DF1681BA4F00F80410 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DE1681BA4F00F80410 /* Foundation.framework */; };
 		09D372E11681BA4F00F80410 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372E01681BA4F00F80410 /* CoreGraphics.framework */; };
@@ -34,6 +35,7 @@
 		099AF65016834246001A6BF3 /* IrregularVerb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IrregularVerb.m; path = IrregularVerbs/IrregularVerb.m; sourceTree = "<group>"; };
 		099AF68F16834580001A6BF3 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesViewController.h; path = IrregularVerbs/PreferencesViewController.h; sourceTree = "<group>"; };
 		099AF69016834580001A6BF3 /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesViewController.m; path = IrregularVerbs/PreferencesViewController.m; sourceTree = "<group>"; };
+		099AF6921683540D001A6BF3 /* media-shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-shuffle.png"; sourceTree = "<group>"; };
 		09D372D81681BA4F00F80410 /* IrregularVerbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IrregularVerbs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D372DC1681BA4F00F80410 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09D372DE1681BA4F00F80410 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,6 +73,7 @@
 		09D372CD1681BA4F00F80410 = {
 			isa = PBXGroup;
 			children = (
+				099AF6921683540D001A6BF3 /* media-shuffle.png */,
 				099AF68F16834580001A6BF3 /* PreferencesViewController.h */,
 				099AF69016834580001A6BF3 /* PreferencesViewController.m */,
 				099AF64F16834246001A6BF3 /* IrregularVerb.h */,
@@ -189,6 +192,7 @@
 				09D373001681BC5200F80410 /* verbs.plist in Resources */,
 				099AF61B1681FBAA001A6BF3 /* README.md in Resources */,
 				099AF61E1681FF3D001A6BF3 /* screenshot.png in Resources */,
+				099AF6931683540D001A6BF3 /* media-shuffle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
