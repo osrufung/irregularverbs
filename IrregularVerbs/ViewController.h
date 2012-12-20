@@ -7,22 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IrregularVerb.h"
+#import "PreferencesViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <PreferencesViewControllerDelegate>
 
-//Mutable array of verbs
-@property (nonatomic, strong) NSMutableArray *verbs;
-//current verb (randomnly selected)
+//array mutable donde guardar las entradas de los verbos
+@property (nonatomic, strong) IrregularVerb *verbs;
+//verbo actual
 @property int current_Pos;
-//current show state(0 = present, 1 = past, 2 = participle)
-@property int current_State;
-//outlets for labels
+//outlets para las etiquetas
 @property (nonatomic, weak) IBOutlet UILabel *labelPresent;
 @property (nonatomic, weak) IBOutlet UILabel *labelPast;
 @property (nonatomic, weak) IBOutlet UILabel *labelParticiple;
 @property (nonatomic, weak) IBOutlet UILabel *labelTranslation;
-//button tapped event
-- (IBAction)screenTapped:(id)sender;
-//logic method
-- (void)showRandomVerb:(UISwipeGestureRecognizer *)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *shuffleIndicator;
+
 @end
