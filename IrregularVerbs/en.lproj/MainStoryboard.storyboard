@@ -36,6 +36,10 @@
                                 <color key="textColor" red="0.13054114923062077" green="0.64879021983268648" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.19999999999999998" contentMode="scaleAspectFill" image="media-shuffle.png" id="ZWE-ag-3dO">
+                                <rect key="frame" x="74" y="400" width="178" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -45,6 +49,7 @@
                         <outlet property="labelPast" destination="GEz-Nm-P4V" id="WmN-TL-qfX"/>
                         <outlet property="labelPresent" destination="lZ6-mp-dja" id="zNf-ZW-oYX"/>
                         <outlet property="labelTranslation" destination="Qza-r7-sFC" id="A2f-X5-jgw"/>
+                        <outlet property="shuffleIndicator" destination="ZWE-ag-3dO" id="vgx-Xc-uNf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -52,6 +57,9 @@
             <point key="canvasLocation" x="4" y="44"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="media-shuffle.png" width="256" height="256"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

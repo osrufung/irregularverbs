@@ -21,7 +21,9 @@
 		09D372F91681BA4F00F80410 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D372F81681BA4F00F80410 /* ViewController.m */; };
 		09D373001681BC5200F80410 /* verbs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09D372FF1681BC5200F80410 /* verbs.plist */; };
 		E5C24100168232EE008E6767 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C240FF168232EE008E6767 /* QuartzCore.framework */; };
-		E5C2410C16824A23008E6767 /* screenshot_touch.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C2410B16824A23008E6767 /* screenshot_touch.png */; };
+		E5CD3B321683119A0024BE2B /* IrregularVerb.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CD3B311683119A0024BE2B /* IrregularVerb.m */; };
+		E5CD3B34168317230024BE2B /* media-shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = E5CD3B33168317230024BE2B /* media-shuffle.png */; };
+		E5CD3B3616831A610024BE2B /* screenshot_touch.png in Resources */ = {isa = PBXBuildFile; fileRef = E5CD3B3516831A610024BE2B /* screenshot_touch.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +46,10 @@
 		09D372F81681BA4F00F80410 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		09D372FF1681BC5200F80410 /* verbs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = verbs.plist; sourceTree = "<group>"; };
 		E5C240FF168232EE008E6767 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		E5C2410B16824A23008E6767 /* screenshot_touch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot_touch.png; sourceTree = "<group>"; };
+		E5CD3B301683119A0024BE2B /* IrregularVerb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IrregularVerb.h; sourceTree = "<group>"; };
+		E5CD3B311683119A0024BE2B /* IrregularVerb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IrregularVerb.m; sourceTree = "<group>"; };
+		E5CD3B33168317230024BE2B /* media-shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-shuffle.png"; sourceTree = "<group>"; };
+		E5CD3B3516831A610024BE2B /* screenshot_touch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot_touch.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +70,7 @@
 		09D372CD1681BA4F00F80410 = {
 			isa = PBXGroup;
 			children = (
-				E5C2410B16824A23008E6767 /* screenshot_touch.png */,
+				E5CD3B3516831A610024BE2B /* screenshot_touch.png */,
 				099AF61A1681FBAA001A6BF3 /* README.md */,
 				09D372E21681BA4F00F80410 /* IrregularVerbs */,
 				09D372DB1681BA4F00F80410 /* Frameworks */,
@@ -95,6 +100,7 @@
 		09D372E21681BA4F00F80410 /* IrregularVerbs */ = {
 			isa = PBXGroup;
 			children = (
+				E5CD3B33168317230024BE2B /* media-shuffle.png */,
 				09D372EB1681BA4F00F80410 /* AppDelegate.h */,
 				09D372EC1681BA4F00F80410 /* AppDelegate.m */,
 				09D372F41681BA4F00F80410 /* MainStoryboard.storyboard */,
@@ -102,6 +108,8 @@
 				09D372FF1681BC5200F80410 /* verbs.plist */,
 				09D372F81681BA4F00F80410 /* ViewController.m */,
 				09D372E31681BA4F00F80410 /* Supporting Files */,
+				E5CD3B301683119A0024BE2B /* IrregularVerb.h */,
+				E5CD3B311683119A0024BE2B /* IrregularVerb.m */,
 			);
 			path = IrregularVerbs;
 			sourceTree = "<group>";
@@ -178,7 +186,8 @@
 				09D372F61681BA4F00F80410 /* MainStoryboard.storyboard in Resources */,
 				09D373001681BC5200F80410 /* verbs.plist in Resources */,
 				099AF61B1681FBAA001A6BF3 /* README.md in Resources */,
-				E5C2410C16824A23008E6767 /* screenshot_touch.png in Resources */,
+				E5CD3B34168317230024BE2B /* media-shuffle.png in Resources */,
+				E5CD3B3616831A610024BE2B /* screenshot_touch.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +201,7 @@
 				09D372E91681BA4F00F80410 /* main.m in Sources */,
 				09D372ED1681BA4F00F80410 /* AppDelegate.m in Sources */,
 				09D372F91681BA4F00F80410 /* ViewController.m in Sources */,
+				E5CD3B321683119A0024BE2B /* IrregularVerb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,7 +1,7 @@
 # Irregular Verbs App
 ## Overview
 A very Simple App for review your english knowledge about 154 Irregular Verbs (present, past, participle). 
-Swipe Up to show other verb (present). Swipe Down to show the spanish translation. Swipe right or left to show the other verbal forms (past and participle).
+Swipe Up to show other verb (present). Swipe Down to show the spanish translation. Swipe right or left to show the other verbal forms (past and participle). Double tap to choose between alphabetical sorted or random list of verbs.
 
 The verbs were extracted from <http://www.mansioningles.com/gram53.htm>
 
@@ -16,7 +16,8 @@ You can contact us at:
 ## Release Notes
 
 * OR - v0.1 first stable version (19/12/2012)
-* RB - v0.2 changed button based interface for swipe based one (19/12/2012) 
+* RB - v0.2 changed button based interface for swipe based one (19/12/2012)
+* RB - v0.3 now you can usa an alphabetical sorted list or a random one (20/12/2012) 
 
 ## Screenshot
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot_touch.png)
