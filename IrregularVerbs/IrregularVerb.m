@@ -9,47 +9,69 @@
 #import "IrregularVerb.h"
 
 @interface IrregularVerb()
-{
-    int current_pos;
-}
 @property (nonatomic, strong) NSMutableArray *verbs;
+@property (nonatomic) NSInteger currentPos;
 @end
 
 @implementation IrregularVerb
 
-@synthesize verbs=_verbs, randomOrder;
+@synthesize verbs=_verbs, randomOrder=_randomOrder, currentPos=_currentPos;
+
+// It's needed to get the last inner state (random/sorted and last position)
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.randomOrder = [[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
+        if (!self.randomOrder) {
+            self.currentPos=[[NSUserDefaults standardUserDefaults] integerForKey:@"currentPos"];
+        } else self.currentPos = (arc4random() % [self.verbs count]);
+    }
+    return self;
+}
 
 - (NSMutableArray *) verbs{
     if (!_verbs) {
         NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"];
         _verbs = [NSMutableArray arrayWithContentsOfFile:plistPath];
-        current_pos=0;
     }
     return _verbs;
 }
 
+- (void)setRandomOrder:(BOOL)randomOrder {
+    if (randomOrder!=_randomOrder) {
+        _randomOrder = randomOrder;
+        [[NSUserDefaults standardUserDefaults] setBool:_randomOrder forKey:@"randomOrder"];
+    }
+}
+
+- (void)setCurrentPos:(NSInteger)currentPos {
+    if (currentPos!=_currentPos) {
+        _currentPos=currentPos;
+        [[NSUserDefaults standardUserDefaults] setInteger:_currentPos forKey:@"currentPos"];
+    }
+}
+
 - (void)change {
-    int array_tot = [self.verbs count];
     if (self.randomOrder) {
-        current_pos = (arc4random() % array_tot);
+        self.currentPos = (arc4random() % [self.verbs count]);
     } else {
-        current_pos++;
-        if (current_pos>=array_tot) current_pos=0;
+        self.currentPos++;
+        if (self.currentPos>=[self.verbs count]) self.currentPos=0;
     }
 }
 
 - (NSString *)simple {
-    return self.verbs[current_pos][@"simple"];
+    return self.verbs[self.currentPos][@"simple"];
 }
 
 - (NSString *)translation {
-    return self.verbs[current_pos][@"translation"];
+    return self.verbs[self.currentPos][@"translation"];
 }
 - (NSString *)past {
-    return self.verbs[current_pos][@"past"];
+    return self.verbs[self.currentPos][@"past"];
 }
 - (NSString *)participle {
-    return self.verbs[current_pos][@"participle"];
+    return self.verbs[self.currentPos][@"participle"];
 }
 
 @end

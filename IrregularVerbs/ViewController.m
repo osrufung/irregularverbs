@@ -24,7 +24,7 @@
     return _verbs;
 }
 
-- (void)showShuffleIndicator {
+- (void)animateShuffleIndicator {
     if (self.verbs.randomOrder) {
         self.shuffleIndicator.layer.opacity=0.2;
         [self fadeView:self.shuffleIndicator from:0.0 to:0.2];
@@ -57,7 +57,7 @@
 
 - (void)awakeFromNib {
     [self setupGestureRecognizers];
-    self.shuffleIndicator.layer.opacity=0.0;
+    [self animateShuffleIndicator];
 }
 
 - (void)viewDidLoad
@@ -107,7 +107,7 @@
 
 - (void)changeSorting {
     self.verbs.randomOrder = !self.verbs.randomOrder;
-    [self showShuffleIndicator];
+    [self animateShuffleIndicator];
 }
 
 
