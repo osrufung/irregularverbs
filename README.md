@@ -1,21 +1,24 @@
 # Irregular Verbs App
 ## Overview
 A very Simple App for review your english knowledge about 154 Irregular Verbs (present, past, participle). 
-Each time you click on Next button, a verbal form shown. The verbs are shown in Random order.
+Swipe Up to show other verb (present). Swipe Down to show the spanish translation. Swipe right or left to show the other verbal forms (past and participle). Double tap to choose between alphabetical sorted or random list of verbs.
+The kind of list is persisted between runs. Also if you are using a sorted list, the last position is saved, so you can study secuencialy with interruptions.
 
 The verbs were extracted from <http://www.mansioningles.com/gram53.htm>
 
-The purpose of this App is basically to learn iOS 6, and review my english :P
+The purpose of this App is basically to learn iOS 6, and review our english :P
 
-You can contact me at
-<https://twitter.com/arrozconnori>
- 
-**Oswaldo Rubio**
+You can contact us at:
+
+**Oswaldo Rubio** <https://twitter.com/arrozconnori>
+
+**Rafa Barberá** <https://twitter.com/rbarbera>
 
 ## Release Notes
 
-* v0.1 first stable version (19/12/2012)
+* OR - v0.1 first stable version (19/12/2012)
+* RB - v0.2 changed button based interface for swipe based one (19/12/2012)
+* OR - v0.3 new preference panel (20/12/2012)
 
 ## Screenshot
-![Screenshot](https://github.com/osrufung/irregularverbs/blob/master/screenshot.png?raw=true)
-
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot_touch.png)
