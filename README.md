@@ -19,6 +19,7 @@ You can contact us at:
 * OR - v0.1 first stable version (19/12/2012)
 * RB - v0.2 changed button based interface for swipe based one (19/12/2012)
 * OR - v0.3 new preference panel (20/12/2012)
+* OR - v0.4 panel and shuffle option integration (20/12/2012)
 
 ## Screenshot
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot_touch.png)
