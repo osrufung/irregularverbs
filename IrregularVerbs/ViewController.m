@@ -138,8 +138,14 @@
 
 - (void)flipsideViewControllerDidFinish:(PreferencesViewController *)controller
 {
-    NSLog(@"did finish flipside");
+    
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+    //we need no reload the sort preferences.
+    [self.verbs setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
+    //and repaint the shuffle indicator
+    [self animateShuffleIndicator];
+    
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

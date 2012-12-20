@@ -26,7 +26,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	// set the segmented control current state
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]){
+        [self.segmentedSortControl setSelectedSegmentIndex:1];
+    }else{
+        [self.segmentedSortControl setSelectedSegmentIndex:0];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,5 +49,18 @@
     
     [self.delegate flipsideViewControllerDidFinish:self];
 }
+- (IBAction)selectionChanged:(id)sender {
+    NSInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex;
+    NSLog(@"Selected %d",index);
+    
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
 
+    [settings setBool:(index == 1) forKey:@"randomOrder"];
+    
+    // Write them to disk - this is optional here,
+    // but should be done when the app exits.
+    [settings synchronize];
+    
+    
+}
 @end

@@ -17,6 +17,7 @@
 @interface PreferencesViewController : UIViewController
 
 @property (weak, nonatomic) id <PreferencesViewControllerDelegate> delegate;
-
+@property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedSortControl;
+- (IBAction)selectionChanged:(id)sender;
 - (IBAction)done:(id)sender;
 @end
