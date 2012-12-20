@@ -9,17 +9,20 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-//array mutable donde guardar las entradas de los verbos
+
+//Mutable array of verbs
 @property (nonatomic, strong) NSMutableArray *verbs;
-//verbo actual
+//current verb (randomnly selected)
 @property int current_Pos;
-//estado/verbo que se está mostrando actualmente (0 = presente, 1 = pasado, 2 = participio)
+//current show state(0 = present, 1 = past, 2 = participle)
 @property int current_State;
-//outlets para las etiquetas
+//outlets for labels
 @property (nonatomic, strong) IBOutlet UILabel *labelPresent;
 @property (nonatomic, strong) IBOutlet UILabel *labelPast;
 @property (nonatomic, strong) IBOutlet UILabel *labelParticiple;
 @property (nonatomic, strong) IBOutlet UILabel *labelTranslation;
+//button tapped event
 - (IBAction)screenTapped:(id)sender;
-- (void)showRandomVerb;
+//logic method
+- (void)showRandomVerb:(UISwipeGestureRecognizer *)sender;
 @end

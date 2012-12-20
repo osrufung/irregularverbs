@@ -17,6 +17,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UISwipeGestureRecognizer *swUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showRandomVerb:)];
+    swUp.direction = UISwipeGestureRecognizerDirectionUp;
+    [self.view addGestureRecognizer:swUp];
 	//1 load verbs from dictionary
     //1.0 load resource path
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"];
@@ -29,7 +33,7 @@
     
     self.current_State = 0;
     
-    [self showRandomVerb];
+    [self showRandomVerb:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,9 +42,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)showRandomVerb{
-      //1.0 get total item count
-     int array_tot = [self.verbs count];
+- (void)showRandomVerb:(UISwipeGestureRecognizer *)sender{
+    //1.0 get total item count
+    int array_tot = [self.verbs count];
     if(array_tot > 0){
         
         //only in first state, get a random element
@@ -91,7 +95,7 @@
 
 -(IBAction)screenTapped:(id)sender{
 
-   [self showRandomVerb];
+    [self showRandomVerb:nil];
   
 }
 
