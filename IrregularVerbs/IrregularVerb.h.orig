@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+<<<<<<< HEAD
+@interface IrregularVerb : NSObject
+
+@property (nonatomic) BOOL randomOrder;
+=======
 @protocol BackgrundModelUpdateDelegate <NSObject>
 
 - (void)modelUpdateStarted;
@@ -19,13 +24,17 @@
 
 @property (nonatomic) BOOL randomOrder;
 @property (nonatomic) int level;
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 @property (nonatomic, readonly) NSString *simple;
 @property (nonatomic, readonly) NSString *translation;
 @property (nonatomic, readonly) NSString *past;
 @property (nonatomic, readonly) NSString *participle;
 
+<<<<<<< HEAD
+=======
 @property (nonatomic, strong) id<BackgrundModelUpdateDelegate> delegate;
 
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 - (void)change;
 
 @end

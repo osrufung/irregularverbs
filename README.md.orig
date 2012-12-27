@@ -20,8 +20,14 @@ You can contact us at:
 * RB - v0.2 changed button based interface for swipe based one (19/12/2012)
 * OR - v0.3 new preference panel (20/12/2012)
 * OR - v0.4 panel and shuffle option integration (20/12/2012)
+<<<<<<< HEAD
+
+## Screenshot
+![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot.png)
+=======
 * RB - v0.5 experimental GAE API use (27/12/2012)
 
 ## Screenshot
 ![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/preferences.png)
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a

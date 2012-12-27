@@ -16,10 +16,16 @@
 
 @interface PreferencesViewController : UIViewController
 
+<<<<<<< HEAD
+=======
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedDifficultyLevel;
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 @property (weak, nonatomic) id <PreferencesViewControllerDelegate> delegate;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedSortControl;
 - (IBAction)selectionChanged:(id)sender;
 - (IBAction)done:(id)sender;
+<<<<<<< HEAD
+=======
 - (IBAction)diffycultyLevelChanged:(UISegmentedControl *)sender;
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 @end

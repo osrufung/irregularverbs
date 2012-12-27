@@ -20,10 +20,14 @@
 #pragma mark - Model Managment
 
 - (IrregularVerb *)verbs {
+<<<<<<< HEAD
+    if (!_verbs) _verbs = [[IrregularVerb alloc] init];
+=======
     if (!_verbs) {
         _verbs = [[IrregularVerb alloc] init];
         _verbs.delegate = self;
     }
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
     return _verbs;
 }
  
@@ -77,6 +81,7 @@
 }
 
 #pragma mark - User Interface
+<<<<<<< HEAD
 
 - (void)showOtherVerb {
     
@@ -91,6 +96,22 @@
     
 }
 
+=======
+
+- (void)showOtherVerb {
+    
+    [self.verbs change];
+    
+    self.labelPresent.text = self.verbs.simple;
+    self.labelTranslation.text = @"";
+    self.labelPast.text = @"" ;
+    self.labelParticiple.text = @"" ;
+    
+    [self moveYView:self.labelPresent from:self.view.bounds.size.height to:0 duration:0.4];
+    
+}
+
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 - (void)showTranslation:(UISwipeGestureRecognizer *)sender {
     if (self.labelTranslation.text.length==0) {
         self.labelTranslation.text = self.verbs.translation;
@@ -146,10 +167,14 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     //we need no reload the sort preferences.
     [self.verbs setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
+<<<<<<< HEAD
+    //and repaint the shuffle indicator
+=======
     //download the verbs list for the new level selected.
     self.verbs.level = [[NSUserDefaults standardUserDefaults] boolForKey:@"difficultyLevel"];
     //and repaint the shuffle indicator
     [self showOtherVerb];
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
     [self animateShuffleIndicator];
     
 }
@@ -158,12 +183,15 @@
     if ([[segue identifier] isEqualToString:@"showAlternate"]) {
         [[segue destinationViewController] setDelegate:self];
     }
+<<<<<<< HEAD
+=======
 }
 
 #pragma mark - BackgrundModelUpdateDelegate
 
 - (void)modelUpdateStarted {
     [self.activityIndicator startAnimating];
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 }
 
 - (void)modelUpdateFinished {

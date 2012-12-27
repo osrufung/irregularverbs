@@ -196,7 +196,10 @@
 				099AF61B1681FBAA001A6BF3 /* README.md in Resources */,
 				099AF61E1681FF3D001A6BF3 /* screenshot.png in Resources */,
 				099AF6931683540D001A6BF3 /* media-shuffle.png in Resources */,
+<<<<<<< HEAD
+=======
 				E5ED1BD2168C7824009C1D59 /* preferences.png in Resources */,
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

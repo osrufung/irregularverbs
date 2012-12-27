@@ -65,7 +65,10 @@
                                     <constraint firstAttribute="width" constant="240" id="vTm-Xf-U6X"/>
                                 </constraints>
                             </imageView>
+<<<<<<< HEAD
+=======
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="efl-dX-Gec"/>
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -73,17 +76,28 @@
                             <constraint firstItem="eaf-yf-Pwh" firstAttribute="centerX" secondItem="rUq-md-Ylv" secondAttribute="centerX" type="default" id="C25-Uq-AnM"/>
                             <constraint firstAttribute="bottom" secondItem="eaf-yf-Pwh" secondAttribute="bottom" constant="56" id="CCD-YF-1Pu"/>
                             <constraint firstItem="Qza-r7-sFC" firstAttribute="trailing" secondItem="rUq-md-Ylv" secondAttribute="trailing" type="default" id="CYa-0Z-hQ1"/>
+<<<<<<< HEAD
+                            <constraint firstItem="GEz-Nm-P4V" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="18" id="UN4-eM-lQn"/>
+                            <constraint firstItem="FAF-Hu-3EZ" firstAttribute="trailing" secondItem="rUq-md-Ylv" secondAttribute="trailing" type="default" id="VRY-PR-x5E"/>
+                            <constraint firstItem="rUq-md-Ylv" firstAttribute="top" secondItem="GEz-Nm-P4V" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Zm1-OU-62c"/>
+                            <constraint firstAttribute="bottom" secondItem="FAF-Hu-3EZ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="cqn-p7-1m1"/>
+                            <constraint firstItem="eaf-yf-Pwh" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="43" id="eRJ-f5-OOC"/>
+=======
                             <constraint firstItem="Qza-r7-sFC" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="23" id="H8C-IU-T25"/>
                             <constraint firstAttribute="bottom" secondItem="efl-dX-Gec" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="KLA-7F-dx5"/>
                             <constraint firstItem="FAF-Hu-3EZ" firstAttribute="trailing" secondItem="rUq-md-Ylv" secondAttribute="trailing" type="default" id="VRY-PR-x5E"/>
                             <constraint firstItem="rUq-md-Ylv" firstAttribute="top" secondItem="GEz-Nm-P4V" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Zm1-OU-62c"/>
                             <constraint firstAttribute="bottom" secondItem="FAF-Hu-3EZ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="cqn-p7-1m1"/>
                             <constraint firstItem="efl-dX-Gec" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fVp-XI-Xre"/>
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
                             <constraint firstItem="GEz-Nm-P4V" firstAttribute="top" secondItem="3" secondAttribute="top" constant="149" id="gJw-cX-QdJ"/>
                             <constraint firstAttribute="trailing" secondItem="lZ6-mp-dja" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kNn-XS-0zy"/>
                             <constraint firstItem="Qza-r7-sFC" firstAttribute="top" secondItem="lZ6-mp-dja" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nqR-xp-ooW"/>
                             <constraint firstItem="lZ6-mp-dja" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rak-7C-DUa"/>
+<<<<<<< HEAD
+=======
                             <constraint firstItem="GEz-Nm-P4V" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="18" id="wN6-g1-gFH"/>
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
                             <constraint firstItem="lZ6-mp-dja" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="xf7-4h-NrL"/>
                         </constraints>
                     </view>
@@ -133,6 +147,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+<<<<<<< HEAD
+=======
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5Em-hY-sGa">
                                 <segments>
                                     <segment title="1"/>
@@ -149,26 +165,38 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ui8-Cb-qv6" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="34U-lK-n07"/>
+<<<<<<< HEAD
+=======
                             <constraint firstItem="ohn-Ie-c1p" firstAttribute="leading" secondItem="hNS-dp-VWE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5Z4-u0-fm5"/>
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
                             <constraint firstItem="Ui8-Cb-qv6" firstAttribute="leading" secondItem="hNS-dp-VWE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="HJc-x4-gYK"/>
                             <constraint firstItem="A2A-cg-dkX" firstAttribute="leading" secondItem="hNS-dp-VWE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="IUf-Ta-e1a"/>
                             <constraint firstItem="tmx-bh-Dgc" firstAttribute="leading" secondItem="hNS-dp-VWE" secondAttribute="leading" type="default" id="LID-Yb-1Q4"/>
                             <constraint firstItem="tmx-bh-Dgc" firstAttribute="top" secondItem="hNS-dp-VWE" secondAttribute="top" type="default" id="MbK-nw-hUe"/>
+<<<<<<< HEAD
+                            <constraint firstItem="A2A-cg-dkX" firstAttribute="top" secondItem="hNS-dp-VWE" secondAttribute="top" constant="60" id="h3a-RH-52P"/>
+                            <constraint firstItem="Ui8-Cb-qv6" firstAttribute="top" secondItem="A2A-cg-dkX" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mWB-9R-XmM"/>
+=======
                             <constraint firstItem="5Em-hY-sGa" firstAttribute="top" secondItem="ohn-Ie-c1p" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Rlv-g9-fmD"/>
                             <constraint firstItem="A2A-cg-dkX" firstAttribute="top" secondItem="hNS-dp-VWE" secondAttribute="top" constant="60" id="h3a-RH-52P"/>
                             <constraint firstAttribute="trailing" secondItem="5Em-hY-sGa" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ifx-Rq-HKW"/>
                             <constraint firstItem="Ui8-Cb-qv6" firstAttribute="top" secondItem="A2A-cg-dkX" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mWB-9R-XmM"/>
                             <constraint firstItem="ohn-Ie-c1p" firstAttribute="top" secondItem="Ui8-Cb-qv6" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pcB-sQ-Ivx"/>
                             <constraint firstItem="5Em-hY-sGa" firstAttribute="leading" secondItem="hNS-dp-VWE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="sDI-f7-qX4"/>
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
                             <constraint firstItem="tmx-bh-Dgc" firstAttribute="trailing" secondItem="hNS-dp-VWE" secondAttribute="trailing" type="default" id="uvX-dl-odI"/>
                         </constraints>
                     </view>
                     <connections>
+<<<<<<< HEAD
+=======
                         <outlet property="segmentedDifficultyLevel" destination="5Em-hY-sGa" id="oES-JB-xBt"/>
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
                         <outlet property="segmentedSortControl" destination="Ui8-Cb-qv6" id="3oO-gh-jGa"/>
                     </connections>
                 </viewController>
@@ -180,6 +208,32 @@
     <resources>
         <image name="media-shuffle.png" width="256" height="256"/>
     </resources>
+<<<<<<< HEAD
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PreferencesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PreferencesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="action" name="selectionChanged:"/>
+                <relationship kind="outlet" name="segmentedSortControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="labelParticiple" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelPast" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelPresent" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTranslation" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shuffleIndicator" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+    </classes>
+=======
+>>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
