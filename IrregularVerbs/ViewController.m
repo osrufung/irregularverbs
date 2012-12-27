@@ -147,7 +147,7 @@
     //we need no reload the sort preferences.
     [self.verbs setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
     //download the verbs list for the new level selected.
-    self.verbs.level = [[NSUserDefaults standardUserDefaults] boolForKey:@"difficultyLevel"];
+    self.verbs.level = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
     //and repaint the shuffle indicator
     [self showOtherVerb];
     [self animateShuffleIndicator];

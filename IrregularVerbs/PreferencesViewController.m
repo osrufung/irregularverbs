@@ -33,7 +33,7 @@
     }else{
         [self.segmentedSortControl setSelectedSegmentIndex:0];
     }
-    self.segmentedDifficultyLevel.selectedSegmentIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    self.segmentedDifficultyLevel.selectedSegmentIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"]-1;
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,7 +52,7 @@
 }
 
 - (IBAction)diffycultyLevelChanged:(UISegmentedControl *)sender {
-    NSInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex;
+    NSInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex+1;
     [[NSUserDefaults standardUserDefaults] setInteger:index forKey:@"difficultyLevel"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

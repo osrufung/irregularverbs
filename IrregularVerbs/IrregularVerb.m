@@ -78,7 +78,8 @@
 
 - (NSMutableArray *)downloadVerbsListForLevel:(int)level {
     NSMutableArray *newVerbList = nil;
-    NSURL *apiURL = [NSURL URLWithString:@"http://irregular-verbs.appspot.com/irregularverbsapi"];
+    NSString *query = [NSString stringWithFormat:@"http://irregular-verbs.appspot.com/irregularverbsapi?level=%d",level];
+    NSURL *apiURL = [NSURL URLWithString:query];
     NSData *data = [NSData dataWithContentsOfURL:apiURL];
     if (data) {
         NSError *error;
@@ -119,7 +120,10 @@
 
 - (void)change {
     if (self.randomOrder) {
-        self.currentPos = (arc4random() % [self.verbs count]);
+        if ([self.verbs count]) {
+            self.currentPos = (arc4random() % [self.verbs count]);
+        } else self.currentPos = 0;
+        
     } else {
         self.currentPos++;
         if (self.currentPos>=[self.verbs count]) self.currentPos=0;
