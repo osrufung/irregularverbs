@@ -55,6 +55,13 @@
     return _verbs;
 }
 
+- (void)setVerbs:(NSMutableArray *)verbs {
+    if (_verbs!=verbs) {
+        _verbs = verbs;
+        if (self.currentPos>=[_verbs count]) self.currentPos=0;
+    }
+}
+
 - (void)setRandomOrder:(BOOL)randomOrder {
     if (randomOrder!=_randomOrder) {
         _randomOrder = randomOrder;
@@ -81,11 +88,16 @@
 
 - (void)setLevel:(int)level {
     if (level!=_level) {
-        NSMutableArray *newVerbList = [self downloadVerbsListForLevel:level];
-        if (newVerbList) {
-            _level = level;
-            self.verbs = newVerbList;
-        }
+        dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(concurrentQueue, ^{
+            NSMutableArray *newVerbList = [self downloadVerbsListForLevel:level];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (newVerbList) {
+                    _level = level;
+                    self.verbs = newVerbList;
+                }
+            });
+        });
     }
 }
 
