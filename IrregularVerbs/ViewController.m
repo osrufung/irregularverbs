@@ -163,21 +163,27 @@
 #pragma mark - IrregularVerbDelegate
 
 - (void)updateBegin {
-    [self.activityIndicator startAnimating];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.activityIndicator startAnimating];
+    });
 }
 
 - (void)updateEnd {
-    [self.activityIndicator stopAnimating];
-    [self showOtherVerb];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.activityIndicator stopAnimating];
+        [self showOtherVerb];
+    });
 }
 
 - (void)updateFailedWithError:(NSError *)error {
-    [self.activityIndicator stopAnimating];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.domain
-                                                    message:error.localizedDescription
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Dimiss"
-                                          otherButtonTitles:nil];
-    [alert show];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.activityIndicator stopAnimating];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.domain
+                                                        message:error.localizedDescription
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Dimiss"
+                                              otherButtonTitles:nil];
+        [alert show];
+    });
 }
 @end

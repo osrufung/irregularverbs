@@ -83,20 +83,18 @@
     NSData *data = [NSData dataWithContentsOfURL:apiURL];
     if (data) {
         NSError *error;
-        newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data
+                                                                        options:NSJSONReadingMutableContainers
+                                                                          error:&error];
         if (error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.delegate updateFailedWithError:error];
-            });
+            newVerbList=nil;
+            [self.delegate updateFailedWithError:error];
         }
 
     } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate updateFailedWithError:[NSError errorWithDomain:@"IrregularVerbs"
-                                                                     code:1
-                                                                 userInfo:@{NSLocalizedDescriptionKey:@"Error connecting to server"}]];
-        });
-        
+        [self.delegate updateFailedWithError:[NSError errorWithDomain:@"IrregularVerbs"
+                                                                 code:1
+                                                             userInfo:@{NSLocalizedDescriptionKey:@"Error connecting to server"}]];        
     }
     return newVerbList;
 }
@@ -104,16 +102,13 @@
 - (void)setLevel:(int)level {
     if (level!=_level) {
         [self.delegate updateBegin];
-        dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        dispatch_async(concurrentQueue, ^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSMutableArray *newVerbList = [self downloadVerbsListForLevel:level];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (newVerbList) {
-                    _level = level;
-                    self.verbs = newVerbList;
-                }
-                [self.delegate updateEnd];
-            });
+            if (newVerbList) {
+                _level = level;
+                self.verbs = newVerbList;
+            }
+            [self.delegate updateEnd];
         });
     }
 }
