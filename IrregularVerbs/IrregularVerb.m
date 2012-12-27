@@ -17,6 +17,13 @@
 
 @synthesize verbs=_verbs, randomOrder=_randomOrder, currentPos=_currentPos;
 
++ (NSString *)mutableVerbsListPath {
+    NSArray *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *verbsFilePath = [[docDir objectAtIndex:0] stringByAppendingPathComponent:@"verbs.plist"];
+    return verbsFilePath;
+}
+
+
 // It's needed to get the last inner state (random/sorted and last position)
 - (id)init {
     self = [super init];
@@ -29,11 +36,22 @@
     return self;
 }
 
-- (NSMutableArray *) verbs{
-    if (!_verbs) {
-        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"];
-        _verbs = [NSMutableArray arrayWithContentsOfFile:plistPath];
+- (NSMutableArray *)verbsListFromDocument {
+    NSString *verbsFilePath = [IrregularVerb mutableVerbsListPath];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:verbsFilePath]) {
+        NSError *error;
+        [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]
+                                                toPath:verbsFilePath
+                                                 error:&error];
     }
+    NSMutableArray *list = [NSMutableArray arrayWithContentsOfFile:verbsFilePath];
+    return list;
+}
+
+
+
+- (NSMutableArray *) verbs{
+    if (!_verbs) _verbs = [self verbsListFromDocument];
     return _verbs;
 }
 
@@ -48,6 +66,26 @@
     if (currentPos!=_currentPos) {
         _currentPos=currentPos;
         [[NSUserDefaults standardUserDefaults] setInteger:_currentPos forKey:@"currentPos"];
+    }
+}
+
+- (NSMutableArray *)downloadVerbsListForLevel:(int)level {
+    NSURL *apiURL = [NSURL URLWithString:@"http://irregular-verbs.appspot.com/irregularverbsapi"];
+    NSData *data = [NSData dataWithContentsOfURL:apiURL];
+    NSError *error;
+    NSMutableArray *newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data
+                                                                                    options:NSJSONReadingMutableContainers
+                                                                                      error:&error];
+    return newVerbList;
+}
+
+- (void)setLevel:(int)level {
+    if (level!=_level) {
+        NSMutableArray *newVerbList = [self downloadVerbsListForLevel:level];
+        if (newVerbList) {
+            _level = level;
+            self.verbs = newVerbList;
+        }
     }
 }
 

@@ -11,11 +11,14 @@
 @interface IrregularVerb : NSObject
 
 @property (nonatomic) BOOL randomOrder;
+@property (nonatomic) int level;
 @property (nonatomic, readonly) NSString *simple;
 @property (nonatomic, readonly) NSString *translation;
 @property (nonatomic, readonly) NSString *past;
 @property (nonatomic, readonly) NSString *participle;
 
 - (void)change;
+
++ (void)resetVerbsList;
 
 @end

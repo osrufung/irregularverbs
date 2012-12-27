@@ -23,17 +23,18 @@
     if (!_verbs) _verbs = [[IrregularVerb alloc] init];
     return _verbs;
 }
-
+ 
 - (void)animateShuffleIndicator {
+  
     if (self.verbs.randomOrder) {
         self.shuffleIndicator.layer.opacity=0.2;
         [self fadeView:self.shuffleIndicator from:0.0 to:0.2];
     } else {
         self.shuffleIndicator.layer.opacity=0.0;
         [self fadeView:self.shuffleIndicator from:0.2 to:0.0];
-    }
+    } 
 }
-
+ 
 #pragma mark - Setup
 
 - (void)setupGestureRecognizers {
@@ -57,7 +58,7 @@
 
 - (void)awakeFromNib {
     [self setupGestureRecognizers];
-    [self animateShuffleIndicator];
+     [self animateShuffleIndicator];
 }
 
 - (void)viewDidLoad
@@ -75,7 +76,7 @@
 #pragma mark - User Interface
 
 - (void)showOtherVerb {
-
+    
     [self.verbs change];
     
     self.labelPresent.text = self.verbs.simple;
@@ -84,7 +85,7 @@
     self.labelParticiple.text = @"" ;
     
     [self moveYView:self.labelPresent from:self.view.bounds.size.height to:0 duration:0.4];
-        
+    
 }
 
 - (void)showTranslation:(UISwipeGestureRecognizer *)sender {
@@ -99,7 +100,7 @@
     if (self.labelPast.text.length==0) {
         self.labelPast.text = self.verbs.past;
         self.labelParticiple.text = self.verbs.participle;
-
+        
         [self fadeView:self.labelPast from:0.0 to:1.0];
         [self fadeView:self.labelParticiple from:0.0 to:1.0];
     }
@@ -107,7 +108,7 @@
 
 - (void)changeSorting {
     self.verbs.randomOrder = !self.verbs.randomOrder;
-    [self animateShuffleIndicator];
+     [self animateShuffleIndicator];
 }
 
 
@@ -132,6 +133,28 @@
     swipeInAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     [view.layer addAnimation:swipeInAnimation forKey:@"moveAnimation"];
     
+}
+#pragma mark - Flipside View
+
+- (void)flipsideViewControllerDidFinish:(PreferencesViewController *)controller
+{
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    //we need no reload the sort preferences.
+    [self.verbs setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
+    //download the verbs list for the new level selected.
+    self.verbs.level = [[NSUserDefaults standardUserDefaults] boolForKey:@"difficultyLevel"];
+    //and repaint the shuffle indicator
+    [self showOtherVerb];
+    [self animateShuffleIndicator];
+    
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
+        [[segue destinationViewController] setDelegate:self];
+    }
 }
 
 @end
