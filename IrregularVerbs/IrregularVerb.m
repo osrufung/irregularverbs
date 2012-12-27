@@ -77,18 +77,32 @@
 }
 
 - (NSMutableArray *)downloadVerbsListForLevel:(int)level {
+    NSMutableArray *newVerbList = nil;
     NSURL *apiURL = [NSURL URLWithString:@"http://irregular-verbs.appspot.com/irregularverbsapi"];
     NSData *data = [NSData dataWithContentsOfURL:apiURL];
-    NSError *error;
-    NSMutableArray *newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data
-                                                                                    options:NSJSONReadingMutableContainers
-                                                                                      error:&error];
+    if (data) {
+        NSError *error;
+        newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        if (error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate updateFailedWithError:error];
+            });
+        }
+
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate updateFailedWithError:[NSError errorWithDomain:@"IrregularVerbs"
+                                                                     code:1
+                                                                 userInfo:@{NSLocalizedDescriptionKey:@"Error connecting to server"}]];
+        });
+        
+    }
     return newVerbList;
 }
 
 - (void)setLevel:(int)level {
     if (level!=_level) {
-        [self.delegate modelUpdateStarted];
+        [self.delegate updateBegin];
         dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(concurrentQueue, ^{
             NSMutableArray *newVerbList = [self downloadVerbsListForLevel:level];
@@ -97,7 +111,7 @@
                     _level = level;
                     self.verbs = newVerbList;
                 }
-                [self.delegate modelUpdateFinished];
+                [self.delegate updateEnd];
             });
         });
     }

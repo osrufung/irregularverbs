@@ -160,13 +160,23 @@
     }
 }
 
-#pragma mark - BackgrundModelUpdateDelegate
+#pragma mark - IrregularVerbDelegate
 
-- (void)modelUpdateStarted {
+- (void)updateBegin {
     [self.activityIndicator startAnimating];
 }
 
-- (void)modelUpdateFinished {
+- (void)updateEnd {
     [self.activityIndicator stopAnimating];
+}
+
+- (void)updateFailedWithError:(NSError *)error {
+    [self.activityIndicator stopAnimating];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.domain
+                                                    message:error.localizedDescription
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Dimiss"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 @end
