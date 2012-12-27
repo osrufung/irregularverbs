@@ -168,6 +168,7 @@
 
 - (void)updateEnd {
     [self.activityIndicator stopAnimating];
+    [self showOtherVerb];
 }
 
 - (void)updateFailedWithError:(NSError *)error {
