@@ -20,7 +20,10 @@
 #pragma mark - Model Managment
 
 - (IrregularVerb *)verbs {
-    if (!_verbs) _verbs = [[IrregularVerb alloc] init];
+    if (!_verbs) {
+        _verbs = [[IrregularVerb alloc] init];
+        _verbs.delegate = self;
+    }
     return _verbs;
 }
  
@@ -157,4 +160,13 @@
     }
 }
 
+#pragma mark - BackgrundModelUpdateDelegate
+
+- (void)modelUpdateStarted {
+    [self.activityIndicator startAnimating];
+}
+
+- (void)modelUpdateFinished {
+    [self.activityIndicator stopAnimating];
+}
 @end

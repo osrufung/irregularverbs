@@ -88,6 +88,7 @@
 
 - (void)setLevel:(int)level {
     if (level!=_level) {
+        [self.delegate modelUpdateStarted];
         dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(concurrentQueue, ^{
             NSMutableArray *newVerbList = [self downloadVerbsListForLevel:level];
@@ -96,6 +97,7 @@
                     _level = level;
                     self.verbs = newVerbList;
                 }
+                [self.delegate modelUpdateFinished];
             });
         });
     }
