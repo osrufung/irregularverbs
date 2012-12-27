@@ -22,5 +22,4 @@
 - (IBAction)selectionChanged:(id)sender;
 - (IBAction)done:(id)sender;
 - (IBAction)diffycultyLevelChanged:(UISegmentedControl *)sender;
-- (IBAction)resetVerbsList;
 @end

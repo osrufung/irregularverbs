@@ -15,7 +15,7 @@
 
 @implementation IrregularVerb
 
-@synthesize verbs=_verbs, randomOrder=_randomOrder, currentPos=_currentPos;
+@synthesize verbs=_verbs, randomOrder=_randomOrder, currentPos=_currentPos, level=_level;
 
 + (NSString *)mutableVerbsListPath {
     NSArray *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

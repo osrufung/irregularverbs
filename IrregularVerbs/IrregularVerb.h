@@ -19,6 +19,4 @@
 
 - (void)change;
 
-+ (void)resetVerbsList;
-
 @end
