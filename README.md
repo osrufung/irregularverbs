@@ -1,5 +1,4 @@
 # Irregular Verbs App
-
 ## Overview
 A very Simple App for review your english knowledge about 154 Irregular Verbs (present, past, participle). 
 Swipe Up to show other verb (present). Swipe Down to show the spanish translation. Swipe right or left to show the other verbal forms (past and participle). Double tap to choose between alphabetical sorted or random list of verbs.
