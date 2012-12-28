@@ -11,10 +11,10 @@
 #import "PreferencesViewController.h"
 
 <<<<<<< HEAD
-@interface ViewController : UIViewController <PreferencesViewControllerDelegate>
-=======
 @interface ViewController : UIViewController <PreferencesViewControllerDelegate, BackgrundModelUpdateDelegate>
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
+=======
+@interface ViewController : UIViewController <PreferencesViewControllerDelegate, IrregularVerbDelegate>
+>>>>>>> 7dd0c66fdc642459473f13c93a4afb62491e5ced
 
 //array mutable donde guardar las entradas de los verbos
 @property (nonatomic, strong) IrregularVerb *verbs;
@@ -26,9 +26,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *labelParticiple;
 @property (nonatomic, weak) IBOutlet UILabel *labelTranslation;
 @property (weak, nonatomic) IBOutlet UIImageView *shuffleIndicator;
-<<<<<<< HEAD
-=======
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 
 @end
+

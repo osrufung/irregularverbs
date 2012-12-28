@@ -10,7 +10,7 @@
 #import "IrregularVerb.h"
 #import "PreferencesViewController.h"
 
-@interface ViewController : UIViewController <PreferencesViewControllerDelegate, BackgrundModelUpdateDelegate>
+@interface ViewController : UIViewController <PreferencesViewControllerDelegate, IrregularVerbDelegate>
 
 //array mutable donde guardar las entradas de los verbos
 @property (nonatomic, strong) IrregularVerb *verbs;
@@ -25,4 +25,3 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
-

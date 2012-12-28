@@ -80,7 +80,10 @@
 				099AF69016834580001A6BF3 /* PreferencesViewController.m */,
 				099AF64F16834246001A6BF3 /* IrregularVerb.h */,
 				099AF65016834246001A6BF3 /* IrregularVerb.m */,
+<<<<<<< HEAD
 				099AF64D16834053001A6BF3 /* QuartzCore.framework */,
+=======
+>>>>>>> 7dd0c66fdc642459473f13c93a4afb62491e5ced
 				099AF61D1681FF3D001A6BF3 /* screenshot.png */,
 				E5ED1BD1168C7824009C1D59 /* preferences.png */,
 				099AF61A1681FBAA001A6BF3 /* README.md */,
@@ -101,6 +104,7 @@
 		09D372DB1681BA4F00F80410 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				099AF64D16834053001A6BF3 /* QuartzCore.framework */,
 				09D372DC1681BA4F00F80410 /* UIKit.framework */,
 				09D372DE1681BA4F00F80410 /* Foundation.framework */,
 				09D372E01681BA4F00F80410 /* CoreGraphics.framework */,
@@ -196,10 +200,7 @@
 				099AF61B1681FBAA001A6BF3 /* README.md in Resources */,
 				099AF61E1681FF3D001A6BF3 /* screenshot.png in Resources */,
 				099AF6931683540D001A6BF3 /* media-shuffle.png in Resources */,
-<<<<<<< HEAD
-=======
 				E5ED1BD2168C7824009C1D59 /* preferences.png in Resources */,
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,10 +7,7 @@
 //
 
 #import "PreferencesViewController.h"
-<<<<<<< HEAD
-=======
 #import "IrregularVerb.h"
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 
 @interface PreferencesViewController ()
 
@@ -37,10 +34,10 @@
         [self.segmentedSortControl setSelectedSegmentIndex:0];
     }
 <<<<<<< HEAD
-    
-=======
     self.segmentedDifficultyLevel.selectedSegmentIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
+=======
+    self.segmentedDifficultyLevel.selectedSegmentIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"]-1;
+>>>>>>> 7dd0c66fdc642459473f13c93a4afb62491e5ced
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,16 +54,17 @@
     
     [self.delegate flipsideViewControllerDidFinish:self];
 }
-<<<<<<< HEAD
-=======
 
 - (IBAction)diffycultyLevelChanged:(UISegmentedControl *)sender {
+<<<<<<< HEAD
     NSInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex;
+=======
+    NSInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex+1;
+>>>>>>> 7dd0c66fdc642459473f13c93a4afb62491e5ced
     [[NSUserDefaults standardUserDefaults] setInteger:index forKey:@"difficultyLevel"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 - (IBAction)selectionChanged:(id)sender {
     NSInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex;
     NSLog(@"Selected %d",index);

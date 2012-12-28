@@ -9,14 +9,18 @@
 #import <Foundation/Foundation.h>
 
 <<<<<<< HEAD
-@interface IrregularVerb : NSObject
-
-@property (nonatomic) BOOL randomOrder;
-=======
 @protocol BackgrundModelUpdateDelegate <NSObject>
 
 - (void)modelUpdateStarted;
 - (void)modelUpdateFinished;
+=======
+@protocol IrregularVerbDelegate<NSObject>
+
+@optional
+- (void)updateBegin;
+- (void)updateFailedWithError:(NSError *)error;
+- (void)updateEnd;
+>>>>>>> 7dd0c66fdc642459473f13c93a4afb62491e5ced
 
 @end
 
@@ -24,17 +28,17 @@
 
 @property (nonatomic) BOOL randomOrder;
 @property (nonatomic) int level;
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 @property (nonatomic, readonly) NSString *simple;
 @property (nonatomic, readonly) NSString *translation;
 @property (nonatomic, readonly) NSString *past;
 @property (nonatomic, readonly) NSString *participle;
 
 <<<<<<< HEAD
-=======
 @property (nonatomic, strong) id<BackgrundModelUpdateDelegate> delegate;
+=======
+@property (nonatomic, strong) id<IrregularVerbDelegate> delegate;
+>>>>>>> 7dd0c66fdc642459473f13c93a4afb62491e5ced
 
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 - (void)change;
 
 @end

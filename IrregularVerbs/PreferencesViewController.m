@@ -15,6 +15,8 @@
 
 @implementation PreferencesViewController
 
+ 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,7 +35,13 @@
     }else{
         [self.segmentedSortControl setSelectedSegmentIndex:0];
     }
-    self.segmentedDifficultyLevel.selectedSegmentIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    self.segmentedDifficultyLevel.selectedSegmentIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"]-1;
+    
+    
+    //set the default sametime value (
+    [self.switchShowSameTime setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"sameTime"]];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,23 +60,25 @@
 }
 
 - (IBAction)diffycultyLevelChanged:(UISegmentedControl *)sender {
-    NSInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex;
+    NSInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex+1;
     [[NSUserDefaults standardUserDefaults] setInteger:index forKey:@"difficultyLevel"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (IBAction)selectionChanged:(id)sender {
     NSInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex;
-    NSLog(@"Selected %d",index);
-    
+    NSLog(@"Selected %d",index);    
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
-
     [settings setBool:(index == 1) forKey:@"randomOrder"];
-    
-    // Write them to disk - this is optional here,
-    // but should be done when the app exits.
     [settings synchronize];
-    
-    
 }
+
+-(IBAction)sameTimeChanged:(id)sender{
+    
+    BOOL checked  = [self switchShowSameTime].on;
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    [settings setBool:checked forKey:@"sameTime"];
+    [settings synchronize];
+}
+
 @end

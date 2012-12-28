@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol BackgrundModelUpdateDelegate <NSObject>
+@protocol IrregularVerbDelegate<NSObject>
 
-- (void)modelUpdateStarted;
-- (void)modelUpdateFinished;
+@optional
+- (void)updateBegin;
+- (void)updateFailedWithError:(NSError *)error;
+- (void)updateEnd;
 
 @end
 
@@ -24,7 +26,7 @@
 @property (nonatomic, readonly) NSString *past;
 @property (nonatomic, readonly) NSString *participle;
 
-@property (nonatomic, strong) id<BackgrundModelUpdateDelegate> delegate;
+@property (nonatomic, strong) id<IrregularVerbDelegate> delegate;
 
 - (void)change;
 

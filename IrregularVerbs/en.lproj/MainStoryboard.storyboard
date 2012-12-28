@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -149,6 +149,16 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Show solution at same time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyI-85-KVG">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wju-Qc-xhH">
+                                <connections>
+                                    <action selector="sameTimeChanged:" destination="QsD-de-Mz2" eventType="valueChanged" id="xxT-hw-fCR"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -159,17 +169,22 @@
                             <constraint firstItem="tmx-bh-Dgc" firstAttribute="leading" secondItem="hNS-dp-VWE" secondAttribute="leading" type="default" id="LID-Yb-1Q4"/>
                             <constraint firstItem="tmx-bh-Dgc" firstAttribute="top" secondItem="hNS-dp-VWE" secondAttribute="top" type="default" id="MbK-nw-hUe"/>
                             <constraint firstItem="5Em-hY-sGa" firstAttribute="top" secondItem="ohn-Ie-c1p" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Rlv-g9-fmD"/>
+                            <constraint firstItem="Wju-Qc-xhH" firstAttribute="top" secondItem="hNS-dp-VWE" secondAttribute="top" constant="260" id="WRb-hQ-IyM"/>
+                            <constraint firstItem="XyI-85-KVG" firstAttribute="leading" secondItem="hNS-dp-VWE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="dUZ-O2-BYg"/>
                             <constraint firstItem="A2A-cg-dkX" firstAttribute="top" secondItem="hNS-dp-VWE" secondAttribute="top" constant="60" id="h3a-RH-52P"/>
                             <constraint firstAttribute="trailing" secondItem="5Em-hY-sGa" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ifx-Rq-HKW"/>
                             <constraint firstItem="Ui8-Cb-qv6" firstAttribute="top" secondItem="A2A-cg-dkX" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mWB-9R-XmM"/>
+                            <constraint firstItem="Wju-Qc-xhH" firstAttribute="leading" secondItem="hNS-dp-VWE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mZQ-rd-JCP"/>
                             <constraint firstItem="ohn-Ie-c1p" firstAttribute="top" secondItem="Ui8-Cb-qv6" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pcB-sQ-Ivx"/>
                             <constraint firstItem="5Em-hY-sGa" firstAttribute="leading" secondItem="hNS-dp-VWE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="sDI-f7-qX4"/>
                             <constraint firstItem="tmx-bh-Dgc" firstAttribute="trailing" secondItem="hNS-dp-VWE" secondAttribute="trailing" type="default" id="uvX-dl-odI"/>
+                            <constraint firstItem="XyI-85-KVG" firstAttribute="top" secondItem="hNS-dp-VWE" secondAttribute="top" constant="228" id="vjE-wh-ICa"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="segmentedDifficultyLevel" destination="5Em-hY-sGa" id="oES-JB-xBt"/>
                         <outlet property="segmentedSortControl" destination="Ui8-Cb-qv6" id="3oO-gh-jGa"/>
+                        <outlet property="switchShowSameTime" destination="Wju-Qc-xhH" id="k6K-3m-98s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9RJ-wH-SGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -180,6 +195,34 @@
     <resources>
         <image name="media-shuffle.png" width="256" height="256"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PreferencesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PreferencesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="diffycultyLevelChanged:" candidateClass="UISegmentedControl"/>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="action" name="sameTimeChanged:"/>
+                <relationship kind="action" name="selectionChanged:"/>
+                <relationship kind="outlet" name="segmentedDifficultyLevel" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="segmentedSortControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="switchShowSameTime" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="labelParticiple" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelPast" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelPresent" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTranslation" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shuffleIndicator" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

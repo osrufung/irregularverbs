@@ -15,9 +15,6 @@
 
 @implementation IrregularVerb
 
-<<<<<<< HEAD
-@synthesize verbs=_verbs, randomOrder=_randomOrder, currentPos=_currentPos;
-=======
 @synthesize verbs=_verbs, randomOrder=_randomOrder, currentPos=_currentPos, level=_level;
 
 + (NSString *)mutableVerbsListPath {
@@ -26,7 +23,6 @@
     return verbsFilePath;
 }
 
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 
 // It's needed to get the last inner state (random/sorted and last position)
 - (id)init {
@@ -40,16 +36,6 @@
     return self;
 }
 
-<<<<<<< HEAD
-- (NSMutableArray *) verbs{
-    if (!_verbs) {
-        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"];
-        _verbs = [NSMutableArray arrayWithContentsOfFile:plistPath];
-    }
-    return _verbs;
-}
-
-=======
 - (NSMutableArray *)verbsListFromDocument {
     NSString *verbsFilePath = [IrregularVerb mutableVerbsListPath];
     if (![[NSFileManager defaultManager] fileExistsAtPath:verbsFilePath]) {
@@ -76,7 +62,6 @@
     }
 }
 
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 - (void)setRandomOrder:(BOOL)randomOrder {
     if (randomOrder!=_randomOrder) {
         _randomOrder = randomOrder;
@@ -91,20 +76,41 @@
     }
 }
 
-<<<<<<< HEAD
-=======
 - (NSMutableArray *)downloadVerbsListForLevel:(int)level {
+<<<<<<< HEAD
     NSURL *apiURL = [NSURL URLWithString:@"http://irregular-verbs.appspot.com/irregularverbsapi"];
     NSData *data = [NSData dataWithContentsOfURL:apiURL];
     NSError *error;
     NSMutableArray *newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data
                                                                                     options:NSJSONReadingMutableContainers
                                                                                       error:&error];
+=======
+    NSMutableArray *newVerbList = nil;
+    NSString *query = [NSString stringWithFormat:@"http://irregular-verbs.appspot.com/irregularverbsapi?level=%d",level];
+    NSURL *apiURL = [NSURL URLWithString:query];
+    NSData *data = [NSData dataWithContentsOfURL:apiURL];
+    if (data) {
+        NSError *error;
+        newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data
+                                                                        options:NSJSONReadingMutableContainers
+                                                                          error:&error];
+        if (error) {
+            newVerbList=nil;
+            [self.delegate updateFailedWithError:error];
+        }
+
+    } else {
+        [self.delegate updateFailedWithError:[NSError errorWithDomain:@"IrregularVerbs"
+                                                                 code:1
+                                                             userInfo:@{NSLocalizedDescriptionKey:@"Error connecting to server"}]];        
+    }
+>>>>>>> 7dd0c66fdc642459473f13c93a4afb62491e5ced
     return newVerbList;
 }
 
 - (void)setLevel:(int)level {
     if (level!=_level) {
+<<<<<<< HEAD
         [self.delegate modelUpdateStarted];
         dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(concurrentQueue, ^{
@@ -116,14 +122,30 @@
                 }
                 [self.delegate modelUpdateFinished];
             });
+=======
+        [self.delegate updateBegin];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSMutableArray *newVerbList = [self downloadVerbsListForLevel:level];
+            if (newVerbList) {
+                _level = level;
+                self.verbs = newVerbList;
+            }
+            [self.delegate updateEnd];
+>>>>>>> 7dd0c66fdc642459473f13c93a4afb62491e5ced
         });
     }
 }
 
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 - (void)change {
     if (self.randomOrder) {
+<<<<<<< HEAD
         self.currentPos = (arc4random() % [self.verbs count]);
+=======
+        if ([self.verbs count]) {
+            self.currentPos = (arc4random() % [self.verbs count]);
+        } else self.currentPos = 0;
+        
+>>>>>>> 7dd0c66fdc642459473f13c93a4afb62491e5ced
     } else {
         self.currentPos++;
         if (self.currentPos>=[self.verbs count]) self.currentPos=0;

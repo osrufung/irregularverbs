@@ -20,14 +20,10 @@
 #pragma mark - Model Managment
 
 - (IrregularVerb *)verbs {
-<<<<<<< HEAD
-    if (!_verbs) _verbs = [[IrregularVerb alloc] init];
-=======
     if (!_verbs) {
         _verbs = [[IrregularVerb alloc] init];
         _verbs.delegate = self;
     }
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
     return _verbs;
 }
  
@@ -111,7 +107,7 @@
     
 }
 
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
+>>>>>>> 7dd0c66fdc642459473f13c93a4afb62491e5ced
 - (void)showTranslation:(UISwipeGestureRecognizer *)sender {
     if (self.labelTranslation.text.length==0) {
         self.labelTranslation.text = self.verbs.translation;
@@ -145,6 +141,7 @@
     fader.toValue=[NSNumber numberWithFloat:finalAlpha];
     [view.layer addAnimation:fader forKey:@"fadeAnimation"];
     view.layer.opacity = finalAlpha;
+<<<<<<< HEAD
 }
 
 - (void)moveYView:(UIView *)view from:(CGFloat)begin to:(CGFloat)end duration:(CGFloat)seconds {
@@ -167,14 +164,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     //we need no reload the sort preferences.
     [self.verbs setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
-<<<<<<< HEAD
-    //and repaint the shuffle indicator
-=======
     //download the verbs list for the new level selected.
     self.verbs.level = [[NSUserDefaults standardUserDefaults] boolForKey:@"difficultyLevel"];
     //and repaint the shuffle indicator
     [self showOtherVerb];
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
     [self animateShuffleIndicator];
     
 }
@@ -183,18 +176,78 @@
     if ([[segue identifier] isEqualToString:@"showAlternate"]) {
         [[segue destinationViewController] setDelegate:self];
     }
-<<<<<<< HEAD
-=======
 }
 
 #pragma mark - BackgrundModelUpdateDelegate
 
 - (void)modelUpdateStarted {
     [self.activityIndicator startAnimating];
->>>>>>> 36f0550b1f60139087e7ce3bed35db2ea783e01a
 }
 
 - (void)modelUpdateFinished {
     [self.activityIndicator stopAnimating];
+=======
+}
+
+- (void)moveYView:(UIView *)view from:(CGFloat)begin to:(CGFloat)end duration:(CGFloat)seconds {
+    //1.1 Animate new verb introduction
+    CABasicAnimation *swipeInAnimation = [CABasicAnimation
+                                          animationWithKeyPath:@"transform.translation.y"];
+    swipeInAnimation.duration = seconds;
+    swipeInAnimation.fromValue = [NSNumber numberWithFloat:begin];
+    swipeInAnimation.toValue = [NSNumber numberWithFloat:end];
+    swipeInAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    [view.layer addAnimation:swipeInAnimation forKey:@"moveAnimation"];
+    
+}
+#pragma mark - Flipside View
+
+- (void)flipsideViewControllerDidFinish:(PreferencesViewController *)controller
+{
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    //we need no reload the sort preferences.
+    [self.verbs setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
+    //download the verbs list for the new level selected.
+    self.verbs.level = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    //and repaint the shuffle indicator
+    [self showOtherVerb];
+    [self animateShuffleIndicator];
+    
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
+        [[segue destinationViewController] setDelegate:self];
+    }
+}
+
+#pragma mark - IrregularVerbDelegate
+
+- (void)updateBegin {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.activityIndicator startAnimating];
+    });
+}
+
+- (void)updateEnd {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.activityIndicator stopAnimating];
+        [self showOtherVerb];
+    });
+}
+
+- (void)updateFailedWithError:(NSError *)error {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.activityIndicator stopAnimating];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.domain
+                                                        message:error.localizedDescription
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Dimiss"
+                                              otherButtonTitles:nil];
+        [alert show];
+    });
+>>>>>>> 7dd0c66fdc642459473f13c93a4afb62491e5ced
 }
 @end

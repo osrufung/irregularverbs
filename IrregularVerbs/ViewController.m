@@ -89,6 +89,16 @@
     
     [self moveYView:self.labelPresent from:self.view.bounds.size.height to:0 duration:0.4];
     
+    
+    //check sametime setting and show other forms
+    BOOL showSameTimePref = [[NSUserDefaults standardUserDefaults] boolForKey:@"sameTime"];
+    
+    if(showSameTimePref){
+        [self showTranslation:nil];
+        [self showVerbalForms:nil];
+    }
+    
+    
 }
 
 - (void)showTranslation:(UISwipeGestureRecognizer *)sender {
@@ -104,7 +114,7 @@
         self.labelPast.text = self.verbs.past;
         self.labelParticiple.text = self.verbs.participle;
         
-        [self fadeView:self.labelPast from:0.0 to:1.0];
+        [self fadeView:self.labelPast from:0.0 to:1.0 ];
         [self fadeView:self.labelParticiple from:0.0 to:1.0];
     }
 }
@@ -119,7 +129,7 @@
 
 - (void)fadeView:(UIView *)view from:(CGFloat)initialAlpha to:(CGFloat)finalAlpha {
     CABasicAnimation *fader = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    fader.duration=0.2;
+    fader.duration=0.3;
     fader.fromValue= [NSNumber numberWithFloat:initialAlpha];
     fader.toValue=[NSNumber numberWithFloat:finalAlpha];
     [view.layer addAnimation:fader forKey:@"fadeAnimation"];
@@ -147,7 +157,7 @@
     //we need no reload the sort preferences.
     [self.verbs setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
     //download the verbs list for the new level selected.
-    self.verbs.level = [[NSUserDefaults standardUserDefaults] boolForKey:@"difficultyLevel"];
+    self.verbs.level = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
     //and repaint the shuffle indicator
     [self showOtherVerb];
     [self animateShuffleIndicator];
@@ -160,13 +170,30 @@
     }
 }
 
-#pragma mark - BackgrundModelUpdateDelegate
+#pragma mark - IrregularVerbDelegate
 
-- (void)modelUpdateStarted {
-    [self.activityIndicator startAnimating];
+- (void)updateBegin {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.activityIndicator startAnimating];
+    });
 }
 
-- (void)modelUpdateFinished {
-    [self.activityIndicator stopAnimating];
+- (void)updateEnd {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.activityIndicator stopAnimating];
+        [self showOtherVerb];
+    });
+}
+
+- (void)updateFailedWithError:(NSError *)error {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.activityIndicator stopAnimating];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.domain
+                                                        message:error.localizedDescription
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Dimiss"
+                                              otherButtonTitles:nil];
+        [alert show];
+    });
 }
 @end

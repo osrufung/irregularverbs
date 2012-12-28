@@ -77,35 +77,48 @@
 }
 
 - (NSMutableArray *)downloadVerbsListForLevel:(int)level {
-    NSURL *apiURL = [NSURL URLWithString:@"http://irregular-verbs.appspot.com/irregularverbsapi"];
+    NSMutableArray *newVerbList = nil;
+    NSString *query = [NSString stringWithFormat:@"http://irregular-verbs.appspot.com/irregularverbsapi?level=%d",level];
+    NSURL *apiURL = [NSURL URLWithString:query];
     NSData *data = [NSData dataWithContentsOfURL:apiURL];
-    NSError *error;
-    NSMutableArray *newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data
-                                                                                    options:NSJSONReadingMutableContainers
-                                                                                      error:&error];
+    if (data) {
+        NSError *error;
+        newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data
+                                                                        options:NSJSONReadingMutableContainers
+                                                                          error:&error];
+        if (error) {
+            newVerbList=nil;
+            [self.delegate updateFailedWithError:error];
+        }
+
+    } else {
+        [self.delegate updateFailedWithError:[NSError errorWithDomain:@"IrregularVerbs"
+                                                                 code:1
+                                                             userInfo:@{NSLocalizedDescriptionKey:@"Error connecting to server"}]];        
+    }
     return newVerbList;
 }
 
 - (void)setLevel:(int)level {
     if (level!=_level) {
-        [self.delegate modelUpdateStarted];
-        dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        dispatch_async(concurrentQueue, ^{
+        [self.delegate updateBegin];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSMutableArray *newVerbList = [self downloadVerbsListForLevel:level];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (newVerbList) {
-                    _level = level;
-                    self.verbs = newVerbList;
-                }
-                [self.delegate modelUpdateFinished];
-            });
+            if (newVerbList) {
+                _level = level;
+                self.verbs = newVerbList;
+            }
+            [self.delegate updateEnd];
         });
     }
 }
 
 - (void)change {
     if (self.randomOrder) {
-        self.currentPos = (arc4random() % [self.verbs count]);
+        if ([self.verbs count]) {
+            self.currentPos = (arc4random() % [self.verbs count]);
+        } else self.currentPos = 0;
+        
     } else {
         self.currentPos++;
         if (self.currentPos>=[self.verbs count]) self.currentPos=0;

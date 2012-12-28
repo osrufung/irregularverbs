@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[PreferencesViewController viewDidLoad]:PreferencesViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[self.switchShowSameTime on]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
