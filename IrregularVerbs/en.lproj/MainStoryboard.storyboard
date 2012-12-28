@@ -15,6 +15,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Simple Form" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZ6-mp-dja">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="l5X-hn-UYb"/>
+                                    <constraint firstAttribute="width" constant="280" id="lzI-zh-n4z"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -22,7 +23,6 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Simple Past" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEz-Nm-P4V">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="4uU-IN-42g"/>
                                     <constraint firstAttribute="height" constant="55" id="rVM-GN-qwt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="34"/>
@@ -39,7 +39,6 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="translation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-r7-sFC">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="Oes-9X-NzU"/>
                                     <constraint firstAttribute="height" constant="32" id="gQx-im-W55"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
@@ -69,22 +68,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Qza-r7-sFC" firstAttribute="leading" secondItem="rUq-md-Ylv" secondAttribute="leading" type="default" id="6b8-m2-n3R"/>
-                            <constraint firstItem="eaf-yf-Pwh" firstAttribute="centerX" secondItem="rUq-md-Ylv" secondAttribute="centerX" type="default" id="C25-Uq-AnM"/>
+                            <constraint firstItem="lZ6-mp-dja" firstAttribute="centerX" secondItem="eaf-yf-Pwh" secondAttribute="centerX" type="default" id="2fe-f1-p8W"/>
+                            <constraint firstAttribute="trailing" secondItem="GEz-Nm-P4V" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="CBj-mq-wmc"/>
                             <constraint firstAttribute="bottom" secondItem="eaf-yf-Pwh" secondAttribute="bottom" constant="56" id="CCD-YF-1Pu"/>
-                            <constraint firstItem="Qza-r7-sFC" firstAttribute="trailing" secondItem="rUq-md-Ylv" secondAttribute="trailing" type="default" id="CYa-0Z-hQ1"/>
-                            <constraint firstItem="Qza-r7-sFC" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="23" id="H8C-IU-T25"/>
+                            <constraint firstAttribute="trailing" secondItem="rUq-md-Ylv" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="DAF-ZG-2oi"/>
+                            <constraint firstItem="GEz-Nm-P4V" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GAn-2s-9ww"/>
                             <constraint firstAttribute="bottom" secondItem="efl-dX-Gec" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="KLA-7F-dx5"/>
-                            <constraint firstItem="FAF-Hu-3EZ" firstAttribute="trailing" secondItem="rUq-md-Ylv" secondAttribute="trailing" type="default" id="VRY-PR-x5E"/>
                             <constraint firstItem="rUq-md-Ylv" firstAttribute="top" secondItem="GEz-Nm-P4V" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Zm1-OU-62c"/>
                             <constraint firstAttribute="bottom" secondItem="FAF-Hu-3EZ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="cqn-p7-1m1"/>
                             <constraint firstItem="efl-dX-Gec" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fVp-XI-Xre"/>
                             <constraint firstItem="GEz-Nm-P4V" firstAttribute="top" secondItem="3" secondAttribute="top" constant="149" id="gJw-cX-QdJ"/>
-                            <constraint firstAttribute="trailing" secondItem="lZ6-mp-dja" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kNn-XS-0zy"/>
+                            <constraint firstAttribute="trailing" secondItem="Qza-r7-sFC" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="hIq-Ym-gLK"/>
+                            <constraint firstItem="rUq-md-Ylv" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mn0-8H-ERM"/>
+                            <constraint firstItem="lZ6-mp-dja" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="23" id="nEX-Hb-g1J"/>
+                            <constraint firstItem="Qza-r7-sFC" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nqF-9h-XPc"/>
                             <constraint firstItem="Qza-r7-sFC" firstAttribute="top" secondItem="lZ6-mp-dja" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nqR-xp-ooW"/>
-                            <constraint firstItem="lZ6-mp-dja" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rak-7C-DUa"/>
-                            <constraint firstItem="GEz-Nm-P4V" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="18" id="wN6-g1-gFH"/>
                             <constraint firstItem="lZ6-mp-dja" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="xf7-4h-NrL"/>
+                            <constraint firstItem="FAF-Hu-3EZ" firstAttribute="trailing" secondItem="lZ6-mp-dja" secondAttribute="trailing" type="default" id="zQU-Qx-dW3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="42"/>
+            <point key="canvasLocation" x="326" y="-160"/>
         </scene>
         <!--Preferences View Controller-->
         <scene sceneID="5fn-MI-uom">
@@ -110,7 +110,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="tmx-bh-Dgc">
                                 <items>
-                                    <navigationItem title="Title" id="ao3-Zq-I5Y">
+                                    <navigationItem id="ao3-Zq-I5Y">
                                         <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="1N7-Y5-VwD">
                                             <connections>
                                                 <action selector="done:" destination="QsD-de-Mz2" id="wwP-9r-nDF"/>
