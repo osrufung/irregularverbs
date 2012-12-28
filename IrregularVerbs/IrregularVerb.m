@@ -79,8 +79,7 @@
 - (NSMutableArray *)downloadVerbsListForLevel:(int)level {
     NSMutableArray *newVerbList = nil;
     NSString *query = [NSString stringWithFormat:@"http://irregular-verbs.appspot.com/irregularverbsapi?level=%d",level];
-    NSURL *apiURL = [NSURL URLWithString:query];
-    NSData *data = [NSData dataWithContentsOfURL:apiURL];
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:query]];
     if (data) {
         NSError *error;
         newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data

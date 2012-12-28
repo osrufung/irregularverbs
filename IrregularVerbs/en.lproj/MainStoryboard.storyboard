@@ -180,6 +180,32 @@
     <resources>
         <image name="media-shuffle.png" width="256" height="256"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PreferencesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PreferencesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="diffycultyLevelChanged:" candidateClass="UISegmentedControl"/>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="action" name="selectionChanged:"/>
+                <relationship kind="outlet" name="segmentedDifficultyLevel" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="segmentedSortControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="labelParticiple" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelPast" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelPresent" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTranslation" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shuffleIndicator" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
