@@ -22,6 +22,7 @@ You can contact us at:
 * OR - v0.4 panel and shuffle option integration (20/12/2012)
 * RB - v0.5 experimental GAE API use (27/12/2012)
 * OR - v0.6 new sametime option (show solution at same time), new default app settings loading
+
 ## Screenshot
 ![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/preferences.png)
