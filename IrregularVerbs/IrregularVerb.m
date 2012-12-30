@@ -86,6 +86,16 @@
         newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data
                                                                         options:NSJSONReadingMutableContainers
                                                                           error:&error];
+        // Checks if service return an empty list of verbs
+        if ([newVerbList count] == 0) {
+            NSDictionary *userInfo = @{
+                NSLocalizedDescriptionKey : @"http://irregular-verbs.appspot.com/ has returned and empty list of verbs"
+            };
+            
+            error = [NSError errorWithDomain:@"IrregularVerbs"
+                                        code:0 userInfo:userInfo];
+        }
+        
         if (error && [self.delegate respondsToSelector:@selector(updateFailedWithError:)]) {
             newVerbList=nil;
             [self.delegate updateFailedWithError:error];
