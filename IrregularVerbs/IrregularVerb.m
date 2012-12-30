@@ -86,29 +86,45 @@
         newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data
                                                                         options:NSJSONReadingMutableContainers
                                                                           error:&error];
-        if (error) {
+        // Checks if service return an empty list of verbs
+        if ([newVerbList count] == 0) {
+            NSDictionary *userInfo = @{
+                NSLocalizedDescriptionKey : @"http://irregular-verbs.appspot.com/ has returned and empty list of verbs"
+            };
+            
+            error = [NSError errorWithDomain:@"IrregularVerbs"
+                                        code:0 userInfo:userInfo];
+        }
+        
+        if (error && [self.delegate respondsToSelector:@selector(updateFailedWithError:)]) {
             newVerbList=nil;
             [self.delegate updateFailedWithError:error];
         }
 
     } else {
-        [self.delegate updateFailedWithError:[NSError errorWithDomain:@"IrregularVerbs"
-                                                                 code:1
-                                                             userInfo:@{NSLocalizedDescriptionKey:@"Error connecting to server"}]];        
+        if ([self.delegate respondsToSelector:@selector(updateFailedWithError:)]) {
+            [self.delegate updateFailedWithError:[NSError errorWithDomain:@"IrregularVerbs"
+                                                                     code:1
+                                                                 userInfo:@{NSLocalizedDescriptionKey:@"Error connecting to server"}]];
+        }
     }
+    
     return newVerbList;
 }
 
 - (void)setLevel:(int)level {
     if (level!=_level) {
-        [self.delegate updateBegin];
+        if ([self.delegate respondsToSelector:@selector(updateBegin)])
+            [self.delegate updateBegin];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSMutableArray *newVerbList = [self downloadVerbsListForLevel:level];
             if (newVerbList) {
                 _level = level;
                 self.verbs = newVerbList;
             }
-            [self.delegate updateEnd];
+            
+            if ([self.delegate respondsToSelector:@selector(updateEnd)])
+                [self.delegate updateEnd];
         });
     }
 }
