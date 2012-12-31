@@ -8,6 +8,8 @@ The verbs were extracted from <http://www.mansioningles.com/gram53.htm>
 
 The purpose of this App is basically to learn iOS 6, and review our english :P
 
+
+
 You can contact us at:
 
 **Oswaldo Rubio** <https://twitter.com/arrozconnori>
@@ -21,7 +23,7 @@ You can contact us at:
 * OR - v0.3 new preference panel (20/12/2012)
 * OR - v0.4 panel and shuffle option integration (20/12/2012)
 * RB - v0.5 experimental GAE API use (27/12/2012)
-* OR - v0.6 new sametime option (show solution at same time), new default app settings loading
+* OR - v0.6 new sametime option (show solution at same time), new default app settings loading (28/12/2012)
 
 ## Screenshot
 ![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot.png)

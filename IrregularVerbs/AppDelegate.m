@@ -12,17 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-   /*
-    NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:
-                              @"1","@randomOrder",
-                              @"1",@"difficultyLevel",
-                              @"NO",@"sameTime",nil
-                              ];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
-    */
     
-    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
     return YES;
 }
 							

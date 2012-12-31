@@ -65,6 +65,11 @@
                                 </constraints>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="efl-dX-Gec"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Level 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gx3-da-PXV">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -79,16 +84,19 @@
                             <constraint firstItem="efl-dX-Gec" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fVp-XI-Xre"/>
                             <constraint firstItem="GEz-Nm-P4V" firstAttribute="top" secondItem="3" secondAttribute="top" constant="149" id="gJw-cX-QdJ"/>
                             <constraint firstAttribute="trailing" secondItem="Qza-r7-sFC" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="hIq-Ym-gLK"/>
+                            <constraint firstItem="Gx3-da-PXV" firstAttribute="centerX" secondItem="rUq-md-Ylv" secondAttribute="centerX" type="default" id="iWK-Uy-dU7"/>
                             <constraint firstItem="rUq-md-Ylv" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mn0-8H-ERM"/>
                             <constraint firstItem="lZ6-mp-dja" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="23" id="nEX-Hb-g1J"/>
                             <constraint firstItem="Qza-r7-sFC" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nqF-9h-XPc"/>
                             <constraint firstItem="Qza-r7-sFC" firstAttribute="top" secondItem="lZ6-mp-dja" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nqR-xp-ooW"/>
                             <constraint firstItem="lZ6-mp-dja" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="xf7-4h-NrL"/>
+                            <constraint firstAttribute="bottom" secondItem="Gx3-da-PXV" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="z4k-60-ovS"/>
                             <constraint firstItem="FAF-Hu-3EZ" firstAttribute="trailing" secondItem="lZ6-mp-dja" secondAttribute="trailing" type="default" id="zQU-Qx-dW3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="efl-dX-Gec" id="HvC-zQ-4xa"/>
+                        <outlet property="labelLevel" destination="Gx3-da-PXV" id="TQY-vy-f5J"/>
                         <outlet property="labelParticiple" destination="rUq-md-Ylv" id="h3K-uL-qHV"/>
                         <outlet property="labelPast" destination="GEz-Nm-P4V" id="WmN-TL-qfX"/>
                         <outlet property="labelPresent" destination="lZ6-mp-dja" id="zNf-ZW-oYX"/>
@@ -138,7 +146,7 @@
                                     <segment title="1"/>
                                     <segment title="2"/>
                                     <segment title="3"/>
-                                    <segment title="4"/>
+                                    <segment title="All"/>
                                 </segments>
                                 <connections>
                                     <action selector="diffycultyLevelChanged:" destination="QsD-de-Mz2" eventType="valueChanged" id="cTU-B7-kOD"/>
@@ -149,7 +157,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Show solution at same time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyI-85-KVG">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Show solution directly" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyI-85-KVG">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -215,6 +223,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="labelLevel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelParticiple" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelPast" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelPresent" candidateClass="UILabel"/>

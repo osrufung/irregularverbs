@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>arise</string>
 		<key>past</key>
@@ -13,6 +15,8 @@
 		<string>Surgir, Levantarse</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>awake</string>
 		<key>past</key>
@@ -23,6 +27,8 @@
 		<string>despertarse</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>be/am, are, is</string>
 		<key>past</key>
@@ -33,6 +39,8 @@
 		<string>ser/estar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>bear</string>
 		<key>past</key>
@@ -43,6 +51,8 @@
 		<string>soportar/dar a luz</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>beat</string>
 		<key>past</key>
@@ -53,6 +63,8 @@
 		<string>golpear</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>become</string>
 		<key>past</key>
@@ -63,6 +75,8 @@
 		<string>llegar a ser</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>begin</string>
 		<key>past</key>
@@ -73,6 +87,8 @@
 		<string>Empezar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>Bend</string>
 		<key>past</key>
@@ -83,6 +99,8 @@
 		<string>doblar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>bet</string>
 		<key>past</key>
@@ -93,6 +111,8 @@
 		<string>apostar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>bind</string>
 		<key>past</key>
@@ -103,6 +123,8 @@
 		<string>atar/encuadernar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>bid</string>
 		<key>past</key>
@@ -113,6 +135,8 @@
 		<string>pujar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>bite</string>
 		<key>past</key>
@@ -123,6 +147,8 @@
 		<string>morder</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>bleed</string>
 		<key>past</key>
@@ -133,6 +159,8 @@
 		<string>sangrar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>blow</string>
 		<key>past</key>
@@ -143,6 +171,8 @@
 		<string>soplar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>break</string>
 		<key>past</key>
@@ -153,6 +183,8 @@
 		<string>romper</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>breed</string>
 		<key>past</key>
@@ -163,6 +195,8 @@
 		<string>criar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>bring</string>
 		<key>past</key>
@@ -173,6 +207,8 @@
 		<string>traer/llevar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>broadcast</string>
 		<key>past</key>
@@ -183,6 +219,8 @@
 		<string>radiar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>build</string>
 		<key>past</key>
@@ -193,6 +231,8 @@
 		<string>edificar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>burn</string>
 		<key>past</key>
@@ -203,6 +243,8 @@
 		<string>quemar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>burst</string>
 		<key>past</key>
@@ -213,6 +255,8 @@
 		<string>reventar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>buy</string>
 		<key>past</key>
@@ -223,6 +267,8 @@
 		<string>comprar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>cast</string>
 		<key>past</key>
@@ -233,6 +279,8 @@
 		<string>arrojar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>catch</string>
 		<key>past</key>
@@ -243,6 +291,8 @@
 		<string>coger</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>come</string>
 		<key>past</key>
@@ -253,6 +303,8 @@
 		<string>venir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>cost</string>
 		<key>past</key>
@@ -263,6 +315,8 @@
 		<string>costar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>cut</string>
 		<key>past</key>
@@ -273,6 +327,8 @@
 		<string>cortar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>choose</string>
 		<key>past</key>
@@ -283,6 +339,8 @@
 		<string>elegir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>cling</string>
 		<key>past</key>
@@ -293,6 +351,8 @@
 		<string>agarrarse</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>creep</string>
 		<key>past</key>
@@ -303,6 +363,8 @@
 		<string>arrastrarse</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>deal</string>
 		<key>past</key>
@@ -313,6 +375,8 @@
 		<string>tratar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>dig</string>
 		<key>past</key>
@@ -323,6 +387,8 @@
 		<string>cavar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>do (does)</string>
 		<key>past</key>
@@ -333,6 +399,8 @@
 		<string>hacer</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>draw</string>
 		<key>past</key>
@@ -343,6 +411,8 @@
 		<string>dibujar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>dream</string>
 		<key>past</key>
@@ -353,6 +423,8 @@
 		<string>soñar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>drink</string>
 		<key>past</key>
@@ -363,6 +435,8 @@
 		<string>beber</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>drive</string>
 		<key>past</key>
@@ -373,6 +447,8 @@
 		<string>conducir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>eat</string>
 		<key>past</key>
@@ -383,6 +459,8 @@
 		<string>pujar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>fall</string>
 		<key>past</key>
@@ -393,6 +471,8 @@
 		<string>caer</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>feed</string>
 		<key>past</key>
@@ -403,6 +483,8 @@
 		<string>alimentar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>feel</string>
 		<key>past</key>
@@ -413,6 +495,8 @@
 		<string>sentir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>fight</string>
 		<key>past</key>
@@ -423,6 +507,8 @@
 		<string>luchar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>find</string>
 		<key>past</key>
@@ -433,6 +519,8 @@
 		<string>encontrar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>flee</string>
 		<key>past</key>
@@ -443,6 +531,8 @@
 		<string>huir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>fly</string>
 		<key>past</key>
@@ -453,6 +543,8 @@
 		<string>volar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>forbid</string>
 		<key>past</key>
@@ -463,6 +555,8 @@
 		<string>prohibir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>forget</string>
 		<key>past</key>
@@ -473,6 +567,8 @@
 		<string>olvidar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>forgive</string>
 		<key>past</key>
@@ -483,6 +579,8 @@
 		<string>perdonar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>freeze</string>
 		<key>past</key>
@@ -493,6 +591,8 @@
 		<string>helar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>get</string>
 		<key>past</key>
@@ -503,6 +603,8 @@
 		<string>obtener</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>give</string>
 		<key>past</key>
@@ -513,6 +615,8 @@
 		<string>dar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>go(goes)</string>
 		<key>past</key>
@@ -523,6 +627,8 @@
 		<string>ir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>grow</string>
 		<key>past</key>
@@ -533,6 +639,8 @@
 		<string>crecer</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>grind</string>
 		<key>past</key>
@@ -543,6 +651,8 @@
 		<string>moler</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>hang</string>
 		<key>past</key>
@@ -553,6 +663,8 @@
 		<string>colgar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>have</string>
 		<key>past</key>
@@ -563,6 +675,8 @@
 		<string>haber o tener</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>hear</string>
 		<key>past</key>
@@ -573,6 +687,8 @@
 		<string>oir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>hide</string>
 		<key>past</key>
@@ -583,6 +699,8 @@
 		<string>ocultar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>hit</string>
 		<key>past</key>
@@ -593,6 +711,8 @@
 		<string>golpear</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>hold</string>
 		<key>past</key>
@@ -603,6 +723,8 @@
 		<string>agarrar, celebrar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>hurt</string>
 		<key>past</key>
@@ -613,6 +735,8 @@
 		<string>herir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>keep</string>
 		<key>past</key>
@@ -623,6 +747,8 @@
 		<string>conservar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>know</string>
 		<key>past</key>
@@ -633,6 +759,8 @@
 		<string>saber, conocer</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>kneel</string>
 		<key>past</key>
@@ -643,6 +771,8 @@
 		<string>arrodillarse</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>knit</string>
 		<key>past</key>
@@ -653,6 +783,8 @@
 		<string>hacer punto</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>lay</string>
 		<key>past</key>
@@ -663,6 +795,8 @@
 		<string>poner</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>lead</string>
 		<key>past</key>
@@ -673,6 +807,8 @@
 		<string>conducir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>lean</string>
 		<key>past</key>
@@ -683,6 +819,8 @@
 		<string>apoyarse</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>leap</string>
 		<key>past</key>
@@ -693,6 +831,8 @@
 		<string>brincar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>learn</string>
 		<key>past</key>
@@ -703,6 +843,8 @@
 		<string>aprender</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>leave</string>
 		<key>past</key>
@@ -713,6 +855,8 @@
 		<string>dejar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>lend</string>
 		<key>past</key>
@@ -723,6 +867,8 @@
 		<string>prestar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>let</string>
 		<key>past</key>
@@ -733,6 +879,8 @@
 		<string>permitir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>lie</string>
 		<key>past</key>
@@ -743,6 +891,8 @@
 		<string>echarse</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>light</string>
 		<key>past</key>
@@ -753,6 +903,8 @@
 		<string>encender</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>lose</string>
 		<key>past</key>
@@ -763,6 +915,8 @@
 		<string>perder</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>make</string>
 		<key>past</key>
@@ -773,6 +927,8 @@
 		<string>hacer</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>mean</string>
 		<key>past</key>
@@ -783,6 +939,8 @@
 		<string>significar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>meet</string>
 		<key>past</key>
@@ -793,6 +951,8 @@
 		<string>encontrar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>mistake</string>
 		<key>past</key>
@@ -803,6 +963,8 @@
 		<string>equivocar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>overcome</string>
 		<key>past</key>
@@ -813,6 +975,8 @@
 		<string>vencer</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>pay</string>
 		<key>past</key>
@@ -823,6 +987,8 @@
 		<string>pagar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>put</string>
 		<key>past</key>
@@ -833,6 +999,8 @@
 		<string>poner</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>read</string>
 		<key>past</key>
@@ -843,6 +1011,8 @@
 		<string>leer</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>ride</string>
 		<key>past</key>
@@ -853,6 +1023,8 @@
 		<string>montar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>ring</string>
 		<key>past</key>
@@ -863,6 +1035,8 @@
 		<string>llamar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>rise</string>
 		<key>past</key>
@@ -873,6 +1047,8 @@
 		<string>levantarse</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>run</string>
 		<key>past</key>
@@ -883,6 +1059,8 @@
 		<string>correr</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>say</string>
 		<key>past</key>
@@ -893,6 +1071,8 @@
 		<string>decir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>see</string>
 		<key>past</key>
@@ -903,6 +1083,8 @@
 		<string>ver</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>seek</string>
 		<key>past</key>
@@ -913,6 +1095,8 @@
 		<string>buscar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>sell</string>
 		<key>past</key>
@@ -923,6 +1107,8 @@
 		<string>vender</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>send</string>
 		<key>past</key>
@@ -933,6 +1119,8 @@
 		<string>enviar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>set</string>
 		<key>past</key>
@@ -943,6 +1131,8 @@
 		<string>poner(se)</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>sew</string>
 		<key>past</key>
@@ -953,6 +1143,8 @@
 		<string>coser</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>shake</string>
 		<key>past</key>
@@ -963,6 +1155,8 @@
 		<string>sacudir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>shear</string>
 		<key>past</key>
@@ -973,6 +1167,8 @@
 		<string>esquilar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>shine</string>
 		<key>past</key>
@@ -983,6 +1179,8 @@
 		<string>brillar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>shoot</string>
 		<key>past</key>
@@ -993,6 +1191,8 @@
 		<string>disparar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>show</string>
 		<key>past</key>
@@ -1003,6 +1203,8 @@
 		<string>mostrar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>shrink</string>
 		<key>past</key>
@@ -1013,6 +1215,8 @@
 		<string>encogerse</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>shut</string>
 		<key>past</key>
@@ -1023,6 +1227,8 @@
 		<string>cerrar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>sing</string>
 		<key>past</key>
@@ -1033,6 +1239,8 @@
 		<string>cantar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>sink</string>
 		<key>past</key>
@@ -1043,6 +1251,8 @@
 		<string>hundir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>sit</string>
 		<key>past</key>
@@ -1053,6 +1263,8 @@
 		<string>sentarse</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>sleep</string>
 		<key>past</key>
@@ -1063,6 +1275,8 @@
 		<string>dormir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>slide</string>
 		<key>past</key>
@@ -1073,6 +1287,8 @@
 		<string>resbalar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>smell</string>
 		<key>past</key>
@@ -1083,6 +1299,8 @@
 		<string>oler</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>sow</string>
 		<key>past</key>
@@ -1093,6 +1311,8 @@
 		<string>sembrar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>speak</string>
 		<key>past</key>
@@ -1103,6 +1323,8 @@
 		<string>hablar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>speed</string>
 		<key>past</key>
@@ -1113,6 +1335,8 @@
 		<string>acelerar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>spell</string>
 		<key>past</key>
@@ -1123,6 +1347,8 @@
 		<string>deletrear</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>spend</string>
 		<key>past</key>
@@ -1133,6 +1359,8 @@
 		<string>gastar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>spill</string>
 		<key>past</key>
@@ -1143,6 +1371,8 @@
 		<string>derramar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>spin</string>
 		<key>past</key>
@@ -1153,6 +1383,8 @@
 		<string>hilar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>spit</string>
 		<key>past</key>
@@ -1163,6 +1395,8 @@
 		<string>escupir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>split</string>
 		<key>past</key>
@@ -1173,6 +1407,8 @@
 		<string>hender, partir,rajar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>spoil</string>
 		<key>past</key>
@@ -1183,6 +1419,8 @@
 		<string>estropear</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>spread</string>
 		<key>past</key>
@@ -1193,6 +1431,8 @@
 		<string>extender</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>spring</string>
 		<key>past</key>
@@ -1203,6 +1443,8 @@
 		<string>saltar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>stand</string>
 		<key>past</key>
@@ -1213,6 +1455,8 @@
 		<string>estar en pie</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>steal</string>
 		<key>past</key>
@@ -1223,6 +1467,8 @@
 		<string>robar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>stick</string>
 		<key>past</key>
@@ -1233,6 +1479,8 @@
 		<string>pegar engomar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>sting</string>
 		<key>past</key>
@@ -1243,6 +1491,8 @@
 		<string>picar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>stink</string>
 		<key>past</key>
@@ -1253,6 +1503,8 @@
 		<string>apestar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>stride</string>
 		<key>past</key>
@@ -1263,6 +1515,8 @@
 		<string>dar zancadas</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>strike</string>
 		<key>past</key>
@@ -1273,6 +1527,8 @@
 		<string>golpear</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>swear</string>
 		<key>past</key>
@@ -1283,6 +1539,8 @@
 		<string>jurar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>sweat</string>
 		<key>past</key>
@@ -1293,6 +1551,8 @@
 		<string>sudar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>sweep</string>
 		<key>past</key>
@@ -1303,6 +1563,8 @@
 		<string>barrer</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>swell</string>
 		<key>past</key>
@@ -1313,6 +1575,8 @@
 		<string>hinchar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>swim</string>
 		<key>past</key>
@@ -1323,6 +1587,8 @@
 		<string>nadar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>swing</string>
 		<key>past</key>
@@ -1333,6 +1599,8 @@
 		<string>columpiarse</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>take</string>
 		<key>past</key>
@@ -1343,6 +1611,8 @@
 		<string>coger</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>teach</string>
 		<key>past</key>
@@ -1353,6 +1623,8 @@
 		<string>enseñar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>tear</string>
 		<key>past</key>
@@ -1363,6 +1635,8 @@
 		<string>rasgar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>tell</string>
 		<key>past</key>
@@ -1373,6 +1647,8 @@
 		<string>decir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>think</string>
 		<key>past</key>
@@ -1383,6 +1659,8 @@
 		<string>pensar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>throw</string>
 		<key>past</key>
@@ -1393,6 +1671,8 @@
 		<string>arrojar, tirar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>thrust</string>
 		<key>past</key>
@@ -1403,6 +1683,8 @@
 		<string>introducir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>tread</string>
 		<key>past</key>
@@ -1413,6 +1695,8 @@
 		<string>pisar, hollar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>understand</string>
 		<key>past</key>
@@ -1423,6 +1707,8 @@
 		<string>entender</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>undergo</string>
 		<key>past</key>
@@ -1433,6 +1719,8 @@
 		<string>sufrir</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>undertake</string>
 		<key>past</key>
@@ -1443,6 +1731,8 @@
 		<string>emprender</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>wake</string>
 		<key>past</key>
@@ -1453,6 +1743,8 @@
 		<string>despertarse</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>wear</string>
 		<key>past</key>
@@ -1463,6 +1755,8 @@
 		<string>llevar puesto</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>weave</string>
 		<key>past</key>
@@ -1473,6 +1767,8 @@
 		<string>tejer</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>weep</string>
 		<key>past</key>
@@ -1483,6 +1779,8 @@
 		<string>llorar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>wet</string>
 		<key>past</key>
@@ -1493,6 +1791,8 @@
 		<string>mojar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>win</string>
 		<key>past</key>
@@ -1503,6 +1803,8 @@
 		<string>ganar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>wind</string>
 		<key>past</key>
@@ -1513,6 +1815,8 @@
 		<string>enrollar</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>withdraw</string>
 		<key>past</key>
@@ -1523,6 +1827,8 @@
 		<string>retirarse</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>2</integer>
 		<key>simple</key>
 		<string>wring</string>
 		<key>past</key>
@@ -1533,6 +1839,8 @@
 		<string>torcer</string>
 	</dict>
 	<dict>
+		<key>level</key>
+		<integer>1</integer>
 		<key>simple</key>
 		<string>write</string>
 		<key>past</key>
@@ -1541,6 +1849,30 @@
 		<string>written</string>
 		<key>translation</key>
 		<string>escribir</string>
+	</dict>
+	<dict>
+		<key>level</key>
+		<integer>3</integer>
+		<key>simple</key>
+		<string>waylay</string>
+		<key>past</key>
+		<string>waylaid</string>
+		<key>participle</key>
+		<string>waylaid</string>
+		<key>translation</key>
+		<string>acechar</string>
+	</dict>
+	<dict>
+		<key>level</key>
+		<integer>3</integer>
+		<key>simple</key>
+		<string>vex</string>
+		<key>past</key>
+		<string>vexed/vext</string>
+		<key>participle</key>
+		<string>vexed/vext</string>
+		<key>translation</key>
+		<string>vejar</string>
 	</dict>
 </array>
 </plist>

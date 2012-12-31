@@ -67,8 +67,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
+    int setup_level =  [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    [self.verbs setLevel:setup_level];
+    
+    [self setLabelLevelText:setup_level];
+    
     [self showOtherVerb];
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -76,8 +84,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+
++ (void)initialize{
+
+    //load default settings values
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
+}
+
 #pragma mark - User Interface
 
+-(void)setLabelLevelText:(int)level{
+    if(level < 4){
+        self.labelLevel.text = [NSString stringWithFormat:@"Level %d", level];
+    }
+    else{
+        self.labelLevel.text = @"All levels";
+    }
+}
 - (void)showOtherVerb {
     
     [self.verbs change];
@@ -156,8 +180,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     //we need no reload the sort preferences.
     [self.verbs setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
-    //download the verbs list for the new level selected.
-    self.verbs.level = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    //change level?
+    int setup_level = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    self.verbs.level = setup_level;
+    [self setLabelLevelText:setup_level];
     //and repaint the shuffle indicator
     [self showOtherVerb];
     [self animateShuffleIndicator];
