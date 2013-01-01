@@ -129,7 +129,11 @@
     if (self.labelTranslation.text.length==0) {
         self.labelTranslation.text = self.verbs.translation;
         
-        [self moveYView:self.labelTranslation from:-self.labelTranslation.layer.position.y to:0 duration:0.2];
+        if (sender) {
+            [self moveYView:self.labelTranslation from:-self.labelTranslation.layer.position.y to:0 duration:0.2];
+        } else {
+            [self moveYView:self.labelTranslation from:self.view.bounds.size.height to:0 duration:0.4];
+        }
     }
 }
 
@@ -137,9 +141,13 @@
     if (self.labelPast.text.length==0) {
         self.labelPast.text = self.verbs.past;
         self.labelParticiple.text = self.verbs.participle;
-        
-        [self fadeView:self.labelPast from:0.0 to:1.0 ];
-        [self fadeView:self.labelParticiple from:0.0 to:1.0];
+        if (sender) {
+            [self fadeView:self.labelPast from:0.0 to:1.0 ];
+            [self fadeView:self.labelParticiple from:0.0 to:1.0];
+        } else {
+            [self moveYView:self.labelPast from:self.view.bounds.size.height to:0 duration:0.4];
+            [self moveYView:self.labelParticiple from:self.view.bounds.size.height to:0 duration:0.4];
+        }
     }
 }
 
