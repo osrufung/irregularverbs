@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 092CDCA7168D8D8C0092FD32 /* Defaults.plist */; };
 		099AF61B1681FBAA001A6BF3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 099AF61A1681FBAA001A6BF3 /* README.md */; };
 		099AF61E1681FF3D001A6BF3 /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 099AF61D1681FF3D001A6BF3 /* screenshot.png */; };
 		099AF64E16834053001A6BF3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 099AF64D16834053001A6BF3 /* QuartzCore.framework */; };
@@ -26,11 +25,9 @@
 		09D372F61681BA4F00F80410 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D372F41681BA4F00F80410 /* MainStoryboard.storyboard */; };
 		09D372F91681BA4F00F80410 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D372F81681BA4F00F80410 /* ViewController.m */; };
 		09D373001681BC5200F80410 /* verbs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09D372FF1681BC5200F80410 /* verbs.plist */; };
-		E5ED1BD2168C7824009C1D59 /* preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = E5ED1BD1168C7824009C1D59 /* preferences.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		092CDCA7168D8D8C0092FD32 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		099AF61A1681FBAA001A6BF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		099AF61D1681FF3D001A6BF3 /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		099AF64D16834053001A6BF3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -56,7 +53,6 @@
 		09D372F71681BA4F00F80410 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		09D372F81681BA4F00F80410 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		09D372FF1681BC5200F80410 /* verbs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = verbs.plist; sourceTree = "<group>"; };
-		E5ED1BD1168C7824009C1D59 /* preferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preferences.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +80,6 @@
 				099AF65016834246001A6BF3 /* IrregularVerb.m */,
 				099AF64D16834053001A6BF3 /* QuartzCore.framework */,
 				099AF61D1681FF3D001A6BF3 /* screenshot.png */,
-				E5ED1BD1168C7824009C1D59 /* preferences.png */,
 				099AF61A1681FBAA001A6BF3 /* README.md */,
 				09D372E21681BA4F00F80410 /* IrregularVerbs */,
 				09D372DB1681BA4F00F80410 /* Frameworks */,
@@ -103,7 +98,6 @@
 		09D372DB1681BA4F00F80410 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				099AF64D16834053001A6BF3 /* QuartzCore.framework */,
 				09D372DC1681BA4F00F80410 /* UIKit.framework */,
 				09D372DE1681BA4F00F80410 /* Foundation.framework */,
 				09D372E01681BA4F00F80410 /* CoreGraphics.framework */,
@@ -121,7 +115,6 @@
 				09D372FF1681BC5200F80410 /* verbs.plist */,
 				09D372F81681BA4F00F80410 /* ViewController.m */,
 				09D372E31681BA4F00F80410 /* Supporting Files */,
-				092CDCA7168D8D8C0092FD32 /* Defaults.plist */,
 			);
 			path = IrregularVerbs;
 			sourceTree = "<group>";
@@ -200,8 +193,6 @@
 				099AF61B1681FBAA001A6BF3 /* README.md in Resources */,
 				099AF61E1681FF3D001A6BF3 /* screenshot.png in Resources */,
 				099AF6931683540D001A6BF3 /* media-shuffle.png in Resources */,
-				E5ED1BD2168C7824009C1D59 /* preferences.png in Resources */,
-				092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,9 +17,11 @@
 @interface PreferencesViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedDifficultyLevel;
+@property (weak, nonatomic) IBOutlet UISwitch *switchShowSameTime;
 @property (weak, nonatomic) id <PreferencesViewControllerDelegate> delegate;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedSortControl;
 - (IBAction)selectionChanged:(id)sender;
 - (IBAction)done:(id)sender;
 - (IBAction)diffycultyLevelChanged:(UISegmentedControl *)sender;
+-(IBAction)sameTimeChanged:(id)sender;
 @end

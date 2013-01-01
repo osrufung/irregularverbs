@@ -12,15 +12,17 @@
 
 @interface ViewController : UIViewController <PreferencesViewControllerDelegate, IrregularVerbDelegate>
 
-//array mutable donde guardar las entradas de los verbos
+//Object Data Model
 @property (nonatomic, strong) IrregularVerb *verbs;
-//verbo actual
+//current verb (to be deprecated)
 @property int current_Pos;
-//outlets para las etiquetas
+
+//label outlets
 @property (nonatomic, weak) IBOutlet UILabel *labelPresent;
 @property (nonatomic, weak) IBOutlet UILabel *labelPast;
 @property (nonatomic, weak) IBOutlet UILabel *labelParticiple;
 @property (nonatomic, weak) IBOutlet UILabel *labelTranslation;
+@property (nonatomic, weak) IBOutlet UILabel *labelLevel;
 @property (weak, nonatomic) IBOutlet UIImageView *shuffleIndicator;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 

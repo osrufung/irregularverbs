@@ -67,8 +67,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
+    int setup_level =  [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    [self.verbs setLevel:setup_level];
+    
+    [self setLabelLevelText:setup_level];
+    
     [self showOtherVerb];
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -76,8 +84,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+
++ (void)initialize{
+
+    //load default settings values
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
+}
+
 #pragma mark - User Interface
 
+-(void)setLabelLevelText:(int)level{
+    if(level < 4){
+        self.labelLevel.text = [NSString stringWithFormat:@"Level %d", level];
+    }
+    else{
+        self.labelLevel.text = @"All levels";
+    }
+}
 - (void)showOtherVerb {
     
     [self.verbs change];
@@ -88,6 +112,16 @@
     self.labelParticiple.text = @"" ;
     
     [self moveYView:self.labelPresent from:self.view.bounds.size.height to:0 duration:0.4];
+    
+    
+    //check sametime setting and show other forms
+    BOOL showSameTimePref = [[NSUserDefaults standardUserDefaults] boolForKey:@"sameTime"];
+    
+    if(showSameTimePref){
+        [self showTranslation:nil];
+        [self showVerbalForms:nil];
+    }
+    
     
 }
 
@@ -104,7 +138,7 @@
         self.labelPast.text = self.verbs.past;
         self.labelParticiple.text = self.verbs.participle;
         
-        [self fadeView:self.labelPast from:0.0 to:1.0];
+        [self fadeView:self.labelPast from:0.0 to:1.0 ];
         [self fadeView:self.labelParticiple from:0.0 to:1.0];
     }
 }
@@ -119,7 +153,7 @@
 
 - (void)fadeView:(UIView *)view from:(CGFloat)initialAlpha to:(CGFloat)finalAlpha {
     CABasicAnimation *fader = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    fader.duration=0.2;
+    fader.duration=0.3;
     fader.fromValue= [NSNumber numberWithFloat:initialAlpha];
     fader.toValue=[NSNumber numberWithFloat:finalAlpha];
     [view.layer addAnimation:fader forKey:@"fadeAnimation"];
@@ -146,8 +180,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     //we need no reload the sort preferences.
     [self.verbs setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
-    //download the verbs list for the new level selected.
-    self.verbs.level = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    //change level?
+    int setup_level = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    self.verbs.level = setup_level;
+    [self setLabelLevelText:setup_level];
     //and repaint the shuffle indicator
     [self showOtherVerb];
     [self animateShuffleIndicator];

@@ -9,7 +9,7 @@
 #import "IrregularVerb.h"
 
 @interface IrregularVerb()
-@property (nonatomic, strong) NSMutableArray *verbs;
+@property (nonatomic, strong) NSArray *verbs;
 @property (nonatomic) NSInteger currentPos;
 @end
 
@@ -36,26 +36,49 @@
     return self;
 }
 
-- (NSMutableArray *)verbsListFromDocument {
+- (NSArray *)verbsListFromDocument {
     NSString *verbsFilePath = [IrregularVerb mutableVerbsListPath];
     if (![[NSFileManager defaultManager] fileExistsAtPath:verbsFilePath]) {
         NSError *error;
+        
         [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]
                                                 toPath:verbsFilePath
                                                  error:&error];
+        
+        
     }
-    NSMutableArray *list = [NSMutableArray arrayWithContentsOfFile:verbsFilePath];
+    
+    NSArray *list = [NSMutableArray arrayWithContentsOfFile:verbsFilePath];
+    
+      
     return list;
 }
 
+-(NSArray *) filteredVerbs:(NSInteger) level{
+    //level filtering (1:easy, 2: medium, 3: hard, 4: ALL)
+    int currentLevel= [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+ 
+    NSLog(@"Current Level %d",currentLevel);
+    
+    NSArray *list = [self verbsListFromDocument];
+    if(currentLevel<4){
+    
+        NSPredicate *predicateLevel = [NSPredicate predicateWithFormat:@"level == %d", currentLevel];
+        NSArray *filteredArray = [list filteredArrayUsingPredicate:predicateLevel];
+        
+        return filteredArray;
+    }
+    else{
+        return list;
+    }
+}
 
-
-- (NSMutableArray *) verbs{
+- (NSArray *) verbs{
     if (!_verbs) _verbs = [self verbsListFromDocument];
     return _verbs;
 }
 
-- (void)setVerbs:(NSMutableArray *)verbs {
+- (void)setVerbs:(NSArray *)verbs {
     if (_verbs!=verbs) {
         _verbs = verbs;
         if (self.currentPos>=[_verbs count]) self.currentPos=0;
@@ -76,8 +99,8 @@
     }
 }
 
-- (NSMutableArray *)downloadVerbsListForLevel:(int)level {
-    NSMutableArray *newVerbList = nil;
+- (NSArray *)downloadVerbsListForLevel:(int)level {
+    NSArray *newVerbList = nil;
     NSString *query = [NSString stringWithFormat:@"http://irregular-verbs.appspot.com/irregularverbsapi?level=%d",level];
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:query]];
     if (data) {
@@ -85,30 +108,63 @@
         newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data
                                                                         options:NSJSONReadingMutableContainers
                                                                           error:&error];
-        if (error) {
+ 
+        // Checks if service return an empty list of verbs
+        if ([newVerbList count] == 0) {
+            NSDictionary *userInfo = @{
+                NSLocalizedDescriptionKey : @"http://irregular-verbs.appspot.com/ has returned and empty list of verbs"
+            };
+            
+            error = [NSError errorWithDomain:@"IrregularVerbs"
+                                        code:0 userInfo:userInfo];
+        }
+        
+ 
+        if (error && [self.delegate respondsToSelector:@selector(updateFailedWithError:)]) {
             newVerbList=nil;
             [self.delegate updateFailedWithError:error];
         }
-
+        
     } else {
-        [self.delegate updateFailedWithError:[NSError errorWithDomain:@"IrregularVerbs"
-                                                                 code:1
-                                                             userInfo:@{NSLocalizedDescriptionKey:@"Error connecting to server"}]];        
+        if ([self.delegate respondsToSelector:@selector(updateFailedWithError:)]) {
+            [self.delegate updateFailedWithError:[NSError errorWithDomain:@"IrregularVerbs"
+                                                                     code:1
+                                                                 userInfo:@{NSLocalizedDescriptionKey:@"Error connecting to server"}]];
+        }
+ 
     }
+    
     return newVerbList;
 }
 
 - (void)setLevel:(int)level {
     if (level!=_level) {
-        [self.delegate updateBegin];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSMutableArray *newVerbList = [self downloadVerbsListForLevel:level];
-            if (newVerbList) {
-                _level = level;
-                self.verbs = newVerbList;
-            }
-            [self.delegate updateEnd];
-        });
+ 
+        NSLog(@"Nivel %d",level);
+        
+        BOOL loadFromInternet= [[NSUserDefaults standardUserDefaults] boolForKey:@"loadFromInternet"];
+        
+        if(loadFromInternet){
+            if ([self.delegate respondsToSelector:@selector(updateBegin)])
+                [self.delegate updateBegin];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                
+                NSArray *newVerbList = [self downloadVerbsListForLevel:level];
+                if (newVerbList) {
+                    _level = level;
+                    self.verbs = newVerbList;
+                }
+                
+                if ([self.delegate respondsToSelector:@selector(updateEnd)])
+                    [self.delegate updateEnd];
+            });
+        }
+        //filter from local plist
+        else{
+            self.verbs = [self filteredVerbs:level];
+        }
+ 
     }
 }
 
