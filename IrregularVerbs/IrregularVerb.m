@@ -36,21 +36,29 @@
     return self;
 }
 
+-(NSError *)copyDefaultVerbsListToPath:(NSString *)documentPath {
+    NSError *error;
+    
+    [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]
+                                            toPath:documentPath
+                                             error:&error];
+    
+    return error;
+}
+
 - (NSArray *)verbsListFromDocument {
     NSString *verbsFilePath = [IrregularVerb mutableVerbsListPath];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:verbsFilePath]) {
-        NSError *error;
-        
-        [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]
-                                                toPath:verbsFilePath
-                                                 error:&error];
-        
-        
-    }
+    if (![[NSFileManager defaultManager] fileExistsAtPath:verbsFilePath])
+        [self copyDefaultVerbsListToPath:verbsFilePath];
     
     NSArray *list = [NSMutableArray arrayWithContentsOfFile:verbsFilePath];
     
-      
+    // Check if the verbs list stored in Documents implments all the fields
+    if (![list[0] respondsToSelector: @selector(level)]) {
+        [self copyDefaultVerbsListToPath:verbsFilePath];
+        list = [NSMutableArray arrayWithContentsOfFile:verbsFilePath];
+    }
+    
     return list;
 }
 
@@ -102,8 +110,7 @@
 - (NSArray *)downloadVerbsListForLevel:(int)level {
     NSArray *newVerbList = nil;
     NSString *query = [NSString stringWithFormat:@"http://irregular-verbs.appspot.com/irregularverbsapi?level=%d",level];
-    NSURL *apiURL = [NSURL URLWithString:query];
-    NSData *data = [NSData dataWithContentsOfURL:apiURL];
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:query]];
     if (data) {
         NSError *error;
         newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data

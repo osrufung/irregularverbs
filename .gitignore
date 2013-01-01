@@ -1,5 +1,3 @@
-*.xcuserstate
-
 .DS_Store
-
+xcuserdata
 *.orig
