@@ -36,21 +36,29 @@
     return self;
 }
 
+-(NSError *)copyDefaultVerbsListToPath:(NSString *)documentPath {
+    NSError *error;
+    
+    [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]
+                                            toPath:documentPath
+                                             error:&error];
+    
+    return error;
+}
+
 - (NSArray *)verbsListFromDocument {
     NSString *verbsFilePath = [IrregularVerb mutableVerbsListPath];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:verbsFilePath]) {
-        NSError *error;
-        
-        [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]
-                                                toPath:verbsFilePath
-                                                 error:&error];
-        
-        
-    }
+    if (![[NSFileManager defaultManager] fileExistsAtPath:verbsFilePath])
+        [self copyDefaultVerbsListToPath:verbsFilePath];
     
     NSArray *list = [NSMutableArray arrayWithContentsOfFile:verbsFilePath];
     
-      
+    // Check if the verbs list stored in Documents implments all the fields
+    if (![list[0] respondsToSelector: @selector(level)]) {
+        [self copyDefaultVerbsListToPath:verbsFilePath];
+        list = [NSMutableArray arrayWithContentsOfFile:verbsFilePath];
+    }
+    
     return list;
 }
 
