@@ -38,7 +38,7 @@
 
 -(NSError *)copyDefaultVerbsListToPath:(NSString *)documentPath {
     NSError *error;
-    
+    [[NSFileManager defaultManager] removeItemAtPath:documentPath error:&error];
     [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]
                                             toPath:documentPath
                                              error:&error];
@@ -54,9 +54,12 @@
     NSArray *list = [NSMutableArray arrayWithContentsOfFile:verbsFilePath];
     
     // Check if the verbs list stored in Documents implments all the fields
-    if (![list[0] respondsToSelector: @selector(level)]) {
-        [self copyDefaultVerbsListToPath:verbsFilePath];
-        list = [NSMutableArray arrayWithContentsOfFile:verbsFilePath];
+    if ([list count]>0) {
+        NSDictionary *item = list[0];
+        if(![item objectForKey:@"level"]) {
+            [self copyDefaultVerbsListToPath:verbsFilePath];
+            list = [NSMutableArray arrayWithContentsOfFile:verbsFilePath];
+        }
     }
     
     return list;
