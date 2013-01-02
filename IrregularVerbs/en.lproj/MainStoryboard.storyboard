@@ -188,10 +188,10 @@
                                     <action selector="lowerLevelsChanged" destination="QsD-de-Mz2" eventType="valueChanged" id="EyE-Uz-vvy"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGs-ZL-8F4">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="About" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGs-ZL-8F4">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
+                                <color key="textColor" red="0.37391633544814346" green="0.64542813850950032" blue="0.80823501275510201" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.29793128188775508" green="0.29793128188775508" blue="0.29793128188775508" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecI-t0-roz">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -232,12 +232,14 @@
                             <constraint firstItem="Kyf-XF-bGs" firstAttribute="leading" secondItem="hNS-dp-VWE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mkC-5U-vkk"/>
                             <constraint firstItem="ohn-Ie-c1p" firstAttribute="top" secondItem="Ui8-Cb-qv6" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pcB-sQ-Ivx"/>
                             <constraint firstItem="5Em-hY-sGa" firstAttribute="leading" secondItem="hNS-dp-VWE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="sDI-f7-qX4"/>
+                            <constraint firstAttribute="trailing" secondItem="GGs-ZL-8F4" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="tSA-Gx-YK4"/>
                             <constraint firstItem="tmx-bh-Dgc" firstAttribute="trailing" secondItem="hNS-dp-VWE" secondAttribute="trailing" type="default" id="uvX-dl-odI"/>
                             <constraint firstAttribute="trailing" secondItem="1oy-0z-EkE" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="vl1-e9-p8p"/>
                             <constraint firstItem="1oy-0z-EkE" firstAttribute="top" secondItem="5Em-hY-sGa" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="z0v-cp-wzp"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aboutLabel" destination="GGs-ZL-8F4" id="Ts2-9f-2YY"/>
                         <outlet property="segmentedDifficultyLevel" destination="5Em-hY-sGa" id="oES-JB-xBt"/>
                         <outlet property="segmentedSortControl" destination="Ui8-Cb-qv6" id="3oO-gh-jGa"/>
                         <outlet property="switchLowerLevels" destination="1oy-0z-EkE" id="hiB-rx-QJD"/>
@@ -265,6 +267,7 @@
                 <relationship kind="action" name="sameTimeChanged:"/>
                 <relationship kind="action" name="selectionChanged:"/>
                 <relationship kind="action" name="showAboutLink:"/>
+                <relationship kind="outlet" name="aboutLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="segmentedDifficultyLevel" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="segmentedSortControl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="switchLowerLevels" candidateClass="UISwitch"/>

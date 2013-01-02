@@ -28,4 +28,4 @@ You can contact us at:
 
 ## Screenshot
 ![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/preferences.png)
+![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/preferences.png)
