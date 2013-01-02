@@ -15,7 +15,7 @@
 
 @implementation ViewController
 
-@synthesize verbs=_verbs;
+@synthesize verbs=_verbs, last_timing_value=_last_timing_value;
 
 #pragma mark - Model Managment
 
@@ -73,7 +73,13 @@
     
     [self setLabelLevelText:setup_level];
     
+    [self setLast_timing_value: CACurrentMediaTime()];
     [self showOtherVerb];
+    
+    //init the VisualMap view
+    [self.visualMap setNumElements:[self.verbs size] ];
+ 
+    
 }
 
 
@@ -94,20 +100,29 @@
 
 #pragma mark - User Interface
 
--(void)setLabelLevelText:(int)level{
+-(void)setLabelLevelText:(int)level {
     
     if(level < 4){
         BOOL includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
-        NSString *format = (includeLowerLevels)?@"To level %d":@"Level %d";
-        self.labelLevel.text = [NSString stringWithFormat:format, level];
+        NSString *format = (includeLowerLevels)?@"To level %d (%d verbs)":@"Level %d (%d verbs)";
+        self.labelLevel.text = [NSString stringWithFormat:format, level, [self.verbs size]];
     }
     else{
         self.labelLevel.text = @"All levels";
     }
 }
 - (void)showOtherVerb {
+    double CurrentTime = CACurrentMediaTime();
+    NSLog(@"Current time Diff %f seconds", CurrentTime  - [self last_timing_value]  );
+    double diff_time = CurrentTime - [self last_timing_value]  ;
+    
+    [self setLast_timing_value:CurrentTime];
     
     [self.verbs change];
+    
+    //mark new verb
+    [self.visualMap markElement: [self.verbs currentPos] seconds:diff_time];
+   
     
     self.labelPresent.text = self.verbs.simple;
     self.labelTranslation.text = @"";
@@ -193,10 +208,15 @@
     [self.verbs setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
     //change level?
     int setup_level = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    
     self.verbs.level = setup_level;
+ 
+    
     [self setLabelLevelText:setup_level];
     //and repaint the shuffle indicator
     [self showOtherVerb];
+    //init the VisualMap view
+    [self.visualMap setNumElements:[self.verbs size] ];
     [self animateShuffleIndicator];
     
 }

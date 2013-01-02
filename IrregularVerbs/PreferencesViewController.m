@@ -88,5 +88,9 @@
     [[NSUserDefaults standardUserDefaults] setBool:checked forKey:@"includeLowerLevels"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-
+-(IBAction)showAboutLink:(id)sender
+{
+    NSString *launchUrl= [[NSUserDefaults standardUserDefaults] stringForKey:@"aboutProjectURL"];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
+}
 @end

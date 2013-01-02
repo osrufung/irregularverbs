@@ -18,7 +18,7 @@
 @end
 
 @interface IrregularVerb : NSObject
-
+@property (nonatomic) NSInteger currentPos;
 @property (nonatomic) BOOL randomOrder;
 @property (nonatomic) int level;
 @property (nonatomic, readonly) NSString *simple;
@@ -29,5 +29,5 @@
 @property (nonatomic, strong) id<IrregularVerbDelegate> delegate;
 
 - (void)change;
-
+- (int)size;
 @end

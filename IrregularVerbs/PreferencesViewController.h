@@ -26,4 +26,5 @@
 - (IBAction)diffycultyLevelChanged:(UISegmentedControl *)sender;
 -(IBAction)sameTimeChanged:(id)sender;
 - (IBAction)lowerLevelsChanged;
+-(IBAction)showAboutLink:(id)sender;
 @end

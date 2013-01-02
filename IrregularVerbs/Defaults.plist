@@ -10,5 +10,7 @@
 	<integer>1</integer>
 	<key>sameTime</key>
 	<true/>
+	<key>aboutProjectURL</key>
+	<string>https://github.com/osrufung/irregularverbs/wiki</string>
 </dict>
 </plist>
