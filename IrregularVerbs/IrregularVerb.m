@@ -68,14 +68,22 @@
 -(NSArray *) filteredVerbs:(NSInteger) level{
     //level filtering (1:easy, 2: medium, 3: hard, 4: ALL)
     int currentLevel= [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    BOOL includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
  
     NSLog(@"Current Level %d",currentLevel);
     
     NSArray *list = [self verbsListFromDocument];
     if(currentLevel<4){
-    
-        NSPredicate *predicateLevel = [NSPredicate predicateWithFormat:@"level == %d", currentLevel];
+        NSString *query;
+        if (includeLowerLevels) {
+            query = @"level <= %d";
+        } else {
+            query = @"level == %d";
+        }
+        NSPredicate *predicateLevel = [NSPredicate predicateWithFormat:query, currentLevel];
         NSArray *filteredArray = [list filteredArrayUsingPredicate:predicateLevel];
+        
+        NSLog(@"query(%@) returned %d verbs",[NSString stringWithFormat:query,currentLevel],[filteredArray count]);
         
         return filteredArray;
     }

@@ -40,7 +40,9 @@
     
     //set the default sametime value (
     [self.switchShowSameTime setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"sameTime"]];
-    
+
+    [self.switchLowerLevels setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"]];
+
     
 }
 
@@ -79,6 +81,12 @@
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     [settings setBool:checked forKey:@"sameTime"];
     [settings synchronize];
+}
+
+- (IBAction)lowerLevelsChanged {
+    BOOL checked  = [self switchLowerLevels].on;
+    [[NSUserDefaults standardUserDefaults] setBool:checked forKey:@"includeLowerLevels"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end
