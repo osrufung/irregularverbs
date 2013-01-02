@@ -17,7 +17,7 @@
 //current verb (to be deprecated)
 @property int current_Pos;
 //used for timimg purposes
-@property double last_timing_value;
+@property double lastTimingValue;
 //label outlets
 @property (nonatomic, weak) IBOutlet UILabel *labelPresent;
 @property (nonatomic, weak) IBOutlet UILabel *labelPast;

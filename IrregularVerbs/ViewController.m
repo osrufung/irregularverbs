@@ -10,12 +10,14 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+//Each verb should be timestamped once
+@property BOOL currentVerbIsTimeStamped;
 
 @end
 
 @implementation ViewController
 
-@synthesize verbs=_verbs, last_timing_value=_last_timing_value;
+@synthesize verbs=_verbs, lastTimingValue=_lastTimingValue, currentVerbIsTimeStamped = _currentVerbIsTimeStamped;
 
 #pragma mark - Model Managment
 
@@ -68,12 +70,14 @@
 {
     [super viewDidLoad];
    
-    int setup_level =  [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
-    [self.verbs setLevel:setup_level];
+    int setupLevel =  [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    [self.verbs setLevel:setupLevel];
     
-    [self setLabelLevelText:setup_level];
+    [self setLabelLevelText:setupLevel];
     
-    [self setLast_timing_value: CACurrentMediaTime()];
+    [self setLastTimingValue: CACurrentMediaTime()];
+    //The first time we show a verb it shouldn't fire the timestamp
+    self.currentVerbIsTimeStamped = YES;
     [self showOtherVerb];
     
     //init the VisualMap view
@@ -111,9 +115,26 @@
         self.labelLevel.text = @"All levels";
     }
 }
+
+- (void)timeStampCurrentVerb {
+    if (!self.currentVerbIsTimeStamped) {
+        double CurrentTime = CACurrentMediaTime();
+        NSLog(@"Current time Diff %f seconds", CurrentTime  - [self lastTimingValue]  );
+        double diff_time = CurrentTime - [self lastTimingValue]  ;
+        
+        [self setLastTimingValue:CurrentTime];
+        //mark new verb
+        [self.visualMap markElement: [self.verbs currentPos] seconds:diff_time];
+        self.currentVerbIsTimeStamped = YES;
+    }
+}
+
 - (void)showOtherVerb {
-       
+    
+    //We should timestamp the curren verb, before changing it
+    [self timeStampCurrentVerb];
     [self.verbs change];
+    self.currentVerbIsTimeStamped = NO;
     
 
     
@@ -129,15 +150,6 @@
     BOOL showSameTimePref = [[NSUserDefaults standardUserDefaults] boolForKey:@"sameTime"];
     
     if(showSameTimePref){
-        double CurrentTime = CACurrentMediaTime();
-        NSLog(@"Current time Diff %f seconds", CurrentTime  - [self last_timing_value]  );
-        double diff_time = CurrentTime - [self last_timing_value]  ;
-        
-        [self setLast_timing_value:CurrentTime];
-        //mark new verb
-        [self.visualMap markElement: [self.verbs currentPos] seconds:diff_time];
-   
-        
         [self showTranslation:nil];
         [self showVerbalForms:nil];
     }
@@ -151,6 +163,9 @@
         
         if (sender) {
             [self moveYView:self.labelTranslation from:-self.labelTranslation.layer.position.y to:0 duration:0.2];
+            // When the user use the swipe gesture to reveal any data, the time is over
+            [self timeStampCurrentVerb];
+            
         } else {
             [self moveYView:self.labelTranslation from:self.view.bounds.size.height to:0 duration:0.4];
         }
@@ -164,24 +179,12 @@
         if (sender) {
             [self fadeView:self.labelPast from:0.0 to:1.0 ];
             [self fadeView:self.labelParticiple from:0.0 to:1.0];
+            // When the user use the swipe gesture to reveal any data, the time is over
+            [self timeStampCurrentVerb];
         } else {
             [self moveYView:self.labelPast from:self.view.bounds.size.height to:0 duration:0.4];
             [self moveYView:self.labelParticiple from:self.view.bounds.size.height to:0 duration:0.4];
-        }
-        
-        //check sametime setting and show other forms
-        BOOL showSameTimePref = [[NSUserDefaults standardUserDefaults] boolForKey:@"sameTime"];
-        
-        if(!showSameTimePref){
-            double CurrentTime = CACurrentMediaTime();
-            NSLog(@"Current time Diff %f seconds", CurrentTime  - [self last_timing_value]  );
-            double diff_time = CurrentTime - [self last_timing_value]  ;
-            
-            
-            [self setLast_timing_value:CurrentTime];
-            //mark new verb
-            [self.visualMap markElement: [self.verbs currentPos] seconds:diff_time];
-        }
+        }        
     }
 }
 
