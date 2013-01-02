@@ -95,8 +95,11 @@
 #pragma mark - User Interface
 
 -(void)setLabelLevelText:(int)level{
+    
     if(level < 4){
-        self.labelLevel.text = [NSString stringWithFormat:@"Level %d", level];
+        BOOL includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
+        NSString *format = (includeLowerLevels)?@"To level %d":@"Level %d";
+        self.labelLevel.text = [NSString stringWithFormat:format, level];
     }
     else{
         self.labelLevel.text = @"All levels";
