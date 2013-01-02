@@ -112,17 +112,10 @@
     }
 }
 - (void)showOtherVerb {
-    double CurrentTime = CACurrentMediaTime();
-    NSLog(@"Current time Diff %f seconds", CurrentTime  - [self last_timing_value]  );
-    double diff_time = CurrentTime - [self last_timing_value]  ;
-    
-    [self setLast_timing_value:CurrentTime];
-    
+       
     [self.verbs change];
     
-    //mark new verb
-    [self.visualMap markElement: [self.verbs currentPos] seconds:diff_time];
-   
+
     
     self.labelPresent.text = self.verbs.simple;
     self.labelTranslation.text = @"";
@@ -136,6 +129,15 @@
     BOOL showSameTimePref = [[NSUserDefaults standardUserDefaults] boolForKey:@"sameTime"];
     
     if(showSameTimePref){
+        double CurrentTime = CACurrentMediaTime();
+        NSLog(@"Current time Diff %f seconds", CurrentTime  - [self last_timing_value]  );
+        double diff_time = CurrentTime - [self last_timing_value]  ;
+        
+        [self setLast_timing_value:CurrentTime];
+        //mark new verb
+        [self.visualMap markElement: [self.verbs currentPos] seconds:diff_time];
+   
+        
         [self showTranslation:nil];
         [self showVerbalForms:nil];
     }
@@ -165,6 +167,20 @@
         } else {
             [self moveYView:self.labelPast from:self.view.bounds.size.height to:0 duration:0.4];
             [self moveYView:self.labelParticiple from:self.view.bounds.size.height to:0 duration:0.4];
+        }
+        
+        //check sametime setting and show other forms
+        BOOL showSameTimePref = [[NSUserDefaults standardUserDefaults] boolForKey:@"sameTime"];
+        
+        if(!showSameTimePref){
+            double CurrentTime = CACurrentMediaTime();
+            NSLog(@"Current time Diff %f seconds", CurrentTime  - [self last_timing_value]  );
+            double diff_time = CurrentTime - [self last_timing_value]  ;
+            
+            
+            [self setLast_timing_value:CurrentTime];
+            //mark new verb
+            [self.visualMap markElement: [self.verbs currentPos] seconds:diff_time];
         }
     }
 }
