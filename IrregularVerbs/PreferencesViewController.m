@@ -29,6 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.aboutLabel setText:[NSString stringWithFormat:@"Version %@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]] ];
+    
 	// set the segmented control current state
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]){
         [self.segmentedSortControl setSelectedSegmentIndex:1];
@@ -88,5 +91,9 @@
     [[NSUserDefaults standardUserDefaults] setBool:checked forKey:@"includeLowerLevels"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-
+-(IBAction)showAboutLink:(id)sender
+{
+    NSString *launchUrl= [[NSUserDefaults standardUserDefaults] stringForKey:@"aboutProjectURL"];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
+}
 @end

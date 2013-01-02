@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedDifficultyLevel;
 @property (weak, nonatomic) IBOutlet UISwitch *switchShowSameTime;
+@property (weak, nonatomic) IBOutlet UILabel *aboutLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *switchLowerLevels;
 @property (weak, nonatomic) id <PreferencesViewControllerDelegate> delegate;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedSortControl;
@@ -26,4 +27,5 @@
 - (IBAction)diffycultyLevelChanged:(UISegmentedControl *)sender;
 -(IBAction)sameTimeChanged:(id)sender;
 - (IBAction)lowerLevelsChanged;
+-(IBAction)showAboutLink:(id)sender;
 @end

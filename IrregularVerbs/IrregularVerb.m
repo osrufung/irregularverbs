@@ -10,7 +10,7 @@
 
 @interface IrregularVerb()
 @property (nonatomic, strong) NSArray *verbs;
-@property (nonatomic) NSInteger currentPos;
+
 @end
 
 @implementation IrregularVerb
@@ -193,7 +193,9 @@
         if (self.currentPos>=[self.verbs count]) self.currentPos=0;
     }
 }
-
+-(int) size{
+    return [self.verbs count];
+}
 - (NSString *)simple {
     return self.verbs[self.currentPos][@"simple"];
 }

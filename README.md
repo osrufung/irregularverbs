@@ -24,7 +24,8 @@ You can contact us at:
 * OR - v0.4 panel and shuffle option integration (20/12/2012)
 * RB - v0.5 experimental GAE API use (27/12/2012)
 * OR - v0.6 new sametime option (show solution at same time), new default app settings loading (28/12/2012)
+* OR - v0.7 INESTABLE. explain by mean of colours the difficulty user in which the user moves from one word to another based in time difference (2/1/2013)
 
 ## Screenshot
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/preferences.png)
+![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot.png)
+![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/preferences.png)
