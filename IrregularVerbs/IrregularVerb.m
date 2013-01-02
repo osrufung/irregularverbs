@@ -74,12 +74,7 @@
     
     NSArray *list = [self verbsListFromDocument];
     if(currentLevel<4){
-        NSString *query;
-        if (includeLowerLevels) {
-            query = @"level <= %d";
-        } else {
-            query = @"level == %d";
-        }
+        NSString *query = (includeLowerLevels)?@"level <= %d":@"level == %d";
         NSPredicate *predicateLevel = [NSPredicate predicateWithFormat:query, currentLevel];
         NSArray *filteredArray = [list filteredArrayUsingPredicate:predicateLevel];
         
