@@ -26,5 +26,5 @@ You can contact us at:
 * OR - v0.6 new sametime option (show solution at same time), new default app settings loading (28/12/2012)
 
 ## Screenshot
-![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot.png)
-![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/preferences.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/preferences.png)
