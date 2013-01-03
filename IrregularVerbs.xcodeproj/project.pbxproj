@@ -44,7 +44,7 @@
 		099AF68F16834580001A6BF3 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesViewController.h; path = IrregularVerbs/PreferencesViewController.h; sourceTree = "<group>"; };
 		099AF69016834580001A6BF3 /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesViewController.m; path = IrregularVerbs/PreferencesViewController.m; sourceTree = "<group>"; };
 		099AF6921683540D001A6BF3 /* media-shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-shuffle.png"; sourceTree = "<group>"; };
-		09D372D81681BA4F00F80410 /* IrregularVerbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IrregularVerbs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09D372D81681BA4F00F80410 /* A list of verbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A list of verbs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D372DC1681BA4F00F80410 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09D372DE1681BA4F00F80410 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09D372E01681BA4F00F80410 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -110,7 +110,7 @@
 		09D372D91681BA4F00F80410 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				09D372D81681BA4F00F80410 /* IrregularVerbs.app */,
+				09D372D81681BA4F00F80410 /* A list of verbs.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,9 +158,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		09D372D71681BA4F00F80410 /* IrregularVerbs */ = {
+		09D372D71681BA4F00F80410 /* A list of verbs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09D372FC1681BA4F00F80410 /* Build configuration list for PBXNativeTarget "IrregularVerbs" */;
+			buildConfigurationList = 09D372FC1681BA4F00F80410 /* Build configuration list for PBXNativeTarget "A list of verbs" */;
 			buildPhases = (
 				09D372D41681BA4F00F80410 /* Sources */,
 				09D372D51681BA4F00F80410 /* Frameworks */,
@@ -170,9 +170,9 @@
 			);
 			dependencies = (
 			);
-			name = IrregularVerbs;
+			name = "A list of verbs";
 			productName = IrregularVerbs;
-			productReference = 09D372D81681BA4F00F80410 /* IrregularVerbs.app */;
+			productReference = 09D372D81681BA4F00F80410 /* A list of verbs.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -196,7 +196,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				09D372D71681BA4F00F80410 /* IrregularVerbs */,
+				09D372D71681BA4F00F80410 /* A list of verbs */,
 			);
 		};
 /* End PBXProject section */
@@ -345,7 +345,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09D372FC1681BA4F00F80410 /* Build configuration list for PBXNativeTarget "IrregularVerbs" */ = {
+		09D372FC1681BA4F00F80410 /* Build configuration list for PBXNativeTarget "A list of verbs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09D372FD1681BA4F00F80410 /* Debug */,
