@@ -7,7 +7,7 @@
 //
 
 #import "IrregularVerb.h"
-#import "NSMutableArray+Shuffling.h"
+#import "NSArray+Shuffling.h"
 
 @interface IrregularVerb()
 @property (nonatomic, strong) NSArray *verbs;
@@ -102,16 +102,13 @@
 
 - (void)sortVerbsList {
     if (self.randomOrder) {
-        NSMutableArray *newArray = [self.verbs mutableCopy];
-        [newArray shuffle];
-        self.verbs = newArray;
+        self.verbs = [self.verbs shuffledCopy];
     } else {
-        NSArray *newArray = [self.verbs sortedArrayUsingComparator:^(id ob1, id ob2){
+        self.verbs = [self.verbs sortedArrayUsingComparator:^(id ob1, id ob2){
             NSString *s1 = [ob1 objectForKey:@"simple"];
             NSString *s2 = [ob2 objectForKey:@"simple"];
             return [s1 compare:s2];
         }];
-        self.verbs = newArray;
     }
 }
 
