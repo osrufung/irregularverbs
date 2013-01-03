@@ -38,7 +38,11 @@
         self.currentLevel =  [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
         self.includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
         BOOL remote = [[NSUserDefaults standardUserDefaults] boolForKey:@"loadFromInternet"];
-        _verbs = [self.store verbsForLevel:self.currentLevel includeLowerLevels:self.includeLowerLevels fromInternet:remote];
+        if (self.currentLevel<4) {
+            _verbs = [self.store verbsForLevel:self.currentLevel includeLowerLevels:self.includeLowerLevels fromInternet:remote];
+        } else {
+            _verbs = [self.store allVerbsFromInternet:remote];
+        }
     }
     return _verbs;
 }
@@ -120,10 +124,10 @@
     if(level < 4){
         BOOL includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
         NSString *format = (includeLowerLevels)?@"To level %d (%d verbs)":@"Level %d (%d verbs)";
-        self.labelLevel.text = [NSString stringWithFormat:format, level, [self.verbs count]];
+        self.labelLevel.text = [NSString stringWithFormat:format, level, self.verbs.count];
     }
     else{
-        self.labelLevel.text = @"All levels";
+        self.labelLevel.text = [NSString stringWithFormat:@"All levels (%d verbs)", self.verbs.count];
     }
 }
 
@@ -243,7 +247,11 @@
     BOOL remote = [[NSUserDefaults standardUserDefaults] boolForKey:@"loadFromInternet"];
     
     if ((self.currentLevel!=setupLevel)||(self.includeLowerLevels!=lowerLevels)) {
-        _verbs = [self.store verbsForLevel:setupLevel includeLowerLevels:lowerLevels fromInternet:remote];
+        if (setupLevel<4) {
+            _verbs = [self.store verbsForLevel:setupLevel includeLowerLevels:lowerLevels fromInternet:remote];
+        } else {
+            _verbs = [self.store allVerbsFromInternet:remote];
+        }
         self.currentLevel = setupLevel;
         self.includeLowerLevels = lowerLevels;
     }
