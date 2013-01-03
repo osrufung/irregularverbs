@@ -30,6 +30,7 @@
 		E551F31D1694ADD100D3955E /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = E551F31C1694ADD100D3955E /* icon114.png */; };
 		E570094616939C7300219C24 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E570094516939C7300219C24 /* QuartzCore.framework */; };
 		E5ED1BD2168C7824009C1D59 /* preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = E5ED1BD1168C7824009C1D59 /* preferences.png */; };
+		E5FAD7AA169593C500C4B9E4 /* NSMutableArray+Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FAD7A9169593C500C4B9E4 /* NSMutableArray+Shuffling.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,8 @@
 		E551F31C1694ADD100D3955E /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
 		E570094516939C7300219C24 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E5ED1BD1168C7824009C1D59 /* preferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preferences.png; sourceTree = "<group>"; };
+		E5FAD7A8169593C500C4B9E4 /* NSMutableArray+Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffling.h"; sourceTree = "<group>"; };
+		E5FAD7A9169593C500C4B9E4 /* NSMutableArray+Shuffling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffling.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 				099AF69016834580001A6BF3 /* PreferencesViewController.m */,
 				099AF64F16834246001A6BF3 /* IrregularVerb.h */,
 				099AF65016834246001A6BF3 /* IrregularVerb.m */,
+				E5FAD7A8169593C500C4B9E4 /* NSMutableArray+Shuffling.h */,
+				E5FAD7A9169593C500C4B9E4 /* NSMutableArray+Shuffling.m */,
 				099AF61D1681FF3D001A6BF3 /* screenshot.png */,
 				E5ED1BD1168C7824009C1D59 /* preferences.png */,
 				099AF61A1681FBAA001A6BF3 /* README.md */,
@@ -230,6 +235,7 @@
 				099AF65116834247001A6BF3 /* IrregularVerb.m in Sources */,
 				099AF69116834580001A6BF3 /* PreferencesViewController.m in Sources */,
 				0988EF76169487310006067D /* VerbsVisualMapView.m in Sources */,
+				E5FAD7AA169593C500C4B9E4 /* NSMutableArray+Shuffling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "IrregularVerb.h"
+#import "NSMutableArray+Shuffling.h"
 
 @interface IrregularVerb()
 @property (nonatomic, strong) NSArray *verbs;
@@ -93,9 +94,24 @@
 }
 
 - (void)setVerbs:(NSArray *)verbs {
-    if (_verbs!=verbs) {
+    if (![_verbs isEqualToArray:verbs]) {
         _verbs = verbs;
         if (self.currentPos>=[_verbs count]) self.currentPos=0;
+    }
+}
+
+- (void)sortVerbsList {
+    if (self.randomOrder) {
+        NSMutableArray *newArray = [self.verbs mutableCopy];
+        [newArray shuffle];
+        self.verbs = newArray;
+    } else {
+        NSArray *newArray = [self.verbs sortedArrayUsingComparator:^(id ob1, id ob2){
+            NSString *s1 = [ob1 objectForKey:@"simple"];
+            NSString *s2 = [ob2 objectForKey:@"simple"];
+            return [s1 compare:s2];
+        }];
+        self.verbs = newArray;
     }
 }
 
@@ -103,6 +119,7 @@
     if (randomOrder!=_randomOrder) {
         _randomOrder = randomOrder;
         [[NSUserDefaults standardUserDefaults] setBool:_randomOrder forKey:@"randomOrder"];
+        [self sortVerbsList];
     }
 }
 
@@ -168,6 +185,7 @@
                 if (newVerbList) {
                     _level = level;
                     self.verbs = newVerbList;
+                    [self sortVerbsList];
                 }
                 
                 if ([self.delegate respondsToSelector:@selector(updateEnd)])
@@ -177,21 +195,15 @@
         //filter from local plist
         else{
             self.verbs = [self filteredVerbs:level];
+            [self sortVerbsList];
         }
  
     }
 }
 
 - (void)change {
-    if (self.randomOrder) {
-        if ([self.verbs count]) {
-            self.currentPos = (arc4random() % [self.verbs count]);
-        } else self.currentPos = 0;
-        
-    } else {
-        self.currentPos++;
-        if (self.currentPos>=[self.verbs count]) self.currentPos=0;
-    }
+    self.currentPos++;
+    if (self.currentPos>=self.verbs.count) self.currentPos=0;
 }
 -(int) size{
     return [self.verbs count];
