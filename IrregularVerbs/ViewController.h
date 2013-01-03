@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VerbsStore.h"
 #import "IrregularVerb.h"
 #import "PreferencesViewController.h"
 #import "VerbsVisualMapView.h"
-@interface ViewController : UIViewController <PreferencesViewControllerDelegate, IrregularVerbDelegate>
+@interface ViewController : UIViewController <PreferencesViewControllerDelegate, VerbsStoreDelegate>
 
 //Object Data Model
 @property (nonatomic, strong) IrregularVerb *verbs;

@@ -8,26 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol IrregularVerbDelegate<NSObject>
-
-@optional
-- (void)updateBegin;
-- (void)updateFailedWithError:(NSError *)error;
-- (void)updateEnd;
-
-@end
-
 @interface IrregularVerb : NSObject
-@property (nonatomic) NSInteger currentPos;
-@property (nonatomic) BOOL randomOrder;
-@property (nonatomic) int level;
+
 @property (nonatomic, readonly) NSString *simple;
 @property (nonatomic, readonly) NSString *translation;
 @property (nonatomic, readonly) NSString *past;
 @property (nonatomic, readonly) NSString *participle;
 
-@property (nonatomic, strong) id<IrregularVerbDelegate> delegate;
+@property (nonatomic) NSInteger currentPos;
+@property (nonatomic) BOOL randomOrder;
 
+- (id)initWithData:(NSArray *)verbList;
 - (void)change;
-- (int)size;
+- (int)count;
 @end
