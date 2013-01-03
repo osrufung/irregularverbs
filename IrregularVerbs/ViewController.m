@@ -12,19 +12,37 @@
 @interface ViewController ()
 //Each verb should be timestamped once
 @property BOOL currentVerbIsTimeStamped;
+@property (nonatomic, strong) VerbsStore *store;
+@property int currentLevel;
+@property BOOL includeLowerLevels;
 
 @end
 
 @implementation ViewController
 
 @synthesize verbs=_verbs, lastTimingValue=_lastTimingValue, currentVerbIsTimeStamped = _currentVerbIsTimeStamped;
+@synthesize store = _store, currentLevel = _currentLevel, includeLowerLevels = _includeLowerLevels;
 
 #pragma mark - Model Managment
 
+- (VerbsStore *)store {
+    if (!_store) {
+        _store = [[VerbsStore alloc] init];
+        _store.delegate = self;
+    }
+    return _store;
+}
+
 - (IrregularVerb *)verbs {
     if (!_verbs) {
-        _verbs = [[IrregularVerb alloc] init];
-        _verbs.delegate = self;
+        self.currentLevel =  [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+        self.includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
+        BOOL remote = [[NSUserDefaults standardUserDefaults] boolForKey:@"loadFromInternet"];
+        if (self.currentLevel<4) {
+            _verbs = [self.store verbsForLevel:self.currentLevel includeLowerLevels:self.includeLowerLevels fromInternet:remote];
+        } else {
+            _verbs = [self.store allVerbsFromInternet:remote];
+        }
     }
     return _verbs;
 }
@@ -71,21 +89,18 @@
     [super viewDidLoad];
    
     int setupLevel =  [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
-    [self.verbs setLevel:setupLevel];
-    
     [self setLabelLevelText:setupLevel];
     
     [self setLastTimingValue: CACurrentMediaTime()];
+
     //The first time we show a verb it shouldn't fire the timestamp
     self.currentVerbIsTimeStamped = YES;
     [self showOtherVerb];
     
     //init the VisualMap view
-    [self.visualMap setNumElements:[self.verbs size] ];
- 
+    [self.visualMap setNumElements:[self.verbs count] ];
     
 }
-
 
 
 - (void)didReceiveMemoryWarning
@@ -109,10 +124,10 @@
     if(level < 4){
         BOOL includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
         NSString *format = (includeLowerLevels)?@"To level %d (%d verbs)":@"Level %d (%d verbs)";
-        self.labelLevel.text = [NSString stringWithFormat:format, level, [self.verbs size]];
+        self.labelLevel.text = [NSString stringWithFormat:format, level, self.verbs.count];
     }
     else{
-        self.labelLevel.text = @"All levels";
+        self.labelLevel.text = [NSString stringWithFormat:@"All levels (%d verbs)", self.verbs.count];
     }
 }
 
@@ -226,19 +241,30 @@
     //we need no reload the sort preferences.
     [self.verbs setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
     //change level?
-    int setup_level = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+
+    int setupLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    BOOL lowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
+    BOOL remote = [[NSUserDefaults standardUserDefaults] boolForKey:@"loadFromInternet"];
     
-    self.verbs.level = setup_level;
- 
+    if ((self.currentLevel!=setupLevel)||(self.includeLowerLevels!=lowerLevels)) {
+        if (setupLevel<4) {
+            _verbs = [self.store verbsForLevel:setupLevel includeLowerLevels:lowerLevels fromInternet:remote];
+        } else {
+            _verbs = [self.store allVerbsFromInternet:remote];
+        }
+        self.currentLevel = setupLevel;
+        self.includeLowerLevels = lowerLevels;
+    }
     
-    [self setLabelLevelText:setup_level];
+    [self setLabelLevelText:setupLevel];
     //and repaint the shuffle indicator
     [self showOtherVerb];
     //init the VisualMap view
-    [self.visualMap setNumElements:[self.verbs size] ];
+    [self.visualMap setNumElements:[self.verbs count] ];
     [self animateShuffleIndicator];
     
 }
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showAlternate"]) {
