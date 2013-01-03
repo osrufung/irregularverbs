@@ -331,10 +331,12 @@
 		09D372FE1681BA4F00F80410 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Oswaldo Rubio (6D49C5XLGW)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IrregularVerbs/IrregularVerbs-Prefix.pch";
 				INFOPLIST_FILE = "IrregularVerbs/IrregularVerbs-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2DAFB50C-0D94-4F5E-AB18-B57F8E401482";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
