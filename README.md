@@ -5,6 +5,8 @@ A very Simple App for review your english knowledge about 154 Irregular Verbs (p
 Swipe Up to show other verb (present). Swipe Down to show the spanish translation. Swipe right or left to show the other verbal forms (past and participle). Double tap to choose between alphabetical sorted or random list of verbs.
 The kind of list is persisted between runs. Also if you are using a sorted list, the last position is saved, so you can study secuencialy with interruptions.
 
+Feedback about learning progress. Double tap the ColorMap introduced in V0.7 expand it into a matrix view. If you tap and hold any cell an alert popup showing all the data about this verb, incluiding the time you spend with it.
+
 The verbs were extracted from <http://www.mansioningles.com/gram53.htm>
 
 The purpose of this App is basically to learn iOS 6, and review our english :P
@@ -25,7 +27,10 @@ You can contact us at:
 * RB - v0.5 experimental GAE API use (27/12/2012)
 * OR - v0.6 new sametime option (show solution at same time), new default app settings loading (28/12/2012)
 * OR - v0.7 INESTABLE. explain by mean of colours the difficulty user in which the user moves from one word to another based in time difference (2/1/2013)
+* RB - v0.8 EXPERIMENTAL learning feedback usign a ColorMap
 
 ## Screenshot
 ![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot.png)
 ![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/preferences.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/colormap1.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/colormap2.png)
