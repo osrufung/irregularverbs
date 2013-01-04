@@ -11,17 +11,17 @@
 
 @interface ViewController ()
 //Each verb should be timestamped once
-@property BOOL currentVerbIsTimeStamped;
 @property (nonatomic, strong) VerbsStore *store;
-@property int currentLevel;
-@property BOOL includeLowerLevels;
+@property (nonatomic) int currentLevel;
+@property (nonatomic) BOOL includeLowerLevels;
 @property (nonatomic, strong) NSMutableArray *timeStamps;
+@property (nonatomic) BOOL inStudyMode;
 
 @end
 
 @implementation ViewController
 
-@synthesize verbs=_verbs, lastTimingValue=_lastTimingValue, currentVerbIsTimeStamped = _currentVerbIsTimeStamped;
+@synthesize verbs=_verbs, lastTimingValue=_lastTimingValue;
 @synthesize store = _store, currentLevel = _currentLevel, includeLowerLevels = _includeLowerLevels;
 @synthesize timeStamps = _timeStamps;
 
@@ -74,15 +74,29 @@
         [self fadeView:self.shuffleIndicator from:0.2 to:0.0];
     } 
 }
- 
+
+- (BOOL)inStudyMode {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"sameTime"];
+}
+
+- (void)setInStudyMode:(BOOL)inStudyMode {
+    [[NSUserDefaults standardUserDefaults] setBool:inStudyMode forKey:@"sameTime"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    if (inStudyMode) {
+        self.visualMap.hidden=YES;
+    } else {
+        self.visualMap.hidden=NO;
+    }
+}
+
 #pragma mark - Setup
 
 - (void)setupGestureRecognizers {
-    UISwipeGestureRecognizer *swUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showOtherVerb)];
-    UISwipeGestureRecognizer *swDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showTranslation:)];
+    UISwipeGestureRecognizer *swUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(changeVerb:)];
+    UISwipeGestureRecognizer *swDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(changeVerb:)];
     UISwipeGestureRecognizer *swLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showVerbalForms:)];
     UISwipeGestureRecognizer *swRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showVerbalForms:)];
-    UITapGestureRecognizer *tapOrder = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeSorting)];
+    UITapGestureRecognizer *tapOrder = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleMode:)];
     swUp.direction = UISwipeGestureRecognizerDirectionUp;
     swDown.direction = UISwipeGestureRecognizerDirectionDown;
     swLeft.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -107,16 +121,21 @@
    
     int setupLevel =  [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
     [self setLabelLevelText:setupLevel];
-    
     [self setLastTimingValue: CACurrentMediaTime()];
 
     //The first time we show a verb it shouldn't fire the timestamp
-    self.currentVerbIsTimeStamped = YES;
-    [self showOtherVerb];
+    [self showVerbAnimatedForm:UISwipeGestureRecognizerDirectionUp];
     
     //init the VisualMap view
     self.visualMap.dataSource = self;
     self.visualMap.delegate = self;
+    
+    if (self.inStudyMode) {
+        self.visualMap.hidden=YES;
+    } else {
+        self.visualMap.hidden=NO;
+    }
+
 }
 
 
@@ -149,75 +168,62 @@
 }
 
 - (void)timeStampCurrentVerb {
-    if (!self.currentVerbIsTimeStamped) {
-        double CurrentTime = CACurrentMediaTime();
-        NSLog(@"Current time Diff %f seconds", CurrentTime  - [self lastTimingValue]  );
-        double diff_time = CurrentTime - [self lastTimingValue]  ;
+    double CurrentTime = CACurrentMediaTime();
+    NSLog(@"Current time Diff %f seconds", CurrentTime  - [self lastTimingValue]  );
+    double diff_time = CurrentTime - [self lastTimingValue]  ;
         
-        [self setLastTimingValue:CurrentTime];
-        //mark new verb
-        [self.timeStamps insertObject:[NSNumber numberWithInt:(int)diff_time+1] atIndex:[self.verbs currentPos]];
-        [self.visualMap setNeedsDisplay];
-        self.currentVerbIsTimeStamped = YES;
-    }
+    [self setLastTimingValue:CurrentTime];
+    //mark new verb
+    [self.timeStamps insertObject:[NSNumber numberWithInt:(int)diff_time+1] atIndex:[self.verbs currentPos]];
+    [self.visualMap setNeedsDisplay];
 }
 
-- (void)showOtherVerb {
-    
+- (void)changeVerb:(UIGestureRecognizer *)gr {
+    UISwipeGestureRecognizer *swipeGR = (UISwipeGestureRecognizer *)gr;
+
     //We should timestamp the curren verb, before changing it
     [self timeStampCurrentVerb];
-    [self.verbs change];
-    self.currentVerbIsTimeStamped = NO;
-    
+    if (swipeGR.direction==UISwipeGestureRecognizerDirectionUp) {
+        self.verbs.currentPos++;
+    } else if (swipeGR.direction==UISwipeGestureRecognizerDirectionDown) {
+        self.verbs.currentPos--;
+    }
+    [self showVerbAnimatedForm:swipeGR.direction];
+}
 
-    
+- (void)showVerbAnimatedForm:(UISwipeGestureRecognizerDirection)dir {
     self.labelPresent.text = self.verbs.simple;
     self.labelTranslation.text = @"";
     self.labelPast.text = @"" ;
     self.labelParticiple.text = @"" ;
     
-    [self moveYView:self.labelPresent from:self.view.bounds.size.height to:0 duration:0.4];
+    CGFloat delta=self.view.bounds.size.height;
+    if (dir== UISwipeGestureRecognizerDirectionDown) delta=-self.labelParticiple.layer.position.y;
+    [self moveYView:self.labelPresent from:delta to:0 duration:0.4];
     
-    
-    //check sametime setting and show other forms
-    BOOL showSameTimePref = [[NSUserDefaults standardUserDefaults] boolForKey:@"sameTime"];
-    
-    if(showSameTimePref){
-        [self showTranslation:nil];
-        [self showVerbalForms:nil];
-    }
-    
-    
-}
-
-- (void)showTranslation:(UISwipeGestureRecognizer *)sender {
-    if (self.labelTranslation.text.length==0) {
+    if(self.inStudyMode) {
         self.labelTranslation.text = self.verbs.translation;
-        
-        if (sender) {
-            [self moveYView:self.labelTranslation from:-self.labelTranslation.layer.position.y to:0 duration:0.2];
-            // When the user use the swipe gesture to reveal any data, the time is over
-            [self timeStampCurrentVerb];
-            
-        } else {
-            [self moveYView:self.labelTranslation from:self.view.bounds.size.height to:0 duration:0.4];
-        }
-    }
-}
-
-- (void)showVerbalForms:(id)sender {
-    if (self.labelPast.text.length==0) {
         self.labelPast.text = self.verbs.past;
         self.labelParticiple.text = self.verbs.participle;
-        if (sender) {
+        [self moveYView:self.labelPast from:delta to:0 duration:0.4];
+        [self moveYView:self.labelParticiple from:delta to:0 duration:0.4];
+        [self moveYView:self.labelTranslation from:delta to:0 duration:0.4];
+    }
+    
+}
+
+- (void)showVerbalForms:(UIGestureRecognizer *)gr {
+    if (self.labelPast.text.length==0) {
+        self.labelTranslation.text = self.verbs.translation;
+        self.labelPast.text = self.verbs.past;
+        self.labelParticiple.text = self.verbs.participle;
+        if (gr) {
             [self fadeView:self.labelPast from:0.0 to:1.0 ];
             [self fadeView:self.labelParticiple from:0.0 to:1.0];
+            [self fadeView:self.labelTranslation from:0.0 to:1.0];
             // When the user use the swipe gesture to reveal any data, the time is over
             [self timeStampCurrentVerb];
-        } else {
-            [self moveYView:self.labelPast from:self.view.bounds.size.height to:0 duration:0.4];
-            [self moveYView:self.labelParticiple from:self.view.bounds.size.height to:0 duration:0.4];
-        }        
+        }
     }
 }
 
@@ -226,6 +232,15 @@
      [self animateShuffleIndicator];
 }
 
+- (void)toggleMode:(UIGestureRecognizer *)gr {
+    self.inStudyMode = !self.inStudyMode;
+    if (!self.inStudyMode) {
+        [self resetTimeStamps];
+        [self.visualMap setNeedsDisplay];
+        self.verbs.currentPos=0;
+    }
+    [self showVerbAnimatedForm:UISwipeGestureRecognizerDirectionUp];
+}
 
 #pragma mark - Helpers CAAnimation
 
@@ -276,7 +291,7 @@
     
     [self setLabelLevelText:setupLevel];
     //and repaint the shuffle indicator
-    [self showOtherVerb];
+    [self showVerbAnimatedForm:UISwipeGestureRecognizerDirectionUp];
     //init the VisualMap view
     [self resetTimeStamps];
     [self.visualMap setNeedsDisplay];
@@ -302,7 +317,7 @@
 - (void)updateEnd {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.activityIndicator stopAnimating];
-        [self showOtherVerb];
+        [self showVerbAnimatedForm:UISwipeGestureRecognizerDirectionUp];
     });
 }
 

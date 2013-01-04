@@ -65,10 +65,6 @@
     }
 }
 
-- (void)change {
-    self.currentPos++;
-}
-
 -(int) count{
     return [self.verbs count];
 }

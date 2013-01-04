@@ -19,6 +19,5 @@
 @property (nonatomic) BOOL randomOrder;
 
 - (id)initWithData:(NSArray *)verbList;
-- (void)change;
 - (int)count;
 @end
