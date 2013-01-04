@@ -174,7 +174,7 @@
         
     [self setLastTimingValue:CurrentTime];
     //mark new verb
-    [self.timeStamps insertObject:[NSNumber numberWithInt:(int)diff_time+1] atIndex:[self.verbs currentPos]];
+    [self.timeStamps replaceObjectAtIndex:self.verbs.currentPos withObject:[NSNumber numberWithInt:(int)diff_time+1]];
     [self.visualMap setNeedsDisplay];
 }
 
