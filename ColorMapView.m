@@ -21,24 +21,21 @@
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                 action:@selector(toggleSize:)];
     doubleTap.numberOfTapsRequired=2;
-    doubleTap.cancelsTouchesInView=NO;
 
-    UILongPressGestureRecognizer *tapHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self
-                                                                                          action:@selector(itemSelected:)];
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                 action:@selector(itemSelected:)];
+    singleTap.numberOfTapsRequired=1;
+    [singleTap requireGestureRecognizerToFail:doubleTap];
+    
     [self addGestureRecognizer:doubleTap];
     [self addGestureRecognizer:singleTap];
-    [self addGestureRecognizer:tapHold];
 }
 
 - (void)itemSelected:(UIGestureRecognizer *)tap {
-    if (tap.state == UIGestureRecognizerStateBegan) {
-        CGPoint tapPoint = [tap locationInView:self];
-        NSLog(@"[%f,%f]",tapPoint.x,tapPoint.y);
-        int index = tapPoint.x/_side + (int)(tapPoint.y/_side)*_nw;
-        [self.delegate colorMapView:self selectedItemAtIndex:index];
-    }
+    CGPoint tapPoint = [tap locationInView:self];
+    NSLog(@"[%f,%f]",tapPoint.x,tapPoint.y);
+    int index = tapPoint.x/_side + (int)(tapPoint.y/_side)*_nw;
+    [self.delegate colorMapView:self selectedItemAtIndex:index];
 }
 
 #define COMPRESED_SIZE 12
