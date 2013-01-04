@@ -97,6 +97,7 @@
     UISwipeGestureRecognizer *swLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showVerbalForms:)];
     UISwipeGestureRecognizer *swRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showVerbalForms:)];
     UITapGestureRecognizer *tapOrder = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleMode:)];
+    UILongPressGestureRecognizer *tapHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResults:)];
     swUp.direction = UISwipeGestureRecognizerDirectionUp;
     swDown.direction = UISwipeGestureRecognizerDirectionDown;
     swLeft.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -108,6 +109,7 @@
     [self.view addGestureRecognizer:swLeft];
     [self.view addGestureRecognizer:swRight];
     [self.view addGestureRecognizer:tapOrder];
+    [self.view addGestureRecognizer:tapHold];
 }
 
 - (void)awakeFromNib {
@@ -240,6 +242,12 @@
         self.verbs.currentPos=0;
     }
     [self showVerbAnimatedForm:UISwipeGestureRecognizerDirectionUp];
+}
+
+- (void)showResults:(UIGestureRecognizer *)gr {
+    if (!self.inStudyMode &&(gr.state==UIGestureRecognizerStateBegan)) {
+        [self.visualMap toggleSize:nil];
+    }
 }
 
 #pragma mark - Helpers CAAnimation
