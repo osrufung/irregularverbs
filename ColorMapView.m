@@ -11,13 +11,60 @@
 
 
 @implementation ColorMapView
-
-- (void)awakeFromNib {
-    
+{
+    int _nw;
+    int _nh;
+    int _side;
 }
 
-- (void)drawRect:(CGRect)rect
-{
+- (void)awakeFromNib {
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                action:@selector(toggleSize)];
+    doubleTap.numberOfTapsRequired=2;
+    UILongPressGestureRecognizer *tapHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                                                          action:@selector(tapHold:)];
+    [self addGestureRecognizer:doubleTap];
+    [self addGestureRecognizer:tapHold];
+}
+
+- (void) tapHold:(UIGestureRecognizer *)tap {
+    if (tap.state == UIGestureRecognizerStateBegan) {
+        CGPoint tapPoint = [tap locationInView:self];
+        NSLog(@"[%f,%f]",tapPoint.x,tapPoint.y);
+    }
+}
+
+#define COMPRESED_SIZE 12
+#define INSET_SIZE 20
+#define GUTTER_WIDTH 4
+
+- (void)toggleSize {
+    CGRect newFrame;
+    CGRect mainScreenFrame = [[UIScreen mainScreen] applicationFrame];
+    if (self.frame.size.height==COMPRESED_SIZE) {
+        newFrame = CGRectInset(mainScreenFrame, INSET_SIZE, INSET_SIZE);
+        int nItems = [self.dataSource numberOfItemsInColorMapView:self];
+        if (nItems>0) {
+            _nw = (int)ceil(sqrt(newFrame.size.width*nItems/newFrame.size.height));
+            _nh = (int)ceil(nItems/(float)_nw);
+            _side = MIN(newFrame.size.width/_nw,newFrame.size.height/_nh);
+            CGSize fittedSize = CGSizeMake(_nw*_side+GUTTER_WIDTH, _nh*_side+GUTTER_WIDTH);
+            newFrame = CGRectMake(newFrame.origin.x+(newFrame.size.width-fittedSize.width)/2.0,
+                                  newFrame.origin.y+(newFrame.size.height-fittedSize.height)/2.0,
+                                  fittedSize.width, fittedSize.height);
+        }
+        
+    } else {
+        newFrame = CGRectMake(0, mainScreenFrame.size.height-COMPRESED_SIZE, mainScreenFrame.size.width, COMPRESED_SIZE);
+    }
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.2];
+    self.frame = newFrame;
+    [UIView commitAnimations];
+    [self setNeedsDisplay];
+}
+
+- (void)drawStrip {
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     
     CGRect r1;
@@ -35,6 +82,46 @@
             CGContextFillPath(ctx);
             r1.origin.x += itemWidth;
         }
+    }
+}
+
+- (void)drawMatrix {
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGRect bound = [self bounds];
+    
+    int nItems = [self.dataSource numberOfItemsInColorMapView:self];
+    if(nItems>0)
+    {
+        /*
+        int nw = (int)round(self.bounds.size.width*sqrt(nItems)/self.bounds.size.height);
+        int nh = (int)ceil(nItems/(float)nw);
+        int side = MIN(bound.size.width/nw,bound.size.height/nh);
+        NSLog(@"%d, %d, %d",nw,nh,side);
+        NSLog(@"nItems = %d, nw*nh=%d",nItems,nw*nh);
+        */
+        
+        CGPoint org = CGPointMake((bound.size.width-_nw*_side)/2.0, (bound.size.height-_nh*_side)/2.0);
+        
+        int currentElement=0;
+        for(int y=0;y<_nh;y++)
+            for (int x=0;x<_nw;x++) {
+                if (currentElement<nItems) {
+                    [[self.dataSource colorMapView:self colorForItemAtIndex:currentElement] setFill];
+                    [[UIColor darkGrayColor] setStroke];
+                    CGRect r1 = CGRectMake(org.x+x*_side+GUTTER_WIDTH/2.0, org.y+y*_side+GUTTER_WIDTH/2.0, _side-GUTTER_WIDTH, _side-GUTTER_WIDTH);
+                    CGContextStrokeRect(ctx, r1);
+                    CGContextFillRect(ctx, r1);
+                    currentElement++;
+                }
+            }
+    }
+}
+
+- (void)drawRect:(CGRect)rect {
+    if (self.bounds.size.height == COMPRESED_SIZE) {
+        [self drawStrip];
+    } else {
+        [self drawMatrix];
     }
 }
  
