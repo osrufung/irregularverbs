@@ -16,9 +16,13 @@
     int _nh;
     int _side;
     UITapGestureRecognizer *_singleTapGR;
+ 
 }
-
+#define COMPRESED_SIZE 12
+#define INSET_SIZE 20
+#define GUTTER_WIDTH 4
 - (void)awakeFromNib {
+   
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                 action:@selector(toggleSize:)];
     doubleTap.numberOfTapsRequired=2;
@@ -32,15 +36,17 @@
 }
 
 - (void)itemSelected:(UIGestureRecognizer *)tap {
-    CGPoint tapPoint = [tap locationInView:self];
-    NSLog(@"[%f,%f]",tapPoint.x,tapPoint.y);
-    int index = tapPoint.x/_side + (int)(tapPoint.y/_side)*_nw;
-    [self.delegate colorMapView:self selectedItemAtIndex:index];
+    if (self.frame.size.height!=COMPRESED_SIZE)
+    {
+        CGPoint tapPoint = [tap locationInView:self];
+        NSLog(@"[%f,%f]",tapPoint.x,tapPoint.y);
+        int index = tapPoint.x/_side + (int)(tapPoint.y/_side)*_nw;
+        [self.delegate colorMapView:self selectedItemAtIndex:index];
+    } 
+
 }
 
-#define COMPRESED_SIZE 12
-#define INSET_SIZE 20
-#define GUTTER_WIDTH 4
+
 
 - (void)toggleSize:(UIGestureRecognizer *)tap {
     CGRect newFrame;
