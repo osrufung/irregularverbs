@@ -98,7 +98,7 @@
 
 - (void)awakeFromNib {
     [self setupGestureRecognizers];
-     [self animateShuffleIndicator];
+    [self animateShuffleIndicator];
 }
 
 - (void)viewDidLoad
@@ -116,7 +116,7 @@
     
     //init the VisualMap view
     self.visualMap.dataSource = self;
-    
+    self.visualMap.delegate = self;
 }
 
 
@@ -344,6 +344,23 @@
         ret=[UIColor redColor];
     }
     return ret;
+}
+
+#pragma mark - ColorMapViewDelegate
+
+- (void)colorMapView:(ColorMapView *)colorMapView selectedItemAtIndex:(int)index {
+    
+    int savePos = self.verbs.currentPos;
+    self.verbs.currentPos = index;
+    NSString * message = [NSString stringWithFormat:@"%@\n%@\n\n%@\n%@\n(%@ sec)",
+                          self.verbs.simple, self.verbs.translation, self.verbs.past, self.verbs.participle,self.timeStamps[index]];
+    self.verbs.currentPos = savePos;
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Revisión"
+                                                 message:message
+                                                delegate:nil
+                                       cancelButtonTitle:@"OK"
+                                       otherButtonTitles:nil];
+    [av show];
 }
 
 @end

@@ -19,18 +19,25 @@
 
 - (void)awakeFromNib {
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                action:@selector(toggleSize)];
+                                                                                action:@selector(toggleSize:)];
     doubleTap.numberOfTapsRequired=2;
+    doubleTap.cancelsTouchesInView=NO;
+
     UILongPressGestureRecognizer *tapHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self
-                                                                                          action:@selector(tapHold:)];
+                                                                                          action:@selector(itemSelected:)];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                action:@selector(itemSelected:)];
     [self addGestureRecognizer:doubleTap];
+    [self addGestureRecognizer:singleTap];
     [self addGestureRecognizer:tapHold];
 }
 
-- (void) tapHold:(UIGestureRecognizer *)tap {
+- (void)itemSelected:(UIGestureRecognizer *)tap {
     if (tap.state == UIGestureRecognizerStateBegan) {
         CGPoint tapPoint = [tap locationInView:self];
         NSLog(@"[%f,%f]",tapPoint.x,tapPoint.y);
+        int index = tapPoint.x/_side + (int)(tapPoint.y/_side)*_nw;
+        [self.delegate colorMapView:self selectedItemAtIndex:index];
     }
 }
 
@@ -38,7 +45,7 @@
 #define INSET_SIZE 20
 #define GUTTER_WIDTH 4
 
-- (void)toggleSize {
+- (void)toggleSize:(UIGestureRecognizer *)tap {
     CGRect newFrame;
     CGRect mainScreenFrame = [[UIScreen mainScreen] applicationFrame];
     if (self.frame.size.height==COMPRESED_SIZE) {
@@ -92,23 +99,16 @@
     int nItems = [self.dataSource numberOfItemsInColorMapView:self];
     if(nItems>0)
     {
-        /*
-        int nw = (int)round(self.bounds.size.width*sqrt(nItems)/self.bounds.size.height);
-        int nh = (int)ceil(nItems/(float)nw);
-        int side = MIN(bound.size.width/nw,bound.size.height/nh);
-        NSLog(@"%d, %d, %d",nw,nh,side);
-        NSLog(@"nItems = %d, nw*nh=%d",nItems,nw*nh);
-        */
-        
         CGPoint org = CGPointMake((bound.size.width-_nw*_side)/2.0, (bound.size.height-_nh*_side)/2.0);
-        
         int currentElement=0;
         for(int y=0;y<_nh;y++)
             for (int x=0;x<_nw;x++) {
                 if (currentElement<nItems) {
                     [[self.dataSource colorMapView:self colorForItemAtIndex:currentElement] setFill];
-                    [[UIColor darkGrayColor] setStroke];
-                    CGRect r1 = CGRectMake(org.x+x*_side+GUTTER_WIDTH/2.0, org.y+y*_side+GUTTER_WIDTH/2.0, _side-GUTTER_WIDTH, _side-GUTTER_WIDTH);
+                    [[UIColor lightTextColor] setStroke];
+                    CGRect r1 = CGRectMake(org.x+x*_side+GUTTER_WIDTH/2.0,
+                                           org.y+y*_side+GUTTER_WIDTH/2.0,
+                                           _side-GUTTER_WIDTH, _side-GUTTER_WIDTH);
                     CGContextStrokeRect(ctx, r1);
                     CGContextFillRect(ctx, r1);
                     currentElement++;

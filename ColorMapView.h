@@ -11,14 +11,17 @@
 @class ColorMapView;
 
 @protocol ColorMapViewDataSource <NSObject>
-
 - (int)numberOfItemsInColorMapView:(ColorMapView *)colorMapView;
 - (UIColor *)colorMapView:(ColorMapView *) colorMapView colorForItemAtIndex:(int)index;
+@end
 
+@protocol ColorMapViewDelegate <NSObject>
+- (void)colorMapView:(ColorMapView *)colorMapView selectedItemAtIndex:(int)index;
 @end
 
 @interface ColorMapView : UIView
 
 @property (nonatomic, weak) id<ColorMapViewDataSource> dataSource;
- 
+@property (nonatomic, weak) id<ColorMapViewDelegate> delegate;
+
 @end
