@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 092CDCA7168D8D8C0092FD32 /* Defaults.plist */; };
-		0988EF76169487310006067D /* VerbsVisualMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0988EF75169487310006067D /* VerbsVisualMapView.m */; };
+		0988EF76169487310006067D /* ColorMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0988EF75169487310006067D /* ColorMapView.m */; };
 		099AF61B1681FBAA001A6BF3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 099AF61A1681FBAA001A6BF3 /* README.md */; };
 		099AF61E1681FF3D001A6BF3 /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 099AF61D1681FF3D001A6BF3 /* screenshot.png */; };
 		099AF65116834247001A6BF3 /* IrregularVerb.m in Sources */ = {isa = PBXBuildFile; fileRef = 099AF65016834246001A6BF3 /* IrregularVerb.m */; };
@@ -36,8 +36,7 @@
 
 /* Begin PBXFileReference section */
 		092CDCA7168D8D8C0092FD32 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
-		0988EF74169487310006067D /* VerbsVisualMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerbsVisualMapView.h; path = ../VerbsVisualMapView.h; sourceTree = "<group>"; };
-		0988EF75169487310006067D /* VerbsVisualMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerbsVisualMapView.m; path = ../VerbsVisualMapView.m; sourceTree = "<group>"; };
+		0988EF75169487310006067D /* ColorMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorMapView.m; path = ../ColorMapView.m; sourceTree = "<group>"; };
 		099AF61A1681FBAA001A6BF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		099AF61D1681FF3D001A6BF3 /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		099AF64F16834246001A6BF3 /* IrregularVerb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IrregularVerb.h; sourceTree = "<group>"; };
@@ -69,6 +68,7 @@
 		E59D12F41695B8DC00C8DE51 /* NSArray+Shuffling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Shuffling.m"; path = "../NSArray+Shuffling.m"; sourceTree = "<group>"; };
 		E59D12F71695BAEC00C8DE51 /* VerbsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerbsStore.h; sourceTree = "<group>"; };
 		E59D12F81695BAEC00C8DE51 /* VerbsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerbsStore.m; sourceTree = "<group>"; };
+		E5D3DDB41696EAFE00FC4509 /* ColorMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorMapView.h; sourceTree = SOURCE_ROOT; };
 		E5ED1BD1168C7824009C1D59 /* preferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preferences.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,8 +134,8 @@
 				09D372E31681BA4F00F80410 /* Supporting Files */,
 				E59D12F71695BAEC00C8DE51 /* VerbsStore.h */,
 				E59D12F81695BAEC00C8DE51 /* VerbsStore.m */,
-				0988EF74169487310006067D /* VerbsVisualMapView.h */,
-				0988EF75169487310006067D /* VerbsVisualMapView.m */,
+				E5D3DDB41696EAFE00FC4509 /* ColorMapView.h */,
+				0988EF75169487310006067D /* ColorMapView.m */,
 				09D372F71681BA4F00F80410 /* ViewController.h */,
 				09D372F81681BA4F00F80410 /* ViewController.m */,
 			);
@@ -239,7 +239,7 @@
 				09D372F91681BA4F00F80410 /* ViewController.m in Sources */,
 				099AF65116834247001A6BF3 /* IrregularVerb.m in Sources */,
 				099AF69116834580001A6BF3 /* PreferencesViewController.m in Sources */,
-				0988EF76169487310006067D /* VerbsVisualMapView.m in Sources */,
+				0988EF76169487310006067D /* ColorMapView.m in Sources */,
 				E59D12F51695B8DC00C8DE51 /* NSArray+Shuffling.m in Sources */,
 				E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */,
 			);
