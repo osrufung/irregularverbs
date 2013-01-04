@@ -36,14 +36,10 @@
 }
 
 - (void)itemSelected:(UIGestureRecognizer *)tap {
-    if (self.frame.size.height!=COMPRESED_SIZE)
-    {
-        CGPoint tapPoint = [tap locationInView:self];
-        NSLog(@"[%f,%f]",tapPoint.x,tapPoint.y);
-        int index = tapPoint.x/_side + (int)(tapPoint.y/_side)*_nw;
-        [self.delegate colorMapView:self selectedItemAtIndex:index];
-    } 
-
+    CGPoint tapPoint = [tap locationInView:self];
+    NSLog(@"[%f,%f]",tapPoint.x,tapPoint.y);
+    int index = tapPoint.x/_side + (int)(tapPoint.y/_side)*_nw;
+    [self.delegate colorMapView:self selectedItemAtIndex:index];
 }
 
 
