@@ -15,6 +15,7 @@
 @property (nonatomic, strong) VerbsStore *store;
 @property int currentLevel;
 @property BOOL includeLowerLevels;
+@property (nonatomic, strong) NSMutableArray *timeStamps;
 
 @end
 
@@ -22,6 +23,7 @@
 
 @synthesize verbs=_verbs, lastTimingValue=_lastTimingValue, currentVerbIsTimeStamped = _currentVerbIsTimeStamped;
 @synthesize store = _store, currentLevel = _currentLevel, includeLowerLevels = _includeLowerLevels;
+@synthesize timeStamps = _timeStamps;
 
 #pragma mark - Model Managment
 
@@ -45,6 +47,21 @@
         }
     }
     return _verbs;
+}
+
+- (void)resetTimeStamps {
+    _timeStamps = [NSMutableArray arrayWithCapacity:self.verbs.count];
+    [_timeStamps removeAllObjects];
+    for (int i=0;i< self.verbs.count;i++){
+        [_timeStamps addObject:[NSNumber numberWithInt:0]];
+    }
+}
+
+- (NSMutableArray *)timeStamps {
+    if (!_timeStamps) {
+        [self resetTimeStamps];
+    }
+    return _timeStamps;
 }
  
 - (void)animateShuffleIndicator {
@@ -81,7 +98,7 @@
 
 - (void)awakeFromNib {
     [self setupGestureRecognizers];
-     [self animateShuffleIndicator];
+    [self animateShuffleIndicator];
 }
 
 - (void)viewDidLoad
@@ -98,8 +115,8 @@
     [self showOtherVerb];
     
     //init the VisualMap view
-    [self.visualMap setNumElements:[self.verbs count] ];
-    
+    self.visualMap.dataSource = self;
+    self.visualMap.delegate = self;
 }
 
 
@@ -139,7 +156,8 @@
         
         [self setLastTimingValue:CurrentTime];
         //mark new verb
-        [self.visualMap markElement: [self.verbs currentPos] seconds:diff_time];
+        [self.timeStamps insertObject:[NSNumber numberWithInt:(int)diff_time+1] atIndex:[self.verbs currentPos]];
+        [self.visualMap setNeedsDisplay];
         self.currentVerbIsTimeStamped = YES;
     }
 }
@@ -260,7 +278,8 @@
     //and repaint the shuffle indicator
     [self showOtherVerb];
     //init the VisualMap view
-    [self.visualMap setNumElements:[self.verbs count] ];
+    [self resetTimeStamps];
+    [self.visualMap setNeedsDisplay];
     [self animateShuffleIndicator];
     
 }
@@ -298,4 +317,50 @@
         [alert show];
     });
 }
+
+#pragma mark - ColorMapViewDataSource
+
+- (int)numberOfItemsInColorMapView:(ColorMapView *)colorMapView {
+    return self.verbs.count;
+}
+
+- (UIColor *)colorMapView:(ColorMapView *) colorMapView colorForItemAtIndex:(int)index {
+    UIColor *ret=nil;
+    
+    int val = [self.timeStamps[index] intValue];
+    if(val == 0){
+        ret=[UIColor lightGrayColor];
+        
+    }else if (val < 3)
+    {
+        ret=[UIColor greenColor];
+    }
+    else if (val < 5)
+    {
+        ret=[UIColor orangeColor];
+    }
+    else
+    {
+        ret=[UIColor redColor];
+    }
+    return ret;
+}
+
+#pragma mark - ColorMapViewDelegate
+
+- (void)colorMapView:(ColorMapView *)colorMapView selectedItemAtIndex:(int)index {
+    
+    int savePos = self.verbs.currentPos;
+    self.verbs.currentPos = index;
+    NSString * message = [NSString stringWithFormat:@"%@\n%@\n\n%@\n%@\n(%@ sec)",
+                          self.verbs.simple, self.verbs.translation, self.verbs.past, self.verbs.participle,self.timeStamps[index]];
+    self.verbs.currentPos = savePos;
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Revisión"
+                                                 message:message
+                                                delegate:nil
+                                       cancelButtonTitle:@"OK"
+                                       otherButtonTitles:nil];
+    [av show];
+}
+
 @end
