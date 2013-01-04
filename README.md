@@ -5,7 +5,7 @@ A very Simple App for review your english knowledge about 154 Irregular Verbs (p
 Swipe Up to show other verb (present). Swipe Down to show the spanish translation. Swipe right or left to show the other verbal forms (past and participle). Double tap to choose between alphabetical sorted or random list of verbs.
 The kind of list is persisted between runs. Also if you are using a sorted list, the last position is saved, so you can study secuencialy with interruptions.
 
-Feedback about learning progress. Double tap the ColorMap introduced in V0.7 expand it into a matrix view. If you tap and hold any cell an alert popup showing all the data about this verb, incluiding the time you spend with it.
+Feedback about learning progress. Double tap the ColorMap introduced in V0.7 expand it into a matrix view. If you tap a cell an alert popup showing all the data about this verb, incluiding the time you spend with it. You dismiss this view with a double tap.
 
 The verbs were extracted from <http://www.mansioningles.com/gram53.htm>
 
