@@ -96,6 +96,7 @@
     [self.view addGestureRecognizer:tapOrder];
 }
 
+
 - (void)awakeFromNib {
     [self setupGestureRecognizers];
     [self animateShuffleIndicator];
@@ -363,4 +364,50 @@
     [av show];
 }
 
+#pragma mark accesibility 
+- (BOOL)accessibilityScroll:(UIAccessibilityScrollDirection)direction
+{
+ 
+    NSString *description = @"";
+    BOOL scrolled = NO;
+    switch (direction) {
+		case UIAccessibilityScrollDirectionRight:
+		{
+            [self showVerbalForms:nil];
+            scrolled = YES;
+            description = @"Scrolled Right";
+			break;
+		}
+		case UIAccessibilityScrollDirectionLeft:
+		{
+            [self showVerbalForms:nil];
+            scrolled = YES;
+            description = @"Scrolled Left";
+			break;
+		}
+		case UIAccessibilityScrollDirectionUp:
+		{
+			[self showOtherVerb];
+			scrolled = YES;
+			 description = @"Scrolled Up";
+			break;
+		}
+		case UIAccessibilityScrollDirectionDown:
+		{
+			[self showTranslation:nil];
+			scrolled = YES;
+			 description = @"Scrolled Down";
+			break;
+		}
+		default:
+			break;
+	}
+    if (scrolled)
+		UIAccessibilityPostNotification(UIAccessibilityPageScrolledNotification, description);
+    return TRUE;
+}
+
+- (NSInteger)accessibilityLineNumberForPoint:(CGPoint)point{
+    return NSNotFound;
+}
 @end

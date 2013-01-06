@@ -12,7 +12,7 @@
 #import "PreferencesViewController.h"
 #import "ColorMapView.h"
 
-@interface ViewController : UIViewController <PreferencesViewControllerDelegate, VerbsStoreDelegate, ColorMapViewDataSource, ColorMapViewDelegate>
+@interface ViewController : UIViewController <PreferencesViewControllerDelegate, VerbsStoreDelegate, ColorMapViewDataSource, ColorMapViewDelegate,UIAccessibilityReadingContent>
 
 //Object Data Model
 @property (nonatomic, strong) IrregularVerb *verbs;
@@ -26,6 +26,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *labelParticiple;
 @property (nonatomic, weak) IBOutlet UILabel *labelTranslation;
 @property (nonatomic, weak) IBOutlet UILabel *labelLevel;
+@property (nonatomic, weak) IBOutlet UIView *gestureCardView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *shuffleIndicator;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet ColorMapView *visualMap;
