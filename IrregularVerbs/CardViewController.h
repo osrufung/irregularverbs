@@ -7,20 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VerbsStore.h"
-#import "IrregularVerb.h"
-#import "PreferencesViewController.h"
 #import "ColorMapView.h"
 
-@interface CardViewController : UIViewController <UIGestureRecognizerDelegate, PreferencesViewControllerDelegate, VerbsStoreDelegate, ColorMapViewDataSource, ColorMapViewDelegate>
+enum CardViewControllerPresentationMode {
+    CardViewControllerPresentationModeLearn = 0,
+    CardViewControllerPresentationModeTest,
+    CardViewControllerPresentationModeReview
+    };
 
-//Object Data Model
-@property (nonatomic, strong) IrregularVerb *verbs;
-//current verb (to be deprecated)
-@property int current_Pos;
-//used for timimg purposes
-@property double lastTimingValue;
-//label outlets
+@interface CardViewController : UIViewController <UIGestureRecognizerDelegate, ColorMapViewDataSource, ColorMapViewDelegate>
+
+@property (nonatomic, strong) NSDictionary *verb;
+@property (nonatomic) int                   verbIndex;
+@property (nonatomic) int                   currentLevel;
+@property (nonatomic) BOOL                  includeLowerLevels;
+@property (nonatomic) BOOL                  randomOrder;
+
+@property (nonatomic) double                beginTestTime;
+@property (nonatomic) double                endTestTime;
+
+
+@property (nonatomic) enum CardViewControllerPresentationMode presentationMode;
+
 @property (nonatomic, weak) IBOutlet UILabel *labelPresent;
 @property (nonatomic, weak) IBOutlet UILabel *labelPast;
 @property (nonatomic, weak) IBOutlet UILabel *labelParticiple;
@@ -29,5 +37,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *shuffleIndicator;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet ColorMapView *visualMap;
+
 
 @end

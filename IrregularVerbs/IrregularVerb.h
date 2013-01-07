@@ -10,14 +10,9 @@
 
 @interface IrregularVerb : NSObject
 
-@property (nonatomic, readonly) NSString *simple;
-@property (nonatomic, readonly) NSString *translation;
-@property (nonatomic, readonly) NSString *past;
-@property (nonatomic, readonly) NSString *participle;
-
-@property (nonatomic) NSInteger currentPos;
 @property (nonatomic) BOOL randomOrder;
 
 - (id)initWithData:(NSArray *)verbList;
 - (int)count;
+- (NSDictionary *)verbAtIndex:(int)index;
 @end

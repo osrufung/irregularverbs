@@ -16,7 +16,7 @@
 
 @implementation IrregularVerb
 
-@synthesize verbs=_verbs, randomOrder=_randomOrder, currentPos=_currentPos;
+@synthesize verbs=_verbs, randomOrder=_randomOrder;
 
 // It's needed to get the last inner state (random/sorted and last position)
 - (id)initWithData:(NSArray *)verbList {
@@ -24,7 +24,6 @@
     if (self) {
         self.verbs = verbList;
         self.randomOrder = [[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
-        self.currentPos=[[NSUserDefaults standardUserDefaults] integerForKey:@"currentPos"];
         [self sortVerbsList];
     }
     return self;
@@ -33,7 +32,6 @@
 - (void)setVerbs:(NSArray *)verbs {
     if (![_verbs isEqualToArray:verbs]) {
         _verbs = verbs;
-        if (self.currentPos>=[_verbs count]) self.currentPos=0;
     }
 }
 
@@ -57,29 +55,11 @@
     }
 }
 
-- (void)setCurrentPos:(NSInteger)currentPos {
-    if (currentPos!=_currentPos) {
-        _currentPos=currentPos;
-        if (_currentPos >= self.verbs.count) _currentPos = 0;
-        [[NSUserDefaults standardUserDefaults] setInteger:_currentPos forKey:@"currentPos"];
-    }
+- (NSDictionary *)verbAtIndex:(int)index {
+    return [self.verbs[index] copy];
 }
 
 -(int) count{
     return [self.verbs count];
 }
-- (NSString *)simple {
-    return self.verbs[self.currentPos][@"simple"];
-}
-
-- (NSString *)translation {
-    return self.verbs[self.currentPos][@"translation"];
-}
-- (NSString *)past {
-    return self.verbs[self.currentPos][@"past"];
-}
-- (NSString *)participle {
-    return self.verbs[self.currentPos][@"participle"];
-}
-
 @end
