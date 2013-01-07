@@ -22,7 +22,8 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Simple Form" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZ6-mp-dja">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="l5X-hn-UYb"/>
+                                    <constraint firstAttribute="height" constant="56" id="Hqg-dT-PRW"/>
+                                    <constraint firstAttribute="width" constant="280" id="TfW-ek-mfh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -39,7 +40,6 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Past Participle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUq-md-Ylv">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="8Ne-WS-MqX"/>
-                                    <constraint firstAttribute="width" constant="280" id="U1i-dx-Uzr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -47,7 +47,7 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="translation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-r7-sFC">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="gQx-im-W55"/>
+                                    <constraint firstAttribute="height" constant="32" id="BV5-F9-4Eo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="textColor" red="0.4183376012862472" green="0.74267442665452232" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,8 +68,8 @@
                             </button>
                             <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" image="media-shuffle.png" translatesAutoresizingMaskIntoConstraints="NO" id="eaf-yf-Pwh">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="173" id="YMg-0D-b6G"/>
-                                    <constraint firstAttribute="width" constant="240" id="vTm-Xf-U6X"/>
+                                    <constraint firstAttribute="height" constant="173" id="WR1-5e-kuA"/>
+                                    <constraint firstAttribute="width" constant="240" id="dH7-c3-B1O"/>
                                 </constraints>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="efl-dX-Gec"/>
@@ -78,33 +78,33 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X79-Mp-0gX" customClass="ColorMapView">
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCF-gW-gSf" customClass="TestProgressView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="X79-Mp-0gX" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="0TG-Ta-Qe8"/>
-                            <constraint firstItem="GEz-Nm-P4V" firstAttribute="leading" secondItem="lZ6-mp-dja" secondAttribute="leading" type="default" id="3fE-Qa-cx8"/>
-                            <constraint firstItem="rUq-md-Ylv" firstAttribute="trailing" secondItem="FAF-Hu-3EZ" secondAttribute="trailing" type="default" id="3ue-Yb-YAK"/>
-                            <constraint firstItem="eaf-yf-Pwh" firstAttribute="centerX" secondItem="rUq-md-Ylv" secondAttribute="centerX" type="default" id="DGH-8S-yTw"/>
-                            <constraint firstItem="Gx3-da-PXV" firstAttribute="centerX" secondItem="X79-Mp-0gX" secondAttribute="centerX" type="default" id="J67-c5-JF2"/>
+                            <constraint firstItem="GEz-Nm-P4V" firstAttribute="leading" secondItem="lZ6-mp-dja" secondAttribute="leading" type="default" id="7Rf-Hg-rlh"/>
+                            <constraint firstItem="lZ6-mp-dja" firstAttribute="trailing" secondItem="GEz-Nm-P4V" secondAttribute="trailing" type="default" id="ABV-nr-Yfg"/>
+                            <constraint firstItem="rUq-md-Ylv" firstAttribute="trailing" secondItem="GEz-Nm-P4V" secondAttribute="trailing" type="default" id="C1e-pA-R7Y"/>
+                            <constraint firstItem="Gx3-da-PXV" firstAttribute="centerX" secondItem="Qza-r7-sFC" secondAttribute="centerX" type="default" id="GPL-us-gM4"/>
                             <constraint firstAttribute="bottom" secondItem="efl-dX-Gec" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="KLA-7F-dx5"/>
-                            <constraint firstItem="rUq-md-Ylv" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="23" id="Pso-Kt-bQf"/>
+                            <constraint firstItem="lCF-gW-gSf" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-14" id="NAr-Gi-F9l"/>
+                            <constraint firstItem="lCF-gW-gSf" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Pjy-RU-TX2"/>
+                            <constraint firstItem="GEz-Nm-P4V" firstAttribute="top" secondItem="3" secondAttribute="top" constant="172" id="QW3-Hi-OSI"/>
+                            <constraint firstItem="lCF-gW-gSf" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Sjh-fq-RT0"/>
+                            <constraint firstAttribute="bottom" secondItem="rUq-md-Ylv" secondAttribute="bottom" constant="210" id="Uo9-wZ-r9a"/>
                             <constraint firstAttribute="bottom" secondItem="eaf-yf-Pwh" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="XfK-8J-Lz6"/>
                             <constraint firstItem="rUq-md-Ylv" firstAttribute="leading" secondItem="GEz-Nm-P4V" secondAttribute="leading" type="default" id="adm-lN-Qyy"/>
-                            <constraint firstItem="GEz-Nm-P4V" firstAttribute="top" secondItem="3" secondAttribute="top" constant="172" id="bdT-cF-rGs"/>
                             <constraint firstAttribute="bottom" secondItem="FAF-Hu-3EZ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="cqn-p7-1m1"/>
-                            <constraint firstItem="X79-Mp-0gX" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="deS-Hx-tSU"/>
+                            <constraint firstItem="lZ6-mp-dja" firstAttribute="top" secondItem="lCF-gW-gSf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ejU-ej-llo"/>
                             <constraint firstItem="efl-dX-Gec" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fVp-XI-Xre"/>
                             <constraint firstAttribute="trailing" secondItem="Qza-r7-sFC" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="hIq-Ym-gLK"/>
-                            <constraint firstItem="GEz-Nm-P4V" firstAttribute="trailing" secondItem="lZ6-mp-dja" secondAttribute="trailing" type="default" id="hSC-kF-6S4"/>
-                            <constraint firstItem="X79-Mp-0gX" firstAttribute="top" secondItem="efl-dX-Gec" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="hcO-8n-afb"/>
-                            <constraint firstAttribute="bottom" secondItem="rUq-md-Ylv" secondAttribute="bottom" constant="210" id="hwh-wS-vTL"/>
+                            <constraint firstItem="FAF-Hu-3EZ" firstAttribute="trailing" secondItem="rUq-md-Ylv" secondAttribute="trailing" type="default" id="hJB-43-I6X"/>
+                            <constraint firstItem="rUq-md-Ylv" firstAttribute="centerX" secondItem="eaf-yf-Pwh" secondAttribute="centerX" type="default" id="lse-vy-CaZ"/>
                             <constraint firstItem="Qza-r7-sFC" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nqF-9h-XPc"/>
                             <constraint firstItem="Qza-r7-sFC" firstAttribute="top" secondItem="lZ6-mp-dja" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nqR-xp-ooW"/>
-                            <constraint firstItem="rUq-md-Ylv" firstAttribute="trailing" secondItem="GEz-Nm-P4V" secondAttribute="trailing" type="default" id="p7d-pH-VXq"/>
-                            <constraint firstItem="X79-Mp-0gX" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="vkM-4B-xb6"/>
+                            <constraint firstItem="lZ6-mp-dja" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="23" id="xIf-we-FKA"/>
                             <constraint firstItem="lZ6-mp-dja" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="xf7-4h-NrL"/>
                             <constraint firstAttribute="bottom" secondItem="Gx3-da-PXV" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="z4k-60-ovS"/>
                         </constraints>
@@ -117,7 +117,7 @@
                         <outlet property="labelPresent" destination="lZ6-mp-dja" id="zNf-ZW-oYX"/>
                         <outlet property="labelTranslation" destination="Qza-r7-sFC" id="A2f-X5-jgw"/>
                         <outlet property="shuffleIndicator" destination="eaf-yf-Pwh" id="cG2-g4-7Se"/>
-                        <outlet property="visualMap" destination="X79-Mp-0gX" id="b4J-KJ-hV2"/>
+                        <outlet property="testProgress" destination="lCF-gW-gSf" id="ziF-ht-Ig3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -262,6 +262,50 @@
     <resources>
         <image name="media-shuffle.png" width="256" height="256"/>
     </resources>
+    <classes>
+        <class className="CardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CardViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="labelLevel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelParticiple" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelPast" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelPresent" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTranslation" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shuffleIndicator" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="testProgress" candidateClass="TestProgressView"/>
+                <relationship kind="outlet" name="visualMap" candidateClass="ColorMapView"/>
+            </relationships>
+        </class>
+        <class className="CardsStackViewController" superclassName="UIPageViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CardsStackViewController.h"/>
+        </class>
+        <class className="ColorMapView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ColorMapView.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PreferencesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PreferencesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="diffycultyLevelChanged:" candidateClass="UISegmentedControl"/>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="action" name="lowerLevelsChanged"/>
+                <relationship kind="action" name="sameTimeChanged:"/>
+                <relationship kind="action" name="selectionChanged:"/>
+                <relationship kind="action" name="showAboutLink:"/>
+                <relationship kind="outlet" name="aboutLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="segmentedDifficultyLevel" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="segmentedSortControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="switchLowerLevels" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="switchShowSameTime" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="TestProgressView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TestProgressView.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

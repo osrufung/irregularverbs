@@ -32,6 +32,7 @@
 		E59D12F51695B8DC00C8DE51 /* NSArray+Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D12F41695B8DC00C8DE51 /* NSArray+Shuffling.m */; };
 		E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D12F81695BAEC00C8DE51 /* VerbsStore.m */; };
 		E5ED1BD2168C7824009C1D59 /* preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = E5ED1BD1168C7824009C1D59 /* preferences.png */; };
+		E5F42A08169B88BC00E3DC83 /* TestProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F42A07169B88BC00E3DC83 /* TestProgressView.m */; };
 		E5FE5827169B12B7002AC8A2 /* CardsStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,8 @@
 		E59D12F81695BAEC00C8DE51 /* VerbsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerbsStore.m; sourceTree = "<group>"; };
 		E5D3DDB41696EAFE00FC4509 /* ColorMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorMapView.h; sourceTree = SOURCE_ROOT; };
 		E5ED1BD1168C7824009C1D59 /* preferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preferences.png; sourceTree = "<group>"; };
+		E5F42A06169B88BC00E3DC83 /* TestProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestProgressView.h; sourceTree = "<group>"; };
+		E5F42A07169B88BC00E3DC83 /* TestProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestProgressView.m; sourceTree = "<group>"; };
 		E5FE5825169B12B7002AC8A2 /* CardsStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsStackViewController.h; sourceTree = "<group>"; };
 		E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsStackViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +96,8 @@
 		09D372CD1681BA4F00F80410 = {
 			isa = PBXGroup;
 			children = (
+				E5F42A06169B88BC00E3DC83 /* TestProgressView.h */,
+				E5F42A07169B88BC00E3DC83 /* TestProgressView.m */,
 				099AF61D1681FF3D001A6BF3 /* screenshot.png */,
 				E5ED1BD1168C7824009C1D59 /* preferences.png */,
 				099AF61A1681FBAA001A6BF3 /* README.md */,
@@ -248,6 +253,7 @@
 				E59D12F51695B8DC00C8DE51 /* NSArray+Shuffling.m in Sources */,
 				E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */,
 				E5FE5827169B12B7002AC8A2 /* CardsStackViewController.m in Sources */,
+				E5F42A08169B88BC00E3DC83 /* TestProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

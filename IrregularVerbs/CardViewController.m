@@ -9,7 +9,16 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CardViewController.h"
 
+#define MIN_TEST_TIME   1.f
+#define MED_TEST_TIME   3.f
+#define MAX_TEST_TIME   5.f
+#define TEST_TIMER_INTERVAL 1/30.f
+
 @interface CardViewController ()
+{
+    float _beginTestTime, _endTestTime;
+    NSTimer *_testTimer;
+}
 
 @end
 
@@ -17,7 +26,6 @@
 
 @synthesize currentLevel = _currentLevel, includeLowerLevels = _includeLowerLevels;
 @synthesize verb=_verb, presentationMode, verbIndex=_verbIndex, randomOrder=_randomOrder;
-@synthesize beginTestTime = _beginTestTime, endTestTime = _endTestTime;
 
 #pragma mark - Setup
 
@@ -29,10 +37,7 @@
     UILongPressGestureRecognizer *tapHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                                           action:@selector(showResults:)];
     swUp.direction = UISwipeGestureRecognizerDirectionUp;
-    swUp.delegate = self;
     swDown.direction = UISwipeGestureRecognizerDirectionDown;
-    swDown.delegate = self;
-    tapHold.delegate = self;
     
     [self.view addGestureRecognizer:swUp];
     [self.view addGestureRecognizer:swDown];
@@ -43,18 +48,54 @@
 {
     [super viewDidLoad];
     [self setupGestureRecognizers];
-   
-    //init the VisualMap view
-    self.visualMap.dataSource = self;
-    self.visualMap.delegate = self;
 }
 
 #pragma mark - User Interface
 
-- (void)setEndTestTime:(double)endTestTime {
-    _endTestTime = endTestTime;
-    NSLog(@"%f sec",self.endTestTime-self.beginTestTime);
+- (void)testTimerTick:(NSTimer *)timer {
+    float elapsedTime = CACurrentMediaTime() - _beginTestTime;
+    self.testProgress.progress=elapsedTime/MAX_TEST_TIME;
+    self.testProgress.backgroundColor = [self colorFromResponseTime:elapsedTime];
+    if (elapsedTime>=MAX_TEST_TIME) {
+        [self endTest];
+        [self showVerbalForms:nil];
+    }
 }
+
+- (void)beginTest {
+    _beginTestTime = CACurrentMediaTime();
+    if (_testTimer) {
+        [_testTimer invalidate];
+        _testTimer = nil;
+        _endTestTime = 0.f;
+    }
+    _testTimer = [NSTimer scheduledTimerWithTimeInterval:TEST_TIMER_INTERVAL
+                                                    target:self
+                                                selector:@selector(testTimerTick:)
+                                                userInfo:nil
+                                                repeats:YES];
+    self.testProgress.hidden = NO;
+    self.testProgress.progress = 0.f;
+}
+
+- (void)endTest {
+    if (_testTimer) {
+        _endTestTime = CACurrentMediaTime();
+        [_testTimer invalidate];
+        _testTimer = nil;
+        self.testProgress.hidden=YES;
+        self.testProgress.progress=self.responseTime/MAX_TEST_TIME;
+        NSLog(@"ResponseTime %f for %@",self.responseTime, self.verb[@"simple"]);
+    }
+}
+
+- (float)responseTime {
+    if (_endTestTime) {
+        return _endTestTime-_beginTestTime;
+    }
+    return 0.f;
+}
+
 
 -(void)setLabelLevelText {
     if(self.currentLevel < 4){
@@ -70,21 +111,7 @@
     [self showVerb];
     [self setLabelLevelText];
     self.shuffleIndicator.hidden=!self.randomOrder;
-    if (self.presentationMode == CardViewControllerPresentationModeTest) self.beginTestTime = CACurrentMediaTime();
 }
-
-/*
-- (void)timeStampCurrentVerb {
-    double CurrentTime = CACurrentMediaTime();
-    NSLog(@"Current time Diff %f seconds", CurrentTime  - [self lastTimingValue]  );
-    double diff_time = CurrentTime - [self lastTimingValue]  ;
-        
-    [self setLastTimingValue:CurrentTime];
-    //mark new verb
-    [self.timeStamps replaceObjectAtIndex:self.verbs.currentPos withObject:[NSNumber numberWithInt:(int)diff_time+1]];
-    [self.visualMap setNeedsDisplay];
-}
- */
 
 - (void)setVerb:(NSDictionary *)verb {
     if (verb!=_verb) _verb=verb;
@@ -106,21 +133,14 @@
 
 - (void)showVerbalForms:(UIGestureRecognizer *)gr {
     if (self.labelPast.text.length==0) {
-        self.endTestTime = CACurrentMediaTime();
+        [self endTest];
         self.labelTranslation.text = self.verb[@"translation"];
         self.labelPast.text = self.verb[@"past"];;
-        self.labelParticiple.text = self.verb[@"participle"];;
-        if (gr) {
-            [self fadeView:self.labelPast from:0.0 to:1.0 ];
-            [self fadeView:self.labelParticiple from:0.0 to:1.0];
-            [self fadeView:self.labelTranslation from:0.0 to:1.0];
-        }
+        self.labelParticiple.text = self.verb[@"participle"];
+        [self fadeView:self.labelPast from:0.0 to:1.0 ];
+        [self fadeView:self.labelParticiple from:0.0 to:1.0];
+        [self fadeView:self.labelTranslation from:0.0 to:1.0];
     }
-}
-
-- (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    CGPoint p = [touch locationInView:gestureRecognizer.view];
-    return !CGRectContainsPoint(self.visualMap.frame, p);
 }
 
 #pragma mark - Helpers CAAnimation
@@ -134,17 +154,6 @@
     view.layer.opacity = finalAlpha;
 }
 
-- (void)moveYView:(UIView *)view from:(CGFloat)begin to:(CGFloat)end duration:(CGFloat)seconds {
-    //1.1 Animate new verb introduction
-    CABasicAnimation *swipeInAnimation = [CABasicAnimation
-                                          animationWithKeyPath:@"transform.translation.y"];
-    swipeInAnimation.duration = seconds;
-    swipeInAnimation.fromValue = [NSNumber numberWithFloat:begin];
-    swipeInAnimation.toValue = [NSNumber numberWithFloat:end];
-    swipeInAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    [view.layer addAnimation:swipeInAnimation forKey:@"moveAnimation"];
-    
-}
 #pragma mark - Flipside View
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -154,56 +163,32 @@
     }
 }
 
-#pragma mark - ColorMapViewDataSource
-
-- (int)numberOfItemsInColorMapView:(ColorMapView *)colorMapView {
-   // return self.verbs.count;
-    return 0;
+- (UIColor *)interpolateBetween:(UIColor *)c1 and:(UIColor *)c2 atMix:(float)mix {
+    float r1,g1,b1,a1,r2,g2,b2,a2;
+    
+    [c1 getRed:&r1 green:&g1 blue:&b1 alpha:&a1];
+    [c2 getRed:&r2 green:&g2 blue:&b2 alpha:&a2];
+    
+    return [UIColor colorWithRed:r1+(r2-r1)*mix
+                           green:g1+(g2-g1)*mix
+                            blue:b1+(b2-b1)*mix
+                           alpha:a1+(a2-a1)*mix];
 }
 
-- (UIColor *)colorMapView:(ColorMapView *) colorMapView colorForItemAtIndex:(int)index {
-    /*
-    UIColor *ret=nil;
+- (UIColor *)colorFromResponseTime:(float)responseTime {
     
-    int val = [self.timeStamps[index] intValue];
-    if(val == 0){
-        ret=[UIColor lightGrayColor];
-        
-    }else if (val < 3)
-    {
-        ret=[UIColor greenColor];
+    if (responseTime<MIN_TEST_TIME) {
+        return [UIColor greenColor];
+    } else if (responseTime<MED_TEST_TIME) {
+        return [self interpolateBetween:[UIColor greenColor]
+                                    and:[UIColor orangeColor]
+                                  atMix:(responseTime-MIN_TEST_TIME)/(MED_TEST_TIME-MIN_TEST_TIME)];
+    } else if (responseTime<MAX_TEST_TIME) {
+        return [self interpolateBetween:[UIColor orangeColor]
+                                    and:[UIColor redColor]
+                                  atMix:(responseTime-MED_TEST_TIME)/(MAX_TEST_TIME-MED_TEST_TIME)];
     }
-    else if (val < 5)
-    {
-        ret=[UIColor orangeColor];
-    }
-    else
-    {
-        ret=[UIColor redColor];
-    }
-    return ret;
-     */
-    
-    return [UIColor greenColor];
-}
-
-#pragma mark - ColorMapViewDelegate
-
-- (void)colorMapView:(ColorMapView *)colorMapView selectedItemAtIndex:(int)index {
-    
-    /*
-    int savePos = self.verbs.currentPos;
-    self.verbs.currentPos = index;
-    NSString * message = [NSString stringWithFormat:@"%@\n%@\n\n%@\n%@\n(%@ sec)",
-                          self.verbs.simple, self.verbs.translation, self.verbs.past, self.verbs.participle,self.timeStamps[index]];
-    self.verbs.currentPos = savePos;
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Revisión"
-                                                 message:message
-                                                delegate:nil
-                                       cancelButtonTitle:@"OK"
-                                       otherButtonTitles:nil];
-    [av show];
-     */
+    return [UIColor redColor];
 }
 
 @end

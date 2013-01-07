@@ -50,22 +50,30 @@
 
     [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.mode]]
                    direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    [self.viewControllers[0] beginTest];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     CardViewController *vc = (CardViewController *) viewController;
-    if (vc.presentationMode==CardViewControllerPresentationModeTest) vc.endTestTime = CACurrentMediaTime();
     vc = [self verbCardAtIndex:vc.verbIndex+1 forPresentationMode:self.mode];
     return vc;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     CardViewController *vc = (CardViewController *) viewController;
-    if (vc.presentationMode==CardViewControllerPresentationModeTest) vc.endTestTime = CACurrentMediaTime();
     vc = [self verbCardAtIndex:vc.verbIndex-1 forPresentationMode:self.mode];
     return vc;
 }
 
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
+    if (completed) {
+        CardViewController *vc;
+        vc = previousViewControllers[0];
+        [vc endTest];
+        vc = pageViewController.viewControllers[0];
+        [vc beginTest];
+    }
+}
 
 #pragma mark - Model Managment
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ColorMapView.h"
+#import "TestProgressView.h"
 
 enum CardViewControllerPresentationMode {
     CardViewControllerPresentationModeLearn = 0,
@@ -15,17 +16,14 @@ enum CardViewControllerPresentationMode {
     CardViewControllerPresentationModeReview
     };
 
-@interface CardViewController : UIViewController <UIGestureRecognizerDelegate, ColorMapViewDataSource, ColorMapViewDelegate>
+@interface CardViewController : UIViewController
 
 @property (nonatomic, strong) NSDictionary *verb;
 @property (nonatomic) int                   verbIndex;
 @property (nonatomic) int                   currentLevel;
 @property (nonatomic) BOOL                  includeLowerLevels;
 @property (nonatomic) BOOL                  randomOrder;
-
-@property (nonatomic) double                beginTestTime;
-@property (nonatomic) double                endTestTime;
-
+@property (nonatomic, readonly) float       responseTime;
 
 @property (nonatomic) enum CardViewControllerPresentationMode presentationMode;
 
@@ -36,7 +34,9 @@ enum CardViewControllerPresentationMode {
 @property (nonatomic, weak) IBOutlet UILabel *labelLevel;
 @property (weak, nonatomic) IBOutlet UIImageView *shuffleIndicator;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet ColorMapView *visualMap;
+@property (weak, nonatomic) IBOutlet TestProgressView *testProgress;
 
+- (void)beginTest;
+- (void)endTest;
 
 @end
