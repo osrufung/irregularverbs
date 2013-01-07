@@ -256,8 +256,8 @@
     }
 }
 
-- (BOOL) gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    CGPoint p = [gestureRecognizer locationInView:gestureRecognizer.view];
+- (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    CGPoint p = [touch locationInView:gestureRecognizer.view];
     return !CGRectContainsPoint(self.visualMap.frame, p);
 }
 
