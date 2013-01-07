@@ -421,14 +421,14 @@
 		}
 		case UIAccessibilityScrollDirectionUp:
 		{
-			[self showOtherVerb];
+			[self showVerbAnimatedForm:UISwipeGestureRecognizerDirectionUp];
 			scrolled = YES;
 			 description = @"Scrolled Up";
 			break;
 		}
 		case UIAccessibilityScrollDirectionDown:
 		{
-			[self showTranslation:nil];
+			[self showVerbAnimatedForm:UISwipeGestureRecognizerDirectionDown];
 			scrolled = YES;
 			 description = @"Scrolled Down";
 			break;
