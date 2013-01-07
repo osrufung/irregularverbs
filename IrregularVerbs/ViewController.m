@@ -99,10 +99,16 @@
     UITapGestureRecognizer *tapOrder = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleMode:)];
     UILongPressGestureRecognizer *tapHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResults:)];
     swUp.direction = UISwipeGestureRecognizerDirectionUp;
+    swUp.delegate = self;
     swDown.direction = UISwipeGestureRecognizerDirectionDown;
+    swDown.delegate = self;
     swLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    swLeft.delegate = self;
     swRight.direction = UISwipeGestureRecognizerDirectionRight;
+    swRight.delegate = self;
     tapOrder.numberOfTapsRequired = 2;
+    tapHold.delegate = self;
+    tapOrder.delegate = self;
     
     [self.view addGestureRecognizer:swUp];
     [self.view addGestureRecognizer:swDown];
@@ -248,6 +254,11 @@
     if (!self.inStudyMode &&(gr.state==UIGestureRecognizerStateBegan)) {
         [self.visualMap toggleSize:nil];
     }
+}
+
+- (BOOL) gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    CGPoint p = [gestureRecognizer locationInView:gestureRecognizer.view];
+    return !CGRectContainsPoint(self.visualMap.frame, p);
 }
 
 #pragma mark - Helpers CAAnimation
