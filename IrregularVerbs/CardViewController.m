@@ -7,9 +7,9 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "ViewController.h"
+#import "CardViewController.h"
 
-@interface ViewController ()
+@interface CardViewController ()
 //Each verb should be timestamped once
 @property (nonatomic, strong) VerbsStore *store;
 @property (nonatomic) int currentLevel;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation ViewController
+@implementation CardViewController
 
 @synthesize verbs=_verbs, lastTimingValue=_lastTimingValue;
 @synthesize store = _store, currentLevel = _currentLevel, includeLowerLevels = _includeLowerLevels;

@@ -12,7 +12,7 @@
 #import "PreferencesViewController.h"
 #import "ColorMapView.h"
 
-@interface ViewController : UIViewController <UIGestureRecognizerDelegate, PreferencesViewControllerDelegate, VerbsStoreDelegate, ColorMapViewDataSource, ColorMapViewDelegate>
+@interface CardViewController : UIViewController <UIGestureRecognizerDelegate, PreferencesViewControllerDelegate, VerbsStoreDelegate, ColorMapViewDataSource, ColorMapViewDelegate>
 
 //Object Data Model
 @property (nonatomic, strong) IrregularVerb *verbs;
