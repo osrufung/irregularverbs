@@ -18,9 +18,10 @@
     UITapGestureRecognizer *_singleTapGR;
  
 }
-#define COMPRESED_SIZE 12
+#define COMPRESED_SIZE 32
 #define INSET_SIZE 20
 #define GUTTER_WIDTH 4
+
 - (void)awakeFromNib {
    
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self

@@ -26,6 +26,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *labelParticiple;
 @property (nonatomic, weak) IBOutlet UILabel *labelTranslation;
 @property (nonatomic, weak) IBOutlet UILabel *labelLevel;
+@property (nonatomic, weak) IBOutlet UIView *gestureCardView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *shuffleIndicator;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet ColorMapView *visualMap;
