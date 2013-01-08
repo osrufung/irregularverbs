@@ -27,8 +27,8 @@ You can contact us at:
 * RB - v0.9e NEW EXPERIMENTAL INTERFACE 
 
 ## Screenshot
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/learn.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/test_in_progress.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/test_fail.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/test_ok.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/review.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/paginated/learn.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/paginated/test_in_progress.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/paginated/test_fail.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/paginated/test_ok.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/paginated/review.png)
