@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "VerbsStore.h"
 #import "IrregularVerb.h"
+#import "CardViewController.h"
 #import "PreferencesViewController.h"
 
 @interface CardsStackViewController : UIPageViewController <VerbsStoreDelegate,UIPageViewControllerDataSource, UIPageViewControllerDelegate,PreferencesViewControllerDelegate>
 
-//Object Data Model
-@property (nonatomic, strong) IrregularVerb *verbs;
+@property (nonatomic) enum CardViewControllerPresentationMode presentationMode;
+
 
 @end

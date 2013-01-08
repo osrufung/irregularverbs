@@ -31,17 +31,14 @@
 
 - (void)setupGestureRecognizers {
     UISwipeGestureRecognizer *swUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self
-                                                                               action:@selector(showVerbalForms:)];
+                                                                               action:@selector(EndTestWithGesture:)];
     UISwipeGestureRecognizer *swDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self
-                                                                                 action:@selector(showVerbalForms:)];
-    UILongPressGestureRecognizer *tapHold = [[UILongPressGestureRecognizer alloc] initWithTarget:self
-                                                                                          action:@selector(showResults:)];
+                                                                                 action:@selector(EndTestWithGesture:)];
     swUp.direction = UISwipeGestureRecognizerDirectionUp;
     swDown.direction = UISwipeGestureRecognizerDirectionDown;
     
     [self.view addGestureRecognizer:swUp];
     [self.view addGestureRecognizer:swDown];
-    [self.view addGestureRecognizer:tapHold];
 }
 
 - (void)viewDidLoad
@@ -58,27 +55,26 @@
     self.testProgress.backgroundColor = [self colorFromResponseTime:elapsedTime];
     if (elapsedTime>=MAX_TEST_TIME) {
         [self endTest];
-        [self showVerbalForms:nil];
+        [self showResultsWithAnimation:YES];
     }
 }
 
 - (void)beginTest {
-    _beginTestTime = CACurrentMediaTime();
-    if (_testTimer) {
-        [_testTimer invalidate];
-        _testTimer = nil;
-        _endTestTime = 0.f;
+    if (self.presentationMode!=CardViewControllerPresentationModeTest) return;
+    if (!_testTimer) {
+        _beginTestTime = CACurrentMediaTime();
+        _testTimer = [NSTimer scheduledTimerWithTimeInterval:TEST_TIMER_INTERVAL
+                                                      target:self
+                                                    selector:@selector(testTimerTick:)
+                                                    userInfo:nil
+                                                     repeats:YES];
+        self.testProgress.hidden = NO;
+        self.testProgress.progress = 0.f;
     }
-    _testTimer = [NSTimer scheduledTimerWithTimeInterval:TEST_TIMER_INTERVAL
-                                                    target:self
-                                                selector:@selector(testTimerTick:)
-                                                userInfo:nil
-                                                repeats:YES];
-    self.testProgress.hidden = NO;
-    self.testProgress.progress = 0.f;
 }
 
 - (void)endTest {
+    if (self.presentationMode!=CardViewControllerPresentationModeTest) return;
     if (_testTimer) {
         _endTestTime = CACurrentMediaTime();
         [_testTimer invalidate];
@@ -111,6 +107,8 @@
     [self showVerb];
     [self setLabelLevelText];
     self.shuffleIndicator.hidden=!self.randomOrder;
+    if (self.presentationMode == CardViewControllerPresentationModeReview) [self showResultsWithAnimation:NO];
+    if (self.presentationMode == CardViewControllerPresentationModeTest) [self beginTest];
 }
 
 - (void)setVerb:(NSDictionary *)verb {
@@ -122,8 +120,9 @@
     self.labelTranslation.text = @"";
     self.labelPast.text = @"" ;
     self.labelParticiple.text = @"" ;
+    self.labelElapsedTime.text = @"";
     
-    if(self.presentationMode == CardViewControllerPresentationModeLearn) {
+    if(self.presentationMode != CardViewControllerPresentationModeTest) {
         self.labelTranslation.text = self.verb[@"translation"];
         self.labelPast.text = self.verb[@"past"];;
         self.labelParticiple.text = self.verb[@"participle"];;
@@ -131,16 +130,43 @@
     
 }
 
-- (void)showVerbalForms:(UIGestureRecognizer *)gr {
-    if (self.labelPast.text.length==0) {
-        [self endTest];
-        self.labelTranslation.text = self.verb[@"translation"];
-        self.labelPast.text = self.verb[@"past"];;
-        self.labelParticiple.text = self.verb[@"participle"];
+- (void)showResultsWithAnimation:(BOOL)animation {
+    self.labelTranslation.text = self.verb[@"translation"];
+    self.labelPast.text = self.verb[@"past"];;
+    self.labelParticiple.text = self.verb[@"participle"];
+    self.labelElapsedTime.text = [NSString stringWithFormat:@"%.2fs",self.responseTime];
+    self.labelElapsedTime.textColor = [self colorFromResponseTime:self.responseTime];
+    if ((animation)&&(self.labelPast.text==@"")) {
+        [self fadeView:self.labelElapsedTime from:0.0 to:1.0 ];
         [self fadeView:self.labelPast from:0.0 to:1.0 ];
         [self fadeView:self.labelParticiple from:0.0 to:1.0];
         [self fadeView:self.labelTranslation from:0.0 to:1.0];
     }
+}
+
+- (void)EndTestWithGesture:(UISwipeGestureRecognizer *)gestureRecognizer {
+    [self endTest];
+    [self showResultsWithAnimation:YES];
+    if (gestureRecognizer.direction == UISwipeGestureRecognizerDirectionUp) {
+        self.imageTestResult.image = [self paintImage:[UIImage imageNamed:@"checkmark_64.png"] withColor:[self colorFromResponseTime:self.responseTime]];
+    }
+    if (gestureRecognizer.direction == UISwipeGestureRecognizerDirectionDown) {
+        self.imageTestResult.image = [self paintImage:[UIImage imageNamed:@"delete_64.png"] withColor:[UIColor redColor]];
+    }
+}
+
+-(UIImage *)paintImage:(UIImage *)image withColor:(UIColor *)color
+{
+    UIImage *img;
+    CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
+    UIGraphicsBeginImageContext(image.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [color setFill];
+    CGContextFillRect(context, rect);
+    [image drawAtPoint:CGPointZero blendMode:kCGBlendModeDestinationIn alpha:1.0];
+    img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();    
+    return img;
 }
 
 #pragma mark - Helpers CAAnimation

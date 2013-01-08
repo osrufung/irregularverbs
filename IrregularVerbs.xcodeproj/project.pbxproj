@@ -26,6 +26,12 @@
 		09D372F61681BA4F00F80410 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D372F41681BA4F00F80410 /* MainStoryboard.storyboard */; };
 		09D372F91681BA4F00F80410 /* CardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D372F81681BA4F00F80410 /* CardViewController.m */; };
 		09D373001681BC5200F80410 /* verbs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09D372FF1681BC5200F80410 /* verbs.plist */; };
+		E53DBB4C169BFFD50080276A /* ModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53DBB4B169BFFD50080276A /* ModeViewController.m */; };
+		E53DBB57169C05DE0080276A /* book_bookmark_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB56169C05DE0080276A /* book_bookmark_24.png */; };
+		E53DBB59169C05F00080276A /* chart_bar_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB58169C05F00080276A /* chart_bar_24.png */; };
+		E53DBB5B169C05FF0080276A /* clock_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB5A169C05FF0080276A /* clock_24.png */; };
+		E53DBB5D169C0E550080276A /* checkmark_64.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB5C169C0E550080276A /* checkmark_64.png */; };
+		E53DBB5F169C0E670080276A /* delete_64.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB5E169C0E670080276A /* delete_64.png */; };
 		E551F31A1694ADCA00D3955E /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = E551F3191694ADCA00D3955E /* icon57.png */; };
 		E551F31D1694ADD100D3955E /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = E551F31C1694ADD100D3955E /* icon114.png */; };
 		E570094616939C7300219C24 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E570094516939C7300219C24 /* QuartzCore.framework */; };
@@ -63,6 +69,13 @@
 		09D372F71681BA4F00F80410 /* CardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardViewController.h; sourceTree = "<group>"; };
 		09D372F81681BA4F00F80410 /* CardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardViewController.m; sourceTree = "<group>"; };
 		09D372FF1681BC5200F80410 /* verbs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = verbs.plist; sourceTree = "<group>"; };
+		E53DBB4A169BFFD50080276A /* ModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeViewController.h; sourceTree = "<group>"; };
+		E53DBB4B169BFFD50080276A /* ModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeViewController.m; sourceTree = "<group>"; };
+		E53DBB56169C05DE0080276A /* book_bookmark_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_bookmark_24.png; sourceTree = "<group>"; };
+		E53DBB58169C05F00080276A /* chart_bar_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart_bar_24.png; sourceTree = "<group>"; };
+		E53DBB5A169C05FF0080276A /* clock_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock_24.png; sourceTree = "<group>"; };
+		E53DBB5C169C0E550080276A /* checkmark_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark_64.png; sourceTree = "<group>"; };
+		E53DBB5E169C0E670080276A /* delete_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_64.png; sourceTree = "<group>"; };
 		E551F3191694ADCA00D3955E /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
 		E551F31C1694ADD100D3955E /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
 		E570094516939C7300219C24 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -135,6 +148,8 @@
 				099AF64F16834246001A6BF3 /* IrregularVerb.h */,
 				099AF65016834246001A6BF3 /* IrregularVerb.m */,
 				09D372F41681BA4F00F80410 /* MainStoryboard.storyboard */,
+				E53DBB4A169BFFD50080276A /* ModeViewController.h */,
+				E53DBB4B169BFFD50080276A /* ModeViewController.m */,
 				E59D12F31695B8DC00C8DE51 /* NSArray+Shuffling.h */,
 				E59D12F41695B8DC00C8DE51 /* NSArray+Shuffling.m */,
 				099AF68F16834580001A6BF3 /* PreferencesViewController.h */,
@@ -155,6 +170,11 @@
 		09D372E31681BA4F00F80410 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E53DBB5C169C0E550080276A /* checkmark_64.png */,
+				E53DBB5E169C0E670080276A /* delete_64.png */,
+				E53DBB58169C05F00080276A /* chart_bar_24.png */,
+				E53DBB56169C05DE0080276A /* book_bookmark_24.png */,
+				E53DBB5A169C05FF0080276A /* clock_24.png */,
 				099AF6921683540D001A6BF3 /* media-shuffle.png */,
 				09D372FF1681BC5200F80410 /* verbs.plist */,
 				E551F31C1694ADD100D3955E /* icon114.png */,
@@ -234,6 +254,11 @@
 				092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */,
 				E551F31A1694ADCA00D3955E /* icon57.png in Resources */,
 				E551F31D1694ADD100D3955E /* icon114.png in Resources */,
+				E53DBB57169C05DE0080276A /* book_bookmark_24.png in Resources */,
+				E53DBB59169C05F00080276A /* chart_bar_24.png in Resources */,
+				E53DBB5B169C05FF0080276A /* clock_24.png in Resources */,
+				E53DBB5D169C0E550080276A /* checkmark_64.png in Resources */,
+				E53DBB5F169C0E670080276A /* delete_64.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +279,7 @@
 				E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */,
 				E5FE5827169B12B7002AC8A2 /* CardsStackViewController.m in Sources */,
 				E5F42A08169B88BC00E3DC83 /* TestProgressView.m in Sources */,
+				E53DBB4C169BFFD50080276A /* ModeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

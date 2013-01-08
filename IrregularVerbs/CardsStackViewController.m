@@ -7,14 +7,14 @@
 //
 
 #import "CardsStackViewController.h"
-#import "CardViewController.h"
 
 @interface CardsStackViewController ()
+//Object Data Model
 @property (nonatomic, strong) VerbsStore *store;
+@property (nonatomic, weak) IrregularVerb *verbs;
 @property (nonatomic) int currentLevel;
 @property (nonatomic) BOOL includeLowerLevels;
 @property (nonatomic, strong) NSMutableArray *timeStamps;
-@property (nonatomic) enum CardViewControllerPresentationMode mode;
 @property (nonatomic) int currentIndex;
 @end
 
@@ -22,7 +22,7 @@
 
 @synthesize verbs=_verbs;
 @synthesize store = _store, currentLevel = _currentLevel, includeLowerLevels = _includeLowerLevels;
-@synthesize timeStamps = _timeStamps, currentIndex=_currentIndex;
+@synthesize timeStamps = _timeStamps, currentIndex=_currentIndex, presentationMode;
 
 + (void)initialize{
     
@@ -38,30 +38,24 @@
     self.delegate = self;
     self.dataSource = self;
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"sameTime"]) {
-        self.mode = CardViewControllerPresentationModeLearn;
-    } else {
-        self.mode = CardViewControllerPresentationModeTest;
-    }
-    
     self.currentLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
     self.includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
     self.currentIndex = [[NSUserDefaults standardUserDefaults] boolForKey:@"currentPos"];
 
-    [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.mode]]
+    [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
                    direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     [self.viewControllers[0] beginTest];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     CardViewController *vc = (CardViewController *) viewController;
-    vc = [self verbCardAtIndex:vc.verbIndex+1 forPresentationMode:self.mode];
+    vc = [self verbCardAtIndex:vc.verbIndex+1 forPresentationMode:self.presentationMode];
     return vc;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     CardViewController *vc = (CardViewController *) viewController;
-    vc = [self verbCardAtIndex:vc.verbIndex-1 forPresentationMode:self.mode];
+    vc = [self verbCardAtIndex:vc.verbIndex-1 forPresentationMode:self.presentationMode];
     return vc;
 }
 
@@ -70,8 +64,8 @@
         CardViewController *vc;
         vc = previousViewControllers[0];
         [vc endTest];
-        vc = pageViewController.viewControllers[0];
-        [vc beginTest];
+//        vc = pageViewController.viewControllers[0];
+//        [vc beginTest];
     }
 }
 
@@ -129,7 +123,7 @@
     self.includeLowerLevels = lowerLevels;
     
     // Reassign the current card with the new preferences
-    [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.mode]]
+    [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
                    direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 }
 
