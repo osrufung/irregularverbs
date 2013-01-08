@@ -10,6 +10,8 @@
 
 @interface Referee : NSObject
 
+@property (nonatomic) float maxValue;
+
 + (Referee *)sharedReferee;
 
 - (float)performanceForValue:(float)value;

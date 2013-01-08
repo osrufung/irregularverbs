@@ -8,6 +8,7 @@
 
 #import "ModeViewController.h"
 #import "CardsStackViewController.h"
+#import "Referee.h"
 
 @interface ModeViewController ()
 
@@ -15,20 +16,13 @@
 
 @implementation ModeViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
     CardsStackViewController *vc;
+
+    [super viewDidLoad];
     
+    // Create the CardsStackViewControllers
     vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardsStackViewController"];
     vc.presentationMode = CardViewControllerPresentationModeLearn;
     vc.title = @"Learn";
@@ -46,12 +40,9 @@
     vc.title = @"Review";
     vc.tabBarItem.image = [UIImage imageNamed:@"chart_bar_24.png"];
     [self addChildViewController:vc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    // Time limit
+    [[Referee sharedReferee] setMaxValue:5.0f];
 }
 
 @end

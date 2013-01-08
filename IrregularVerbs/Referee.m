@@ -8,14 +8,12 @@
 
 #import "Referee.h"
 
-#define MAX_TEST_TIME   5.f
+#define MAX_TEST_TIME   10.f
 
 @interface Referee()
 {
     NSArray *_colors;
 }
-
-@property (nonatomic) float maxValue;
 
 @end
 
@@ -39,7 +37,6 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _maxValue = MAX_TEST_TIME;
         _colors = @[[UIColor greenColor], [UIColor greenColor], [UIColor yellowColor], [UIColor redColor]];
     }
     return self;
