@@ -8,10 +8,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "CardViewController.h"
+#import "Referee.h"
 
-#define MIN_TEST_TIME   1.f
-#define MED_TEST_TIME   3.f
-#define MAX_TEST_TIME   5.f
 #define TEST_TIMER_INTERVAL 1/30.f
 
 @interface CardViewController ()
@@ -51,9 +49,9 @@
 
 - (void)testTimerTick:(NSTimer *)timer {
     float elapsedTime = CACurrentMediaTime() - _beginTestTime;
-    self.testProgress.progress=elapsedTime/MAX_TEST_TIME;
-    self.testProgress.backgroundColor = [self colorFromResponseTime:elapsedTime];
-    if (elapsedTime>=MAX_TEST_TIME) {
+    self.testProgress.progress=[[Referee sharedReferee] performanceForValue:elapsedTime];
+    self.testProgress.backgroundColor = [[Referee sharedReferee] colorForValue:elapsedTime];
+    if (self.testProgress.progress>=1.0f) {
         [self endTest];
         [self showResultsWithAnimation:YES];
     }
@@ -80,7 +78,6 @@
         [_testTimer invalidate];
         _testTimer = nil;
         self.testProgress.hidden=YES;
-        self.testProgress.progress=self.responseTime/MAX_TEST_TIME;
         NSLog(@"ResponseTime %f for %@",self.responseTime, self.verb[@"simple"]);
     }
 }
@@ -136,7 +133,7 @@
     self.labelPast.text = self.verb[@"past"];;
     self.labelParticiple.text = self.verb[@"participle"];
     self.labelElapsedTime.text = [NSString stringWithFormat:@"%.2fs",self.responseTime];
-    self.labelElapsedTime.textColor = [self colorFromResponseTime:self.responseTime];
+    self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForValue:self.responseTime];
     if ((animation)&&(self.labelPast.text==@"")) {
         [self fadeView:self.labelElapsedTime from:0.0 to:1.0 ];
         [self fadeView:self.labelPast from:0.0 to:1.0 ];
@@ -149,25 +146,11 @@
     [self endTest];
     [self showResultsWithAnimation:YES];
     if (gestureRecognizer.direction == UISwipeGestureRecognizerDirectionUp) {
-        self.imageTestResult.image = [self paintImage:[UIImage imageNamed:@"checkmark_64.png"] withColor:[self colorFromResponseTime:self.responseTime]];
+        self.imageTestResult.image = [[Referee sharedReferee] checkedImageForValue:self.responseTime];
     }
     if (gestureRecognizer.direction == UISwipeGestureRecognizerDirectionDown) {
-        self.imageTestResult.image = [self paintImage:[UIImage imageNamed:@"delete_64.png"] withColor:[UIColor redColor]];
+        self.imageTestResult.image = [[Referee sharedReferee] failedImage];
     }
-}
-
--(UIImage *)paintImage:(UIImage *)image withColor:(UIColor *)color
-{
-    UIImage *img;
-    CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
-    UIGraphicsBeginImageContext(image.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [color setFill];
-    CGContextFillRect(context, rect);
-    [image drawAtPoint:CGPointZero blendMode:kCGBlendModeDestinationIn alpha:1.0];
-    img = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();    
-    return img;
 }
 
 #pragma mark - Helpers CAAnimation
@@ -188,34 +171,6 @@
     if ([[segue identifier] isEqualToString:@"showAlternate"]) {
         [[segue destinationViewController] setDelegate:self.parentViewController];
     }
-}
-
-- (UIColor *)interpolateBetween:(UIColor *)c1 and:(UIColor *)c2 atMix:(float)mix {
-    float r1,g1,b1,a1,r2,g2,b2,a2;
-    
-    [c1 getRed:&r1 green:&g1 blue:&b1 alpha:&a1];
-    [c2 getRed:&r2 green:&g2 blue:&b2 alpha:&a2];
-    
-    return [UIColor colorWithRed:r1+(r2-r1)*mix
-                           green:g1+(g2-g1)*mix
-                            blue:b1+(b2-b1)*mix
-                           alpha:a1+(a2-a1)*mix];
-}
-
-- (UIColor *)colorFromResponseTime:(float)responseTime {
-    
-    if (responseTime<MIN_TEST_TIME) {
-        return [UIColor greenColor];
-    } else if (responseTime<MED_TEST_TIME) {
-        return [self interpolateBetween:[UIColor greenColor]
-                                    and:[UIColor orangeColor]
-                                  atMix:(responseTime-MIN_TEST_TIME)/(MED_TEST_TIME-MIN_TEST_TIME)];
-    } else if (responseTime<MAX_TEST_TIME) {
-        return [self interpolateBetween:[UIColor orangeColor]
-                                    and:[UIColor redColor]
-                                  atMix:(responseTime-MED_TEST_TIME)/(MAX_TEST_TIME-MED_TEST_TIME)];
-    }
-    return [UIColor redColor];
 }
 
 @end
