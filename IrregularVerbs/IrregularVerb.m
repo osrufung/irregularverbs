@@ -10,7 +10,6 @@
 #import "NSArray+Shuffling.h"
 
 @interface IrregularVerb()
-@property (nonatomic, strong) NSArray *verbs;
 
 @end
 
@@ -22,7 +21,11 @@
 - (id)initWithData:(NSArray *)verbList {
     self = [self init];
     if (self) {
-        self.verbs = verbList;
+        NSMutableArray *tmp = [[NSMutableArray alloc] initWithCapacity:verbList.count];
+        for (int i=0; i<verbList.count; i++) {
+            [tmp addObject:[[Verb alloc] initFromDictionary:verbList[i]]];
+        }
+        self.verbs = tmp;
         self.randomOrder = [[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
         [self sortVerbsList];
     }
@@ -40,9 +43,9 @@
         self.verbs = [self.verbs shuffledCopy];
     } else {
         self.verbs = [self.verbs sortedArrayUsingComparator:^(id ob1, id ob2){
-            NSString *s1 = [ob1 objectForKey:@"simple"];
-            NSString *s2 = [ob2 objectForKey:@"simple"];
-            return [s1 compare:s2];
+            Verb *v1 = ob1;
+            Verb *v2 = ob2;
+            return [v1.simple compare:v2.simple];
         }];
     }
 }
@@ -53,10 +56,6 @@
         [[NSUserDefaults standardUserDefaults] setBool:_randomOrder forKey:@"randomOrder"];
         [self sortVerbsList];
     }
-}
-
-- (NSDictionary *)verbAtIndex:(int)index {
-    return [self.verbs[index] copy];
 }
 
 -(int) count{

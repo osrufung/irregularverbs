@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ColorMapView.h"
 #import "TestProgressView.h"
+#import "Verb.h"
 
 enum CardViewControllerPresentationMode {
     CardViewControllerPresentationModeLearn = 0,
@@ -18,7 +19,7 @@ enum CardViewControllerPresentationMode {
 
 @interface CardViewController : UIViewController
 
-@property (nonatomic, strong) NSDictionary *verb;
+@property (nonatomic, strong) Verb *verb;
 @property (nonatomic) int                   verbIndex;
 @property (nonatomic) int                   currentLevel;
 @property (nonatomic) BOOL                  includeLowerLevels;

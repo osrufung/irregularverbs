@@ -49,6 +49,10 @@
     return value/self.maxValue;
 }
 
+- (UIColor *)colorForFail {
+    return _colors[_colors.count-1];
+}
+
 - (UIColor *)colorForValue:(float)value {
     float per = [self performanceForValue:value];
     float rf = 1.0f/(_colors.count-1);
@@ -63,11 +67,11 @@
     return _colors[_colors.count-1];
 }
 
-- (UIImage *)failedImage {
+- (UIImage *)imageForFail {
     return [self paintImage:[UIImage imageNamed:@"delete_64.png"] withColor:_colors[_colors.count-1]];
 }
 
-- (UIImage *)checkedImageForValue:(float)value {
+- (UIImage *)imageForValue:(float)value {
     return [self paintImage:[UIImage imageNamed:@"checkmark_64.png"] withColor:[self colorForValue:value]];
 }
 

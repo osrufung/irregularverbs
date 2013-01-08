@@ -38,6 +38,7 @@
 		E59D12F51695B8DC00C8DE51 /* NSArray+Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D12F41695B8DC00C8DE51 /* NSArray+Shuffling.m */; };
 		E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D12F81695BAEC00C8DE51 /* VerbsStore.m */; };
 		E5C2CA2E169C5F6600BEE2ED /* Referee.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA2D169C5F6600BEE2ED /* Referee.m */; };
+		E5C2CA32169C6A0C00BEE2ED /* Verb.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA31169C6A0C00BEE2ED /* Verb.m */; };
 		E5ED1BD2168C7824009C1D59 /* preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = E5ED1BD1168C7824009C1D59 /* preferences.png */; };
 		E5F42A08169B88BC00E3DC83 /* TestProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F42A07169B88BC00E3DC83 /* TestProgressView.m */; };
 		E5FE5827169B12B7002AC8A2 /* CardsStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */; };
@@ -86,6 +87,8 @@
 		E59D12F81695BAEC00C8DE51 /* VerbsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerbsStore.m; sourceTree = "<group>"; };
 		E5C2CA2C169C5F6600BEE2ED /* Referee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Referee.h; sourceTree = "<group>"; };
 		E5C2CA2D169C5F6600BEE2ED /* Referee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Referee.m; sourceTree = "<group>"; };
+		E5C2CA30169C6A0C00BEE2ED /* Verb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Verb.h; sourceTree = "<group>"; };
+		E5C2CA31169C6A0C00BEE2ED /* Verb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Verb.m; sourceTree = "<group>"; };
 		E5D3DDB41696EAFE00FC4509 /* ColorMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorMapView.h; sourceTree = SOURCE_ROOT; };
 		E5ED1BD1168C7824009C1D59 /* preferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preferences.png; sourceTree = "<group>"; };
 		E5F42A06169B88BC00E3DC83 /* TestProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestProgressView.h; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				0988EF75169487310006067D /* ColorMapView.m */,
 				09D372F71681BA4F00F80410 /* CardViewController.h */,
 				09D372F81681BA4F00F80410 /* CardViewController.m */,
+				E5C2CA30169C6A0C00BEE2ED /* Verb.h */,
+				E5C2CA31169C6A0C00BEE2ED /* Verb.m */,
 				E5FE5825169B12B7002AC8A2 /* CardsStackViewController.h */,
 				E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */,
 			);
@@ -286,6 +291,7 @@
 				E5F42A08169B88BC00E3DC83 /* TestProgressView.m in Sources */,
 				E53DBB4C169BFFD50080276A /* ModeViewController.m in Sources */,
 				E5C2CA2E169C5F6600BEE2ED /* Referee.m in Sources */,
+				E5C2CA32169C6A0C00BEE2ED /* Verb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

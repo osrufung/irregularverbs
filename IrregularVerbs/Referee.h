@@ -13,8 +13,9 @@
 + (Referee *)sharedReferee;
 
 - (float)performanceForValue:(float)value;
+- (UIColor *)colorForFail;
 - (UIColor *)colorForValue:(float)value;
-- (UIImage *)failedImage;
-- (UIImage *)checkedImageForValue:(float)value;
+- (UIImage *)imageForFail;
+- (UIImage *)imageForValue:(float)value;
 
 @end

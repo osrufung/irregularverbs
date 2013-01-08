@@ -97,7 +97,7 @@
     CardViewController *vc=nil;
     if((index>=0)&&(index<self.verbs.count)){
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardViewController"];
-        vc.verb = [self.verbs verbAtIndex:index];
+        vc.verb = self.verbs.verbs[index];
         vc.presentationMode = mode;
         vc.verbIndex=index;
         vc.randomOrder=self.verbs.randomOrder;

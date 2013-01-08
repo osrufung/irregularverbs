@@ -78,7 +78,7 @@
         [_testTimer invalidate];
         _testTimer = nil;
         self.testProgress.hidden=YES;
-        NSLog(@"ResponseTime %f for %@",self.responseTime, self.verb[@"simple"]);
+        self.verb.responseTime=self.responseTime;
     }
 }
 
@@ -109,31 +109,37 @@
     if (self.presentationMode == CardViewControllerPresentationModeTest) [self beginTest];
 }
 
-- (void)setVerb:(NSDictionary *)verb {
+- (void)setVerb:(Verb *)verb {
     if (verb!=_verb) _verb=verb;
 }
 
 - (void)showVerb {
-    self.labelPresent.text = self.verb[@"simple"];
+    self.labelPresent.text = self.verb.simple;
     self.labelTranslation.text = @"";
     self.labelPast.text = @"" ;
     self.labelParticiple.text = @"" ;
     self.labelElapsedTime.text = @"";
     
     if(self.presentationMode != CardViewControllerPresentationModeTest) {
-        self.labelTranslation.text = self.verb[@"translation"];
-        self.labelPast.text = self.verb[@"past"];;
-        self.labelParticiple.text = self.verb[@"participle"];;
+        self.labelTranslation.text = self.verb.translation;
+        self.labelPast.text = self.verb.past;
+        self.labelParticiple.text = self.verb.participle;
     }
     
 }
 
 - (void)showResultsWithAnimation:(BOOL)animation {
-    self.labelTranslation.text = self.verb[@"translation"];
-    self.labelPast.text = self.verb[@"past"];;
-    self.labelParticiple.text = self.verb[@"participle"];
+    self.labelTranslation.text = self.verb.translation;
+    self.labelPast.text = self.verb.past;
+    self.labelParticiple.text = self.verb.participle;
     self.labelElapsedTime.text = [NSString stringWithFormat:@"%.2fs",self.responseTime];
-    self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForValue:self.responseTime];
+    if (self.verb.failed) {
+        self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForFail];
+        self.imageTestResult.image = [[Referee sharedReferee] imageForFail];
+    } else {
+        self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForValue:self.responseTime];
+        self.imageTestResult.image = [[Referee sharedReferee] imageForValue:self.responseTime];
+    }
     if ((animation)&&(self.labelPast.text==@"")) {
         [self fadeView:self.labelElapsedTime from:0.0 to:1.0 ];
         [self fadeView:self.labelPast from:0.0 to:1.0 ];
@@ -144,13 +150,17 @@
 
 - (void)EndTestWithGesture:(UISwipeGestureRecognizer *)gestureRecognizer {
     [self endTest];
+    switch (gestureRecognizer.direction) {
+        case UISwipeGestureRecognizerDirectionUp:
+            self.verb.failed=NO;
+            break;
+        case UISwipeGestureRecognizerDirectionDown:
+            self.verb.failed=YES;
+            break;
+        default:
+            break;
+    }
     [self showResultsWithAnimation:YES];
-    if (gestureRecognizer.direction == UISwipeGestureRecognizerDirectionUp) {
-        self.imageTestResult.image = [[Referee sharedReferee] checkedImageForValue:self.responseTime];
-    }
-    if (gestureRecognizer.direction == UISwipeGestureRecognizerDirectionDown) {
-        self.imageTestResult.image = [[Referee sharedReferee] failedImage];
-    }
 }
 
 #pragma mark - Helpers CAAnimation
