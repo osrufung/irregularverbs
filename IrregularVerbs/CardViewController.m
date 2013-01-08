@@ -61,11 +61,12 @@
     if (self.presentationMode!=CardViewControllerPresentationModeTest) return;
     if (!_testTimer) {
         _beginTestTime = CACurrentMediaTime();
-        _testTimer = [NSTimer scheduledTimerWithTimeInterval:TEST_TIMER_INTERVAL
-                                                      target:self
-                                                    selector:@selector(testTimerTick:)
-                                                    userInfo:nil
-                                                     repeats:YES];
+        _testTimer = [NSTimer timerWithTimeInterval:TEST_TIMER_INTERVAL
+                                             target:self
+                                           selector:@selector(testTimerTick:)
+                                           userInfo:nil
+                                            repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:_testTimer forMode:NSRunLoopCommonModes];
         self.testProgress.hidden = NO;
         self.testProgress.progress = 0.f;
     }
