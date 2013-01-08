@@ -107,6 +107,7 @@
     [self showVerb];
     [self setLabelLevelText];
     self.shuffleIndicator.hidden=!self.randomOrder;
+    self.imageTestResult.image=nil;
     if (self.presentationMode == CardViewControllerPresentationModeReview) [self showResultsWithAnimation:NO];
     if (self.presentationMode == CardViewControllerPresentationModeTest) [self beginTest];
 }
