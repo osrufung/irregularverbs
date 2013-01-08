@@ -8,7 +8,7 @@
 
 #import "Referee.h"
 
-#define MAX_TEST_TIME   6.f
+#define MAX_TEST_TIME   5.f
 
 @interface Referee()
 {
@@ -40,7 +40,7 @@
     self = [super init];
     if (self) {
         _maxValue = MAX_TEST_TIME;
-        _colors = @[[UIColor greenColor], [UIColor yellowColor], [UIColor redColor]];
+        _colors = @[[UIColor greenColor], [UIColor greenColor], [UIColor yellowColor], [UIColor redColor]];
     }
     return self;
 }

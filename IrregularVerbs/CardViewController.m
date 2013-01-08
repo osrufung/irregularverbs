@@ -53,6 +53,7 @@
     self.testProgress.backgroundColor = [[Referee sharedReferee] colorForValue:elapsedTime];
     if (self.testProgress.progress>=1.0f) {
         [self endTest];
+        self.verb.failed=YES;
         [self showResultsWithAnimation:YES];
     }
 }

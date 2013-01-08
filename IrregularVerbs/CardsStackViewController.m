@@ -64,8 +64,8 @@
         CardViewController *vc;
         vc = previousViewControllers[0];
         [vc endTest];
-//        vc = pageViewController.viewControllers[0];
-//        [vc beginTest];
+        vc = pageViewController.viewControllers[0];
+        [vc beginTest];
     }
 }
 
