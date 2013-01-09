@@ -81,6 +81,7 @@
         [self sortVerbsList];
     }
 }
+
 - (void)sortVerbsList {
     if (self.randomOrder) {
         allItems = [allItems shuffledCopy];

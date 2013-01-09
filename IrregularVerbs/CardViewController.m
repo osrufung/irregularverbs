@@ -18,31 +18,46 @@
     NSTimer *_testTimer;
 }
 
+@property (nonatomic,strong) UISwipeGestureRecognizer *swUp;
+@property (nonatomic,strong) UISwipeGestureRecognizer *swDown;
+
+
 @end
 
 @implementation CardViewController
 
-@synthesize currentLevel = _currentLevel, includeLowerLevels = _includeLowerLevels;
-@synthesize verb=_verb, presentationMode, verbIndex=_verbIndex, randomOrder=_randomOrder;
-
 #pragma mark - Setup
 
-- (void)setupGestureRecognizers {
-    UISwipeGestureRecognizer *swUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self
-                                                                               action:@selector(EndTestWithGesture:)];
-    UISwipeGestureRecognizer *swDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self
-                                                                                 action:@selector(EndTestWithGesture:)];
-    swUp.direction = UISwipeGestureRecognizerDirectionUp;
-    swDown.direction = UISwipeGestureRecognizerDirectionDown;
-    
-    [self.view addGestureRecognizer:swUp];
-    [self.view addGestureRecognizer:swDown];
+- (UISwipeGestureRecognizer *)swUp {
+    if(!_swUp) {
+        _swUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(EndTestWithGesture:)];
+        _swUp.direction = UISwipeGestureRecognizerDirectionUp;
+    }
+    return _swUp;
+}
+
+- (UISwipeGestureRecognizer *)swDown {
+    if(!_swDown) {
+        _swDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(EndTestWithGesture:)];
+        _swDown.direction = UISwipeGestureRecognizerDirectionDown;
+    }
+    return _swDown;
+}
+
+
+- (void)addGestureRecognizers {
+    [self.view addGestureRecognizer:self.swUp];
+    [self.view addGestureRecognizer:self.swDown];
+}
+
+- (void)removeGestureRecognizers {
+    [self.view removeGestureRecognizer:self.swUp];
+    [self.view removeGestureRecognizer:self.swDown];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupGestureRecognizers];
 }
 
 #pragma mark - User Interface
@@ -70,6 +85,7 @@
         [[NSRunLoop currentRunLoop] addTimer:_testTimer forMode:NSRunLoopCommonModes];
         self.testProgress.hidden = NO;
         self.testProgress.progress = 0.f;
+        [self addGestureRecognizers];
     }
 }
 
@@ -81,6 +97,7 @@
         _testTimer = nil;
         self.testProgress.hidden=YES;
         self.verb.responseTime=self.responseTime;
+        [self removeGestureRecognizers];
     }
 }
 
