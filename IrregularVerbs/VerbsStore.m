@@ -10,6 +10,7 @@
 #import "Verb.h"
 #import "NSArray+Shuffling.h"
  
+ 
 @implementation VerbsStore
 @synthesize  randomOrder=_randomOrder;
 
@@ -38,13 +39,10 @@
     if(!allItems){
         NSString *verbsFilePath = [self mutableVerbsListPath];
         
-        allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
-        
-        
-        //first time, save objects in User Documents Sandbox
-        if(!allItems){
-            
-            
+        @try {
+          allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
+        }
+        @catch (NSException * e) {
             NSMutableArray *tmp  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]];
             
             NSMutableArray *mutable = [[NSMutableArray alloc] initWithCapacity:tmp.count];
@@ -56,6 +54,7 @@
             
             [self saveChanges];
         }
+
     }
     return allItems;
 }
