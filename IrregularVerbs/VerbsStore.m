@@ -35,33 +35,33 @@
 
 - (NSArray *)verbsListFromDocument {
     
-    
-    NSString *verbsFilePath = [self mutableVerbsListPath];
-    
-    allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
-         
-    
-    //first time, save objects in User Documents Sandbox
     if(!allItems){
- 
-
-        NSMutableArray *tmp  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]];
+        NSString *verbsFilePath = [self mutableVerbsListPath];
         
-        NSMutableArray *mutable = [[NSMutableArray alloc] initWithCapacity:tmp.count];
-        for (int i=0; i<tmp.count; i++) {
-            [mutable addObject:[[Verb alloc] initFromDictionary:tmp[i]]];
+        allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
+        
+        
+        //first time, save objects in User Documents Sandbox
+        if(!allItems){
+            
+            
+            NSMutableArray *tmp  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]];
+            
+            NSMutableArray *mutable = [[NSMutableArray alloc] initWithCapacity:tmp.count];
+            for (int i=0; i<tmp.count; i++) {
+                [mutable addObject:[[Verb alloc] initFromDictionary:tmp[i]]];
+            }
+            
+            allItems = mutable;
+            
+            [self saveChanges];
         }
- 
-        allItems = [mutable copy];
-        
-        [self saveChanges];
     }
- 
     return allItems;
 }
 -(BOOL) saveChanges {
     NSString *path = [self mutableVerbsListPath];
-    
+    NSLog(@"saving changes to Docs..");
     return [NSKeyedArchiver archiveRootObject:allItems toFile:path];
 }
 - (NSArray *)localVerbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels {
@@ -100,5 +100,13 @@
 }
 
 
+-(NSArray *)allVerbs{
+    return allItems;
+}
+-(void)printListtoConsole{
+    for(Verb *v in allItems){
+        NSLog(@"%@ - %f",[v simple],[v responseTime]);
+    }
+}
 
 @end

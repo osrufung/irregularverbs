@@ -32,5 +32,6 @@
 
 - (NSArray *)verbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels ;
 -(BOOL) saveChanges;
-
+-(NSArray *)allVerbs;
+-(void)printListtoConsole;
 @end

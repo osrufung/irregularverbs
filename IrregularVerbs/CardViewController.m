@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CardViewController.h"
 #import "Referee.h"
+#import "VerbsStore.h"
 
 #define TEST_TIMER_INTERVAL 1/30.f
 
@@ -22,7 +23,6 @@
 
 @implementation CardViewController
 
-@synthesize currentLevel = _currentLevel, includeLowerLevels = _includeLowerLevels;
 @synthesize verb=_verb, presentationMode, verbIndex=_verbIndex, randomOrder=_randomOrder;
 
 #pragma mark - Setup
@@ -43,6 +43,9 @@
 {
     [super viewDidLoad];
     [self setupGestureRecognizers];
+ 
+    
+    
 }
 
 #pragma mark - User Interface
@@ -80,7 +83,8 @@
         [_testTimer invalidate];
         _testTimer = nil;
         self.testProgress.hidden=YES;
-        self.verb.responseTime=self.responseTime;
+        [self.verb addNewResponseTime:self.responseTime];
+        
     }
 }
 
@@ -93,16 +97,21 @@
 
 
 -(void)setLabelLevelText {
+    /*@TODO definir niveles
     if(self.currentLevel < 4){
         NSString *format = (self.includeLowerLevels)?@"To level %d":@"Level %d";
         self.labelLevel.text = [NSString stringWithFormat:format, self.currentLevel];
     }
     else{
         self.labelLevel.text = [NSString stringWithFormat:@"All levels"];
-    }
+    }*/
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"Cambio de pestaña en mdo %d", [self presentationMode]);
+    
+    
+    [[VerbsStore sharedStore] printListtoConsole];
     [self showVerb];
     [self setLabelLevelText];
     self.shuffleIndicator.hidden=!self.randomOrder;
@@ -126,6 +135,7 @@
         self.labelTranslation.text = self.verb.translation;
         self.labelPast.text = self.verb.past;
         self.labelParticiple.text = self.verb.participle;
+        
     }
     
 }
@@ -134,7 +144,15 @@
     self.labelTranslation.text = self.verb.translation;
     self.labelPast.text = self.verb.past;
     self.labelParticiple.text = self.verb.participle;
-    self.labelElapsedTime.text = [NSString stringWithFormat:@"%.2fs",self.responseTime];
+    
+    if (self.presentationMode == CardViewControllerPresentationModeTest){
+        self.labelElapsedTime.text = [NSString stringWithFormat:@"%.2fs",self.responseTime];
+    }
+    else if (self.presentationMode == CardViewControllerPresentationModeReview){
+       self.labelElapsedTime.text = [NSString stringWithFormat:@"%.2fs", [self.verb responseTime]];
+    }
+        
+        
     if (self.verb.failed) {
         self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForFail];
         self.imageTestResult.image = [[Referee sharedReferee] imageForFail];

@@ -7,11 +7,11 @@
 //
 
 #import "Verb.h"
-
+#import "VerbsStore.h"
 @implementation Verb
 
-@synthesize simple=_simple, past = _past, participle=_participle, translation=_translation, level=_level;
-
+@synthesize simple=_simple, past = _past, participle=_participle, translation=_translation ;
+@synthesize responseTime;
 - (id)initFromDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
@@ -47,5 +47,20 @@
  
     }
     return self;
+}
+-(void)setResponseTime:(float)rt{
+    responseTime = rt;
+    
+}
+
+-(void)addNewResponseTime:(float)rt{
+ 
+    if(responseTime >0 )
+        responseTime = (responseTime + rt) /2.0;
+    else
+        responseTime = rt;
+    NSLog(@"new computed time is : %f",responseTime);
+    //persist in Store
+    [[VerbsStore sharedStore] saveChanges];
 }
 @end
