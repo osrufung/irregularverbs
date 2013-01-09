@@ -17,6 +17,7 @@
 
 @property (nonatomic) BOOL failed;
 @property (nonatomic) float responseTime;
+@property (nonatomic) float frequency;
 
 -(id)initFromDictionary:(NSDictionary *)dictonary;
 -(void)addNewResponseTime:(float)rt;

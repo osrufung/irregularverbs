@@ -58,6 +58,20 @@
         }
 
     }
+    // If the UserDocument file don't exist, the code didn't crash, but return nil
+    if (!allItems) {
+        NSMutableArray *tmp  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]];
+        
+        NSMutableArray *mutable = [[NSMutableArray alloc] initWithCapacity:tmp.count];
+        for (int i=0; i<tmp.count; i++) {
+            [mutable addObject:[[Verb alloc] initFromDictionary:tmp[i]]];
+        }
+        
+        allItems = mutable;
+        
+        [self saveChanges];
+
+    }
     return allItems;
 }
 -(BOOL) saveChanges {
@@ -105,10 +119,15 @@
 -(NSArray *)allVerbs{
     return allItems;
 }
+// tsk, tsk, tsk, use cocoa ;-)
+// see (NSString *)description in Verb and in NSObject!
 -(void)printListtoConsole{
+    /*
     for(Verb *v in allItems){
-        NSLog(@"%@ - %f",[v simple],[v responseTime]);
+        NSLog(@"%@ - %f (%f)",v.simple,v.responseTime,v.frequency);
     }
+     */
+    NSLog(@"%@",allItems);
 }
 
 @end

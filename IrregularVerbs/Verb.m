@@ -10,8 +10,6 @@
 #import "VerbsStore.h"
 @implementation Verb
 
-@synthesize simple=_simple, past = _past, participle=_participle, translation=_translation ;
-@synthesize responseTime;
 - (id)initFromDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
@@ -19,6 +17,7 @@
         self.past = dictionary[@"past"];
         self.participle = dictionary[@"participle"];
         self.translation = dictionary[@"translation"];
+        self.frequency = [dictionary[@"frequency"] floatValue];
         self.responseTime = 0.0;
         self.failed = NO;
         //self.level = [dictionary[@"level"] intValue];
@@ -33,6 +32,7 @@
     [aCoder encodeObject:self.translation forKey:@"translation"];
     [aCoder encodeBool:self.failed forKey:@"failed"];
     [aCoder encodeFloat:self.responseTime forKey:@"responseTime"];
+    [aCoder encodeFloat:self.frequency forKey:@"frequency"];
 }
 
 -(id) initWithCoder:(NSCoder *)aDecoder{
@@ -44,23 +44,27 @@
         [self setTranslation:[aDecoder decodeObjectForKey:@"translation"]];
         [self setFailed:[aDecoder decodeBoolForKey:@"failed"]];
         [self setResponseTime:[aDecoder decodeFloatForKey:@"responseTime"]];
- 
+        [self setFrequency:[aDecoder decodeFloatForKey:@"frequency"]];
     }
     return self;
 }
 -(void)setResponseTime:(float)rt{
-    responseTime = rt;
+    _responseTime = rt;
     
 }
 
 -(void)addNewResponseTime:(float)rt{
  
-    if(responseTime >0 )
-        responseTime = (responseTime + rt) /2.0;
+    if(_responseTime >0 )
+        _responseTime = (_responseTime + rt) /2.0;
     else
-        responseTime = rt;
-    NSLog(@"new computed time is : %f",responseTime);
+        _responseTime = rt;
+    NSLog(@"new computed time is : %f",_responseTime);
     //persist in Store
     [[VerbsStore sharedStore] saveChanges];
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@ - %f (%f)",self.simple,self.responseTime,self.frequency];
 }
 @end
