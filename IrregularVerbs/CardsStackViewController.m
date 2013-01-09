@@ -21,10 +21,6 @@
 
 @implementation CardsStackViewController
 
- 
-@synthesize   currentLevel = _currentLevel, includeLowerLevels = _includeLowerLevels;
-@synthesize timeStamps = _timeStamps, currentIndex=_currentIndex, presentationMode;
-
 + (void)initialize{
     
     //load default settings values

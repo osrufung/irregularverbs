@@ -38,23 +38,22 @@
     
     NSString *verbsFilePath = [self mutableVerbsListPath];
     
-    allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
-         
-    
-    //first time, save objects in User Documents Sandbox
-    if(!allItems){
- 
-
+    // NSKeyedUnarchiver didn't reeturn nil on error, it will throw an exception
+    @try {
+        allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
+    }
+    @catch (NSException *exception) {
         NSMutableArray *tmp  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]];
         
         NSMutableArray *mutable = [[NSMutableArray alloc] initWithCapacity:tmp.count];
         for (int i=0; i<tmp.count; i++) {
             [mutable addObject:[[Verb alloc] initFromDictionary:tmp[i]]];
         }
- 
+        
         allItems = [mutable copy];
         
         [self saveChanges];
+
     }
  
     return allItems;
