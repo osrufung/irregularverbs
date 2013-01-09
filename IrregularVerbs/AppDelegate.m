@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "VerbsStore.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -26,6 +26,15 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    BOOL successSaveState = [[VerbsStore sharedStore] saveChanges];
+    if(successSaveState){
+        NSLog(@"Saved VerbStore State");
+        
+    }else{
+        NSLog(@"Error saving VerbStore State");
+    }
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

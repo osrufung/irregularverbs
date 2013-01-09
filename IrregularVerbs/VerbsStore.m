@@ -7,9 +7,23 @@
 //
 
 #import "VerbsStore.h"
-#import "IrregularVerb.h"
-
+#import "Verb.h"
+#import "NSArray+Shuffling.h"
+ 
 @implementation VerbsStore
+@synthesize  randomOrder=_randomOrder;
+
++(VerbsStore *) sharedStore
+{
+    static VerbsStore *sharedStore = nil;
+    if(!sharedStore)
+        sharedStore = [[super allocWithZone:nil] init];
+    return sharedStore;
+}
++(id)allocWithZone:(NSZone *)zone
+{
+    return [self sharedStore];
+}
 
 - (NSString *)mutableVerbsListPath {
     NSArray *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -17,111 +31,74 @@
     return verbsFilePath;
 }
 
-- (NSError *)copyDefaultVerbsListToPath:(NSString *)documentPath {
-    NSError *error;
-    [[NSFileManager defaultManager] removeItemAtPath:documentPath error:&error];
-    [[NSFileManager defaultManager] copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]
-                                            toPath:documentPath
-                                             error:&error];
-    
-    return error;
-}
+ 
 
 - (NSArray *)verbsListFromDocument {
+    
+    
     NSString *verbsFilePath = [self mutableVerbsListPath];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:verbsFilePath])
-        [self copyDefaultVerbsListToPath:verbsFilePath];
     
-    NSArray *list = [NSMutableArray arrayWithContentsOfFile:verbsFilePath];
+    allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
+         
     
-    // Check if the verbs list stored in Documents implments all the fields
-    if ([list count]>0) {
-        NSDictionary *item = list[0];
-        if(![item objectForKey:@"level"]) {
-            [self copyDefaultVerbsListToPath:verbsFilePath];
-            list = [NSMutableArray arrayWithContentsOfFile:verbsFilePath];
-        }
-    }
-    
-    return list;
-}
+    //first time, save objects in User Documents Sandbox
+    if(!allItems){
+ 
 
-- (IrregularVerb *)localVerbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels {
+        NSMutableArray *tmp  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]];
+        
+        NSMutableArray *mutable = [[NSMutableArray alloc] initWithCapacity:tmp.count];
+        for (int i=0; i<tmp.count; i++) {
+            [mutable addObject:[[Verb alloc] initFromDictionary:tmp[i]]];
+        }
+ 
+        allItems = [mutable copy];
+        
+        [self saveChanges];
+    }
+ 
+    return allItems;
+}
+-(BOOL) saveChanges {
+    NSString *path = [self mutableVerbsListPath];
+    
+    return [NSKeyedArchiver archiveRootObject:allItems toFile:path];
+}
+- (NSArray *)localVerbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels {
     NSArray *list = [self verbsListFromDocument];
+  /*@TODO filtrar por nivel
     NSString *query = (lowerLevels)?@"level <= %d":@"level == %d";
     NSPredicate *predicateLevel = [NSPredicate predicateWithFormat:query, level];
     NSArray *filteredArray = [list filteredArrayUsingPredicate:predicateLevel];
-    return [[IrregularVerb alloc] initWithData:filteredArray];
+   */
+   //return [[IrregularVerb alloc] initWithData:filteredArray];
+    return list;
 }
 
-- (NSArray *)downloadListForLevel:(int)level {
-    NSArray *newVerbList = nil;
-    NSString *query = [NSString stringWithFormat:@"http://irregular-verbs.appspot.com/irregularverbsapi?level=%d",level];
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:query]];
-    if (data) {
-        NSError *error;
-        newVerbList = (NSMutableArray *)[NSJSONSerialization JSONObjectWithData:data
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:&error];
-        
-        // Checks if service return an empty list of verbs
-        if (newVerbList.count == 0) {
-            NSDictionary *userInfo = @{
-            NSLocalizedDescriptionKey : @"http://irregular-verbs.appspot.com/ has returned and empty list of verbs"
-            };
-            
-            error = [NSError errorWithDomain:@"IrregularVerbs"
-                                        code:0 userInfo:userInfo];
-        }
-        
-        
-        if (error && [self.delegate respondsToSelector:@selector(updateFailedWithError:)]) {
-            newVerbList=nil;
-            [self.delegate updateFailedWithError:error];
-        }
-        
-    } else {
-        if ([self.delegate respondsToSelector:@selector(updateFailedWithError:)]) {
-            [self.delegate updateFailedWithError:[NSError errorWithDomain:@"IrregularVerbs"
-                                                                     code:1
-                                                                 userInfo:@{NSLocalizedDescriptionKey:@"Error connecting to server"}]];
-        }
-        
+- (void)setRandomOrder:(BOOL)randomOrder {
+    if (randomOrder!=_randomOrder) {
+        _randomOrder = randomOrder;
+        [[NSUserDefaults standardUserDefaults] setBool:_randomOrder forKey:@"randomOrder"];
+        [self sortVerbsList];
     }
-    return newVerbList;
 }
-
-- (IrregularVerb *)remoteVerbsForLevel:(int)level includeLowerLevels:(BOOL) lowerLevels {
-    if ([self.delegate respondsToSelector:@selector(updateBegin)])
-        [self.delegate updateBegin];
-    
-    NSArray __block *newVerbList = nil;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        newVerbList = [self downloadListForLevel:level];
-    });
-    
-    if ([self.delegate respondsToSelector:@selector(updateEnd)])
-        [self.delegate updateEnd];
-
-    return [[IrregularVerb alloc] initWithData:newVerbList];
-
-}
-
-
-- (IrregularVerb *)verbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels fromInternet:(BOOL)fromRemote {
-    if (fromRemote) {
-        return [self remoteVerbsForLevel:level includeLowerLevels:lowerLevels];
+- (void)sortVerbsList {
+    if (self.randomOrder) {
+        allItems = [allItems shuffledCopy];
     } else {
+        allItems= [allItems sortedArrayUsingComparator:^(id ob1, id ob2){
+            Verb *v1 = ob1;
+            Verb *v2 = ob2;
+            return [v1.simple compare:v2.simple];
+        }];
+    }
+}
+- (NSArray *)verbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels  {
+ 
         return [self localVerbsForLevel:level includeLowerLevels:lowerLevels];
-    }
+   
 }
 
-- (IrregularVerb *)allVerbsFromInternet:(BOOL)fromRemote {
-    if (!fromRemote) {
-        return [[IrregularVerb alloc] initWithData:[self verbsListFromDocument]];
-    } else {
-        return nil;
-    }
-}
+
 
 @end

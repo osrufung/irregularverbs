@@ -22,9 +22,15 @@
 
 @interface VerbsStore : NSObject
 
+{
+    NSArray *allItems;
+}
+
++ (VerbsStore *)sharedStore;
+@property (nonatomic) BOOL randomOrder;
 @property (nonatomic, strong) id<VerbsStoreDelegate> delegate;
 
-- (IrregularVerb *)verbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels fromInternet:(BOOL)fromRemote;
-- (IrregularVerb *)allVerbsFromInternet:(BOOL)fromRemote;
+- (NSArray *)verbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels ;
+-(BOOL) saveChanges;
 
 @end

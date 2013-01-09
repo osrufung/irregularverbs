@@ -10,8 +10,9 @@
 
 @interface CardsStackViewController ()
 //Object Data Model
-@property (nonatomic, strong) VerbsStore *store;
-@property (nonatomic, weak) IrregularVerb *verbs;
+//@property (nonatomic, strong) VerbsStore *store;
+//@property (nonatomic, weak) IrregularVerb *verbs;
+//@property (nonatomic, strong) NSArray *verbs;
 @property (nonatomic) int currentLevel;
 @property (nonatomic) BOOL includeLowerLevels;
 @property (nonatomic, strong) NSMutableArray *timeStamps;
@@ -20,8 +21,8 @@
 
 @implementation CardsStackViewController
 
-@synthesize verbs=_verbs;
-@synthesize store = _store, currentLevel = _currentLevel, includeLowerLevels = _includeLowerLevels;
+ 
+@synthesize   currentLevel = _currentLevel, includeLowerLevels = _includeLowerLevels;
 @synthesize timeStamps = _timeStamps, currentIndex=_currentIndex, presentationMode;
 
 + (void)initialize{
@@ -70,7 +71,7 @@
 }
 
 #pragma mark - Model Managment
-
+/*
 - (VerbsStore *)store {
     if (!_store) {
         _store = [[VerbsStore alloc] init];
@@ -78,29 +79,32 @@
     }
     return _store;
 }
-
-- (IrregularVerb *)verbs {
+*/
+- (NSArray *)verbs {
+    /*
     if (!_verbs) {
         self.currentLevel =  [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
         self.includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
         BOOL remote = [[NSUserDefaults standardUserDefaults] boolForKey:@"loadFromInternet"];
-        if (self.currentLevel<4) {
-            _verbs = [self.store verbsForLevel:self.currentLevel includeLowerLevels:self.includeLowerLevels fromInternet:remote];
-        } else {
-            _verbs = [self.store allVerbsFromInternet:remote];
-        }
+      
+         _verbs = [[VerbsStore sharedStore] verbsForLevel:self.currentLevel includeLowerLevels:self.includeLowerLevels fromInternet:remote];
+    
     }
-    return _verbs;
+    return _verbs;*/
+    self.currentLevel =  [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    self.includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
+    return [[VerbsStore sharedStore] verbsForLevel:self.currentLevel includeLowerLevels:self.includeLowerLevels ];
 }
 
 - (CardViewController *)verbCardAtIndex:(int)index forPresentationMode:(enum CardViewControllerPresentationMode)mode {
     CardViewController *vc=nil;
     if((index>=0)&&(index<self.verbs.count)){
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardViewController"];
-        vc.verb = self.verbs.verbs[index];
+        vc.verb = self.verbs[index];
         vc.presentationMode = mode;
         vc.verbIndex=index;
-        vc.randomOrder=self.verbs.randomOrder;
+        vc.randomOrder = [[VerbsStore sharedStore] randomOrder];
+        
         vc.currentLevel = self.currentLevel;
         vc.includeLowerLevels = self.includeLowerLevels;
     }
@@ -116,9 +120,10 @@
     int setupLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
     BOOL lowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
     
-    if ((self.currentLevel!=setupLevel)||(self.includeLowerLevels!=lowerLevels)) _verbs = nil;
+    //if ((self.currentLevel!=setupLevel)||(self.includeLowerLevels!=lowerLevels)) _verbs = nil;
 
-    self.verbs.randomOrder = [[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
+    
+    [[VerbsStore sharedStore] setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
     self.currentLevel = setupLevel;
     self.includeLowerLevels = lowerLevels;
     

@@ -7,7 +7,7 @@
 //
 
 #import "PreferencesViewController.h"
-#import "IrregularVerb.h"
+
 
 @interface PreferencesViewController ()
 

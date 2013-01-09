@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "VerbsStore.h"
-#import "IrregularVerb.h"
+ 
 #import "CardViewController.h"
 #import "PreferencesViewController.h"
 
