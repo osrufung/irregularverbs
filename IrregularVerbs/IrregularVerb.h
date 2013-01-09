@@ -7,18 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Verb.h"
 
 @interface IrregularVerb : NSObject
 
-@property (nonatomic, readonly) NSString *simple;
-@property (nonatomic, readonly) NSString *translation;
-@property (nonatomic, readonly) NSString *past;
-@property (nonatomic, readonly) NSString *participle;
-
-@property (nonatomic) NSInteger currentPos;
 @property (nonatomic) BOOL randomOrder;
+@property (nonatomic, strong) NSArray *verbs;
 
 - (id)initWithData:(NSArray *)verbList;
-- (void)change;
 - (int)count;
+//- (Verb *)verbAtIndex:(int)index;
 @end

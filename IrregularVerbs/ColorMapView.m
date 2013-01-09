@@ -15,6 +15,7 @@
     int _nw;
     int _nh;
     int _side;
+    UITapGestureRecognizer *_singleTapGR;
  
 }
 #define COMPRESED_SIZE 32
@@ -27,24 +28,19 @@
                                                                                 action:@selector(toggleSize:)];
     doubleTap.numberOfTapsRequired=2;
 
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                action:@selector(itemSelected:)];
-    singleTap.numberOfTapsRequired=1;
-    [singleTap requireGestureRecognizerToFail:doubleTap];
+    _singleTapGR = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                         action:@selector(itemSelected:)];
+    _singleTapGR.numberOfTapsRequired=1;
+    [_singleTapGR requireGestureRecognizerToFail:doubleTap];
     
     [self addGestureRecognizer:doubleTap];
-    [self addGestureRecognizer:singleTap];
 }
 
 - (void)itemSelected:(UIGestureRecognizer *)tap {
-    if (self.frame.size.height!=COMPRESED_SIZE)
-    {
-        CGPoint tapPoint = [tap locationInView:self];
-        NSLog(@"[%f,%f]",tapPoint.x,tapPoint.y);
-        int index = tapPoint.x/_side + (int)(tapPoint.y/_side)*_nw;
-        [self.delegate colorMapView:self selectedItemAtIndex:index];
-    } 
-
+    CGPoint tapPoint = [tap locationInView:self];
+    NSLog(@"[%f,%f]",tapPoint.x,tapPoint.y);
+    int index = tapPoint.x/_side + (int)(tapPoint.y/_side)*_nw;
+    [self.delegate colorMapView:self selectedItemAtIndex:index];
 }
 
 
@@ -63,10 +59,12 @@
             newFrame = CGRectMake(newFrame.origin.x+(newFrame.size.width-fittedSize.width)/2.0,
                                   newFrame.origin.y+(newFrame.size.height-fittedSize.height)/2.0,
                                   fittedSize.width, fittedSize.height);
+            [self addGestureRecognizer:_singleTapGR];
         }
         
     } else {
         newFrame = CGRectMake(0, mainScreenFrame.size.height-COMPRESED_SIZE, mainScreenFrame.size.width, COMPRESED_SIZE);
+        [self removeGestureRecognizer:_singleTapGR];
     }
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.2];

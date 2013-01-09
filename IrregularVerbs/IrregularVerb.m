@@ -10,21 +10,23 @@
 #import "NSArray+Shuffling.h"
 
 @interface IrregularVerb()
-@property (nonatomic, strong) NSArray *verbs;
 
 @end
 
 @implementation IrregularVerb
 
-@synthesize verbs=_verbs, randomOrder=_randomOrder, currentPos=_currentPos;
+@synthesize verbs=_verbs, randomOrder=_randomOrder;
 
 // It's needed to get the last inner state (random/sorted and last position)
 - (id)initWithData:(NSArray *)verbList {
     self = [self init];
     if (self) {
-        self.verbs = verbList;
+        NSMutableArray *tmp = [[NSMutableArray alloc] initWithCapacity:verbList.count];
+        for (int i=0; i<verbList.count; i++) {
+            [tmp addObject:[[Verb alloc] initFromDictionary:verbList[i]]];
+        }
+        self.verbs = tmp;
         self.randomOrder = [[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
-        self.currentPos=[[NSUserDefaults standardUserDefaults] integerForKey:@"currentPos"];
         [self sortVerbsList];
     }
     return self;
@@ -33,7 +35,6 @@
 - (void)setVerbs:(NSArray *)verbs {
     if (![_verbs isEqualToArray:verbs]) {
         _verbs = verbs;
-        if (self.currentPos>=[_verbs count]) self.currentPos=0;
     }
 }
 
@@ -42,9 +43,9 @@
         self.verbs = [self.verbs shuffledCopy];
     } else {
         self.verbs = [self.verbs sortedArrayUsingComparator:^(id ob1, id ob2){
-            NSString *s1 = [ob1 objectForKey:@"simple"];
-            NSString *s2 = [ob2 objectForKey:@"simple"];
-            return [s1 compare:s2];
+            Verb *v1 = ob1;
+            Verb *v2 = ob2;
+            return [v1.simple compare:v2.simple];
         }];
     }
 }
@@ -57,33 +58,7 @@
     }
 }
 
-- (void)setCurrentPos:(NSInteger)currentPos {
-    if (currentPos!=_currentPos) {
-        _currentPos=currentPos;
-        if (_currentPos >= self.verbs.count) _currentPos = 0;
-        [[NSUserDefaults standardUserDefaults] setInteger:_currentPos forKey:@"currentPos"];
-    }
-}
-
-- (void)change {
-    self.currentPos++;
-}
-
 -(int) count{
     return [self.verbs count];
 }
-- (NSString *)simple {
-    return self.verbs[self.currentPos][@"simple"];
-}
-
-- (NSString *)translation {
-    return self.verbs[self.currentPos][@"translation"];
-}
-- (NSString *)past {
-    return self.verbs[self.currentPos][@"past"];
-}
-- (NSString *)participle {
-    return self.verbs[self.currentPos][@"participle"];
-}
-
 @end

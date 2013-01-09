@@ -90,11 +90,11 @@
 		<key>level</key>
 		<integer>1</integer>
 		<key>simple</key>
-		<string>Bend</string>
+		<string>bend</string>
 		<key>past</key>
-		<string>Bent</string>
+		<string>bent</string>
 		<key>participle</key>
-		<string>Bent</string>
+		<string>bent</string>
 		<key>translation</key>
 		<string>doblar</string>
 	</dict>

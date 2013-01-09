@@ -24,4 +24,6 @@
 @property (nonatomic, weak) id<ColorMapViewDataSource> dataSource;
 @property (nonatomic, weak) id<ColorMapViewDelegate> delegate;
 
+- (void)toggleSize:(UIGestureRecognizer *)tap;
+
 @end
