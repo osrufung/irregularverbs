@@ -13,8 +13,8 @@
 //@property (nonatomic, strong) VerbsStore *store;
 //@property (nonatomic, weak) IrregularVerb *verbs;
 //@property (nonatomic, strong) NSArray *verbs;
-@property (nonatomic) int currentLevel;
-@property (nonatomic) BOOL includeLowerLevels;
+//@property (nonatomic) int currentLevel;
+//@property (nonatomic) BOOL includeLowerLevels;
 @property (nonatomic, strong) NSMutableArray *timeStamps;
 @property (nonatomic) int currentIndex;
 @end
@@ -35,8 +35,9 @@
     self.delegate = self;
     self.dataSource = self;
     
-    self.currentLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
-    self.includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
+    //self.currentLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
+    //self.includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
+    
     self.currentIndex = [[NSUserDefaults standardUserDefaults] boolForKey:@"currentPos"];
 
     [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
@@ -77,32 +78,21 @@
 }
 */
 - (NSArray *)verbs {
-    /*
-    if (!_verbs) {
-        self.currentLevel =  [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
-        self.includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
-        BOOL remote = [[NSUserDefaults standardUserDefaults] boolForKey:@"loadFromInternet"];
-      
-         _verbs = [[VerbsStore sharedStore] verbsForLevel:self.currentLevel includeLowerLevels:self.includeLowerLevels fromInternet:remote];
-    
-    }
-    return _verbs;*/
-    self.currentLevel =  [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
-    self.includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
-    return [[VerbsStore sharedStore] verbsForLevel:self.currentLevel includeLowerLevels:self.includeLowerLevels ];
+ 
+    return [[VerbsStore sharedStore] verbsForLevel:0 includeLowerLevels:YES];
 }
 
 - (CardViewController *)verbCardAtIndex:(int)index forPresentationMode:(enum CardViewControllerPresentationMode)mode {
     CardViewController *vc=nil;
     if((index>=0)&&(index<self.verbs.count)){
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardViewController"];
-        vc.verb = self.verbs[index];
+        //vc.verb = self.verbs[index];
+        vc.verb = [[VerbsStore sharedStore] allVerbs][index];
         vc.presentationMode = mode;
         vc.verbIndex=index;
         vc.randomOrder = [[VerbsStore sharedStore] randomOrder];
         
-        vc.currentLevel = self.currentLevel;
-        vc.includeLowerLevels = self.includeLowerLevels;
+  
     }
     return vc;
 }
@@ -111,17 +101,10 @@
 {
     
     [self dismissViewControllerAnimated:YES completion:nil];
-
-    // We force a complete verb list reload if difficultyLevel or lowerLevels change
-    int setupLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
-    BOOL lowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
-    
-    //if ((self.currentLevel!=setupLevel)||(self.includeLowerLevels!=lowerLevels)) _verbs = nil;
-
+ 
     
     [[VerbsStore sharedStore] setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
-    self.currentLevel = setupLevel;
-    self.includeLowerLevels = lowerLevels;
+ 
     
     // Reassign the current card with the new preferences
     [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]

@@ -35,32 +35,32 @@
 
 - (NSArray *)verbsListFromDocument {
     
-    
-    NSString *verbsFilePath = [self mutableVerbsListPath];
-    
+    if(!allItems){
+        NSString *verbsFilePath = [self mutableVerbsListPath];
+        
     // NSKeyedUnarchiver didn't reeturn nil on error, it will throw an exception
     @try {
         allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
     }
     @catch (NSException *exception) {
-        NSMutableArray *tmp  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]];
-        
-        NSMutableArray *mutable = [[NSMutableArray alloc] initWithCapacity:tmp.count];
-        for (int i=0; i<tmp.count; i++) {
-            [mutable addObject:[[Verb alloc] initFromDictionary:tmp[i]]];
-        }
-        
-        allItems = [mutable copy];
-        
-        [self saveChanges];
-
-    }
+            NSMutableArray *tmp  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]];
+            
+            NSMutableArray *mutable = [[NSMutableArray alloc] initWithCapacity:tmp.count];
+            for (int i=0; i<tmp.count; i++) {
+                [mutable addObject:[[Verb alloc] initFromDictionary:tmp[i]]];
+            }
  
+            allItems = mutable;
+            
+            [self saveChanges];
+
+        }
+    }
     return allItems;
 }
 -(BOOL) saveChanges {
     NSString *path = [self mutableVerbsListPath];
-    
+    NSLog(@"saving changes to Docs..");
     return [NSKeyedArchiver archiveRootObject:allItems toFile:path];
 }
 - (NSArray *)localVerbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels {
@@ -100,5 +100,13 @@
 }
 
 
+-(NSArray *)allVerbs{
+    return allItems;
+}
+-(void)printListtoConsole{
+    for(Verb *v in allItems){
+        NSLog(@"%@ - %f",[v simple],[v responseTime]);
+    }
+}
 
 @end

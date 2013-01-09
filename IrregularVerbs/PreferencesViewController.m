@@ -38,14 +38,9 @@
     }else{
         [self.segmentedSortControl setSelectedSegmentIndex:0];
     }
-    self.segmentedDifficultyLevel.selectedSegmentIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"]-1;
     
     
-    //set the default sametime value (
-    [self.switchShowSameTime setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"sameTime"]];
-
-    [self.switchLowerLevels setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"]];
-
+    
     
 }
 
@@ -63,13 +58,7 @@
     
     [self.delegate flipsideViewControllerDidFinish:self];
 }
-
-- (IBAction)diffycultyLevelChanged:(UISegmentedControl *)sender {
-    NSInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex+1;
-    [[NSUserDefaults standardUserDefaults] setInteger:index forKey:@"difficultyLevel"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
+ 
 - (IBAction)selectionChanged:(id)sender {
     NSInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex;
     NSLog(@"Selected %d",index);    
@@ -78,19 +67,9 @@
     [settings synchronize];
 }
 
--(IBAction)sameTimeChanged:(id)sender{
-    
-    BOOL checked  = [self switchShowSameTime].on;
-    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
-    [settings setBool:checked forKey:@"sameTime"];
-    [settings synchronize];
-}
+ 
 
-- (IBAction)lowerLevelsChanged {
-    BOOL checked  = [self switchLowerLevels].on;
-    [[NSUserDefaults standardUserDefaults] setBool:checked forKey:@"includeLowerLevels"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
+ 
 -(IBAction)showAboutLink:(id)sender
 {
     NSString *launchUrl= [[NSUserDefaults standardUserDefaults] stringForKey:@"aboutProjectURL"];

@@ -21,8 +21,7 @@ enum CardViewControllerPresentationMode {
 
 @property (nonatomic, strong) Verb *verb;
 @property (nonatomic) int                   verbIndex;
-@property (nonatomic) int                   currentLevel;
-@property (nonatomic) BOOL                  includeLowerLevels;
+ 
 @property (nonatomic) BOOL                  randomOrder;
 @property (nonatomic, readonly) float       responseTime;
 

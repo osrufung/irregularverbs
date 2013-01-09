@@ -14,10 +14,10 @@
 @property (nonatomic,strong) NSString *past;
 @property (nonatomic,strong) NSString *participle;
 @property (nonatomic,strong) NSString *translation;
-@property (nonatomic) int *level;
+
 @property (nonatomic) BOOL failed;
 @property (nonatomic) float responseTime;
 
 -(id)initFromDictionary:(NSDictionary *)dictonary;
-
+-(void)addNewResponseTime:(float)rt;
 @end
