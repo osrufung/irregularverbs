@@ -10,6 +10,7 @@
 #import "Verb.h"
 #import "NSArray+Shuffling.h"
  
+ 
 @implementation VerbsStore
 @synthesize  randomOrder=_randomOrder;
 
@@ -40,7 +41,7 @@
         
     // NSKeyedUnarchiver didn't reeturn nil on error, it will throw an exception
     @try {
-        allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
+          allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
     }
     @catch (NSException *exception) {
             NSMutableArray *tmp  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]];
@@ -55,6 +56,7 @@
             [self saveChanges];
 
         }
+
     }
     return allItems;
 }
