@@ -25,7 +25,7 @@ You can contact us at:
 * OR - v0.7 INESTABLE. explain by mean of colours the difficulty user in which the user moves from one word to another based in time difference (2/1/2013)
 * RB - v0.8 EXPERIMENTAL learning feedback usign a ColorMap
 * RB - v0.9e NEW EXPERIMENTAL INTERFACE 
-* or - v0.9.1e internal Model changes. Compute the average time for every verb instead last time only. (9/1/2013)
+* OR - v0.9.1e internal Model changes. Compute the average time for every verb instead last time only. (9/1/2013)
 
 ## Screenshot
 ![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/learn.png)
