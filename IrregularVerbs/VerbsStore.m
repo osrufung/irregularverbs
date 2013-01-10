@@ -87,15 +87,7 @@
         }];
     }
 }
-/*
-- (NSArray *)verbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels  {
-    NSArray *list = [self verbsListFromDocument];
-    NSString *query = (lowerLevels)?@"level <= %d":@"level == %d";
-    NSPredicate *predicateLevel = [NSPredicate predicateWithFormat:query, level];
-    NSArray *filteredArray = [list filteredArrayUsingPredicate:predicateLevel];
-    return filteredArray;
-}
-*/
+ 
 
 -(NSArray *)verbsForDifficulty:(float) difficulty{
     int idx = 0;

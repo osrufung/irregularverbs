@@ -82,16 +82,12 @@
     NSLog(@"verbos dentro de dificultad %f -> %d %@",difficulty, [selectedVerbs count], selectedVerbs );
     
     self.labelNumberOfVerbs.text = [NSString stringWithFormat:@"(including %d verbs)",idx];
-    /*
-    NSRange range;
-    range.location=0;
-    range.length=idx;
-    NSArray *selectedVerbs = [_verbs subarrayWithRange:range];
-    NSLog(@"%@",selectedVerbs);*/
+ 
 }
 
 - (IBAction)difficultyChanged:(UISlider *)sender {
     [self setLabelNumberOfVerbsForDifficulty:sender.value];
+    
 }
  
 - (IBAction)selectionChanged:(id)sender {
@@ -99,6 +95,7 @@
     NSLog(@"Selected %d",index);    
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     [settings setBool:(index == 1) forKey:@"randomOrder"];
+    
     [settings synchronize];
 }
 
