@@ -24,4 +24,8 @@
 - (void)testFailed;
 - (void)resetCurrentTest;
 - (void)resetHistory;
+
+- (NSComparisonResult)compareBySimpleTense:(Verb *)other;
+- (NSComparisonResult)compareByTestResults:(Verb *)other;
+- (NSComparisonResult)compareByHistoricalPerformance:(Verb *)other;
 @end

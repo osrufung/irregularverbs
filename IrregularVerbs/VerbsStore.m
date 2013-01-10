@@ -91,7 +91,7 @@
         _allVerbs= [_allVerbs sortedArrayUsingComparator:^(id ob1, id ob2){
             Verb *v1 = ob1;
             Verb *v2 = ob2;
-            return [v1.simple compare:v2.simple];
+            return [v1 compareBySimpleTense:v2];
         }];
     }
 }

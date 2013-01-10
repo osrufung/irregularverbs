@@ -115,4 +115,43 @@
     }
     return self;
 }
+
+#pragma mark - comparators
+- (NSComparisonResult)compareBySimpleTense:(Verb *)other {
+    return [self.simple compare:other.simple];
+}
+
+- (NSComparisonResult)compareByTestResults:(Verb *)other {
+    if (self.failed && other.failed) {
+        return [self.simple compare:other.simple];
+    } else if (self.failed && !other.failed) {
+        return (NSComparisonResult)NSOrderedAscending;
+    } else if (!self.failed && other.failed) {
+        return (NSComparisonResult)NSOrderedDescending;
+    } else {
+        if (self.responseTime>other.responseTime) {
+            return (NSComparisonResult)NSOrderedAscending;
+        } else if(self.responseTime<other.responseTime) {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        else return [self.simple compare:other.simple];
+    }
+}
+
+- (NSComparisonResult)compareByHistoricalPerformance:(Verb *)other {
+    if (self.failureRatio<other.failureRatio) {
+        return (NSComparisonResult)NSOrderedDescending;
+    } else if (self.failureRatio>other.failureRatio) {
+        return (NSComparisonResult)NSOrderedAscending;
+    } else {
+        if (self.responseTime>other.responseTime) {
+            return (NSComparisonResult)NSOrderedAscending;
+        } else if(self.responseTime<other.responseTime) {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        else return [self.simple compare:other.simple];
+    }
+}
+
+
 @end
