@@ -10,6 +10,8 @@
 #import "ModeViewController.h"
 #import "CardsStackViewController.h"
 #import "Referee.h"
+#import "PreferencesViewController.h"
+
 
 @interface ModeViewController ()
 
@@ -60,6 +62,10 @@
     vc.verbs = _verbs;
     vc.randomOrder = [[VerbsStore sharedStore] randomOrder];
     [self addChildViewController:vc];
+    
+    PreferencesViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"PreferencesViewController"];
+    pvc.title = @"Config";
+    [self addChildViewController:pvc];
 
     // Time limit
     [[Referee sharedReferee] setMaxValue:5.0f];

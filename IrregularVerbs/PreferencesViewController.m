@@ -20,33 +20,12 @@
 
 @implementation PreferencesViewController
 
- 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     [self.aboutLabel setText:[NSString stringWithFormat:@"Version %@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]] ];
-    /* moved to Store
-    // We neeed a copy sorted by frequency to select the verbs
-    _verbs = [[VerbsStore sharedStore] allVerbs];
-    _verbs = [_verbs sortedArrayUsingComparator:^(id ob1,id ob2) {
-        Verb *v1 = (Verb *) ob1;
-        Verb *v2 = (Verb *) ob2;
-        
-        return v1.frequency<v2.frequency;
-    }];
-     */
-	// set the segmented control current state
+
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]){
         [self.segmentedSortControl setSelectedSegmentIndex:1];
     }else{
@@ -57,22 +36,6 @@
     [self setLabelNumberOfVerbsForDifficulty:self.sliderDifficulty.value];
 
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
-- (IBAction)done:(id)sender
-{
-     NSLog(@"did finish flipside %@",self.delegate);
-    [[NSUserDefaults standardUserDefaults] setFloat:self.sliderDifficulty.value forKey:@"frequency"];
-    
-    [self.delegate flipsideViewControllerDidFinish:self];
 }
 
 - (void)setLabelNumberOfVerbsForDifficulty:(float)difficulty {
@@ -88,7 +51,7 @@
 
 - (IBAction)difficultyChanged:(UISlider *)sender {
     [self setLabelNumberOfVerbsForDifficulty:sender.value];
-    
+    [[NSUserDefaults standardUserDefaults] setFloat:self.sliderDifficulty.value forKey:@"frequency"];
 }
 
 - (IBAction)clearStatistics:(UIButton *)sender {
@@ -114,8 +77,6 @@
     
     [settings synchronize];
 }
-
- 
 
  
 -(IBAction)showAboutLink:(id)sender

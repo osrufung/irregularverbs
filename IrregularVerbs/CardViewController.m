@@ -200,13 +200,4 @@
     view.layer.opacity = finalAlpha;
 }
 
-#pragma mark - Flipside View
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
-        [[segue destinationViewController] setDelegate:self.parentViewController];
-    }
-}
-
 @end

@@ -25,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UISlider *sliderDifficulty;
 @property (weak, nonatomic) IBOutlet UILabel *labelNumberOfVerbs;
 - (IBAction)selectionChanged:(id)sender;
-- (IBAction)done:(id)sender;
 - (IBAction)difficultyChanged:(UISlider *)sender;
 - (IBAction)clearStatistics:(UIButton *)sender;
  

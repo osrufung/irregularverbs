@@ -105,18 +105,4 @@
     return vc;
 }
 
-- (void)flipsideViewControllerDidFinish:(PreferencesViewController *)controller
-{
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
- 
-    
-    //[[VerbsStore sharedStore] setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
- 
-    
-    // Reassign the current card with the new preferences
-    [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
-                   direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-}
-
 @end
