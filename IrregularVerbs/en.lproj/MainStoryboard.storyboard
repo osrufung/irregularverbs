@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nNo-kJ-bYp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nNo-kJ-bYp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -64,11 +64,6 @@
                                     <constraint firstAttribute="height" constant="34" id="hlt-D9-HJX"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Level 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gx3-da-PXV">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCF-gW-gSf" customClass="TestProgressView">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -95,10 +90,8 @@
                             <constraint firstItem="lZ6-mp-dja" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="51g-zK-Lth"/>
                             <constraint firstAttribute="bottom" secondItem="4lj-ZE-td0" secondAttribute="bottom" constant="49" id="6Im-al-poY"/>
                             <constraint firstAttribute="trailing" secondItem="lZ6-mp-dja" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="FK8-0A-0oP"/>
-                            <constraint firstItem="4lj-ZE-td0" firstAttribute="centerX" secondItem="Gx3-da-PXV" secondAttribute="centerX" type="default" id="JZI-O4-cKy"/>
                             <constraint firstAttribute="trailing" secondItem="rUq-md-Ylv" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="KHd-Rn-bs9"/>
                             <constraint firstItem="lCF-gW-gSf" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-14" id="NAr-Gi-F9l"/>
-                            <constraint firstAttribute="bottom" secondItem="Gx3-da-PXV" secondAttribute="bottom" constant="19" id="NTo-qy-zdf"/>
                             <constraint firstAttribute="trailing" secondItem="FAF-Hu-3EZ" secondAttribute="trailing" constant="17" id="Nim-j1-YTO"/>
                             <constraint firstItem="lCF-gW-gSf" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Pjy-RU-TX2"/>
                             <constraint firstAttribute="trailing" secondItem="GEz-Nm-P4V" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Rlm-44-mRF"/>
@@ -124,7 +117,6 @@
                     <connections>
                         <outlet property="imageTestResult" destination="4lj-ZE-td0" id="Tyd-GA-oQn"/>
                         <outlet property="labelElapsedTime" destination="urp-TA-2Fn" id="9TX-zj-Xr9"/>
-                        <outlet property="labelLevel" destination="Gx3-da-PXV" id="TQY-vy-f5J"/>
                         <outlet property="labelParticiple" destination="rUq-md-Ylv" id="h3K-uL-qHV"/>
                         <outlet property="labelPast" destination="GEz-Nm-P4V" id="WmN-TL-qfX"/>
                         <outlet property="labelPresent" destination="lZ6-mp-dja" id="zNf-ZW-oYX"/>
@@ -198,7 +190,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="n verbs included" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ch-kE-Tfb">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="n verbs included" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ch-kE-Tfb">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="17E-iz-4V1"/>
                                     <constraint firstAttribute="width" constant="124" id="8pS-7g-TXB"/>

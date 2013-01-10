@@ -12,7 +12,11 @@
  
  
 @implementation VerbsStore
-@synthesize  randomOrder=_randomOrder;
+
+
+#pragma mark - Singleton
+
+@synthesize allVerbs=_allVerbs;
 
 +(VerbsStore *) sharedStore
 {
@@ -21,10 +25,13 @@
         sharedStore = [[super allocWithZone:nil] init];
     return sharedStore;
 }
+
 +(id)allocWithZone:(NSZone *)zone
 {
     return [self sharedStore];
 }
+
+#pragma mark - File management
 
 - (NSString *)mutableVerbsListPath {
     NSArray *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -32,42 +39,42 @@
     return verbsFilePath;
 }
 
- 
-
-- (NSArray *)verbsListFromDocument {
-    
-    if(!allItems){
-        NSString *verbsFilePath = [self mutableVerbsListPath];
-        
-        @try {
-          allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
-        }
-        @catch (NSException *e) {
-            NSLog(@"Exception in %@: %@",NSStringFromSelector(_cmd), e);
-        }
-        if(!allItems){
-            [self loadVerbsFromTemplate];
-            [self saveChanges];
-        }
-    }
-    return allItems;
-}
--(void)loadVerbsFromTemplate{
+- (NSArray *)loadVerbsFromTemplate{
     NSMutableArray *tmp  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]];
     
     NSMutableArray *mutable = [[NSMutableArray alloc] initWithCapacity:tmp.count];
     for (int i=0; i<tmp.count; i++) {
         [mutable addObject:[[Verb alloc] initFromDictionary:tmp[i]]];
     }
-    
-    allItems = mutable;
+    return mutable;
 }
 -(BOOL) saveChanges {
     NSString *path = [self mutableVerbsListPath];
     NSLog(@"saving changes to Docs..");
-    return [NSKeyedArchiver archiveRootObject:allItems toFile:path];
+    return [NSKeyedArchiver archiveRootObject:self.allVerbs toFile:path];
 }
 
+#pragma mark - access to verbs
+
+- (NSArray *)allVerbs {
+    
+    if(!_allVerbs){
+        NSString *verbsFilePath = [self mutableVerbsListPath];
+        
+        @try {
+            _allVerbs = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
+        }
+        @catch (NSException *e) {
+            NSLog(@"Exception in %@: %@",NSStringFromSelector(_cmd), e);
+            _allVerbs=nil;
+        }
+        if(!_allVerbs){
+            _allVerbs = [self loadVerbsFromTemplate];
+            [self saveChanges]; // I've serious doubts about saving the data here...
+        }
+    }
+    return _allVerbs;
+}
 
 - (void)setRandomOrder:(BOOL)randomOrder {
     if (randomOrder!=_randomOrder) {
@@ -78,9 +85,9 @@
 }
 - (void)sortVerbsList {
     if (self.randomOrder) {
-        allItems = [allItems shuffledCopy];
+        _allVerbs = [_allVerbs shuffledCopy];
     } else {
-        allItems= [allItems sortedArrayUsingComparator:^(id ob1, id ob2){
+        _allVerbs= [_allVerbs sortedArrayUsingComparator:^(id ob1, id ob2){
             Verb *v1 = ob1;
             Verb *v2 = ob2;
             return [v1.simple compare:v2.simple];
@@ -115,6 +122,7 @@
     }
  
 }
+
 -(NSArray *) verbsSortedbyFrequency{
     return [ [self allVerbs] sortedArrayUsingComparator:^(id ob1,id ob2) {
         Verb *v1 = (Verb *) ob1;
@@ -125,18 +133,8 @@
 }
 
 
-
 -(int) numberOfVerbsForDifficulty:(float) difficulty{
     return [[self verbsForDifficulty:difficulty] count];
  
 }
--(NSArray *)allVerbs{
-    
-    return [self verbsListFromDocument];
-}
- 
--(void)printListtoConsole{
-    NSLog(@"%@",allItems);
-}
-
 @end

@@ -53,8 +53,8 @@
         [self.segmentedSortControl setSelectedSegmentIndex:0];
     }
     
-    self.sliderDifficulty.value=0.2;
-    [self setLabelNumberOfVerbsForDifficulty:0.2];
+    self.sliderDifficulty.value=[[NSUserDefaults standardUserDefaults] floatForKey:@"frequency"];
+    [self setLabelNumberOfVerbsForDifficulty:self.sliderDifficulty.value];
 
     
 }
@@ -70,6 +70,7 @@
 - (IBAction)done:(id)sender
 {
      NSLog(@"did finish flipside %@",self.delegate);
+    [[NSUserDefaults standardUserDefaults] setFloat:self.sliderDifficulty.value forKey:@"frequency"];
     
     [self.delegate flipsideViewControllerDidFinish:self];
 }

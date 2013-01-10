@@ -31,7 +31,6 @@ enum CardViewControllerPresentationMode {
 @property (nonatomic, weak) IBOutlet UILabel *labelPast;
 @property (nonatomic, weak) IBOutlet UILabel *labelParticiple;
 @property (nonatomic, weak) IBOutlet UILabel *labelTranslation;
-@property (nonatomic, weak) IBOutlet UILabel *labelLevel;
 @property (weak, nonatomic) IBOutlet UIImageView *shuffleIndicator;
 @property (weak, nonatomic) IBOutlet TestProgressView *testProgress;
 @property (weak, nonatomic) IBOutlet UILabel *labelElapsedTime;

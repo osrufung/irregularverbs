@@ -9,12 +9,6 @@
 #import "CardsStackViewController.h"
 
 @interface CardsStackViewController ()
-//Object Data Model
-//@property (nonatomic, strong) VerbsStore *store;
-//@property (nonatomic, weak) IrregularVerb *verbs;
-//@property (nonatomic, strong) NSArray *verbs;
-//@property (nonatomic) int currentLevel;
-//@property (nonatomic) BOOL includeLowerLevels;
 @property (nonatomic, strong) NSMutableArray *timeStamps;
 @property (nonatomic) int currentIndex;
 @end
@@ -35,14 +29,11 @@
     self.delegate = self;
     self.dataSource = self;
     
-    //self.currentLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"difficultyLevel"];
-    //self.includeLowerLevels = [[NSUserDefaults standardUserDefaults] boolForKey:@"includeLowerLevels"];
-    
-    self.currentIndex = [[NSUserDefaults standardUserDefaults] boolForKey:@"currentPos"];
+    self.currentIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentPos"];
+    if (self.currentIndex>=self.verbs.count) self.currentIndex=self.verbs.count-1;
 
     [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
                    direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-    [self.viewControllers[0] beginTest];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
@@ -67,32 +58,43 @@
     }
 }
 
-#pragma mark - Model Managment
-/*
-- (VerbsStore *)store {
-    if (!_store) {
-        _store = [[VerbsStore alloc] init];
-        _store.delegate = self;
+- (void)viewWillAppear:(BOOL)animated {
+    if (self.presentationMode==CardViewControllerPresentationModeReview) {
+        self.verbs =[self.verbs sortedArrayUsingComparator:^(id ob1, id ob2){
+            Verb *v1=ob1;
+            Verb *v2=ob2;
+            
+            if (v1.failed && v2.failed) {
+                return [v1.simple compare:v2.simple];
+            } else if (v1.failed && !v2.failed) {
+                return (NSComparisonResult)NSOrderedAscending;
+            } else if (!v1.failed && v2.failed) {
+                return (NSComparisonResult)NSOrderedDescending;
+            } else {
+                if (v1.responseTime>v2.responseTime) {
+                    return (NSComparisonResult)NSOrderedAscending;
+                } else if(v1.responseTime<v2.responseTime) {
+                    return (NSComparisonResult)NSOrderedDescending;
+                }
+                else return [v1.simple compare:v2.simple];
+            }
+        }];
+        self.currentIndex=0;
+        [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
+                       direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];        
     }
-    return _store;
 }
-*/
-/*
-- (NSArray *)verbs {
- 
-    return [[VerbsStore sharedStore] verbsForLevel:2 includeLowerLevels:NO];
-}
-*/
+
+#pragma mark - Model Managment
+
 - (CardViewController *)verbCardAtIndex:(int)index forPresentationMode:(enum CardViewControllerPresentationMode)mode {
     CardViewController *vc=nil;
-    if((index>=0)&&(index< [[[VerbsStore sharedStore] allVerbs] count])){
+    if((index>=0)&&(index< self.verbs.count)){
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardViewController"];
-        vc.verb = [[[VerbsStore sharedStore] allVerbs] objectAtIndex:index];
+        vc.verb = [self.verbs objectAtIndex:index];
         vc.presentationMode = mode;
         vc.verbIndex=index;
-        vc.randomOrder = [[VerbsStore sharedStore] randomOrder];
-        
-  
+        vc.randomOrder = self.randomOrder;
     }
     return vc;
 }
@@ -103,44 +105,12 @@
     [self dismissViewControllerAnimated:YES completion:nil];
  
     
-    [[VerbsStore sharedStore] setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
+    //[[VerbsStore sharedStore] setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
  
     
     // Reassign the current card with the new preferences
     [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
                    direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 }
-
-
-/*
- #pragma mark - IrregularVerbDelegate
- 
- - (void)updateBegin {
- dispatch_async(dispatch_get_main_queue(), ^{
- [self.activityIndicator startAnimating];
- });
- }
- 
- - (void)updateEnd {
- dispatch_async(dispatch_get_main_queue(), ^{
- [self.activityIndicator stopAnimating];
- [self showVerb];
- });
- }
- 
- - (void)updateFailedWithError:(NSError *)error {
- dispatch_async(dispatch_get_main_queue(), ^{
- [self.activityIndicator stopAnimating];
- UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.domain
- message:error.localizedDescription
- delegate:nil
- cancelButtonTitle:@"Dimiss"
- otherButtonTitles:nil];
- [alert show];
- });
- }
- 
-*/
-
 
 @end

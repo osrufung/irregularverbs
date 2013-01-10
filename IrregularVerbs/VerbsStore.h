@@ -8,31 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol VerbsStoreDelegate<NSObject>
-
-@optional
-- (void)updateBegin;
-- (void)updateFailedWithError:(NSError *)error;
-- (void)updateEnd;
-
-@end
-
-
-@class IrregularVerb;
 
 @interface VerbsStore : NSObject
 
-{
-    NSArray *allItems;
-}
+@property (nonatomic) BOOL randomOrder;
+@property (nonatomic, readonly) NSArray *allVerbs;
 
 + (VerbsStore *)sharedStore;
-@property (nonatomic) BOOL randomOrder;
-@property (nonatomic, strong) id<VerbsStoreDelegate> delegate;
- 
--(BOOL) saveChanges;
--(NSArray *)allVerbs;
--(void)printListtoConsole;
+
 -(int) numberOfVerbsForDifficulty:(float) difficulty;
 -(NSArray *)verbsForDifficulty:(float) difficulty;
+-(BOOL) saveChanges;
+
 @end
