@@ -14,7 +14,7 @@
 - (void)flipsideViewControllerDidFinish:(PreferencesViewController *)controller;
 @end
 
-@interface PreferencesViewController : UIViewController
+@interface PreferencesViewController : UIViewController<UIAlertViewDelegate>
 
  
  
@@ -27,6 +27,7 @@
 - (IBAction)selectionChanged:(id)sender;
 - (IBAction)done:(id)sender;
 - (IBAction)difficultyChanged:(UISlider *)sender;
+- (IBAction)clearStatistics:(UIButton *)sender;
  
  
 -(IBAction)showAboutLink:(id)sender;

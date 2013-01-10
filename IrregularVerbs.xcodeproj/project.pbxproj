@@ -44,6 +44,7 @@
 		E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D12F81695BAEC00C8DE51 /* VerbsStore.m */; };
 		E5C2CA2E169C5F6600BEE2ED /* Referee.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA2D169C5F6600BEE2ED /* Referee.m */; };
 		E5C2CA32169C6A0C00BEE2ED /* Verb.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA31169C6A0C00BEE2ED /* Verb.m */; };
+		E5C70A45169F2D6200E09847 /* calendar_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C70A44169F2D6200E09847 /* calendar_24.png */; };
 		E5ED1BD2168C7824009C1D59 /* preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = E5ED1BD1168C7824009C1D59 /* preferences.png */; };
 		E5FE5827169B12B7002AC8A2 /* CardsStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */; };
 /* End PBXBuildFile section */
@@ -101,6 +102,7 @@
 		E5C2CA2D169C5F6600BEE2ED /* Referee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Referee.m; sourceTree = "<group>"; };
 		E5C2CA30169C6A0C00BEE2ED /* Verb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Verb.h; sourceTree = "<group>"; };
 		E5C2CA31169C6A0C00BEE2ED /* Verb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Verb.m; sourceTree = "<group>"; };
+		E5C70A44169F2D6200E09847 /* calendar_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_24.png; sourceTree = "<group>"; };
 		E5ED1BD1168C7824009C1D59 /* preferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preferences.png; sourceTree = "<group>"; };
 		E5FE5825169B12B7002AC8A2 /* CardsStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsStackViewController.h; sourceTree = "<group>"; };
 		E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsStackViewController.m; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		E550A5EE169CC9AE00DCA8D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E5C70A44169F2D6200E09847 /* calendar_24.png */,
 				E550A5DB169CC88600DCA8D6 /* media-shuffle.png */,
 				E550A5D7169CC87300DCA8D6 /* icon57.png */,
 				E550A5D8169CC87300DCA8D6 /* icon114.png */,
@@ -336,6 +339,7 @@
 				E550A5E7169CC8ED00DCA8D6 /* test_fail.png in Resources */,
 				E550A5E8169CC8ED00DCA8D6 /* test_in_progress.png in Resources */,
 				E550A5E9169CC8ED00DCA8D6 /* test_ok.png in Resources */,
+				E5C70A45169F2D6200E09847 /* calendar_24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

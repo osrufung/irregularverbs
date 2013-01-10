@@ -90,6 +90,21 @@
     [self setLabelNumberOfVerbsForDifficulty:sender.value];
     
 }
+
+- (IBAction)clearStatistics:(UIButton *)sender {
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Clear Historical Data"
+                                                 message:@"You will clear all the data from old tests"
+                                                delegate:self
+                                       cancelButtonTitle:@"Cancel"
+                                       otherButtonTitles:@"Clear All", nil];
+    [av show];
+}
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex==1) {
+        [[VerbsStore sharedStore] resetHistory];
+    }
+}
  
 - (IBAction)selectionChanged:(id)sender {
     NSInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex;

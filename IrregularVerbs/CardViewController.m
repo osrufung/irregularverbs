@@ -71,8 +71,7 @@
     self.testProgress.progress=[[Referee sharedReferee] performanceForValue:elapsedTime];
     self.testProgress.backgroundColor = [[Referee sharedReferee] colorForValue:elapsedTime];
     if (self.testProgress.progress>=1.0f) {
-        [self endTest];
-        self.verb.failed=YES;
+        [self endTestWithFailure:YES];
         [self showResultsWithAnimation:YES];
     }
 }
@@ -93,16 +92,18 @@
     }
 }
 
-- (void)endTest {
+- (void)endTestWithFailure:(BOOL)failure {
     if (self.presentationMode!=CardViewControllerPresentationModeTest) return;
     if (_testTimer) {
         _endTestTime = CACurrentMediaTime();
         [_testTimer invalidate];
         _testTimer = nil;
         self.testProgress.hidden=YES;
-        [self.verb addNewResponseTime:self.responseTime];
         [self removeGestureRecognizers];
-        
+        if (failure)
+            [self.verb testFailed];
+        else
+            self.verb.responseTime = self.responseTime;
     }
 }
 
@@ -122,6 +123,7 @@
     self.shuffleIndicator.hidden=!self.randomOrder;
     self.imageTestResult.image=nil;
     if (self.presentationMode == CardViewControllerPresentationModeReview) [self showResultsWithAnimation:NO];
+    if (self.presentationMode == CardViewControllerPresentationModeHistory) [self showResultsWithAnimation:NO];
     if (self.presentationMode == CardViewControllerPresentationModeTest) [self beginTest];
 }
 
@@ -135,14 +137,13 @@
     self.labelPast.text = @"" ;
     self.labelParticiple.text = @"" ;
     self.labelElapsedTime.text = @"";
+    self.labelFailureRatio.text = @"";
     
     if(self.presentationMode != CardViewControllerPresentationModeTest) {
         self.labelTranslation.text = self.verb.translation;
         self.labelPast.text = self.verb.past;
         self.labelParticiple.text = self.verb.participle;
-        
     }
-    
 }
 
 - (void)showResultsWithAnimation:(BOOL)animation {
@@ -150,47 +151,41 @@
     self.labelPast.text = self.verb.past;
     self.labelParticiple.text = self.verb.participle;
     
-    if (self.presentationMode == CardViewControllerPresentationModeTest){
-        self.labelElapsedTime.text = [NSString stringWithFormat:@"%.2fs",self.responseTime];
+    if ((self.presentationMode == CardViewControllerPresentationModeTest)||(self.presentationMode == CardViewControllerPresentationModeReview)){
+        if(!self.verb.failed) self.labelElapsedTime.text = [NSString stringWithFormat:@"%.2fs",self.verb.responseTime];
     }
-    else if (self.presentationMode == CardViewControllerPresentationModeReview){
-        if (self.verb.failed) self.labelElapsedTime.text=@"";
-        else self.labelElapsedTime.text = [NSString stringWithFormat:@"%.2fs", [self.verb responseTime]];
+    else if (self.presentationMode == CardViewControllerPresentationModeHistory) {
+        self.labelFailureRatio.text = [NSString stringWithFormat:@"Failures %d%%",(int)(self.verb.failureRatio*100.0)];
+        self.labelElapsedTime.text = [NSString stringWithFormat:@"Average %.2fs",self.verb.averageResponseTime];
     }
         
-        
-    if (self.verb.failed) {
-        self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForFail];
-        self.imageTestResult.image = [[Referee sharedReferee] imageForFail];
-    } else {
-        if (self.presentationMode == CardViewControllerPresentationModeReview){
-            self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForValue:[self.verb responseTime]];
-            self.imageTestResult.image = [[Referee sharedReferee] imageForValue:[self.verb responseTime]];
+    if ((self.presentationMode == CardViewControllerPresentationModeTest)||(self.presentationMode == CardViewControllerPresentationModeReview)){
+        if (self.verb.failed) {
+            self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForFail];
+            self.imageTestResult.image = [[Referee sharedReferee] imageForFail];
         } else {
-            self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForValue:self.responseTime];
-            self.imageTestResult.image = [[Referee sharedReferee] imageForValue:self.responseTime];
+            self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForValue:self.verb.responseTime];
+            self.imageTestResult.image = [[Referee sharedReferee] imageForValue:self.verb.responseTime];
         }
+    } else if (self.presentationMode == CardViewControllerPresentationModeHistory) {
+        self.labelFailureRatio.textColor = [[Referee sharedReferee] colorForFail];
+        self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForValue:self.verb.averageResponseTime];
+        self.imageTestResult.image = nil;
     }
+    
     if ((animation)&&(self.labelPast.text==@"")) {
-        [self fadeView:self.labelElapsedTime from:0.0 to:1.0 ];
         [self fadeView:self.labelPast from:0.0 to:1.0 ];
         [self fadeView:self.labelParticiple from:0.0 to:1.0];
         [self fadeView:self.labelTranslation from:0.0 to:1.0];
+        [self fadeView:self.labelElapsedTime from:0.0 to:1.0 ];
+        [self fadeView:self.labelFailureRatio from:0.0 to:1.0 ];
+
     }
 }
 
 - (void)EndTestWithGesture:(UISwipeGestureRecognizer *)gestureRecognizer {
-    [self endTest];
-    switch (gestureRecognizer.direction) {
-        case UISwipeGestureRecognizerDirectionUp:
-            self.verb.failed=NO;
-            break;
-        case UISwipeGestureRecognizerDirectionDown:
-            self.verb.failed=YES;
-            break;
-        default:
-            break;
-    }
+    BOOL failGesture = (gestureRecognizer.direction==UISwipeGestureRecognizerDirectionDown);
+    [self endTestWithFailure:failGesture];
     [self showResultsWithAnimation:YES];
 }
 
