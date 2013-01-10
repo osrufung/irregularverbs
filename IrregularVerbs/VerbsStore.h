@@ -19,5 +19,6 @@
 -(int) numberOfVerbsForDifficulty:(float) difficulty;
 -(NSArray *)verbsForDifficulty:(float) difficulty;
 -(BOOL) saveChanges;
+-(void) resetHistory;
 
 @end

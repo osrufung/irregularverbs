@@ -8,7 +8,21 @@
 
 #import "Verb.h"
 #import "VerbsStore.h"
+
+@interface Verb()
+{
+    BOOL _testPending;
+}
+
+@property (nonatomic) int numberOfTests;
+@property (nonatomic) int numberOfFailures;
+
+@end
+
 @implementation Verb
+
+// Only the readonly properties needs that we explicit synthesize them
+@synthesize averageResponseTime=_averageResponseTime, failureRatio=_failureRatio, failed=_failed;
 
 - (id)initFromDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -18,27 +32,52 @@
         self.participle = dictionary[@"participle"];
         self.translation = dictionary[@"translation"];
         self.frequency = [dictionary[@"frequency"] floatValue];
-        self.responseTime = 0.0;
-        self.failed = NO;
- 
+        _testPending = YES;
     }
     return self;
 }
 
 -(void)setResponseTime:(float)rt{
-    _responseTime = rt;
-    
+    if (_testPending) {
+        int numberOk = self.numberOfTests-self.numberOfFailures;
+        _responseTime = rt;
+        _averageResponseTime = (_averageResponseTime*numberOk+_responseTime)/(numberOk+1);
+        self.numberOfTests++;
+        
+        NSLog(@"Adding %fs the average response time for %@ is %fs",_responseTime,self.simple, _averageResponseTime);
+    }
 }
 
--(void)addNewResponseTime:(float)rt{
- 
-    if(_responseTime >0 )
-        _responseTime = (_responseTime + rt) /2.0;
-    else
-        _responseTime = rt;
-    NSLog(@"new computed time is : %f",_responseTime);
-    //persist in Store
-    [[VerbsStore sharedStore] saveChanges];
+- (void)testFailed {
+    if (_testPending) {
+        _failed = TRUE;
+        self.numberOfFailures++;
+        self.numberOfTests++;
+        
+        NSLog(@"After this fail, the failure ratio for %@ is %f",self.simple,self.failureRatio);
+    }
+}
+
+- (float)averageResponseTime {
+    return _averageResponseTime;
+}
+
+- (float)failureRatio {
+    if (!self.numberOfTests) return 0.0;
+    else return (float)self.numberOfFailures/self.numberOfTests;
+}
+
+- (void)resetCurrentTest {
+    _testPending = YES;
+    _failed = NO;
+    _responseTime = 0.0;
+}
+
+- (void)resetHistory {
+    [self resetCurrentTest];
+    self.numberOfTests = 0;
+    self.numberOfFailures = 0;
+    _averageResponseTime = 0.0;
 }
 
 - (NSString *)description {
@@ -51,9 +90,12 @@
     [aCoder encodeObject:self.past forKey:@"past"];
     [aCoder encodeObject:self.participle forKey:@"participle"];
     [aCoder encodeObject:self.translation forKey:@"translation"];
-    [aCoder encodeBool:self.failed forKey:@"failed"];
-    [aCoder encodeFloat:self.responseTime forKey:@"responseTime"];
     [aCoder encodeFloat:self.frequency forKey:@"frequency"];
+
+    [aCoder encodeInt:self.numberOfTests forKey:@"numberOfTests"];
+    [aCoder encodeInt:self.numberOfFailures forKey:@"numberOfFailures"];
+    [aCoder encodeFloat:self.averageResponseTime forKey:@"averageResponseTime"];
+
 }
 
 -(id) initWithCoder:(NSCoder *)aDecoder{
@@ -63,9 +105,13 @@
         [self setPast:[aDecoder decodeObjectForKey:@"past"]];
         [self setParticiple:[aDecoder decodeObjectForKey:@"participle"]];
         [self setTranslation:[aDecoder decodeObjectForKey:@"translation"]];
-        [self setFailed:[aDecoder decodeBoolForKey:@"failed"]];
-        [self setResponseTime:[aDecoder decodeFloatForKey:@"responseTime"]];
         [self setFrequency:[aDecoder decodeFloatForKey:@"frequency"]];
+        
+        self.numberOfTests = [aDecoder decodeIntForKey:@"numberOfTests"];
+        self.numberOfFailures = [aDecoder decodeIntForKey:@"numberOfFailures"];
+        _averageResponseTime = [aDecoder decodeFloatForKey:@"averageResponseTime"];
+        
+        _testPending = YES;
     }
     return self;
 }

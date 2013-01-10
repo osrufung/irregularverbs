@@ -133,6 +133,13 @@
     }];
 }
 
+- (void)resetHistory {
+    for (Verb *verb in self.allVerbs) {
+        [verb resetHistory];
+    }
+    [self saveChanges];
+}
+
 
 -(int) numberOfVerbsForDifficulty:(float) difficulty{
     return [[self verbsForDifficulty:difficulty] count];

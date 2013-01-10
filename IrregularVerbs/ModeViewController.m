@@ -52,7 +52,15 @@
     vc.verbs = _verbs;
     vc.randomOrder = [[VerbsStore sharedStore] randomOrder];
     [self addChildViewController:vc];
-    
+
+    vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardsStackViewController"];
+    vc.presentationMode = CardViewControllerPresentationModeHistory;
+    vc.title = @"History";
+    vc.tabBarItem.image = [UIImage imageNamed:@"calendar_24.png"];
+    vc.verbs = _verbs;
+    vc.randomOrder = [[VerbsStore sharedStore] randomOrder];
+    [self addChildViewController:vc];
+
     // Time limit
     [[Referee sharedReferee] setMaxValue:5.0f];
 }

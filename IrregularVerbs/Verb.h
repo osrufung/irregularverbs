@@ -14,10 +14,14 @@
 @property (nonatomic,strong) NSString *past;
 @property (nonatomic,strong) NSString *participle;
 @property (nonatomic,strong) NSString *translation;
-@property (nonatomic) BOOL failed;
+@property (nonatomic,readonly) float averageResponseTime;
+@property (nonatomic,readonly) float failureRatio;
+@property (nonatomic,readonly) BOOL failed;
 @property (nonatomic) float responseTime;
 @property (nonatomic) float frequency;
 
--(id)initFromDictionary:(NSDictionary *)dictonary;
--(void)addNewResponseTime:(float)rt;
+- (id)initFromDictionary:(NSDictionary *)dictonary;
+- (void)testFailed;
+- (void)resetCurrentTest;
+- (void)resetHistory;
 @end

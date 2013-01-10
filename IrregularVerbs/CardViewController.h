@@ -14,7 +14,8 @@
 enum CardViewControllerPresentationMode {
     CardViewControllerPresentationModeLearn = 0,
     CardViewControllerPresentationModeTest,
-    CardViewControllerPresentationModeReview
+    CardViewControllerPresentationModeReview,
+    CardViewControllerPresentationModeHistory
     };
 
 @interface CardViewController : UIViewController
@@ -34,9 +35,10 @@ enum CardViewControllerPresentationMode {
 @property (weak, nonatomic) IBOutlet UIImageView *shuffleIndicator;
 @property (weak, nonatomic) IBOutlet TestProgressView *testProgress;
 @property (weak, nonatomic) IBOutlet UILabel *labelElapsedTime;
+@property (weak, nonatomic) IBOutlet UILabel *labelFailureRatio;
 @property (weak, nonatomic) IBOutlet UIImageView *imageTestResult;
 
 - (void)beginTest;
-- (void)endTest;
+- (void)endTestWithFailure:(BOOL)failure;
 
 @end
