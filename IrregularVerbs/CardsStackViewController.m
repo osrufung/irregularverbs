@@ -58,28 +58,32 @@
     }
 }
 
+- (NSArray *)verbsSortedByPerformance {
+    return [self.verbs sortedArrayUsingComparator:^(id ob1, id ob2){
+                Verb *v1=ob1;
+                Verb *v2=ob2;
+        
+                if (v1.failed && v2.failed) {
+                    return [v1.simple compare:v2.simple];
+                } else if (v1.failed && !v2.failed) {
+                    return (NSComparisonResult)NSOrderedAscending;
+                } else if (!v1.failed && v2.failed) {
+                    return (NSComparisonResult)NSOrderedDescending;
+                } else {
+                    if (v1.responseTime>v2.responseTime) {
+                        return (NSComparisonResult)NSOrderedAscending;
+                    } else if(v1.responseTime<v2.responseTime) {
+                        return (NSComparisonResult)NSOrderedDescending;
+                    }
+                    else return [v1.simple compare:v2.simple];
+        }
+    }];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     if (self.presentationMode==CardViewControllerPresentationModeReview) {
-        self.verbs =[self.verbs sortedArrayUsingComparator:^(id ob1, id ob2){
-            Verb *v1=ob1;
-            Verb *v2=ob2;
-            
-            if (v1.failed && v2.failed) {
-                return [v1.simple compare:v2.simple];
-            } else if (v1.failed && !v2.failed) {
-                return (NSComparisonResult)NSOrderedAscending;
-            } else if (!v1.failed && v2.failed) {
-                return (NSComparisonResult)NSOrderedDescending;
-            } else {
-                if (v1.responseTime>v2.responseTime) {
-                    return (NSComparisonResult)NSOrderedAscending;
-                } else if(v1.responseTime<v2.responseTime) {
-                    return (NSComparisonResult)NSOrderedDescending;
-                }
-                else return [v1.simple compare:v2.simple];
-            }
-        }];
         self.currentIndex=0;
+        self.verbs = [self verbsSortedByPerformance];
         [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
                        direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];        
     }
