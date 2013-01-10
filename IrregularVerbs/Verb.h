@@ -17,11 +17,12 @@
 @property (nonatomic,readonly) float averageResponseTime;
 @property (nonatomic,readonly) float failureRatio;
 @property (nonatomic,readonly) BOOL failed;
-@property (nonatomic) float responseTime;
+@property (nonatomic,readonly) float responseTime;
 @property (nonatomic) float frequency;
 
 - (id)initFromDictionary:(NSDictionary *)dictonary;
-- (void)testFailed;
+- (void)failTest;
+- (void)passTestWithTime:(float)time;
 - (void)resetCurrentTest;
 - (void)resetHistory;
 

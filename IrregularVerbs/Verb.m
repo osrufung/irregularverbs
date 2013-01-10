@@ -22,7 +22,7 @@
 @implementation Verb
 
 // Only the readonly properties needs that we explicit synthesize them
-@synthesize averageResponseTime=_averageResponseTime, failureRatio=_failureRatio, failed=_failed;
+@synthesize averageResponseTime=_averageResponseTime, failureRatio=_failureRatio, failed=_failed, responseTime=_responseTime;
 
 - (id)initFromDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -37,10 +37,11 @@
     return self;
 }
 
--(void)setResponseTime:(float)rt{
+- (void)passTestWithTime:(float)time {
     if (_testPending) {
+        _testPending=NO;
         int numberOk = self.numberOfTests-self.numberOfFailures;
-        _responseTime = rt;
+        _responseTime = time;
         _averageResponseTime = (_averageResponseTime*numberOk+_responseTime)/(numberOk+1);
         self.numberOfTests++;
         
@@ -48,9 +49,10 @@
     }
 }
 
-- (void)testFailed {
+- (void)failTest {
     if (_testPending) {
-        _failed = TRUE;
+        _testPending = NO;
+        _failed = YES;
         self.numberOfFailures++;
         self.numberOfTests++;
         

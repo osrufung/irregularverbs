@@ -101,9 +101,9 @@
         self.testProgress.hidden=YES;
         [self removeGestureRecognizers];
         if (failure)
-            [self.verb testFailed];
+            [self.verb failTest];
         else
-            self.verb.responseTime = self.responseTime;
+            [self.verb passTestWithTime:self.responseTime];
     }
 }
 
