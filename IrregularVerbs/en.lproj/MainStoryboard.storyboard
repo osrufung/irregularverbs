@@ -60,6 +60,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urp-TA-2Fn">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" type="user" id="92S-61-rmt"/>
+                                    <constraint firstAttribute="width" constant="277" id="GJT-11-Mrc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="34"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -73,7 +74,6 @@
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FRat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3S-ot-7Pz">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="277" id="1wh-Wf-sJI"/>
                                     <constraint firstAttribute="height" constant="60" id="gN2-71-muT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="34"/>
@@ -85,19 +85,20 @@
                         <constraints>
                             <constraint firstItem="rUq-md-Ylv" firstAttribute="top" secondItem="GEz-Nm-P4V" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="3oC-Yv-zpV"/>
                             <constraint firstItem="lZ6-mp-dja" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="51g-zK-Lth"/>
+                            <constraint firstAttribute="centerX" secondItem="eaf-yf-Pwh" secondAttribute="centerX" type="user" id="5yn-Vc-wzg"/>
                             <constraint firstAttribute="centerX" secondItem="p3S-ot-7Pz" secondAttribute="centerX" type="user" id="5zn-qQ-Ebh"/>
-                            <constraint firstAttribute="bottom" secondItem="4lj-ZE-td0" secondAttribute="bottom" constant="49" id="6Im-al-poY"/>
                             <constraint firstAttribute="centerX" secondItem="lZ6-mp-dja" secondAttribute="centerX" type="user" id="8tS-qn-N7q"/>
                             <constraint firstAttribute="centerX" secondItem="rUq-md-Ylv" secondAttribute="centerX" type="user" id="Fzn-kf-dno"/>
                             <constraint firstItem="lCF-gW-gSf" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-14" id="NAr-Gi-F9l"/>
-                            <constraint firstAttribute="bottom" secondItem="eaf-yf-Pwh" secondAttribute="bottom" constant="12" id="NLr-0w-UTM"/>
+                            <constraint firstItem="eaf-yf-Pwh" firstAttribute="top" secondItem="4lj-ZE-td0" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="O3l-Qr-nma"/>
                             <constraint firstItem="lCF-gW-gSf" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Sjh-fq-RT0"/>
                             <constraint firstItem="GEz-Nm-P4V" firstAttribute="top" secondItem="Qza-r7-sFC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TRf-Yy-das"/>
-                            <constraint firstItem="p3S-ot-7Pz" firstAttribute="centerX" secondItem="4lj-ZE-td0" secondAttribute="centerX" type="default" id="Tjc-qo-vZ0"/>
                             <constraint firstItem="lCF-gW-gSf" firstAttribute="centerX" secondItem="lZ6-mp-dja" secondAttribute="centerX" type="default" id="YDZ-Lf-OpV"/>
+                            <constraint firstAttribute="bottom" secondItem="eaf-yf-Pwh" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="YHi-BC-hsg"/>
                             <constraint firstItem="p3S-ot-7Pz" firstAttribute="top" secondItem="urp-TA-2Fn" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ZTw-fi-Zh5"/>
                             <constraint firstItem="urp-TA-2Fn" firstAttribute="top" secondItem="rUq-md-Ylv" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aDs-HI-Ypm"/>
                             <constraint firstItem="rUq-md-Ylv" firstAttribute="height" secondItem="GEz-Nm-P4V" secondAttribute="height" type="user" id="c4y-ey-f8S"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eaf-yf-Pwh" secondAttribute="bottom" constant="20" type="user" id="ebq-cG-EUS"/>
                             <constraint firstItem="lZ6-mp-dja" firstAttribute="top" secondItem="lCF-gW-gSf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ejU-ej-llo"/>
                             <constraint firstAttribute="centerX" secondItem="urp-TA-2Fn" secondAttribute="centerX" type="user" id="hwt-vI-h6E"/>
                             <constraint firstItem="rUq-md-Ylv" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="l8x-16-T9A"/>
@@ -107,9 +108,9 @@
                             <constraint firstItem="rUq-md-Ylv" firstAttribute="height" secondItem="urp-TA-2Fn" secondAttribute="height" type="user" id="o5Q-Lh-PFP"/>
                             <constraint firstAttribute="centerX" secondItem="Qza-r7-sFC" secondAttribute="centerX" type="user" id="svq-aw-6Pt"/>
                             <constraint firstItem="urp-TA-2Fn" firstAttribute="width" secondItem="p3S-ot-7Pz" secondAttribute="width" type="user" id="tA3-R5-H7L"/>
+                            <constraint firstItem="eaf-yf-Pwh" firstAttribute="centerX" secondItem="4lj-ZE-td0" secondAttribute="centerX" type="default" id="vgF-JZ-BcN"/>
                             <constraint firstItem="GEz-Nm-P4V" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="xau-8h-ASb"/>
                             <constraint firstItem="lZ6-mp-dja" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="xf7-4h-NrL"/>
-                            <constraint firstItem="p3S-ot-7Pz" firstAttribute="leading" secondItem="eaf-yf-Pwh" secondAttribute="leading" type="default" id="zhr-rm-VOA"/>
                         </constraints>
                     </view>
                     <connections>
@@ -257,6 +258,47 @@
     <resources>
         <image name="media-shuffle.png" width="256" height="256"/>
     </resources>
+    <classes>
+        <class className="CardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CardViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageTestResult" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="labelElapsedTime" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelFailureRatio" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelParticiple" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelPast" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelPresent" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelTranslation" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shuffleIndicator" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="testProgress" candidateClass="TestProgressView"/>
+            </relationships>
+        </class>
+        <class className="CardsStackViewController" superclassName="UIPageViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CardsStackViewController.h"/>
+        </class>
+        <class className="ModeViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ModeViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PreferencesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PreferencesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearStatistics:" candidateClass="UIButton"/>
+                <relationship kind="action" name="difficultyChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="selectionChanged:"/>
+                <relationship kind="action" name="showAboutLink:"/>
+                <relationship kind="outlet" name="aboutLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelNumberOfVerbs" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="segmentedSortControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="sliderDifficulty" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="TestProgressView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TestProgressView.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

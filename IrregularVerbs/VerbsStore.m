@@ -16,7 +16,7 @@
 
 #pragma mark - Singleton
 
-@synthesize allVerbs=_allVerbs;
+@synthesize allVerbs=_allVerbs, randomOrder=_randomOrder;
 
 +(VerbsStore *) sharedStore
 {
@@ -97,15 +97,17 @@
         [self sortVerbsList];
     }
 }
+
+- (BOOL)randomOrder {
+    _randomOrder = [[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
+    return _randomOrder;
+}
+
 - (void)sortVerbsList {
     if (self.randomOrder) {
         _allVerbs = [_allVerbs shuffledCopy];
     } else {
-        _allVerbs= [_allVerbs sortedArrayUsingComparator:^(id ob1, id ob2){
-            Verb *v1 = ob1;
-            Verb *v2 = ob2;
-            return [v1 compareBySimpleTense:v2];
-        }];
+        _allVerbs= [_allVerbs sortedArrayUsingComparator:compareVerbsAlphabeticaly];
     }
 }
  
@@ -138,12 +140,7 @@
 }
 
 -(NSArray *) verbsSortedbyFrequency{
-    return [ [self allVerbs] sortedArrayUsingComparator:^(id ob1,id ob2) {
-        Verb *v1 = (Verb *) ob1;
-        Verb *v2 = (Verb *) ob2;
-        
-        return v1.frequency<v2.frequency;
-    }];
+    return [self.allVerbs sortedArrayUsingComparator:compareVerbsByFrequency];
 }
 
 - (void)resetHistory {
@@ -153,9 +150,12 @@
     [self saveChanges];
 }
 
-
 -(int) numberOfVerbsForDifficulty:(float) difficulty{
     return [[self verbsForDifficulty:difficulty] count];
  
 }
+
+
+
+
 @end
