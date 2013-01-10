@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class VerbsStore;
+
 @interface ModeViewController : UITabBarController
+{
+    NSArray *_verbs;
+}
 
 @end

@@ -114,23 +114,11 @@
 }
 
 
--(void)setLabelLevelText {
-    /*@TODO definir niveles
-    if(self.currentLevel < 4){
-        NSString *format = (self.includeLowerLevels)?@"To level %d":@"Level %d";
-        self.labelLevel.text = [NSString stringWithFormat:format, self.currentLevel];
-    }
-    else{
-        self.labelLevel.text = [NSString stringWithFormat:@"All levels"];
-    }*/
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     NSLog(@"Cambio de pestaña en mdo %d", [self presentationMode]);
     
   
     [self showVerb];
-    [self setLabelLevelText];
     self.shuffleIndicator.hidden=!self.randomOrder;
     self.imageTestResult.image=nil;
     if (self.presentationMode == CardViewControllerPresentationModeReview) [self showResultsWithAnimation:NO];
@@ -166,7 +154,8 @@
         self.labelElapsedTime.text = [NSString stringWithFormat:@"%.2fs",self.responseTime];
     }
     else if (self.presentationMode == CardViewControllerPresentationModeReview){
-       self.labelElapsedTime.text = [NSString stringWithFormat:@"%.2fs", [self.verb responseTime]];
+        if (self.verb.failed) self.labelElapsedTime.text=@"";
+        else self.labelElapsedTime.text = [NSString stringWithFormat:@"%.2fs", [self.verb responseTime]];
     }
         
         
@@ -174,8 +163,13 @@
         self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForFail];
         self.imageTestResult.image = [[Referee sharedReferee] imageForFail];
     } else {
-        self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForValue:self.responseTime];
-        self.imageTestResult.image = [[Referee sharedReferee] imageForValue:self.responseTime];
+        if (self.presentationMode == CardViewControllerPresentationModeReview){
+            self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForValue:[self.verb responseTime]];
+            self.imageTestResult.image = [[Referee sharedReferee] imageForValue:[self.verb responseTime]];
+        } else {
+            self.labelElapsedTime.textColor = [[Referee sharedReferee] colorForValue:self.responseTime];
+            self.imageTestResult.image = [[Referee sharedReferee] imageForValue:self.responseTime];
+        }
     }
     if ((animation)&&(self.labelPast.text==@"")) {
         [self fadeView:self.labelElapsedTime from:0.0 to:1.0 ];
