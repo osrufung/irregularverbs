@@ -52,9 +52,21 @@
 -(BOOL) saveChanges {
     NSString *path = [self mutableVerbsListPath];
     NSLog(@"saving changes to Docs..");
+    
     return [NSKeyedArchiver archiveRootObject:self.allVerbs toFile:path];
 }
-
+-(BOOL) resetVerbsStore{
+    NSError *error;
+    BOOL success = [[NSFileManager defaultManager] removeItemAtPath:[self mutableVerbsListPath] error:&error];
+    if (!success) {
+        NSLog(@"Error removing document path: %@", error.localizedDescription);
+    }
+    else{
+        _allVerbs = [self loadVerbsFromTemplate];
+    
+    }
+    return success;
+}
 #pragma mark - access to verbs
 
 - (NSArray *)allVerbs {
@@ -71,7 +83,8 @@
         }
         if(!_allVerbs){
             _allVerbs = [self loadVerbsFromTemplate];
-            [self saveChanges]; // I've serious doubts about saving the data here...
+            //[self saveChanges]; // I've serious doubts about saving the data here... OR: Yes, maybe is better to wait user plays ;)
+            
         }
     }
     return _allVerbs;
