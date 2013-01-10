@@ -42,7 +42,10 @@
         @try {
           allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
         }
-        @catch (NSException * e) {
+        @catch (NSException *e) {
+            NSLog(@"Exception in %@: %@",NSStringFromSelector(_cmd), e);
+        }
+        if(!allItems){
             NSMutableArray *tmp  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]];
             
             NSMutableArray *mutable = [[NSMutableArray alloc] initWithCapacity:tmp.count];
@@ -54,7 +57,6 @@
             
             [self saveChanges];
         }
-
     }
     return allItems;
 }
@@ -63,16 +65,7 @@
     NSLog(@"saving changes to Docs..");
     return [NSKeyedArchiver archiveRootObject:allItems toFile:path];
 }
-- (NSArray *)localVerbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels {
-    NSArray *list = [self verbsListFromDocument];
-  /*@TODO filtrar por nivel
-    NSString *query = (lowerLevels)?@"level <= %d":@"level == %d";
-    NSPredicate *predicateLevel = [NSPredicate predicateWithFormat:query, level];
-    NSArray *filteredArray = [list filteredArrayUsingPredicate:predicateLevel];
-   */
-   //return [[IrregularVerb alloc] initWithData:filteredArray];
-    return list;
-}
+
 
 - (void)setRandomOrder:(BOOL)randomOrder {
     if (randomOrder!=_randomOrder) {
@@ -93,14 +86,17 @@
     }
 }
 - (NSArray *)verbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels  {
- 
-        return [self localVerbsForLevel:level includeLowerLevels:lowerLevels];
-   
+    NSArray *list = [self verbsListFromDocument];
+    NSString *query = (lowerLevels)?@"level <= %d":@"level == %d";
+    NSPredicate *predicateLevel = [NSPredicate predicateWithFormat:query, level];
+    NSArray *filteredArray = [list filteredArrayUsingPredicate:predicateLevel];
+    return filteredArray;
 }
 
 
 -(NSArray *)allVerbs{
-    return allItems;
+    
+    return [self verbsListFromDocument];
 }
 -(void)printListtoConsole{
     for(Verb *v in allItems){

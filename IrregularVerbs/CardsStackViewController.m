@@ -81,17 +81,17 @@
     return _store;
 }
 */
+/*
 - (NSArray *)verbs {
  
-    return [[VerbsStore sharedStore] verbsForLevel:0 includeLowerLevels:YES];
+    return [[VerbsStore sharedStore] verbsForLevel:2 includeLowerLevels:NO];
 }
-
+*/
 - (CardViewController *)verbCardAtIndex:(int)index forPresentationMode:(enum CardViewControllerPresentationMode)mode {
     CardViewController *vc=nil;
-    if((index>=0)&&(index<self.verbs.count)){
+    if((index>=0)&&(index< [[[VerbsStore sharedStore] allVerbs] count])){
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardViewController"];
-        //vc.verb = self.verbs[index];
-        vc.verb = [[VerbsStore sharedStore] allVerbs][index];
+        vc.verb = [[[VerbsStore sharedStore] allVerbs] objectAtIndex:index];
         vc.presentationMode = mode;
         vc.verbIndex=index;
         vc.randomOrder = [[VerbsStore sharedStore] randomOrder];

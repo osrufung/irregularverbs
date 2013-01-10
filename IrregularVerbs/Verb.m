@@ -21,7 +21,7 @@
         self.translation = dictionary[@"translation"];
         self.responseTime = 0.0;
         self.failed = NO;
-        //self.level = [dictionary[@"level"] intValue];
+        self.level = [[dictionary objectForKey:@"level"] intValue];
     }
     return self;
 }
@@ -33,6 +33,7 @@
     [aCoder encodeObject:self.translation forKey:@"translation"];
     [aCoder encodeBool:self.failed forKey:@"failed"];
     [aCoder encodeFloat:self.responseTime forKey:@"responseTime"];
+    [aCoder encodeInt:self.level  forKey:@"level"];
 }
 
 -(id) initWithCoder:(NSCoder *)aDecoder{
@@ -44,6 +45,7 @@
         [self setTranslation:[aDecoder decodeObjectForKey:@"translation"]];
         [self setFailed:[aDecoder decodeBoolForKey:@"failed"]];
         [self setResponseTime:[aDecoder decodeFloatForKey:@"responseTime"]];
+        [self setLevel:[aDecoder decodeIntForKey:@"level"]];
  
     }
     return self;
