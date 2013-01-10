@@ -3,2186 +3,1874 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>frequency</key>
-		<real>0.0029959878282956095</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>arisen</string>
-		<key>past</key>
-		<string>arose</string>
 		<key>simple</key>
 		<string>arise</string>
+		<key>past</key>
+		<string>arose</string>
+		<key>participle</key>
+		<string>arisen</string>
 		<key>translation</key>
-		<string>surgir/levantarse</string>
+		<string>Surgir, Levantarse</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0048317762069054505</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>awoken</string>
-		<key>past</key>
-		<string>awoke</string>
 		<key>simple</key>
 		<string>awake</string>
+		<key>past</key>
+		<string>awoke</string>
+		<key>participle</key>
+		<string>awoken</string>
 		<key>translation</key>
 		<string>despertarse</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.012721760310672715</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>been</string>
+		<key>simple</key>
+		<string>be/am, are, is</string>
 		<key>past</key>
 		<string>was/were</string>
-		<key>simple</key>
-		<string>be/am/are/is</string>
+		<key>participle</key>
+		<string>been</string>
 		<key>translation</key>
 		<string>ser/estar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007427224865380203</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>born/born</string>
-		<key>past</key>
-		<string>bore</string>
 		<key>simple</key>
 		<string>bear</string>
+		<key>past</key>
+		<string>bore</string>
+		<key>participle</key>
+		<string>born/born</string>
 		<key>translation</key>
 		<string>soportar/dar a luz</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007340380040506968</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>beaten</string>
-		<key>past</key>
-		<string>beat</string>
 		<key>simple</key>
 		<string>beat</string>
+		<key>past</key>
+		<string>beat</string>
+		<key>participle</key>
+		<string>beaten</string>
 		<key>translation</key>
 		<string>golpear</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0076938663886376765</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>become</string>
 		<key>past</key>
 		<string>became</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>become</string>
 		<key>translation</key>
 		<string>llegar a ser</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006370653593000244</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>begun</string>
-		<key>past</key>
-		<string>began</string>
 		<key>simple</key>
 		<string>begin</string>
+		<key>past</key>
+		<string>began</string>
+		<key>participle</key>
+		<string>begun</string>
 		<key>translation</key>
-		<string>empezar</string>
+		<string>Empezar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004799818340821222</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>bent</string>
-		<key>past</key>
-		<string>bent</string>
 		<key>simple</key>
 		<string>bend</string>
+		<key>past</key>
+		<string>bent</string>
+		<key>participle</key>
+		<string>bent</string>
 		<key>translation</key>
 		<string>doblar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007824863528723918</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>bet</string>
 		<key>past</key>
 		<string>bet</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>bet</string>
 		<key>translation</key>
 		<string>apostar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005354122560278137</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>bound</string>
-		<key>past</key>
-		<string>bound</string>
 		<key>simple</key>
 		<string>bind</string>
+		<key>past</key>
+		<string>bound</string>
+		<key>participle</key>
+		<string>bound</string>
 		<key>translation</key>
 		<string>atar/encuadernar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005005177884111232</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>bid</string>
 		<key>past</key>
 		<string>bid</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>bid</string>
 		<key>translation</key>
 		<string>pujar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007589059931013546</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>bitten</string>
-		<key>past</key>
-		<string>bit</string>
 		<key>simple</key>
 		<string>bite</string>
+		<key>past</key>
+		<string>bit</string>
+		<key>participle</key>
+		<string>bitten</string>
 		<key>translation</key>
 		<string>morder</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.003991959749117386</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>bled</string>
-		<key>past</key>
-		<string>bled</string>
 		<key>simple</key>
 		<string>bleed</string>
+		<key>past</key>
+		<string>bled</string>
+		<key>participle</key>
+		<string>bled</string>
 		<key>translation</key>
 		<string>sangrar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006477917790420083</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>blown</string>
-		<key>past</key>
-		<string>blew</string>
 		<key>simple</key>
 		<string>blow</string>
+		<key>past</key>
+		<string>blew</string>
+		<key>participle</key>
+		<string>blown</string>
 		<key>translation</key>
 		<string>soplar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007641196180846076</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>broken</string>
-		<key>past</key>
-		<string>broke</string>
 		<key>simple</key>
 		<string>break</string>
+		<key>past</key>
+		<string>broke</string>
+		<key>participle</key>
+		<string>broken</string>
 		<key>translation</key>
 		<string>romper</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.00402590630815873</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>bred</string>
-		<key>past</key>
-		<string>bred</string>
 		<key>simple</key>
 		<string>breed</string>
+		<key>past</key>
+		<string>bred</string>
+		<key>participle</key>
+		<string>bred</string>
 		<key>translation</key>
 		<string>criar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.008407383875328463</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>brought</string>
-		<key>past</key>
-		<string>brought</string>
 		<key>simple</key>
 		<string>bring</string>
+		<key>past</key>
+		<string>brought</string>
+		<key>participle</key>
+		<string>brought</string>
 		<key>translation</key>
 		<string>traer/llevar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004628793606162947</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>broadcast</string>
 		<key>past</key>
 		<string>broadcast</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>broadcast</string>
 		<key>translation</key>
 		<string>radiar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006607687804642951</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>built</string>
-		<key>past</key>
-		<string>built</string>
 		<key>simple</key>
 		<string>build</string>
+		<key>past</key>
+		<string>built</string>
+		<key>participle</key>
+		<string>built</string>
 		<key>translation</key>
 		<string>edificar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006532113231980928</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>burnt/burned</string>
-		<key>past</key>
-		<string>burnt/burned</string>
 		<key>simple</key>
 		<string>burn</string>
+		<key>past</key>
+		<string>burnt/burned</string>
+		<key>participle</key>
+		<string>burnt/burned</string>
 		<key>translation</key>
 		<string>quemar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004780612829699348</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>burst</string>
 		<key>past</key>
 		<string>burst</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>burst</string>
 		<key>translation</key>
 		<string>reventar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007621122502927638</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>bought</string>
-		<key>past</key>
-		<string>bought</string>
 		<key>simple</key>
 		<string>buy</string>
+		<key>past</key>
+		<string>bought</string>
+		<key>participle</key>
+		<string>bought</string>
 		<key>translation</key>
 		<string>comprar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005838456346133122</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>cast</string>
 		<key>past</key>
 		<string>cast</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>cast</string>
 		<key>translation</key>
 		<string>arrojar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007493497060576355</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>caught</string>
-		<key>past</key>
-		<string>caught</string>
 		<key>simple</key>
 		<string>catch</string>
+		<key>past</key>
+		<string>caught</string>
+		<key>participle</key>
+		<string>caught</string>
 		<key>translation</key>
 		<string>coger</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.011104100361747875</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>come</string>
 		<key>past</key>
 		<string>came</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>come</string>
 		<key>translation</key>
 		<string>venir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0067216651966695365</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>cost</string>
 		<key>past</key>
 		<string>cost</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>cost</string>
 		<key>translation</key>
 		<string>costar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.008389485795455643</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>cut</string>
 		<key>past</key>
 		<string>cut</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>cut</string>
 		<key>translation</key>
 		<string>cortar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006186994938166481</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>chosen</string>
-		<key>past</key>
-		<string>chose</string>
 		<key>simple</key>
 		<string>choose</string>
+		<key>past</key>
+		<string>chose</string>
+		<key>participle</key>
+		<string>chosen</string>
 		<key>translation</key>
 		<string>elegir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.002467640148747997</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>clung</string>
-		<key>past</key>
-		<string>clung</string>
 		<key>simple</key>
 		<string>cling</string>
+		<key>past</key>
+		<string>clung</string>
+		<key>participle</key>
+		<string>clung</string>
 		<key>translation</key>
 		<string>agarrarse</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0037682576456617755</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>crept</string>
-		<key>past</key>
-		<string>crept</string>
 		<key>simple</key>
 		<string>creep</string>
+		<key>past</key>
+		<string>crept</string>
+		<key>participle</key>
+		<string>crept</string>
 		<key>translation</key>
 		<string>arrastrarse</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007071229955253753</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>dealt</string>
-		<key>past</key>
-		<string>dealt</string>
 		<key>simple</key>
 		<string>deal</string>
+		<key>past</key>
+		<string>dealt</string>
+		<key>participle</key>
+		<string>dealt</string>
 		<key>translation</key>
 		<string>tratar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0055197040442371195</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>dug</string>
-		<key>past</key>
-		<string>dug</string>
 		<key>simple</key>
 		<string>dig</string>
+		<key>past</key>
+		<string>dug</string>
+		<key>participle</key>
+		<string>dug</string>
 		<key>translation</key>
 		<string>cavar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.01138146187901019</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>done</string>
+		<key>simple</key>
+		<string>do (does)</string>
 		<key>past</key>
 		<string>did</string>
-		<key>simple</key>
-		<string>do/does</string>
+		<key>participle</key>
+		<string>done</string>
 		<key>translation</key>
 		<string>hacer</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005755031230014537</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>drawn</string>
-		<key>past</key>
-		<string>drew</string>
 		<key>simple</key>
 		<string>draw</string>
+		<key>past</key>
+		<string>drew</string>
+		<key>participle</key>
+		<string>drawn</string>
 		<key>translation</key>
 		<string>dibujar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006905809160918322</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>dreamt/dreamed</string>
-		<key>past</key>
-		<string>dreamt/dreamed</string>
 		<key>simple</key>
 		<string>dream</string>
+		<key>past</key>
+		<string>dreamt/dreamed</string>
+		<key>participle</key>
+		<string>dreamt/dreamed</string>
 		<key>translation</key>
 		<string>soñar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007702354101145466</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>drunk</string>
-		<key>past</key>
-		<string>drank</string>
 		<key>simple</key>
 		<string>drink</string>
+		<key>past</key>
+		<string>drank</string>
+		<key>participle</key>
+		<string>drunk</string>
 		<key>translation</key>
 		<string>beber</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006854386482613615</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>driven</string>
-		<key>past</key>
-		<string>drove</string>
 		<key>simple</key>
 		<string>drive</string>
+		<key>past</key>
+		<string>drove</string>
+		<key>participle</key>
+		<string>driven</string>
 		<key>translation</key>
 		<string>conducir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007573399097712632</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>eaten</string>
-		<key>past</key>
-		<string>ate</string>
 		<key>simple</key>
 		<string>eat</string>
+		<key>past</key>
+		<string>ate</string>
+		<key>participle</key>
+		<string>eaten</string>
 		<key>translation</key>
 		<string>pujar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0071075039525004356</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>fallen</string>
-		<key>past</key>
-		<string>fell</string>
 		<key>simple</key>
 		<string>fall</string>
+		<key>past</key>
+		<string>fell</string>
+		<key>participle</key>
+		<string>fallen</string>
 		<key>translation</key>
 		<string>caer</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006074853376882277</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>fed</string>
-		<key>past</key>
-		<string>fed</string>
 		<key>simple</key>
 		<string>feed</string>
+		<key>past</key>
+		<string>fed</string>
+		<key>participle</key>
+		<string>fed</string>
 		<key>translation</key>
 		<string>alimentar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.008541261544770867</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>felt</string>
-		<key>past</key>
-		<string>felt</string>
 		<key>simple</key>
 		<string>feel</string>
+		<key>past</key>
+		<string>felt</string>
+		<key>participle</key>
+		<string>felt</string>
 		<key>translation</key>
 		<string>sentir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.00736792663862084</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>fought</string>
-		<key>past</key>
-		<string>fought</string>
 		<key>simple</key>
 		<string>fight</string>
+		<key>past</key>
+		<string>fought</string>
+		<key>participle</key>
+		<string>fought</string>
 		<key>translation</key>
 		<string>luchar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.009289599410085642</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>found</string>
-		<key>past</key>
-		<string>found</string>
 		<key>simple</key>
 		<string>find</string>
+		<key>past</key>
+		<string>found</string>
+		<key>participle</key>
+		<string>found</string>
 		<key>translation</key>
 		<string>encontrar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004513328079948405</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>fled</string>
-		<key>past</key>
-		<string>fled</string>
 		<key>simple</key>
 		<string>flee</string>
+		<key>past</key>
+		<string>fled</string>
+		<key>participle</key>
+		<string>fled</string>
 		<key>translation</key>
 		<string>huir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0063311532630369585</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>flown</string>
-		<key>past</key>
-		<string>flew</string>
 		<key>simple</key>
 		<string>fly</string>
+		<key>past</key>
+		<string>flew</string>
+		<key>participle</key>
+		<string>flown</string>
 		<key>translation</key>
 		<string>volar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004598035678447937</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>forbidden</string>
-		<key>past</key>
-		<string>forbade</string>
 		<key>simple</key>
 		<string>forbid</string>
+		<key>past</key>
+		<string>forbade</string>
+		<key>participle</key>
+		<string>forbidden</string>
 		<key>translation</key>
 		<string>prohibir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007846541839022092</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>forgotten</string>
-		<key>past</key>
-		<string>forgot</string>
 		<key>simple</key>
 		<string>forget</string>
+		<key>past</key>
+		<string>forgot</string>
+		<key>participle</key>
+		<string>forgotten</string>
 		<key>translation</key>
 		<string>olvidar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006390404496427043</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>forgiven</string>
-		<key>past</key>
-		<string>forgave</string>
 		<key>simple</key>
 		<string>forgive</string>
+		<key>past</key>
+		<string>forgave</string>
+		<key>participle</key>
+		<string>forgiven</string>
 		<key>translation</key>
 		<string>perdonar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005268539929746953</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>frozen</string>
-		<key>past</key>
-		<string>froze</string>
 		<key>simple</key>
 		<string>freeze</string>
+		<key>past</key>
+		<string>froze</string>
+		<key>participle</key>
+		<string>frozen</string>
 		<key>translation</key>
 		<string>helar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.011404487860194058</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>got/gotten</string>
-		<key>past</key>
-		<string>got</string>
 		<key>simple</key>
 		<string>get</string>
+		<key>past</key>
+		<string>got</string>
+		<key>participle</key>
+		<string>got/gotten</string>
 		<key>translation</key>
 		<string>obtener</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.009299986213654458</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>given</string>
-		<key>past</key>
-		<string>gave</string>
 		<key>simple</key>
 		<string>give</string>
+		<key>past</key>
+		<string>gave</string>
+		<key>participle</key>
+		<string>given</string>
 		<key>translation</key>
 		<string>dar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.01062633816365253</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>gone</string>
+		<key>simple</key>
+		<string>go(goes)</string>
 		<key>past</key>
 		<string>went</string>
-		<key>simple</key>
-		<string>go/goes</string>
+		<key>participle</key>
+		<string>gone</string>
 		<key>translation</key>
 		<string>ir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006503303681575012</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>grown</string>
-		<key>past</key>
-		<string>grew</string>
 		<key>simple</key>
 		<string>grow</string>
+		<key>past</key>
+		<string>grew</string>
+		<key>participle</key>
+		<string>grown</string>
 		<key>translation</key>
 		<string>crecer</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006712340613248322</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>ground</string>
-		<key>past</key>
-		<string>ground</string>
 		<key>simple</key>
 		<string>grind</string>
+		<key>past</key>
+		<string>ground</string>
+		<key>participle</key>
+		<string>ground</string>
 		<key>translation</key>
 		<string>moler</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006903943408499287</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>hung</string>
-		<key>past</key>
-		<string>hung</string>
 		<key>simple</key>
 		<string>hang</string>
+		<key>past</key>
+		<string>hung</string>
+		<key>participle</key>
+		<string>hung</string>
 		<key>translation</key>
 		<string>colgar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.011375168183013951</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>had</string>
-		<key>past</key>
-		<string>had</string>
 		<key>simple</key>
 		<string>have</string>
+		<key>past</key>
+		<string>had</string>
+		<key>participle</key>
+		<string>had</string>
 		<key>translation</key>
 		<string>haber o tener</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.009078926666359025</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>heard</string>
-		<key>past</key>
-		<string>heard</string>
 		<key>simple</key>
 		<string>hear</string>
+		<key>past</key>
+		<string>heard</string>
+		<key>participle</key>
+		<string>heard</string>
 		<key>translation</key>
 		<string>oir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006410941306213921</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>hidden</string>
-		<key>past</key>
-		<string>hid</string>
 		<key>simple</key>
 		<string>hide</string>
+		<key>past</key>
+		<string>hid</string>
+		<key>participle</key>
+		<string>hidden</string>
 		<key>translation</key>
 		<string>ocultar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.00844758183263858</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>hit</string>
 		<key>past</key>
 		<string>hit</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>hit</string>
 		<key>translation</key>
 		<string>golpear</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.00799552040442351</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>held</string>
-		<key>past</key>
-		<string>held</string>
 		<key>simple</key>
 		<string>hold</string>
+		<key>past</key>
+		<string>held</string>
+		<key>participle</key>
+		<string>held</string>
 		<key>translation</key>
-		<string>agarrar/celebrar</string>
+		<string>agarrar, celebrar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.008337160228642062</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>hurt</string>
 		<key>past</key>
 		<string>hurt</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>hurt</string>
 		<key>translation</key>
 		<string>herir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.008646726618536991</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>kept</string>
-		<key>past</key>
-		<string>kept</string>
 		<key>simple</key>
 		<string>keep</string>
+		<key>past</key>
+		<string>kept</string>
+		<key>participle</key>
+		<string>kept</string>
 		<key>translation</key>
 		<string>conservar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.010762870932258967</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>known</string>
-		<key>past</key>
-		<string>knew</string>
 		<key>simple</key>
 		<string>know</string>
+		<key>past</key>
+		<string>knew</string>
+		<key>participle</key>
+		<string>known</string>
 		<key>translation</key>
-		<string>saber/conocer</string>
+		<string>saber, conocer</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0032823185370075914</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>knelt</string>
-		<key>past</key>
-		<string>knelt</string>
 		<key>simple</key>
 		<string>kneel</string>
+		<key>past</key>
+		<string>knelt</string>
+		<key>participle</key>
+		<string>knelt</string>
 		<key>translation</key>
 		<string>arrodillarse</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0029399958762394212</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>knit</string>
 		<key>past</key>
 		<string>knit</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>knit</string>
 		<key>translation</key>
 		<string>hacer punto</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.00638060739208437</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>laid</string>
-		<key>past</key>
-		<string>laid</string>
 		<key>simple</key>
 		<string>lay</string>
+		<key>past</key>
+		<string>laid</string>
+		<key>participle</key>
+		<string>laid</string>
 		<key>translation</key>
 		<string>poner</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006497155608243764</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>led</string>
-		<key>past</key>
-		<string>led</string>
 		<key>simple</key>
 		<string>lead</string>
+		<key>past</key>
+		<string>led</string>
+		<key>participle</key>
+		<string>led</string>
 		<key>translation</key>
 		<string>conducir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0036608365451719902</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>leant</string>
-		<key>past</key>
-		<string>leant</string>
 		<key>simple</key>
 		<string>lean</string>
+		<key>past</key>
+		<string>leant</string>
+		<key>participle</key>
+		<string>leant</string>
 		<key>translation</key>
 		<string>apoyarse</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0032120612428378353</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>leapt</string>
-		<key>past</key>
-		<string>leapt</string>
 		<key>simple</key>
 		<string>leap</string>
+		<key>past</key>
+		<string>leapt</string>
+		<key>participle</key>
+		<string>leapt</string>
 		<key>translation</key>
 		<string>brincar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0071955964370240015</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>learnt/learned</string>
-		<key>past</key>
-		<string>learnt/learned</string>
 		<key>simple</key>
 		<string>learn</string>
+		<key>past</key>
+		<string>learnt/learned</string>
+		<key>participle</key>
+		<string>learnt/learned</string>
 		<key>translation</key>
 		<string>aprender</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.009421352371685792</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>left</string>
-		<key>past</key>
-		<string>left</string>
 		<key>simple</key>
 		<string>leave</string>
+		<key>past</key>
+		<string>left</string>
+		<key>participle</key>
+		<string>left</string>
 		<key>translation</key>
 		<string>dejar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004729484866155925</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>lent</string>
-		<key>past</key>
-		<string>lent</string>
 		<key>simple</key>
 		<string>lend</string>
+		<key>past</key>
+		<string>lent</string>
+		<key>participle</key>
+		<string>lent</string>
 		<key>translation</key>
 		<string>prestar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.010325088229754234</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>let</string>
 		<key>past</key>
 		<string>let</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>let</string>
 		<key>translation</key>
 		<string>permitir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.00687278307020967</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>lain</string>
-		<key>past</key>
-		<string>lay</string>
 		<key>simple</key>
 		<string>lie</string>
+		<key>past</key>
+		<string>lay</string>
+		<key>participle</key>
+		<string>lain</string>
 		<key>translation</key>
 		<string>echarse</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0069719366814029364</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>lit</string>
-		<key>past</key>
-		<string>lit</string>
 		<key>simple</key>
 		<string>light</string>
+		<key>past</key>
+		<string>lit</string>
+		<key>participle</key>
+		<string>lit</string>
 		<key>translation</key>
 		<string>encender</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.00846095654849425</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>lost</string>
-		<key>past</key>
-		<string>lost</string>
 		<key>simple</key>
 		<string>lose</string>
+		<key>past</key>
+		<string>lost</string>
+		<key>participle</key>
+		<string>lost</string>
 		<key>translation</key>
 		<string>perder</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.009799672770452062</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>made</string>
-		<key>past</key>
-		<string>made</string>
 		<key>simple</key>
 		<string>make</string>
+		<key>past</key>
+		<string>made</string>
+		<key>participle</key>
+		<string>made</string>
 		<key>translation</key>
 		<string>hacer</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.009013722865741864</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>meant</string>
-		<key>past</key>
-		<string>meant</string>
 		<key>simple</key>
 		<string>mean</string>
+		<key>past</key>
+		<string>meant</string>
+		<key>participle</key>
+		<string>meant</string>
 		<key>translation</key>
 		<string>significar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.00842230149559535</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>met</string>
-		<key>past</key>
-		<string>met</string>
 		<key>simple</key>
 		<string>meet</string>
+		<key>past</key>
+		<string>met</string>
+		<key>participle</key>
+		<string>met</string>
 		<key>translation</key>
 		<string>encontrar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0062525759348915615</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>mistaken</string>
-		<key>past</key>
-		<string>mistook</string>
 		<key>simple</key>
 		<string>mistake</string>
+		<key>past</key>
+		<string>mistook</string>
+		<key>participle</key>
+		<string>mistaken</string>
 		<key>translation</key>
 		<string>equivocar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004583372378020112</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>overcome</string>
 		<key>past</key>
 		<string>overcome</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>overcome</string>
 		<key>translation</key>
 		<string>vencer</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.00791753086119322</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>paid</string>
-		<key>past</key>
-		<string>paid</string>
 		<key>simple</key>
 		<string>pay</string>
+		<key>past</key>
+		<string>paid</string>
+		<key>participle</key>
+		<string>paid</string>
 		<key>translation</key>
 		<string>pagar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.009757433323387377</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>put</string>
 		<key>past</key>
 		<string>put</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>put</string>
 		<key>translation</key>
 		<string>poner</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.008416870438273057</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>read</string>
 		<key>past</key>
 		<string>read</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>read</string>
 		<key>translation</key>
 		<string>leer</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006424016527520303</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>ridden</string>
-		<key>past</key>
-		<string>rode</string>
 		<key>simple</key>
 		<string>ride</string>
+		<key>past</key>
+		<string>rode</string>
+		<key>participle</key>
+		<string>ridden</string>
 		<key>translation</key>
 		<string>montar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006162858667173359</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>rung</string>
-		<key>past</key>
-		<string>rang</string>
 		<key>simple</key>
 		<string>ring</string>
+		<key>past</key>
+		<string>rang</string>
+		<key>participle</key>
+		<string>rung</string>
 		<key>translation</key>
 		<string>llamar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005953595505431197</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>risen</string>
-		<key>past</key>
-		<string>rose</string>
 		<key>simple</key>
 		<string>rise</string>
+		<key>past</key>
+		<string>rose</string>
+		<key>participle</key>
+		<string>risen</string>
 		<key>translation</key>
 		<string>levantarse</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.008523756347470955</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>run</string>
 		<key>past</key>
 		<string>ran</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>run</string>
 		<key>translation</key>
 		<string>correr</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.010324478143243093</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>said</string>
-		<key>past</key>
-		<string>said</string>
 		<key>simple</key>
 		<string>say</string>
+		<key>past</key>
+		<string>said</string>
+		<key>participle</key>
+		<string>said</string>
 		<key>translation</key>
 		<string>decir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.010196773098159431</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>seen</string>
-		<key>past</key>
-		<string>saw</string>
 		<key>simple</key>
 		<string>see</string>
+		<key>past</key>
+		<string>saw</string>
+		<key>participle</key>
+		<string>seen</string>
 		<key>translation</key>
 		<string>ver</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005015826778198736</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>sought</string>
-		<key>past</key>
-		<string>sought</string>
 		<key>simple</key>
 		<string>seek</string>
+		<key>past</key>
+		<string>sought</string>
+		<key>participle</key>
+		<string>sought</string>
 		<key>translation</key>
 		<string>buscar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007008314217806718</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>sold</string>
-		<key>past</key>
-		<string>sold</string>
 		<key>simple</key>
 		<string>sell</string>
+		<key>past</key>
+		<string>sold</string>
+		<key>participle</key>
+		<string>sold</string>
 		<key>translation</key>
 		<string>vender</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007955373818228032</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>sent</string>
-		<key>past</key>
-		<string>sent</string>
 		<key>simple</key>
 		<string>send</string>
+		<key>past</key>
+		<string>sent</string>
+		<key>participle</key>
+		<string>sent</string>
 		<key>translation</key>
 		<string>enviar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.00831316593171856</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>set</string>
 		<key>past</key>
 		<string>set</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>set</string>
 		<key>translation</key>
 		<string>poner(se)</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0035600238791842287</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>sewed/sewn</string>
-		<key>past</key>
-		<string>sewed</string>
 		<key>simple</key>
 		<string>sew</string>
+		<key>past</key>
+		<string>sewed</string>
+		<key>participle</key>
+		<string>sewed/sewn</string>
 		<key>translation</key>
 		<string>coser</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0053321550512778395</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>shaken</string>
-		<key>past</key>
-		<string>shook</string>
 		<key>simple</key>
 		<string>shake</string>
+		<key>past</key>
+		<string>shook</string>
+		<key>participle</key>
+		<string>shaken</string>
 		<key>translation</key>
 		<string>sacudir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0034741010847965416</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>shaken</string>
-		<key>past</key>
-		<string>shook</string>
 		<key>simple</key>
 		<string>shear</string>
+		<key>past</key>
+		<string>shook</string>
+		<key>participle</key>
+		<string>shaken</string>
 		<key>translation</key>
 		<string>esquilar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004581655134466809</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>shone</string>
-		<key>past</key>
-		<string>shone</string>
 		<key>simple</key>
 		<string>shine</string>
+		<key>past</key>
+		<string>shone</string>
+		<key>participle</key>
+		<string>shone</string>
 		<key>translation</key>
 		<string>brillar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.008195899537891953</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>shot</string>
-		<key>past</key>
-		<string>shot</string>
 		<key>simple</key>
 		<string>shoot</string>
+		<key>past</key>
+		<string>shot</string>
+		<key>participle</key>
+		<string>shot</string>
 		<key>translation</key>
 		<string>disparar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.008070912299612454</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>shown</string>
-		<key>past</key>
-		<string>showed</string>
 		<key>simple</key>
 		<string>show</string>
+		<key>past</key>
+		<string>showed</string>
+		<key>participle</key>
+		<string>shown</string>
 		<key>translation</key>
 		<string>mostrar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0034937579902145155</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>shrunk</string>
-		<key>past</key>
-		<string>shrank</string>
 		<key>simple</key>
 		<string>shrink</string>
+		<key>past</key>
+		<string>shrank</string>
+		<key>participle</key>
+		<string>shrunk</string>
 		<key>translation</key>
 		<string>encogerse</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.008620405607330338</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>shut</string>
 		<key>past</key>
 		<string>shut</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>shut</string>
 		<key>translation</key>
 		<string>cerrar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006467644228025686</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>sung</string>
-		<key>past</key>
-		<string>sang</string>
 		<key>simple</key>
 		<string>sing</string>
+		<key>past</key>
+		<string>sang</string>
+		<key>participle</key>
+		<string>sung</string>
 		<key>translation</key>
 		<string>cantar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004499751911926952</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>sunk</string>
-		<key>past</key>
-		<string>sank</string>
 		<key>simple</key>
 		<string>sink</string>
+		<key>past</key>
+		<string>sank</string>
+		<key>participle</key>
+		<string>sunk</string>
 		<key>translation</key>
 		<string>hundir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007661514198874092</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>sat</string>
-		<key>past</key>
-		<string>sat</string>
 		<key>simple</key>
 		<string>sit</string>
+		<key>past</key>
+		<string>sat</string>
+		<key>participle</key>
+		<string>sat</string>
 		<key>translation</key>
 		<string>sentarse</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007536311531184115</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>slept</string>
-		<key>past</key>
-		<string>slept</string>
 		<key>simple</key>
 		<string>sleep</string>
+		<key>past</key>
+		<string>slept</string>
+		<key>participle</key>
+		<string>slept</string>
 		<key>translation</key>
 		<string>dormir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.003936071739187651</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>slid</string>
-		<key>past</key>
-		<string>slid</string>
 		<key>simple</key>
 		<string>slide</string>
+		<key>past</key>
+		<string>slid</string>
+		<key>participle</key>
+		<string>slid</string>
 		<key>translation</key>
 		<string>resbalar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005947853327325137</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>smelt</string>
-		<key>past</key>
-		<string>smelt</string>
 		<key>simple</key>
 		<string>smell</string>
+		<key>past</key>
+		<string>smelt</string>
+		<key>participle</key>
+		<string>smelt</string>
 		<key>translation</key>
 		<string>oler</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.002705272248164131</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>sowed/sown</string>
-		<key>past</key>
-		<string>sowed</string>
 		<key>simple</key>
 		<string>sow</string>
+		<key>past</key>
+		<string>sowed</string>
+		<key>participle</key>
+		<string>sowed/sown</string>
 		<key>translation</key>
 		<string>sembrar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007429446675780274</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>spoken</string>
-		<key>past</key>
-		<string>spoke</string>
 		<key>simple</key>
 		<string>speak</string>
+		<key>past</key>
+		<string>spoke</string>
+		<key>participle</key>
+		<string>spoken</string>
 		<key>translation</key>
 		<string>hablar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005291374841350711</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>sped</string>
-		<key>past</key>
-		<string>sped</string>
 		<key>simple</key>
 		<string>speed</string>
+		<key>past</key>
+		<string>sped</string>
+		<key>participle</key>
+		<string>sped</string>
 		<key>translation</key>
 		<string>acelerar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004495314156371302</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>spelt</string>
-		<key>past</key>
-		<string>spelt</string>
 		<key>simple</key>
 		<string>spell</string>
+		<key>past</key>
+		<string>spelt</string>
+		<key>participle</key>
+		<string>spelt</string>
 		<key>translation</key>
 		<string>deletrear</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0070306369399283355</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>spent</string>
-		<key>past</key>
-		<string>spent</string>
 		<key>simple</key>
 		<string>spend</string>
+		<key>past</key>
+		<string>spent</string>
+		<key>participle</key>
+		<string>spent</string>
 		<key>translation</key>
 		<string>gastar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.00610125572550863</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>split/spilled</string>
-		<key>past</key>
-		<string>split/spilled</string>
 		<key>simple</key>
 		<string>spill</string>
+		<key>past</key>
+		<string>split/spilled</string>
+		<key>participle</key>
+		<string>split/spilled</string>
 		<key>translation</key>
 		<string>derramar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004068588635109721</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>spun</string>
-		<key>past</key>
-		<string>spun</string>
 		<key>simple</key>
 		<string>spin</string>
+		<key>past</key>
+		<string>spun</string>
+		<key>participle</key>
+		<string>spun</string>
 		<key>translation</key>
 		<string>hilar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.00452746654212488</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>spat</string>
-		<key>past</key>
-		<string>spat</string>
 		<key>simple</key>
 		<string>spit</string>
+		<key>past</key>
+		<string>spat</string>
+		<key>participle</key>
+		<string>spat</string>
 		<key>translation</key>
 		<string>escupir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006335568354562081</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>split</string>
 		<key>past</key>
 		<string>split</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>split</string>
 		<key>translation</key>
-		<string>hender/partir/rajar</string>
+		<string>hender, partir,rajar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004971647209318197</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>spoilt/spoiled</string>
-		<key>past</key>
-		<string>spoilt/spoiled</string>
 		<key>simple</key>
 		<string>spoil</string>
+		<key>past</key>
+		<string>spoilt, spoiled</string>
+		<key>participle</key>
+		<string>spoilt, spoiled</string>
 		<key>translation</key>
 		<string>estropear</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006199926638129391</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>spread</string>
 		<key>past</key>
 		<string>spread</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>spread</string>
 		<key>translation</key>
 		<string>extender</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005157684828673218</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>sprung</string>
-		<key>past</key>
-		<string>sprang</string>
 		<key>simple</key>
 		<string>spring</string>
+		<key>past</key>
+		<string>sprang</string>
+		<key>participle</key>
+		<string>sprung</string>
 		<key>translation</key>
 		<string>saltar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007380990211120975</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>stood</string>
-		<key>past</key>
-		<string>stood</string>
 		<key>simple</key>
 		<string>stand</string>
+		<key>past</key>
+		<string>stood</string>
+		<key>participle</key>
+		<string>stood</string>
 		<key>translation</key>
 		<string>estar en pie</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0065302233130598965</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>stolen</string>
-		<key>past</key>
-		<string>stole</string>
 		<key>simple</key>
 		<string>steal</string>
+		<key>past</key>
+		<string>stole</string>
+		<key>participle</key>
+		<string>stolen</string>
 		<key>translation</key>
 		<string>robar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007036454917587741</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>stuck</string>
-		<key>past</key>
-		<string>stuck</string>
 		<key>simple</key>
 		<string>stick</string>
+		<key>past</key>
+		<string>stuck</string>
+		<key>participle</key>
+		<string>stuck</string>
 		<key>translation</key>
 		<string>pegar engomar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0033890197924876346</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>stunk</string>
-		<key>past</key>
-		<string>stung</string>
 		<key>simple</key>
 		<string>sting</string>
+		<key>past</key>
+		<string>stung</string>
+		<key>participle</key>
+		<string>stunk</string>
 		<key>translation</key>
 		<string>picar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004003955461552425</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>stunk</string>
-		<key>past</key>
-		<string>stank/stunk</string>
 		<key>simple</key>
 		<string>stink</string>
+		<key>past</key>
+		<string>stank/stunk</string>
+		<key>participle</key>
+		<string>stunk</string>
 		<key>translation</key>
 		<string>apestar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0019821160885304706</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>stridden</string>
-		<key>past</key>
-		<string>strode</string>
 		<key>simple</key>
 		<string>stride</string>
+		<key>past</key>
+		<string>strode</string>
+		<key>participle</key>
+		<string>stridden</string>
 		<key>translation</key>
 		<string>dar zancadas</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005927473393387138</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>struck</string>
-		<key>past</key>
-		<string>struck</string>
 		<key>simple</key>
 		<string>strike</string>
+		<key>past</key>
+		<string>struck</string>
+		<key>participle</key>
+		<string>struck</string>
 		<key>translation</key>
 		<string>golpear</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006319169802989011</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>sworn</string>
-		<key>past</key>
-		<string>swore</string>
 		<key>simple</key>
 		<string>swear</string>
+		<key>past</key>
+		<string>swore</string>
+		<key>participle</key>
+		<string>sworn</string>
 		<key>translation</key>
 		<string>jurar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005537791902183391</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>sweat</string>
 		<key>past</key>
 		<string>sweat</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>sweat</string>
 		<key>translation</key>
 		<string>sudar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0043442650921372864</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>swept</string>
-		<key>past</key>
-		<string>swept</string>
 		<key>simple</key>
 		<string>sweep</string>
+		<key>past</key>
+		<string>swept</string>
+		<key>participle</key>
+		<string>swept</string>
 		<key>translation</key>
 		<string>barrer</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004386579895472099</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>swollen</string>
-		<key>past</key>
-		<string>swelled</string>
 		<key>simple</key>
 		<string>swell</string>
+		<key>past</key>
+		<string>swelled</string>
+		<key>participle</key>
+		<string>swollen</string>
 		<key>translation</key>
 		<string>hinchar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005030803869408113</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>swum</string>
-		<key>past</key>
-		<string>swam</string>
 		<key>simple</key>
 		<string>swim</string>
+		<key>past</key>
+		<string>swam</string>
+		<key>participle</key>
+		<string>swum</string>
 		<key>translation</key>
 		<string>nadar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.004630112409690959</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>swung</string>
-		<key>past</key>
-		<string>swung</string>
 		<key>simple</key>
 		<string>swing</string>
+		<key>past</key>
+		<string>swung</string>
+		<key>participle</key>
+		<string>swung</string>
 		<key>translation</key>
 		<string>columpiarse</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.009792351511385244</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>taken</string>
-		<key>past</key>
-		<string>took</string>
 		<key>simple</key>
 		<string>take</string>
+		<key>past</key>
+		<string>took</string>
+		<key>participle</key>
+		<string>taken</string>
 		<key>translation</key>
 		<string>coger</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.00682744486267261</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>taught</string>
-		<key>past</key>
-		<string>taught</string>
 		<key>simple</key>
 		<string>teach</string>
+		<key>past</key>
+		<string>taught</string>
+		<key>participle</key>
+		<string>taught</string>
 		<key>translation</key>
 		<string>enseñar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.005340175767186121</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>torn</string>
-		<key>past</key>
-		<string>tore</string>
 		<key>simple</key>
 		<string>tear</string>
+		<key>past</key>
+		<string>tore</string>
+		<key>participle</key>
+		<string>torn</string>
 		<key>translation</key>
 		<string>rasgar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.010039600293359378</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>told</string>
-		<key>past</key>
-		<string>told</string>
 		<key>simple</key>
 		<string>tell</string>
+		<key>past</key>
+		<string>told</string>
+		<key>participle</key>
+		<string>told</string>
 		<key>translation</key>
 		<string>decir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.010332031480826433</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>thought</string>
-		<key>past</key>
-		<string>thought</string>
 		<key>simple</key>
 		<string>think</string>
+		<key>past</key>
+		<string>thought</string>
+		<key>participle</key>
+		<string>thought</string>
 		<key>translation</key>
 		<string>pensar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006816734506928575</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>thrown</string>
-		<key>past</key>
-		<string>threw</string>
 		<key>simple</key>
 		<string>throw</string>
+		<key>past</key>
+		<string>threw</string>
+		<key>participle</key>
+		<string>thrown</string>
 		<key>translation</key>
-		<string>arrojar/tirar</string>
+		<string>arrojar, tirar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0038113889945282954</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>thrust</string>
 		<key>past</key>
 		<string>thrust</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>thrust</string>
 		<key>translation</key>
 		<string>introducir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.002254249765074964</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>trodden</string>
-		<key>past</key>
-		<string>trod</string>
 		<key>simple</key>
 		<string>tread</string>
+		<key>past</key>
+		<string>trod</string>
+		<key>participle</key>
+		<string>trodden</string>
 		<key>translation</key>
-		<string>pisar/hollar</string>
+		<string>pisar, hollar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.008244279847388764</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>understood</string>
-		<key>past</key>
-		<string>understood</string>
 		<key>simple</key>
 		<string>understand</string>
+		<key>past</key>
+		<string>understood</string>
+		<key>participle</key>
+		<string>understood</string>
 		<key>translation</key>
 		<string>entender</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.001910599212072226</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>undergone</string>
-		<key>past</key>
-		<string>underwent</string>
 		<key>simple</key>
 		<string>undergo</string>
+		<key>past</key>
+		<string>underwent</string>
+		<key>participle</key>
+		<string>undergone</string>
 		<key>translation</key>
 		<string>sufrir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0019417959007197996</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>undertaken</string>
-		<key>past</key>
-		<string>undertook</string>
 		<key>simple</key>
 		<string>undertake</string>
+		<key>past</key>
+		<string>undertook</string>
+		<key>participle</key>
+		<string>undertaken</string>
 		<key>translation</key>
 		<string>emprender</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0065939320426480425</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>woken</string>
-		<key>past</key>
-		<string>woke</string>
 		<key>simple</key>
 		<string>wake</string>
+		<key>past</key>
+		<string>woke</string>
+		<key>participle</key>
+		<string>woken</string>
 		<key>translation</key>
 		<string>despertarse</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006407649119364487</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>worn</string>
-		<key>past</key>
-		<string>wore</string>
 		<key>simple</key>
 		<string>wear</string>
+		<key>past</key>
+		<string>wore</string>
+		<key>participle</key>
+		<string>worn</string>
 		<key>translation</key>
 		<string>llevar puesto</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.002467640148747997</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>woven</string>
-		<key>past</key>
-		<string>wove</string>
 		<key>simple</key>
 		<string>weave</string>
+		<key>past</key>
+		<string>wove</string>
+		<key>participle</key>
+		<string>woven</string>
 		<key>translation</key>
 		<string>tejer</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0036752992346320845</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>wept</string>
-		<key>past</key>
-		<string>wept</string>
 		<key>simple</key>
 		<string>weep</string>
+		<key>past</key>
+		<string>wept</string>
+		<key>participle</key>
+		<string>wept</string>
 		<key>translation</key>
 		<string>llorar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0063778030920310655</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
+		<key>simple</key>
 		<string>wet</string>
 		<key>past</key>
 		<string>wet</string>
-		<key>simple</key>
+		<key>participle</key>
 		<string>wet</string>
 		<key>translation</key>
 		<string>mojar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007442802045900757</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>won</string>
-		<key>past</key>
-		<string>won</string>
 		<key>simple</key>
 		<string>win</string>
+		<key>past</key>
+		<string>won</string>
+		<key>participle</key>
+		<string>won</string>
 		<key>translation</key>
 		<string>ganar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.006349303301674102</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>wound</string>
-		<key>past</key>
-		<string>wound</string>
 		<key>simple</key>
 		<string>wind</string>
+		<key>past</key>
+		<string>wound</string>
+		<key>participle</key>
+		<string>wound</string>
 		<key>translation</key>
 		<string>enrollar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0037110457063182036</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>withdrawn</string>
-		<key>past</key>
-		<string>withdrew</string>
 		<key>simple</key>
 		<string>withdraw</string>
+		<key>past</key>
+		<string>withdrew</string>
+		<key>participle</key>
+		<string>withdrawn</string>
 		<key>translation</key>
 		<string>retirarse</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0017364033616725338</real>
 		<key>level</key>
 		<integer>2</integer>
-		<key>participle</key>
-		<string>wrung</string>
-		<key>past</key>
-		<string>wrung</string>
 		<key>simple</key>
 		<string>wring</string>
+		<key>past</key>
+		<string>wrung</string>
+		<key>participle</key>
+		<string>wrung</string>
 		<key>translation</key>
 		<string>torcer</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.007321472890272944</real>
 		<key>level</key>
 		<integer>1</integer>
-		<key>participle</key>
-		<string>written</string>
-		<key>past</key>
-		<string>wrote</string>
 		<key>simple</key>
 		<string>write</string>
+		<key>past</key>
+		<string>wrote</string>
+		<key>participle</key>
+		<string>written</string>
 		<key>translation</key>
 		<string>escribir</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0</real>
 		<key>level</key>
 		<integer>3</integer>
-		<key>participle</key>
-		<string>waylaid</string>
-		<key>past</key>
-		<string>waylaid</string>
 		<key>simple</key>
 		<string>waylay</string>
+		<key>past</key>
+		<string>waylaid</string>
+		<key>participle</key>
+		<string>waylaid</string>
 		<key>translation</key>
 		<string>acechar</string>
 	</dict>
 	<dict>
-		<key>frequency</key>
-		<real>0.0011856848157563188</real>
 		<key>level</key>
 		<integer>3</integer>
-		<key>participle</key>
-		<string>vexed/vext</string>
-		<key>past</key>
-		<string>vexed/vext</string>
 		<key>simple</key>
 		<string>vex</string>
+		<key>past</key>
+		<string>vexed/vext</string>
+		<key>participle</key>
+		<string>vexed/vext</string>
 		<key>translation</key>
 		<string>vejar</string>
 	</dict>

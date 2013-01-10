@@ -10,8 +10,6 @@
 #import "VerbsStore.h"
 @implementation Verb
 
-@synthesize simple=_simple, past = _past, participle=_participle, translation=_translation ;
-@synthesize responseTime;
 - (id)initFromDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
@@ -19,12 +17,34 @@
         self.past = dictionary[@"past"];
         self.participle = dictionary[@"participle"];
         self.translation = dictionary[@"translation"];
+        self.frequency = [dictionary[@"frequency"] floatValue];
         self.responseTime = 0.0;
         self.failed = NO;
-        self.level = [[dictionary objectForKey:@"level"] intValue];
+ 
     }
     return self;
 }
+
+-(void)setResponseTime:(float)rt{
+    _responseTime = rt;
+    
+}
+
+-(void)addNewResponseTime:(float)rt{
+ 
+    if(_responseTime >0 )
+        _responseTime = (_responseTime + rt) /2.0;
+    else
+        _responseTime = rt;
+    NSLog(@"new computed time is : %f",_responseTime);
+    //persist in Store
+    [[VerbsStore sharedStore] saveChanges];
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@ - %f (%f)",self.simple,self.responseTime,self.frequency];
+}
+
 #pragma  mark - NSCoding Persistence
 -(void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:self.simple forKey:@"simple"];
@@ -33,7 +53,7 @@
     [aCoder encodeObject:self.translation forKey:@"translation"];
     [aCoder encodeBool:self.failed forKey:@"failed"];
     [aCoder encodeFloat:self.responseTime forKey:@"responseTime"];
-    [aCoder encodeInt:self.level  forKey:@"level"];
+    [aCoder encodeFloat:self.frequency forKey:@"frequency"];
 }
 
 -(id) initWithCoder:(NSCoder *)aDecoder{
@@ -45,24 +65,8 @@
         [self setTranslation:[aDecoder decodeObjectForKey:@"translation"]];
         [self setFailed:[aDecoder decodeBoolForKey:@"failed"]];
         [self setResponseTime:[aDecoder decodeFloatForKey:@"responseTime"]];
-        [self setLevel:[aDecoder decodeIntForKey:@"level"]];
- 
+        [self setFrequency:[aDecoder decodeFloatForKey:@"frequency"]];
     }
     return self;
-}
--(void)setResponseTime:(float)rt{
-    responseTime = rt;
-    
-}
-
--(void)addNewResponseTime:(float)rt{
- 
-    if(responseTime >0 )
-        responseTime = (responseTime + rt) /2.0;
-    else
-        responseTime = rt;
-    NSLog(@"new computed time is : %f",responseTime);
-    //persist in Store
-    [[VerbsStore sharedStore] saveChanges];
 }
 @end

@@ -46,19 +46,21 @@
             NSLog(@"Exception in %@: %@",NSStringFromSelector(_cmd), e);
         }
         if(!allItems){
-            NSMutableArray *tmp  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]];
-            
-            NSMutableArray *mutable = [[NSMutableArray alloc] initWithCapacity:tmp.count];
-            for (int i=0; i<tmp.count; i++) {
-                [mutable addObject:[[Verb alloc] initFromDictionary:tmp[i]]];
-            }
-            
-            allItems = mutable;
-            
+            [self loadVerbsFromTemplate];
             [self saveChanges];
         }
     }
     return allItems;
+}
+-(void)loadVerbsFromTemplate{
+    NSMutableArray *tmp  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"verbs" ofType:@"plist"]];
+    
+    NSMutableArray *mutable = [[NSMutableArray alloc] initWithCapacity:tmp.count];
+    for (int i=0; i<tmp.count; i++) {
+        [mutable addObject:[[Verb alloc] initFromDictionary:tmp[i]]];
+    }
+    
+    allItems = mutable;
 }
 -(BOOL) saveChanges {
     NSString *path = [self mutableVerbsListPath];
@@ -85,6 +87,7 @@
         }];
     }
 }
+/*
 - (NSArray *)verbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels  {
     NSArray *list = [self verbsListFromDocument];
     NSString *query = (lowerLevels)?@"level <= %d":@"level == %d";
@@ -92,16 +95,56 @@
     NSArray *filteredArray = [list filteredArrayUsingPredicate:predicateLevel];
     return filteredArray;
 }
+*/
+
+-(NSArray *)verbsForDifficulty:(float) difficulty{
+    int idx = 0;
+    
+    if (difficulty==1.0f)
+        return [self verbsSortedbyFrequency];
+    else if (difficulty == 0.0f){
+        return nil;
+    }
+    else{
+        NSArray *sortedArray = [self verbsSortedbyFrequency];
+        float freqAcum=0.0f;
+        for (idx=0;idx<sortedArray.count;idx++) {
+            Verb *v = sortedArray[idx];
+            freqAcum += v.frequency;
+            if (difficulty<=freqAcum) {
+                break;
+            }
+        }
+        NSRange range;
+        range.location=0;
+        range.length=idx;
+        return [sortedArray subarrayWithRange:range];
+      
+    }
+ 
+}
+-(NSArray *) verbsSortedbyFrequency{
+    return [ [self allVerbs] sortedArrayUsingComparator:^(id ob1,id ob2) {
+        Verb *v1 = (Verb *) ob1;
+        Verb *v2 = (Verb *) ob2;
+        
+        return v1.frequency<v2.frequency;
+    }];
+}
 
 
+
+-(int) numberOfVerbsForDifficulty:(float) difficulty{
+    return [[self verbsForDifficulty:difficulty] count];
+ 
+}
 -(NSArray *)allVerbs{
     
     return [self verbsListFromDocument];
 }
+ 
 -(void)printListtoConsole{
-    for(Verb *v in allItems){
-        NSLog(@"%@ - %f",[v simple],[v responseTime]);
-    }
+    NSLog(@"%@",allItems);
 }
 
 @end

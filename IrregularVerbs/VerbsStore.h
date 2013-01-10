@@ -30,8 +30,11 @@
 @property (nonatomic) BOOL randomOrder;
 @property (nonatomic, strong) id<VerbsStoreDelegate> delegate;
 
-- (NSArray *)verbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels ;
+//- (NSArray *)verbsForLevel:(int)level includeLowerLevels:(BOOL)lowerLevels ;
+
 -(BOOL) saveChanges;
 -(NSArray *)allVerbs;
 -(void)printListtoConsole;
+-(int) numberOfVerbsForDifficulty:(float) difficulty;
+-(NSArray *)verbsForDifficulty:(float) difficulty;
 @end
