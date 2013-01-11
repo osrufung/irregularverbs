@@ -62,11 +62,11 @@
 }
 
 - (NSArray *)verbsSortedByPerformance {
-    return [self.verbs sortedArrayUsingComparator:compareVerbsByTestResults];
+    return [self.verbs sortedArrayUsingSelector:@selector(compareVerbsByTestResults:)];
 }
 
 - (NSArray *)verbsSortedByHistory {
-    return [self.verbs sortedArrayUsingComparator:compareVerbsByHistoricalPerformance];
+    return [self.verbs sortedArrayUsingSelector:@selector(compareVerbsByHistoricalPerformance:)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

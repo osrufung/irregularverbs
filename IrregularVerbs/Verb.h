@@ -8,11 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-NSComparisonResult(^compareVerbsAlphabeticaly)(id,id);
-NSComparisonResult(^compareVerbsByHistoricalPerformance)(id,id);
-NSComparisonResult(^compareVerbsByTestResults)(id,id);
-NSComparisonResult(^compareVerbsByFrequency)(id,id);
-
 @interface Verb : NSObject<NSCoding>
 
 @property (nonatomic,strong) NSString *simple;
@@ -30,4 +25,10 @@ NSComparisonResult(^compareVerbsByFrequency)(id,id);
 - (void)passTestWithTime:(float)time;
 - (void)resetCurrentTest;
 - (void)resetHistory;
+
+- (NSComparisonResult)compareVerbsAlphabetically:(Verb *)other;
+- (NSComparisonResult)compareVerbsByTestResults:(Verb *)other;
+- (NSComparisonResult)compareVerbsByHistoricalPerformance:(Verb *)other;
+- (NSComparisonResult)compareVerbsByFrequency:(Verb *)other;
+
 @end

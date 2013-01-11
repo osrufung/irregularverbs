@@ -120,55 +120,48 @@
     return self;
 }
 
-#pragma mark - Verb comparators
 
-NSComparisonResult(^compareVerbsAlphabeticaly)(id,id) = ^(id ob1, id ob2) {
-    Verb *v1=ob1;
-    Verb *v2=ob2;
-    return [v1.simple compare:v2.simple];
-};
+#pragma mark - Comparators
 
-NSComparisonResult(^compareVerbsByTestResults)(id,id) = ^(id ob1, id ob2) {
-    Verb *v1=ob1;
-    Verb *v2=ob2;
-    if (v1.failed && v2.failed) {
-        return [v1.simple compare:v2.simple];
-    } else if (v1.failed && !v2.failed) {
+- (NSComparisonResult)compareVerbsAlphabetically:(Verb *)other {
+    return [self.simple compare:other.simple];
+}
+
+- (NSComparisonResult)compareVerbsByTestResults:(Verb *)other {
+    if (self.failed && other.failed) {
+        return [self.simple compare:other.simple];
+    } else if (self.failed && !other.failed) {
         return (NSComparisonResult)NSOrderedAscending;
-    } else if (!v1.failed && v2.failed) {
+    } else if (!self.failed && other.failed) {
         return (NSComparisonResult)NSOrderedDescending;
     } else {
-        if (v1.responseTime>v2.responseTime) {
+        if (self.responseTime>other.responseTime) {
             return (NSComparisonResult)NSOrderedAscending;
-        } else if(v1.responseTime<v2.responseTime) {
+        } else if(self.responseTime<other.responseTime) {
             return (NSComparisonResult)NSOrderedDescending;
         }
-        else return [v1.simple compare:v2.simple];
+        else return [self.simple compare:other.simple];
     }
-};
+}
 
-NSComparisonResult(^compareVerbsByHistoricalPerformance)(id,id) = ^(id ob1, id ob2){
-    Verb *v1=ob1;
-    Verb *v2=ob2;
-    if (v1.failureRatio<v2.failureRatio) {
+- (NSComparisonResult)compareVerbsByHistoricalPerformance:(Verb *)other {
+    if (self.failureRatio<other.failureRatio) {
         return (NSComparisonResult)NSOrderedDescending;
-    } else if (v1.failureRatio>v2.failureRatio) {
+    } else if (self.failureRatio>other.failureRatio) {
         return (NSComparisonResult)NSOrderedAscending;
     } else {
-        if (v1.responseTime>v2.responseTime) {
+        if (self.responseTime>other.responseTime) {
             return (NSComparisonResult)NSOrderedAscending;
-        } else if(v1.responseTime<v2.responseTime) {
+        } else if(self.responseTime<other.responseTime) {
             return (NSComparisonResult)NSOrderedDescending;
         }
-        else return [v1.simple compare:v2.simple];
+        else return [self.simple compare:other.simple];
     }
-};
+}
 
-NSComparisonResult(^compareVerbsByFrequency)(id,id) = ^(id ob1, id ob2){
-    Verb *v1 = (Verb *) ob1;
-    Verb *v2 = (Verb *) ob2;
-    
-    return v1.frequency<v2.frequency;
-};
+- (NSComparisonResult)compareVerbsByFrequency:(Verb *)other {
+    return self.frequency<other.frequency;
+}
+
 
 @end

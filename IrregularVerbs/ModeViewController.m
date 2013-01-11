@@ -85,7 +85,7 @@
     if (_cacheRandomOrder) {
         _verbs = [_verbs shuffledCopy];
     } else {
-        _verbs = [_verbs sortedArrayUsingComparator:compareVerbsAlphabeticaly];
+        _verbs = [_verbs sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)];
     }
 }
 
