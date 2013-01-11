@@ -40,6 +40,7 @@
 - (void)passTestWithTime:(float)time {
     if (_testPending) {
         _testPending=NO;
+        _failed=NO;
         int numberOk = self.numberOfTests-self.numberOfFailures;
         _responseTime = time;
         _averageResponseTime = (_averageResponseTime*numberOk+_responseTime)/(numberOk+1);

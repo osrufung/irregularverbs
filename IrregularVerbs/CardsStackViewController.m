@@ -80,6 +80,12 @@
         self.verbs = [self verbsSortedByHistory];
         [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
                        direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    } else if (self.presentationMode==CardViewControllerPresentationModeTest) {
+        self.currentIndex=0;
+        for (Verb *verb in self.verbs) [verb resetCurrentTest];
+        [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
+                       direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+        
     }
 }
 
