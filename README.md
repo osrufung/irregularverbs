@@ -27,6 +27,7 @@ You can contact us at:
 * RB - v0.8 EXPERIMENTAL learning feedback usign a ColorMap
 * RB - v0.9e NEW EXPERIMENTAL INTERFACE 
 * OR - v0.9.1e internal Model changes. Compute the average time for every verb instead last time only. (9/1/2013)
+* OR - v0.9.2e App badge icon for pending/failed elements (11/1/2013)
 
 ## Screenshot
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot1.png)
@@ -35,3 +36,4 @@ You can contact us at:
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot4.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot5.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot6.png)
+![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot7.png)

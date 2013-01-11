@@ -13,6 +13,7 @@
 		091C61E6169FF67500F3606A /* screenshot4.png in Resources */ = {isa = PBXBuildFile; fileRef = 091C61E0169FF67500F3606A /* screenshot4.png */; };
 		091C61E7169FF67500F3606A /* screenshot5.png in Resources */ = {isa = PBXBuildFile; fileRef = 091C61E1169FF67500F3606A /* screenshot5.png */; };
 		091C61E8169FF67500F3606A /* screenshot6.png in Resources */ = {isa = PBXBuildFile; fileRef = 091C61E2169FF67500F3606A /* screenshot6.png */; };
+		091C61EA169FFC3E00F3606A /* screenshot7.png in Resources */ = {isa = PBXBuildFile; fileRef = 091C61E9169FFC3E00F3606A /* screenshot7.png */; };
 		092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 092CDCA7168D8D8C0092FD32 /* Defaults.plist */; };
 		099AF61B1681FBAA001A6BF3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 099AF61A1681FBAA001A6BF3 /* README.md */; };
 		099AF69116834580001A6BF3 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099AF69016834580001A6BF3 /* PreferencesViewController.m */; };
@@ -56,6 +57,7 @@
 		091C61E0169FF67500F3606A /* screenshot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot4.png; sourceTree = "<group>"; };
 		091C61E1169FF67500F3606A /* screenshot5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot5.png; sourceTree = "<group>"; };
 		091C61E2169FF67500F3606A /* screenshot6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot6.png; sourceTree = "<group>"; };
+		091C61E9169FFC3E00F3606A /* screenshot7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot7.png; sourceTree = "<group>"; };
 		092CDCA7168D8D8C0092FD32 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		099AF61A1681FBAA001A6BF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		099AF68F16834580001A6BF3 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		E550A5DD169CC8C600DCA8D6 /* Readme */ = {
 			isa = PBXGroup;
 			children = (
+				091C61E9169FFC3E00F3606A /* screenshot7.png */,
 				091C61DD169FF67500F3606A /* screenshot1.png */,
 				091C61DE169FF67500F3606A /* screenshot2.png */,
 				091C61DF169FF67500F3606A /* screenshot3.png */,
@@ -336,6 +339,7 @@
 				091C61E6169FF67500F3606A /* screenshot4.png in Resources */,
 				091C61E7169FF67500F3606A /* screenshot5.png in Resources */,
 				091C61E8169FF67500F3606A /* screenshot6.png in Resources */,
+				091C61EA169FFC3E00F3606A /* screenshot7.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
