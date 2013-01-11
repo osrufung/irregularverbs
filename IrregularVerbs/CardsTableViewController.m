@@ -25,7 +25,7 @@
 }
 
  
- 
+
 
 #pragma mark UITableViewDataSource Delegate Methods
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -48,13 +48,20 @@
         v = [[[[VerbsStore sharedStore] allVerbs] sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)] objectAtIndex:[indexPath row]];
     }
     
- 
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"UITableViewCell"];
+    UITableViewCell *cell = [tableView
+                             dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"UITableViewCell"];
+    }
+    
     [[cell textLabel] setText:[v simple]];
     [[cell detailTextLabel] setText: [NSString stringWithFormat:@"%@ - %@ - %@",[v past],[v participle],[v translation]]];
     return cell;
     
 }
+
+ 
+
 #pragma mark Content Filtering
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSInteger)scopeIndex {
     
@@ -91,5 +98,5 @@
     // Return YES to cause the search result table view to be reloaded.
     return NO;
 }
-
+ 
 @end

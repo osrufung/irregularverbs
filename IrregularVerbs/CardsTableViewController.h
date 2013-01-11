@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CardsTableViewController : UIViewController<UISearchBarDelegate, UISearchDisplayDelegate>
+@interface CardsTableViewController : UIViewController<UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource>
 {
     NSMutableArray *filteredArray;
 }
