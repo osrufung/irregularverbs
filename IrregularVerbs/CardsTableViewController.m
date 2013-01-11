@@ -86,10 +86,10 @@
 //@TODO to implement scope based search (All, Most Common, Unusual)
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
     // Tells the table data source to reload when scope bar selection changes
-
-    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:searchOption];
+    NSLog(@"Not Implemented yet");
+    //[self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:searchOption];
     // Return YES to cause the search result table view to be reloaded.
-    return YES;
+    return NO;
 }
 
 @end
