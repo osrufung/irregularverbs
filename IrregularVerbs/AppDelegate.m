@@ -8,10 +8,23 @@
 
 #import "AppDelegate.h"
 #import "VerbsStore.h"
+#import "CardsTableViewController.h"
+
 @implementation AppDelegate
+
+//#define TESTING_NEW_TABLE_VC
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+#ifdef TESTING_NEW_TABLE_VC
+    self.window = [[UIWindow alloc] initWithFrame:[[ UIScreen mainScreen]bounds]];
+    CardsTableViewController *tmvc = [[CardsTableViewController alloc] init];
+    [[self window] setRootViewController:tmvc];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+        
+#endif
     return YES;
 }
  

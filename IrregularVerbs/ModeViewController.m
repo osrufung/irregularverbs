@@ -12,7 +12,7 @@
 #import "Referee.h"
 #import "PreferencesViewController.h"
 #import "NSArray+Shuffling.h"
-
+#import "CardsTableViewController.h"
 
 @interface ModeViewController ()
 {
@@ -39,12 +39,19 @@
     [self loadVerbs];
     
     // Create the CardsStackViewControllers
+    /*
+    @NOTE: For testing purposes 
     vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardsStackViewController"];
     vc.presentationMode = CardViewControllerPresentationModeLearn;
     vc.title = @"Learn";
     vc.tabBarItem.image = [UIImage imageNamed:@"book_bookmark_24.png"];
     vc.verbs = _verbs;
-    [self addChildViewController:vc];
+    */
+    CardsTableViewController *tmvc = [[CardsTableViewController alloc] init];
+    tmvc.title = @"Learn";
+    tmvc.tabBarItem.image = [UIImage imageNamed:@"book_bookmark_24.png"];
+    
+    [self addChildViewController:tmvc];
 
     vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardsStackViewController"];
     vc.presentationMode = CardViewControllerPresentationModeTest;
