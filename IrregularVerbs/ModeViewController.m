@@ -92,7 +92,7 @@
     if (_cacheRandomOrder) {
         _verbs = [_verbs shuffledCopy];
     } else {
-        _verbs = [_verbs sortedArrayUsingComparator:compareVerbsAlphabeticaly];
+        _verbs = [_verbs sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)];
     }
 }
 
@@ -115,8 +115,8 @@
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
     if (self.defaultsChanged) {
         for (UIViewController *vc in self.viewControllers) {
-            if ([vc isKindOfClass:[CardsStackViewController class]]) {
-                CardsStackViewController *csvc = (CardsStackViewController *)viewController;
+            if ([vc isMemberOfClass:[CardsStackViewController class]]) {
+                CardsStackViewController *csvc = (CardsStackViewController *)vc;
                 csvc.verbs = _verbs;
             }
         }

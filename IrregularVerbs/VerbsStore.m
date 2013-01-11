@@ -106,8 +106,9 @@
 - (void)sortVerbsList {
     if (self.randomOrder) {
         _allVerbs = [_allVerbs shuffledCopy];
+        
     } else {
-        _allVerbs= [_allVerbs sortedArrayUsingComparator:compareVerbsAlphabeticaly];
+        _allVerbs= [_allVerbs sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)];
     }
 }
  
@@ -140,7 +141,7 @@
 }
 
 -(NSArray *) verbsSortedbyFrequency{
-    return [self.allVerbs sortedArrayUsingComparator:compareVerbsByFrequency];
+    return [self.allVerbs sortedArrayUsingSelector:@selector(compareVerbsByFrequency:)];
 }
 
 - (void)resetHistory {

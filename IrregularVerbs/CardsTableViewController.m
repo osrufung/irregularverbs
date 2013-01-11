@@ -33,7 +33,7 @@
         return [filteredArray count];
         
     } else {
-        return [[[[VerbsStore sharedStore] allVerbs] sortedArrayUsingComparator:compareVerbsAlphabeticaly] count];
+        return [[[VerbsStore sharedStore] allVerbs] count];
     }
 }
 
@@ -45,7 +45,7 @@
         v = [filteredArray objectAtIndex:indexPath.row];
         
     } else {
-        v = [[[[VerbsStore sharedStore] allVerbs] sortedArrayUsingComparator:compareVerbsAlphabeticaly] objectAtIndex:[indexPath row]];
+        v = [[[[VerbsStore sharedStore] allVerbs] sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)] objectAtIndex:[indexPath row]];
     }
     
  
@@ -65,7 +65,7 @@
     
     if(searchText){
         [filteredArray removeAllObjects];
-        NSArray *sorted = [[[VerbsStore sharedStore] allVerbs] sortedArrayUsingComparator:compareVerbsAlphabeticaly];
+        NSArray *sorted = [[[VerbsStore sharedStore] allVerbs] sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)];
         // Filter the array using NSPredicate
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(SELF.simple contains[c] %@) OR (SELF.past contains[c] %@) OR (SELF.participle contains[c] %@) OR (SELF.translation contains[c] %@)",searchText,searchText,searchText,searchText];
         filteredArray =  [NSMutableArray arrayWithArray:[sorted filteredArrayUsingPredicate:predicate]];
