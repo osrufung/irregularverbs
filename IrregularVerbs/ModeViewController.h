@@ -10,7 +10,7 @@
 
 @class VerbsStore;
 
-@interface ModeViewController : UITabBarController
+@interface ModeViewController : UITabBarController<UITabBarControllerDelegate>
 {
     NSArray *_verbs;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "CardsStackViewController.h"
+#import "VerbsStore.h"
 
 @interface CardsStackViewController ()
 @property (nonatomic, strong) NSMutableArray *timeStamps;
@@ -61,20 +62,11 @@
 }
 
 - (NSArray *)verbsSortedByPerformance {
-    return [self.verbs sortedArrayUsingComparator:^(id ob1, id ob2){
-                Verb *v1=ob1;
-                Verb *v2=ob2;
-        return [v1 compareByTestResults:v2];
-        
-    }];
+    return [self.verbs sortedArrayUsingComparator:compareVerbsByTestResults];
 }
 
 - (NSArray *)verbsSortedByHistory {
-    return [self.verbs sortedArrayUsingComparator:^(id ob1, id ob2){
-        Verb *v1=ob1;
-        Verb *v2=ob2;
-        return [v1 compareByHistoricalPerformance:v2];
-    }];
+    return [self.verbs sortedArrayUsingComparator:compareVerbsByHistoricalPerformance];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -88,6 +80,12 @@
         self.verbs = [self verbsSortedByHistory];
         [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
                        direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    } else if (self.presentationMode==CardViewControllerPresentationModeTest) {
+        self.currentIndex=0;
+        for (Verb *verb in self.verbs) [verb resetCurrentTest];
+        [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
+                       direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+        
     }
 }
 
@@ -100,23 +98,8 @@
         vc.verb = [self.verbs objectAtIndex:index];
         vc.presentationMode = mode;
         vc.verbIndex=index;
-        vc.randomOrder = self.randomOrder;
     }
     return vc;
-}
-
-- (void)flipsideViewControllerDidFinish:(PreferencesViewController *)controller
-{
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
- 
-    
-    //[[VerbsStore sharedStore] setRandomOrder:[[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]];
- 
-    
-    // Reassign the current card with the new preferences
-    [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
-                   direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 }
 
 @end

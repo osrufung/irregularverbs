@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
  
 #import "CardViewController.h"
-#import "PreferencesViewController.h"
 
-@interface CardsStackViewController : UIPageViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate,PreferencesViewControllerDelegate>
+@interface CardsStackViewController : UIPageViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
 @property (nonatomic) enum CardViewControllerPresentationMode presentationMode;
-@property (nonatomic) BOOL randomOrder;
 @property (nonatomic, strong) NSArray *verbs;
 
 @end

@@ -23,7 +23,6 @@ enum CardViewControllerPresentationMode {
 @property (nonatomic, strong) Verb *verb;
 @property (nonatomic) int                   verbIndex;
  
-@property (nonatomic) BOOL                  randomOrder;
 @property (nonatomic, readonly) float       responseTime;
 
 @property (nonatomic) enum CardViewControllerPresentationMode presentationMode;

@@ -56,14 +56,6 @@
     [self.view removeGestureRecognizer:self.swDown];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
- 
-    
-    
-}
-
 #pragma mark - User Interface
 
 - (void)testTimerTick:(NSTimer *)timer {
@@ -101,9 +93,9 @@
         self.testProgress.hidden=YES;
         [self removeGestureRecognizers];
         if (failure)
-            [self.verb testFailed];
+            [self.verb failTest];
         else
-            self.verb.responseTime = self.responseTime;
+            [self.verb passTestWithTime:self.responseTime];
     }
 }
 
@@ -114,17 +106,26 @@
     return 0.f;
 }
 
+- (void)defaultsChanged:(NSNotification *)notification {
+    self.shuffleIndicator.hidden=![[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"Cambio de pestaña en mdo %d", [self presentationMode]);
-    
-  
     [self showVerb];
-    self.shuffleIndicator.hidden=!self.randomOrder;
+    self.shuffleIndicator.hidden=![[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
     self.imageTestResult.image=nil;
     if (self.presentationMode == CardViewControllerPresentationModeReview) [self showResultsWithAnimation:NO];
     if (self.presentationMode == CardViewControllerPresentationModeHistory) [self showResultsWithAnimation:NO];
     if (self.presentationMode == CardViewControllerPresentationModeTest) [self beginTest];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(defaultsChanged:)
+                                                 name:NSUserDefaultsDidChangeNotification
+                                               object:nil];
+}
+
+// Important
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setVerb:(Verb *)verb {
@@ -198,15 +199,6 @@
     fader.toValue=[NSNumber numberWithFloat:finalAlpha];
     [view.layer addAnimation:fader forKey:@"fadeAnimation"];
     view.layer.opacity = finalAlpha;
-}
-
-#pragma mark - Flipside View
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
-        [[segue destinationViewController] setDelegate:self.parentViewController];
-    }
 }
 
 @end

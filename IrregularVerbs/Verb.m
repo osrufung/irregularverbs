@@ -22,7 +22,7 @@
 @implementation Verb
 
 // Only the readonly properties needs that we explicit synthesize them
-@synthesize averageResponseTime=_averageResponseTime, failureRatio=_failureRatio, failed=_failed;
+@synthesize averageResponseTime=_averageResponseTime, failureRatio=_failureRatio, failed=_failed, responseTime=_responseTime;
 
 - (id)initFromDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -37,10 +37,12 @@
     return self;
 }
 
--(void)setResponseTime:(float)rt{
+- (void)passTestWithTime:(float)time {
     if (_testPending) {
+        _testPending=NO;
+        _failed=NO;
         int numberOk = self.numberOfTests-self.numberOfFailures;
-        _responseTime = rt;
+        _responseTime = time;
         _averageResponseTime = (_averageResponseTime*numberOk+_responseTime)/(numberOk+1);
         self.numberOfTests++;
         
@@ -48,9 +50,10 @@
     }
 }
 
-- (void)testFailed {
+- (void)failTest {
     if (_testPending) {
-        _failed = TRUE;
+        _testPending = NO;
+        _failed = YES;
         self.numberOfFailures++;
         self.numberOfTests++;
         
@@ -85,6 +88,7 @@
 }
 
 #pragma  mark - NSCoding Persistence
+
 -(void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:self.simple forKey:@"simple"];
     [aCoder encodeObject:self.past forKey:@"past"];
@@ -116,42 +120,55 @@
     return self;
 }
 
-#pragma mark - comparators
-- (NSComparisonResult)compareBySimpleTense:(Verb *)other {
-    return [self.simple compare:other.simple];
-}
+#pragma mark - Verb comparators
 
-- (NSComparisonResult)compareByTestResults:(Verb *)other {
-    if (self.failed && other.failed) {
-        return [self.simple compare:other.simple];
-    } else if (self.failed && !other.failed) {
+NSComparisonResult(^compareVerbsAlphabeticaly)(id,id) = ^(id ob1, id ob2) {
+    Verb *v1=ob1;
+    Verb *v2=ob2;
+    return [v1.simple compare:v2.simple];
+};
+
+NSComparisonResult(^compareVerbsByTestResults)(id,id) = ^(id ob1, id ob2) {
+    Verb *v1=ob1;
+    Verb *v2=ob2;
+    if (v1.failed && v2.failed) {
+        return [v1.simple compare:v2.simple];
+    } else if (v1.failed && !v2.failed) {
         return (NSComparisonResult)NSOrderedAscending;
-    } else if (!self.failed && other.failed) {
+    } else if (!v1.failed && v2.failed) {
         return (NSComparisonResult)NSOrderedDescending;
     } else {
-        if (self.responseTime>other.responseTime) {
+        if (v1.responseTime>v2.responseTime) {
             return (NSComparisonResult)NSOrderedAscending;
-        } else if(self.responseTime<other.responseTime) {
+        } else if(v1.responseTime<v2.responseTime) {
             return (NSComparisonResult)NSOrderedDescending;
         }
-        else return [self.simple compare:other.simple];
+        else return [v1.simple compare:v2.simple];
     }
-}
+};
 
-- (NSComparisonResult)compareByHistoricalPerformance:(Verb *)other {
-    if (self.failureRatio<other.failureRatio) {
+NSComparisonResult(^compareVerbsByHistoricalPerformance)(id,id) = ^(id ob1, id ob2){
+    Verb *v1=ob1;
+    Verb *v2=ob2;
+    if (v1.failureRatio<v2.failureRatio) {
         return (NSComparisonResult)NSOrderedDescending;
-    } else if (self.failureRatio>other.failureRatio) {
+    } else if (v1.failureRatio>v2.failureRatio) {
         return (NSComparisonResult)NSOrderedAscending;
     } else {
-        if (self.responseTime>other.responseTime) {
+        if (v1.responseTime>v2.responseTime) {
             return (NSComparisonResult)NSOrderedAscending;
-        } else if(self.responseTime<other.responseTime) {
+        } else if(v1.responseTime<v2.responseTime) {
             return (NSComparisonResult)NSOrderedDescending;
         }
-        else return [self.simple compare:other.simple];
+        else return [v1.simple compare:v2.simple];
     }
-}
+};
 
+NSComparisonResult(^compareVerbsByFrequency)(id,id) = ^(id ob1, id ob2){
+    Verb *v1 = (Verb *) ob1;
+    Verb *v2 = (Verb *) ob2;
+    
+    return v1.frequency<v2.frequency;
+};
 
 @end

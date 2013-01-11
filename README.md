@@ -29,9 +29,9 @@ You can contact us at:
 * OR - v0.9.1e internal Model changes. Compute the average time for every verb instead last time only. (9/1/2013)
 
 ## Screenshot
-![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/learn.png)
-![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/test_in_progress.png)
-![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/test_fail.png)
-![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/test_ok.png)
-![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/review.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/preferences.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot1.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot2.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot3.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot4.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot5.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot6.png)

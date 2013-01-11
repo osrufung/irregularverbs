@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+NSComparisonResult(^compareVerbsAlphabeticaly)(id,id);
+NSComparisonResult(^compareVerbsByHistoricalPerformance)(id,id);
+NSComparisonResult(^compareVerbsByTestResults)(id,id);
+NSComparisonResult(^compareVerbsByFrequency)(id,id);
+
 @interface Verb : NSObject<NSCoding>
 
 @property (nonatomic,strong) NSString *simple;
@@ -17,15 +22,12 @@
 @property (nonatomic,readonly) float averageResponseTime;
 @property (nonatomic,readonly) float failureRatio;
 @property (nonatomic,readonly) BOOL failed;
-@property (nonatomic) float responseTime;
+@property (nonatomic,readonly) float responseTime;
 @property (nonatomic) float frequency;
 
 - (id)initFromDictionary:(NSDictionary *)dictonary;
-- (void)testFailed;
+- (void)failTest;
+- (void)passTestWithTime:(float)time;
 - (void)resetCurrentTest;
 - (void)resetHistory;
-
-- (NSComparisonResult)compareBySimpleTense:(Verb *)other;
-- (NSComparisonResult)compareByTestResults:(Verb *)other;
-- (NSComparisonResult)compareByHistoricalPerformance:(Verb *)other;
 @end
