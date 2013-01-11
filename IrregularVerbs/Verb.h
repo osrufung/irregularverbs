@@ -30,4 +30,5 @@ NSComparisonResult(^compareVerbsByFrequency)(id,id);
 - (void)passTestWithTime:(float)time;
 - (void)resetCurrentTest;
 - (void)resetHistory;
+-(BOOL)isPendingOrFailed;
 @end

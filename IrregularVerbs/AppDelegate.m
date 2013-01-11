@@ -34,6 +34,13 @@
     }else{
         NSLog(@"Error saving VerbStore State");
     }
+    //update Badge Icon when App exit
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isPendingOrFailed == %d",TRUE];
+    
+    NSArray *pendingVerbs = [[[VerbsStore sharedStore] allVerbs] filteredArrayUsingPredicate:predicate];
+    
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [pendingVerbs count];
     
 }
 
