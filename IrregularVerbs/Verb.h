@@ -26,6 +26,7 @@
 - (void)resetCurrentTest;
 - (void)resetHistory;
 
+-(BOOL)isPendingOrFailed;
 - (NSComparisonResult)compareVerbsAlphabetically:(Verb *)other;
 - (NSComparisonResult)compareVerbsByTestResults:(Verb *)other;
 - (NSComparisonResult)compareVerbsByHistoricalPerformance:(Verb *)other;

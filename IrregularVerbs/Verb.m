@@ -49,7 +49,9 @@
         NSLog(@"Adding %fs the average response time for %@ is %fs",_responseTime,self.simple, _averageResponseTime);
     }
 }
-
+-(BOOL)isPendingOrFailed{
+    return _testPending | _failed;
+}
 - (void)failTest {
     if (_testPending) {
         _testPending = NO;

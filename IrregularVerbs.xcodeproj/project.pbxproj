@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091C61E3169FF67500F3606A /* screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = 091C61DD169FF67500F3606A /* screenshot1.png */; };
+		091C61E4169FF67500F3606A /* screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 091C61DE169FF67500F3606A /* screenshot2.png */; };
+		091C61E5169FF67500F3606A /* screenshot3.png in Resources */ = {isa = PBXBuildFile; fileRef = 091C61DF169FF67500F3606A /* screenshot3.png */; };
+		091C61E6169FF67500F3606A /* screenshot4.png in Resources */ = {isa = PBXBuildFile; fileRef = 091C61E0169FF67500F3606A /* screenshot4.png */; };
+		091C61E7169FF67500F3606A /* screenshot5.png in Resources */ = {isa = PBXBuildFile; fileRef = 091C61E1169FF67500F3606A /* screenshot5.png */; };
+		091C61E8169FF67500F3606A /* screenshot6.png in Resources */ = {isa = PBXBuildFile; fileRef = 091C61E2169FF67500F3606A /* screenshot6.png */; };
+		091C61EA169FFC3E00F3606A /* screenshot7.png in Resources */ = {isa = PBXBuildFile; fileRef = 091C61E9169FFC3E00F3606A /* screenshot7.png */; };
+		091C61F516A018EF00F3606A /* CardsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091C61F316A018EF00F3606A /* CardsTableViewController.m */; };
+		091C61F616A018EF00F3606A /* CardsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 091C61F416A018EF00F3606A /* CardsTableViewController.xib */; };
+		091C61F816A02AE500F3606A /* screenshot8.png in Resources */ = {isa = PBXBuildFile; fileRef = 091C61F716A02AE500F3606A /* screenshot8.png */; };
 		092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 092CDCA7168D8D8C0092FD32 /* Defaults.plist */; };
 		099AF61B1681FBAA001A6BF3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 099AF61A1681FBAA001A6BF3 /* README.md */; };
 		099AF69116834580001A6BF3 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099AF69016834580001A6BF3 /* PreferencesViewController.m */; };
@@ -44,6 +54,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		091C61DD169FF67500F3606A /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
+		091C61DE169FF67500F3606A /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
+		091C61DF169FF67500F3606A /* screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot3.png; sourceTree = "<group>"; };
+		091C61E0169FF67500F3606A /* screenshot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot4.png; sourceTree = "<group>"; };
+		091C61E1169FF67500F3606A /* screenshot5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot5.png; sourceTree = "<group>"; };
+		091C61E2169FF67500F3606A /* screenshot6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot6.png; sourceTree = "<group>"; };
+		091C61E9169FFC3E00F3606A /* screenshot7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot7.png; sourceTree = "<group>"; };
+		091C61F216A018EF00F3606A /* CardsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsTableViewController.h; sourceTree = "<group>"; };
+		091C61F316A018EF00F3606A /* CardsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsTableViewController.m; sourceTree = "<group>"; };
+		091C61F416A018EF00F3606A /* CardsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardsTableViewController.xib; sourceTree = "<group>"; };
+		091C61F716A02AE500F3606A /* screenshot8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot8.png; sourceTree = "<group>"; };
 		092CDCA7168D8D8C0092FD32 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		099AF61A1681FBAA001A6BF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		099AF68F16834580001A6BF3 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
@@ -173,6 +194,14 @@
 		E550A5DD169CC8C600DCA8D6 /* Readme */ = {
 			isa = PBXGroup;
 			children = (
+				091C61F716A02AE500F3606A /* screenshot8.png */,
+				091C61E9169FFC3E00F3606A /* screenshot7.png */,
+				091C61DD169FF67500F3606A /* screenshot1.png */,
+				091C61DE169FF67500F3606A /* screenshot2.png */,
+				091C61DF169FF67500F3606A /* screenshot3.png */,
+				091C61E0169FF67500F3606A /* screenshot4.png */,
+				091C61E1169FF67500F3606A /* screenshot5.png */,
+				091C61E2169FF67500F3606A /* screenshot6.png */,
 				099AF61A1681FBAA001A6BF3 /* README.md */,
 			);
 			name = Readme;
@@ -200,6 +229,9 @@
 				09D372F81681BA4F00F80410 /* CardViewController.m */,
 				099AF68F16834580001A6BF3 /* PreferencesViewController.h */,
 				099AF69016834580001A6BF3 /* PreferencesViewController.m */,
+				091C61F216A018EF00F3606A /* CardsTableViewController.h */,
+				091C61F316A018EF00F3606A /* CardsTableViewController.m */,
+				091C61F416A018EF00F3606A /* CardsTableViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -312,6 +344,15 @@
 				E550A5DC169CC88600DCA8D6 /* media-shuffle.png in Resources */,
 				E5C70A45169F2D6200E09847 /* calendar_24.png in Resources */,
 				E5DEC60A169F70C60006AE38 /* gear_24.png in Resources */,
+				091C61E3169FF67500F3606A /* screenshot1.png in Resources */,
+				091C61E4169FF67500F3606A /* screenshot2.png in Resources */,
+				091C61E5169FF67500F3606A /* screenshot3.png in Resources */,
+				091C61E6169FF67500F3606A /* screenshot4.png in Resources */,
+				091C61E7169FF67500F3606A /* screenshot5.png in Resources */,
+				091C61E8169FF67500F3606A /* screenshot6.png in Resources */,
+				091C61EA169FFC3E00F3606A /* screenshot7.png in Resources */,
+				091C61F616A018EF00F3606A /* CardsTableViewController.xib in Resources */,
+				091C61F816A02AE500F3606A /* screenshot8.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +375,7 @@
 				E550A5CF169CC80B00DCA8D6 /* ColorMapView.m in Sources */,
 				E550A5D3169CC83800DCA8D6 /* NSArray+Shuffling.m in Sources */,
 				E550A5D6169CC85700DCA8D6 /* TestProgressView.m in Sources */,
+				091C61F516A018EF00F3606A /* CardsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -107,16 +107,20 @@
 }
 
 - (void)defaultsChanged:(NSNotification *)notification {
-    self.shuffleIndicator.hidden=![[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
+    if (self.presentationMode!=CardViewControllerPresentationModeTest)
+        self.shuffleIndicator.hidden=![[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
+    else self.shuffleIndicator.hidden=YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self showVerb];
-    self.shuffleIndicator.hidden=![[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
     self.imageTestResult.image=nil;
     if (self.presentationMode == CardViewControllerPresentationModeReview) [self showResultsWithAnimation:NO];
     if (self.presentationMode == CardViewControllerPresentationModeHistory) [self showResultsWithAnimation:NO];
-    if (self.presentationMode == CardViewControllerPresentationModeTest) [self beginTest];
+    if (self.presentationMode == CardViewControllerPresentationModeTest) {
+        self.shuffleIndicator.hidden=![[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];        
+        [self beginTest];
+    } else self.shuffleIndicator.hidden=YES;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(defaultsChanged:)
                                                  name:NSUserDefaultsDidChangeNotification

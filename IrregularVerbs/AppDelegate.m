@@ -8,10 +8,23 @@
 
 #import "AppDelegate.h"
 #import "VerbsStore.h"
+#import "CardsTableViewController.h"
+
 @implementation AppDelegate
+
+//#define TESTING_NEW_TABLE_VC
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+#ifdef TESTING_NEW_TABLE_VC
+    self.window = [[UIWindow alloc] initWithFrame:[[ UIScreen mainScreen]bounds]];
+    CardsTableViewController *tmvc = [[CardsTableViewController alloc] init];
+    [[self window] setRootViewController:tmvc];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+        
+#endif
     return YES;
 }
  
@@ -34,6 +47,15 @@
     }else{
         NSLog(@"Error saving VerbStore State");
     }
+    
+    
+    //update Badge Icon when App exit (NOTE: I'm not sure about this. Maybe the previous Model "IrregularVerbs" is needed for this kind of things?)
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isPendingOrFailed == %d",TRUE];
+    
+    NSArray *pendingVerbs = [[[VerbsStore sharedStore] allVerbs] filteredArrayUsingPredicate:predicate];
+    
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [pendingVerbs count];
     
 }
 
