@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CardsTableViewController : UIViewController<UISearchBarDelegate, UISearchDisplayDelegate>
+@interface CardsTableViewController : UIViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 {
-    NSMutableArray *filteredArray;
+    NSMutableArray *_indexedData;
+    NSMutableArray *_indexEntries;
 }
 @end
