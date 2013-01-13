@@ -87,6 +87,9 @@
     return cell;
     
 }
+
+ 
+
 #pragma mark Content Filtering
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSInteger)scopeIndex {
     
@@ -126,5 +129,5 @@
     // Return YES to cause the search result table view to be reloaded.
     return NO;
 }
-
+ 
 @end
