@@ -91,14 +91,6 @@
     }
 }
 
-- (NSArray *)verbsSortedByPerformance {
-    return [self.verbs sortedArrayUsingSelector:@selector(compareVerbsByTestResults:)];
-}
-
-- (NSArray *)verbsSortedByHistory {
-    return [self.verbs sortedArrayUsingSelector:@selector(compareVerbsByHistoricalPerformance:)];
-}
-
 #pragma mark - Model Managment
 
 - (CardViewController *)verbCardAtIndex:(int)index forPresentationMode:(enum CardViewControllerPresentationMode)mode {
