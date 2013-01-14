@@ -10,8 +10,7 @@
 #import "VerbsStore.h"
 
 @interface CardsStackViewController ()
-@property (nonatomic, strong) NSMutableArray *timeStamps;
-@property (nonatomic) int currentIndex;
+@property (nonatomic, strong) NSArray *verbs;
 @end
 
 @implementation CardsStackViewController
@@ -23,29 +22,60 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
 }
 
+- (NSArray *)verbs {
+    if (!_verbs) {
+        switch (self.presentationMode) {
+            case CardViewControllerPresentationModeLearn:
+                _verbs = [[VerbsStore sharedStore] alphabetic];
+                break;
+
+            case CardViewControllerPresentationModeTest:
+                [[VerbsStore sharedStore] resetTest];
+                _verbs = [[VerbsStore sharedStore] random];
+                break;
+
+            case CardViewControllerPresentationModeReview:
+                _verbs = [[VerbsStore sharedStore] results];
+                break;
+
+            case CardViewControllerPresentationModeHistory:
+                _verbs = [[VerbsStore sharedStore] history];
+                break;
+
+            default:
+                break;
+        }
+    }
+    return _verbs;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    // Everytime the view appear it begins with the current dataset
+    self.verbs = nil;
+    
+    [self setViewControllers:@[[self verbCardAtIndex:0 forPresentationMode:self.presentationMode]]
+                   direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.delegate = self;
     self.dataSource = self;
-    
-    self.currentIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentPos"];
-    if (self.currentIndex>=self.verbs.count) self.currentIndex=self.verbs.count-1;
-
-    [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
-                   direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     CardViewController *vc = (CardViewController *) viewController;
-    vc = [self verbCardAtIndex:vc.verbIndex+1 forPresentationMode:self.presentationMode];
+    int idx=[self.verbs indexOfObject:vc.verb];
+    vc = [self verbCardAtIndex:idx+1 forPresentationMode:self.presentationMode];
     return vc;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     CardViewController *vc = (CardViewController *) viewController;
-    vc = [self verbCardAtIndex:vc.verbIndex-1 forPresentationMode:self.presentationMode];
+    int idx=[self.verbs indexOfObject:vc.verb];
+    vc = [self verbCardAtIndex:idx-1 forPresentationMode:self.presentationMode];
     return vc;
 }
 
@@ -61,34 +91,6 @@
     }
 }
 
-- (NSArray *)verbsSortedByPerformance {
-    return [self.verbs sortedArrayUsingSelector:@selector(compareVerbsByTestResults:)];
-}
-
-- (NSArray *)verbsSortedByHistory {
-    return [self.verbs sortedArrayUsingSelector:@selector(compareVerbsByHistoricalPerformance:)];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    if (self.presentationMode==CardViewControllerPresentationModeReview) {
-        self.currentIndex=0;
-        self.verbs = [self verbsSortedByPerformance];
-        [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
-                       direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];        
-    } else if (self.presentationMode==CardViewControllerPresentationModeHistory) {
-        self.currentIndex=0;
-        self.verbs = [self verbsSortedByHistory];
-        [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
-                       direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-    } else if (self.presentationMode==CardViewControllerPresentationModeTest) {
-        self.currentIndex=0;
-        for (Verb *verb in self.verbs) [verb resetCurrentTest];
-        [self setViewControllers:@[[self verbCardAtIndex:self.currentIndex forPresentationMode:self.presentationMode]]
-                       direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-        
-    }
-}
-
 #pragma mark - Model Managment
 
 - (CardViewController *)verbCardAtIndex:(int)index forPresentationMode:(enum CardViewControllerPresentationMode)mode {
@@ -97,7 +99,6 @@
         vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardViewController"];
         vc.verb = [self.verbs objectAtIndex:index];
         vc.presentationMode = mode;
-        vc.verbIndex=index;
     }
     return vc;
 }

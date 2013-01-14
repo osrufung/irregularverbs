@@ -15,10 +15,6 @@
 #import "CardsTableViewController.h"
 
 @interface ModeViewController ()
-{
-    BOOL _cacheRandomOrder;
-    float _cacheFrequency;
-}
 
 @property (nonatomic,readonly) BOOL defaultsChanged;
 
@@ -32,21 +28,8 @@
 
     [super viewDidLoad];
     
-    self.delegate=self;
-    
-    _cacheFrequency = [[NSUserDefaults standardUserDefaults] floatForKey:@"frequency"];
-    _cacheRandomOrder = [[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
-    [self loadVerbs];
-    
     // Create the CardsStackViewControllers
-    /*
-    @NOTE: For testing purposes 
-    vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardsStackViewController"];
-    vc.presentationMode = CardViewControllerPresentationModeLearn;
-    vc.title = @"Learn";
-    vc.tabBarItem.image = [UIImage imageNamed:@"book_bookmark_24.png"];
-    vc.verbs = _verbs;
-    */
+
     CardsTableViewController *tmvc = [[CardsTableViewController alloc] init];
     tmvc.title = @"Learn";
     tmvc.tabBarItem.image = [UIImage imageNamed:@"book_bookmark_24.png"];
@@ -57,21 +40,18 @@
     vc.presentationMode = CardViewControllerPresentationModeTest;
     vc.title = @"Test";
     vc.tabBarItem.image = [UIImage imageNamed:@"clock_24.png"];
-    vc.verbs = _verbs;
     [self addChildViewController:vc];
 
     vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardsStackViewController"];
     vc.presentationMode = CardViewControllerPresentationModeReview;
     vc.title = @"Review";
     vc.tabBarItem.image = [UIImage imageNamed:@"chart_bar_24.png"];
-    vc.verbs = _verbs;
     [self addChildViewController:vc];
 
     vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardsStackViewController"];
     vc.presentationMode = CardViewControllerPresentationModeHistory;
     vc.title = @"History";
     vc.tabBarItem.image = [UIImage imageNamed:@"calendar_24.png"];
-    vc.verbs = _verbs;
     [self addChildViewController:vc];
     
     PreferencesViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"PreferencesViewController"];
@@ -82,45 +62,6 @@
     // Time limit
     [[Referee sharedReferee] setMaxValue:5.0f];
     
-}
-
-- (void)loadVerbs {
-    if (_cacheFrequency==0) _cacheFrequency=0.2;
-    _verbs = [[VerbsStore sharedStore] verbsForDifficulty:_cacheFrequency];
-    NSLog(@"Using %d verbs for freq=%.2f",_verbs.count,_cacheFrequency);
-    
-    if (_cacheRandomOrder) {
-        _verbs = [_verbs shuffledCopy];
-    } else {
-        _verbs = [_verbs sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)];
-    }
-}
-
-
-
-- (BOOL)defaultsChanged {
-    float newFreq = [[NSUserDefaults standardUserDefaults] floatForKey:@"frequency"];
-    BOOL newOrder = [[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
-    
-    if((newFreq!=_cacheFrequency)||(newOrder!=_cacheRandomOrder))
-    {
-        NSLog(@"Defaults changed");
-        _cacheFrequency=newFreq;
-        _cacheRandomOrder=newOrder;
-        [self loadVerbs];
-        return YES;
-    } else return NO;
-}
-
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
-    if (self.defaultsChanged) {
-        for (UIViewController *vc in self.viewControllers) {
-            if ([vc isMemberOfClass:[CardsStackViewController class]]) {
-                CardsStackViewController *csvc = (CardsStackViewController *)vc;
-                csvc.verbs = _verbs;
-            }
-        }
-    }
 }
 
 @end

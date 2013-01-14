@@ -10,15 +10,21 @@
 
 @interface VerbsStore : NSObject
 
-@property (nonatomic) BOOL randomOrder;
-@property (nonatomic, readonly) NSArray *allVerbs;
+@property (nonatomic) float frequency;
+
+@property (nonatomic, readonly) NSArray *alphabetic;
+@property (nonatomic, readonly) NSArray *random;
+@property (nonatomic, readonly) NSArray *results;
+@property (nonatomic, readonly) NSArray *history;
 
 + (VerbsStore *)sharedStore;
 
--(int) numberOfVerbsForDifficulty:(float) difficulty;
--(NSArray *)verbsForDifficulty:(float) difficulty;
--(BOOL) saveChanges;
--(void) resetHistory;
--(BOOL) resetVerbsStore;
+- (int)lastTestFailedVerbsCount;
+
+- (BOOL) saveChanges;
+- (BOOL) resetVerbsStore;
+
+- (void) resetHistory;
+- (void) resetTest;
 
 @end

@@ -21,6 +21,7 @@
 
 @property (nonatomic,strong) UISwipeGestureRecognizer *swUp;
 @property (nonatomic,strong) UISwipeGestureRecognizer *swDown;
+@property (nonatomic, readonly) float       responseTime;
 
 
 @end
@@ -106,30 +107,14 @@
     return 0.f;
 }
 
-- (void)defaultsChanged:(NSNotification *)notification {
-    if (self.presentationMode!=CardViewControllerPresentationModeTest)
-        self.shuffleIndicator.hidden=![[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
-    else self.shuffleIndicator.hidden=YES;
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [self showVerb];
     self.imageTestResult.image=nil;
     if (self.presentationMode == CardViewControllerPresentationModeReview) [self showResultsWithAnimation:NO];
     if (self.presentationMode == CardViewControllerPresentationModeHistory) [self showResultsWithAnimation:NO];
     if (self.presentationMode == CardViewControllerPresentationModeTest) {
-        self.shuffleIndicator.hidden=![[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];        
         [self beginTest];
-    } else self.shuffleIndicator.hidden=YES;
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(defaultsChanged:)
-                                                 name:NSUserDefaultsDidChangeNotification
-                                               object:nil];
-}
-
-// Important
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
 }
 
 - (void)setVerb:(Verb *)verb {
