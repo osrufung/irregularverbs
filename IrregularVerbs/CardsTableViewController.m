@@ -19,15 +19,6 @@
 
 @implementation CardsTableViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        NSArray *allVerbs = [[[VerbsStore sharedStore] allVerbs] sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)];
-        [self makeIndexFor:allVerbs withSearchText:nil];
-    }
-    return self;
-}
 
 - (void)makeIndexFor:(NSArray *)array withSearchText:(NSString *)searchText {
     _indexedData = [[NSMutableArray alloc] init];
@@ -54,20 +45,32 @@
     NSLog(@"Data %@",_indexedData);
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    NSArray *allVerbs = [[VerbsStore sharedStore] alphabetic];
+    [self makeIndexFor:allVerbs withSearchText:nil];
+    [self.tableView reloadData];
+}
+
 #pragma mark UITableViewDataSource Delegate Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [_indexEntries count];
 }
 
+- (BOOL)showIndex {
+    return _indexEntries.count>10;
+}
+
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    if (_indexEntries.count>1) {
+    if ([self showIndex]) {
         return _indexEntries;
     } else return nil;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return _indexEntries[section];
+    if ([self showIndex]) {
+        return _indexEntries[section];
+    } else return @"";
 }
 
 
@@ -100,7 +103,7 @@
     
     if(searchText){
         NSMutableArray *filteredArray = [[NSMutableArray alloc] init];
-        NSArray *sorted = [[[VerbsStore sharedStore] allVerbs] sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)];
+        NSArray *sorted = [[VerbsStore sharedStore] alphabetic];
         // Filter the array using NSPredicate
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(SELF.simple contains[c] %@) OR (SELF.past contains[c] %@) OR (SELF.participle contains[c] %@) OR (SELF.translation contains[c] %@)",searchText,searchText,searchText,searchText];
         filteredArray =  [NSMutableArray arrayWithArray:[sorted filteredArrayUsingPredicate:predicate]];
@@ -109,7 +112,7 @@
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    NSArray *allVerbs = [[[VerbsStore sharedStore] allVerbs] sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)];
+    NSArray *allVerbs = [[VerbsStore sharedStore] alphabetic];
     [self makeIndexFor:allVerbs withSearchText:nil];
 }
 

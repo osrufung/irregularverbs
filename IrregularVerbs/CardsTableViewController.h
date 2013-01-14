@@ -13,4 +13,5 @@
     NSMutableArray *_indexedData;
     NSMutableArray *_indexEntries;
 }
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

@@ -21,17 +21,13 @@ enum CardViewControllerPresentationMode {
 @interface CardViewController : UIViewController
 
 @property (nonatomic, strong) Verb *verb;
-@property (nonatomic) int                   verbIndex;
  
-@property (nonatomic, readonly) float       responseTime;
-
 @property (nonatomic) enum CardViewControllerPresentationMode presentationMode;
 
 @property (nonatomic, weak) IBOutlet UILabel *labelPresent;
 @property (nonatomic, weak) IBOutlet UILabel *labelPast;
 @property (nonatomic, weak) IBOutlet UILabel *labelParticiple;
 @property (nonatomic, weak) IBOutlet UILabel *labelTranslation;
-@property (weak, nonatomic) IBOutlet UIImageView *shuffleIndicator;
 @property (weak, nonatomic) IBOutlet TestProgressView *testProgress;
 @property (weak, nonatomic) IBOutlet UILabel *labelElapsedTime;
 @property (weak, nonatomic) IBOutlet UILabel *labelFailureRatio;

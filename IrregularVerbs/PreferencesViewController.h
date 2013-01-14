@@ -16,18 +16,11 @@
 
 @interface PreferencesViewController : UIViewController<UIAlertViewDelegate>
 
- 
- 
 @property (weak, nonatomic) IBOutlet UILabel *aboutLabel;
- 
-@property (weak, nonatomic) id <PreferencesViewControllerDelegate> delegate;
-@property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedSortControl;
 @property (weak, nonatomic) IBOutlet UISlider *sliderDifficulty;
 @property (weak, nonatomic) IBOutlet UILabel *labelNumberOfVerbs;
-- (IBAction)selectionChanged:(id)sender;
+
 - (IBAction)difficultyChanged:(UISlider *)sender;
 - (IBAction)clearStatistics:(UIButton *)sender;
- 
- 
--(IBAction)showAboutLink:(id)sender;
+- (IBAction)showAboutLink:(id)sender;
 @end

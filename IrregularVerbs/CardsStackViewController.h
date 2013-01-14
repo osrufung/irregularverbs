@@ -13,6 +13,5 @@
 @interface CardsStackViewController : UIPageViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
 @property (nonatomic) enum CardViewControllerPresentationMode presentationMode;
-@property (nonatomic, strong) NSArray *verbs;
 
 @end

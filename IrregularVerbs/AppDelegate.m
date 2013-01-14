@@ -52,7 +52,7 @@
     //update Badge Icon when App exit (NOTE: I'm not sure about this. Maybe the previous Model "IrregularVerbs" is needed for this kind of things?)
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isPendingOrFailed == %d",TRUE];
     
-    NSArray *pendingVerbs = [[[VerbsStore sharedStore] allVerbs] filteredArrayUsingPredicate:predicate];
+    NSArray *pendingVerbs = [[[VerbsStore sharedStore] alphabetic] filteredArrayUsingPredicate:predicate];
     
     
     [UIApplication sharedApplication].applicationIconBadgeNumber = [pendingVerbs count];

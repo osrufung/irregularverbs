@@ -25,29 +25,18 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self.aboutLabel setText:[NSString stringWithFormat:@"Version %@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]] ];
     
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"]){
-        [self.segmentedSortControl setSelectedSegmentIndex:1];
-    }else{
-        [self.segmentedSortControl setSelectedSegmentIndex:0];
-    }
-    
-    self.sliderDifficulty.value=[[NSUserDefaults standardUserDefaults] floatForKey:@"frequency"];
+    self.sliderDifficulty.value=[[VerbsStore sharedStore] frequency];
     [self setLabelNumberOfVerbsForDifficulty:self.sliderDifficulty.value];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [[NSUserDefaults standardUserDefaults] setBool:(self.segmentedSortControl.selectedSegmentIndex==1) forKey:@"randomOrder"];
-    [[NSUserDefaults standardUserDefaults] setFloat:self.sliderDifficulty.value forKey:@"frequency"];
-}
-
 - (void)setLabelNumberOfVerbsForDifficulty:(float)difficulty {
-    int idx = [[VerbsStore sharedStore] numberOfVerbsForDifficulty:difficulty];
+    int idx = [[[VerbsStore sharedStore] alphabetic] count];
     self.labelNumberOfVerbs.text = [NSString stringWithFormat:@"(including %d verbs)",idx];
 }
 
 - (IBAction)difficultyChanged:(UISlider *)sender {
+    [[VerbsStore sharedStore] setFrequency:self.sliderDifficulty.value];
     [self setLabelNumberOfVerbsForDifficulty:sender.value];
-    [[NSUserDefaults standardUserDefaults] setFloat:self.sliderDifficulty.value forKey:@"frequency"];
 }
 
 - (IBAction)clearStatistics:(UIButton *)sender {
@@ -64,13 +53,6 @@
         [[VerbsStore sharedStore] resetHistory];
     }
 }
- 
-- (IBAction)selectionChanged:(id)sender {
-    NSInteger index = ((UISegmentedControl*)sender).selectedSegmentIndex;
-    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
-    [settings setBool:(index == 1) forKey:@"randomOrder"];
-}
-
  
 -(IBAction)showAboutLink:(id)sender
 {

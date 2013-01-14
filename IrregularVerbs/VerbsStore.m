@@ -9,14 +9,20 @@
 #import "VerbsStore.h"
 #import "Verb.h"
 #import "NSArray+Shuffling.h"
- 
+
+@interface VerbsStore ()
+
+@property (nonatomic, strong) NSArray *allVerbs;
+@property (nonatomic, strong) NSArray *currentList;
+
+@end
  
 @implementation VerbsStore
 
+@synthesize alphabetic=_alphabetic, frequency=_frequency;
+
 
 #pragma mark - Singleton
-
-@synthesize allVerbs=_allVerbs, randomOrder=_randomOrder;
 
 +(VerbsStore *) sharedStore
 {
@@ -55,6 +61,7 @@
     
     return [NSKeyedArchiver archiveRootObject:self.allVerbs toFile:path];
 }
+
 -(BOOL) resetVerbsStore{
     NSError *error;
     BOOL success = [[NSFileManager defaultManager] removeItemAtPath:[self mutableVerbsListPath] error:&error];
@@ -62,8 +69,7 @@
         NSLog(@"Error removing document path: %@", error.localizedDescription);
     }
     else{
-        _allVerbs = [self loadVerbsFromTemplate];
-    
+        _currentList=nil;
     }
     return success;
 }
@@ -83,51 +89,26 @@
         }
         if(!_allVerbs){
             _allVerbs = [self loadVerbsFromTemplate];
-            //[self saveChanges]; // I've serious doubts about saving the data here... OR: Yes, maybe is better to wait user plays ;)
-            
         }
     }
     return _allVerbs;
 }
 
-- (void)setRandomOrder:(BOOL)randomOrder {
-    if (randomOrder!=_randomOrder) {
-        _randomOrder = randomOrder;
-        [[NSUserDefaults standardUserDefaults] setBool:_randomOrder forKey:@"randomOrder"];
-        [self sortVerbsList];
-    }
-}
-
-- (BOOL)randomOrder {
-    _randomOrder = [[NSUserDefaults standardUserDefaults] boolForKey:@"randomOrder"];
-    return _randomOrder;
-}
-
-- (void)sortVerbsList {
-    if (self.randomOrder) {
-        _allVerbs = [_allVerbs shuffledCopy];
-        
-    } else {
-        _allVerbs= [_allVerbs sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)];
-    }
-}
- 
-
--(NSArray *)verbsForDifficulty:(float) difficulty{
+-(NSArray *)verbsByFrequency:(float) frequency{
     int idx = 0;
     
-    if (difficulty==1.0f)
-        return [self verbsSortedbyFrequency];
-    else if (difficulty == 0.0f){
+    if (frequency==1.0f)
+        return [self allVerbs];
+    else if (frequency == 0.0f){
         return nil;
     }
     else{
-        NSArray *sortedArray = [self verbsSortedbyFrequency];
+        NSArray *sortedArray = [[self allVerbs] sortedArrayUsingSelector:@selector(compareVerbsByFrequency:)];
         float freqAcum=0.0f;
         for (idx=0;idx<sortedArray.count;idx++) {
             Verb *v = sortedArray[idx];
             freqAcum += v.frequency;
-            if (difficulty<=freqAcum) {
+            if (frequency<=freqAcum) {
                 break;
             }
         }
@@ -135,14 +116,46 @@
         range.location=0;
         range.length=idx;
         return [sortedArray subarrayWithRange:range];
-      
+        
     }
- 
 }
 
--(NSArray *) verbsSortedbyFrequency{
-    return [self.allVerbs sortedArrayUsingSelector:@selector(compareVerbsByFrequency:)];
+- (float)frequency {
+    return [[NSUserDefaults standardUserDefaults] floatForKey:@"frequency"];
 }
+
+- (void)setFrequency:(float)frequency {
+    if (_frequency!=frequency) {
+        _frequency=frequency;
+        _currentList=nil;
+        [[NSUserDefaults standardUserDefaults] setFloat:_frequency forKey:@"frequency"];
+    
+    }
+}
+
+- (NSArray *)currentList {
+    if (!_currentList) {
+        _currentList = [self verbsByFrequency:self.frequency];
+    }
+    return _currentList;
+}
+
+- (NSArray *)alphabetic {
+    return [self.currentList sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)];
+}
+
+- (NSArray *)random {
+    return [self.currentList shuffledCopy];
+}
+
+- (NSArray *)results {
+    return [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByTestResults:)];
+}
+
+- (NSArray *)history {
+    return [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByHistoricalPerformance:)];
+}
+
 
 - (void)resetHistory {
     for (Verb *verb in self.allVerbs) {
@@ -151,12 +164,11 @@
     [self saveChanges];
 }
 
--(int) numberOfVerbsForDifficulty:(float) difficulty{
-    return [[self verbsForDifficulty:difficulty] count];
- 
+- (void)resetTest {
+    for (Verb *verb in self.currentList) {
+        [verb resetCurrentTest];
+    }
 }
-
-
 
 
 @end
