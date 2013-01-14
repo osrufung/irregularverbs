@@ -19,10 +19,12 @@
 
 + (VerbsStore *)sharedStore;
 
--(BOOL) saveChanges;
--(BOOL) resetVerbsStore;
+- (int)lastTestFailedVerbsCount;
 
--(void) resetHistory;
--(void) resetTest;
+- (BOOL) saveChanges;
+- (BOOL) resetVerbsStore;
+
+- (void) resetHistory;
+- (void) resetTest;
 
 @end

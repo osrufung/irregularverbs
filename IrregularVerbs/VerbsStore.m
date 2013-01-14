@@ -140,6 +140,12 @@
     return _currentList;
 }
 
+- (int)lastTestFailedVerbsCount {
+    NSPredicate *isFailed = [NSPredicate predicateWithFormat:@"isPendingOrFailed == %d",TRUE];
+    return [[self.currentList filteredArrayUsingPredicate:isFailed] count];
+    
+}
+
 - (NSArray *)alphabetic {
     return [self.currentList sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)];
 }
