@@ -21,7 +21,8 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.title = @"Test";
+        // Hack to show the return path
+        self.title = @"Cancel";
         [self.tableView registerNib:[UINib nibWithNibName:@"CounterCell" bundle:[NSBundle mainBundle]]
              forCellReuseIdentifier:@"CounterCell"];
     }
@@ -29,7 +30,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
     [self.tableView reloadData];
 }
 
@@ -89,7 +89,9 @@
     VerbsStore *store = [VerbsStore sharedStore];
     store.selectedTestType = store.testTypes[indexPath.row];
     
-    CardsStackViewController *csvc = [[CardsStackViewController alloc] init];
+    CardsStackViewController *csvc = [[CardsStackViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
+                                                                         navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
+                                                                                       options:nil];
     csvc.presentationMode = CardViewControllerPresentationModeTest;
     csvc.title =store.selectedTestType;
     [self.navigationController pushViewController:csvc animated:YES];

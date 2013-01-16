@@ -8,23 +8,32 @@
 
 #import "AppDelegate.h"
 #import "VerbsStore.h"
-#import "CardsTableViewController.h"
+#import "HomeViewController.h"
 
 @implementation AppDelegate
 
-//#define TESTING_NEW_TABLE_VC
+ 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-#ifdef TESTING_NEW_TABLE_VC
+ 
     self.window = [[UIWindow alloc] initWithFrame:[[ UIScreen mainScreen]bounds]];
-    CardsTableViewController *tmvc = [[CardsTableViewController alloc] init];
-    [[self window] setRootViewController:tmvc];
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    //not frequency? default frequency for a minimal verbs 
+    float frequency = [[NSUserDefaults standardUserDefaults] floatForKey:@"frequency"];
+    if(frequency == 0.0)
+        [[NSUserDefaults standardUserDefaults] setFloat:0.4 forKey:@"frequency"];
+    
+    HomeViewController *hvc = [[HomeViewController alloc] init];
+    
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:hvc];
+    
+    [[self window] setRootViewController:nc];
+    self.window.backgroundColor = [UIColor darkGrayColor];
     [self.window makeKeyAndVisible];
         
-#endif
+ 
     return YES;
 }
  
