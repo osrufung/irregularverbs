@@ -184,5 +184,9 @@
     return self.frequency<other.frequency;
 }
 
+- (NSComparisonResult)compareVerbsByTestNumber:(Verb *)other {
+    return self.numberOfTests<other.numberOfTests;
+}
+
 
 @end

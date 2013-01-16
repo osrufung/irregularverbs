@@ -27,6 +27,8 @@
     
     self.sliderDifficulty.value=[[VerbsStore sharedStore] frequency];
     [self setLabelNumberOfVerbsForDifficulty:self.sliderDifficulty.value];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
 }
 
 - (void)setLabelNumberOfVerbsForDifficulty:(float)difficulty {

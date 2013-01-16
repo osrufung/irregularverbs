@@ -53,6 +53,9 @@
 		E5C2CA32169C6A0C00BEE2ED /* Verb.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA31169C6A0C00BEE2ED /* Verb.m */; };
 		E5C70A45169F2D6200E09847 /* calendar_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C70A44169F2D6200E09847 /* calendar_24.png */; };
 		E5DEC60A169F70C60006AE38 /* gear_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DEC609169F70C60006AE38 /* gear_24.png */; };
+		E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */; };
+		E5E05A9316A6BF8A00CEB889 /* CounterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A9216A6BF8A00CEB889 /* CounterCell.m */; };
+		E5E05A9516A6BF9A00CEB889 /* CounterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E05A9416A6BF9A00CEB889 /* CounterCell.xib */; };
 		E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */; };
 		E5F49E2116A5C89C0078EC5D /* TestCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */; };
 		E5F49E2716A5CAF30078EC5D /* thumbup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E2316A5CAF30078EC5D /* thumbup@2x.png */; };
@@ -133,6 +136,11 @@
 		E5C2CA31169C6A0C00BEE2ED /* Verb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Verb.m; sourceTree = "<group>"; };
 		E5C70A44169F2D6200E09847 /* calendar_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_24.png; sourceTree = "<group>"; };
 		E5DEC609169F70C60006AE38 /* gear_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_24.png; sourceTree = "<group>"; };
+		E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSelectorViewController.h; sourceTree = "<group>"; };
+		E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSelectorViewController.m; sourceTree = "<group>"; };
+		E5E05A9116A6BF8A00CEB889 /* CounterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CounterCell.h; sourceTree = "<group>"; };
+		E5E05A9216A6BF8A00CEB889 /* CounterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CounterCell.m; sourceTree = "<group>"; };
+		E5E05A9416A6BF9A00CEB889 /* CounterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CounterCell.xib; sourceTree = "<group>"; };
 		E5F49E1D16A5C89C0078EC5D /* TestCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCardViewController.h; sourceTree = "<group>"; };
 		E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCardViewController.m; sourceTree = "<group>"; };
 		E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCardViewController.xib; sourceTree = "<group>"; };
@@ -195,7 +203,6 @@
 				E550A5EB169CC92700DCA8D6 /* ViewControllers */,
 				E550A5EC169CC95400DCA8D6 /* Views */,
 				E550A5ED169CC98500DCA8D6 /* Helpers */,
-				09D372F41681BA4F00F80410 /* MainStoryboard.storyboard */,
 				09D372E31681BA4F00F80410 /* Supporting Files */,
 			);
 			path = IrregularVerbs;
@@ -250,23 +257,8 @@
 		E550A5EB169CC92700DCA8D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				09F7933516A6A7C90067EE3C /* HomeViewController.h */,
-				09F7933616A6A7C90067EE3C /* HomeViewController.m */,
-				09F7933716A6A7C90067EE3C /* HomeViewController.xib */,
-				E53DBB4A169BFFD50080276A /* ModeViewController.h */,
-				E53DBB4B169BFFD50080276A /* ModeViewController.m */,
-				E5FE5825169B12B7002AC8A2 /* CardsStackViewController.h */,
-				E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */,
-				09D372F71681BA4F00F80410 /* CardViewController.h */,
-				09D372F81681BA4F00F80410 /* CardViewController.m */,
-				099AF68F16834580001A6BF3 /* PreferencesViewController.h */,
-				099AF69016834580001A6BF3 /* PreferencesViewController.m */,
-				091C61F216A018EF00F3606A /* CardsTableViewController.h */,
-				091C61F316A018EF00F3606A /* CardsTableViewController.m */,
-				091C61F416A018EF00F3606A /* CardsTableViewController.xib */,
-				E5F49E1D16A5C89C0078EC5D /* TestCardViewController.h */,
-				E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */,
-				E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */,
+				E5B338FC16A6E8CA008F3377 /* Old Interface */,
+				E5B338FA16A6E890008F3377 /* New Interface */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -322,6 +314,43 @@
 				E53DBB5A169C05FF0080276A /* clock_24.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		E5B338FA16A6E890008F3377 /* New Interface */ = {
+			isa = PBXGroup;
+			children = (
+				09F7933516A6A7C90067EE3C /* HomeViewController.h */,
+				09F7933616A6A7C90067EE3C /* HomeViewController.m */,
+				09F7933716A6A7C90067EE3C /* HomeViewController.xib */,
+				E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */,
+				E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */,
+				E5E05A9116A6BF8A00CEB889 /* CounterCell.h */,
+				E5E05A9216A6BF8A00CEB889 /* CounterCell.m */,
+				E5E05A9416A6BF9A00CEB889 /* CounterCell.xib */,
+				E5F49E1D16A5C89C0078EC5D /* TestCardViewController.h */,
+				E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */,
+				E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */,
+			);
+			name = "New Interface";
+			sourceTree = "<group>";
+		};
+		E5B338FC16A6E8CA008F3377 /* Old Interface */ = {
+			isa = PBXGroup;
+			children = (
+				E53DBB4A169BFFD50080276A /* ModeViewController.h */,
+				E53DBB4B169BFFD50080276A /* ModeViewController.m */,
+				E5FE5825169B12B7002AC8A2 /* CardsStackViewController.h */,
+				E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */,
+				09D372F71681BA4F00F80410 /* CardViewController.h */,
+				09D372F81681BA4F00F80410 /* CardViewController.m */,
+				099AF68F16834580001A6BF3 /* PreferencesViewController.h */,
+				099AF69016834580001A6BF3 /* PreferencesViewController.m */,
+				091C61F216A018EF00F3606A /* CardsTableViewController.h */,
+				091C61F316A018EF00F3606A /* CardsTableViewController.m */,
+				091C61F416A018EF00F3606A /* CardsTableViewController.xib */,
+				09D372F41681BA4F00F80410 /* MainStoryboard.storyboard */,
+			);
+			name = "Old Interface";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,6 +427,7 @@
 				E5F49E2816A5CAF30078EC5D /* thumbup.png in Resources */,
 				E5F49E2916A5CAF30078EC5D /* thumbdown@2x.png in Resources */,
 				E5F49E2A16A5CAF30078EC5D /* thumbdown.png in Resources */,
+				E5E05A9516A6BF9A00CEB889 /* CounterCell.xib in Resources */,
 				09F7933916A6A7C90067EE3C /* HomeViewController.xib in Resources */,
 				09F7933D16A6C6490067EE3C /* HomeViewbg.png in Resources */,
 				09F7933E16A6C6490067EE3C /* HomeViewbg@2x.png in Resources */,
@@ -433,7 +463,9 @@
 				E550A5D6169CC85700DCA8D6 /* TestProgressView.m in Sources */,
 				091C61F516A018EF00F3606A /* CardsTableViewController.m in Sources */,
 				E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */,
+				E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */,
 				09F7933816A6A7C90067EE3C /* HomeViewController.m in Sources */,
+				E5E05A9316A6BF8A00CEB889 /* CounterCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

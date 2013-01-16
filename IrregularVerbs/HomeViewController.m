@@ -10,6 +10,7 @@
 #import "CardsTableViewController.h"
 #import "PreferencesViewController.h"
 #import "CardsStackViewController.h" 
+#import "TestSelectorViewController.h"
 #import "VerbsStore.h"
 
 @interface HomeViewController ()
@@ -32,11 +33,10 @@
     return self;
 
 }
--(void)viewDidLoad{
-    [self updateUI];
-}
+
 -(void)viewWillAppear:(BOOL)animated{
     [self updateUI];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 -(void)updateUI{
@@ -62,6 +62,11 @@
     return [[NSAttributedString alloc] initWithAttributedString:result];
 }
 - (IBAction)openTest:(id)sender {
+    TestSelectorViewController *tsvc = [[TestSelectorViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    tsvc.title = @"Test";
+    tsvc.tabBarItem.image = [UIImage imageNamed:@"clock_24.png"];
+    [[self navigationController] pushViewController:tsvc animated:YES];
+    
 }
 
 - (IBAction)openHistory:(id)sender {

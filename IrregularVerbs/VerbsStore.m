@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSArray *allVerbs;
 @property (nonatomic, strong) NSArray *currentList;
+@property (nonatomic, strong) NSMutableDictionary *testTypesMap;
 
 @end
  
@@ -27,8 +28,10 @@
 +(VerbsStore *) sharedStore
 {
     static VerbsStore *sharedStore = nil;
-    if(!sharedStore)
+    if(!sharedStore) {
         sharedStore = [[super allocWithZone:nil] init];
+        [self initializeTestTypes:sharedStore];
+    }
     return sharedStore;
 }
 
@@ -150,8 +153,13 @@
     return [self.currentList sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)];
 }
 
-- (NSArray *)random {
-    return [self.currentList shuffledCopy];
+- (NSArray *)testSubSet {
+    SEL selector = NSSelectorFromString([self.testTypesMap objectForKey:self.selectedTestType]);
+    if ([self respondsToSelector:selector]) {
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        return [self performSelector:selector];
+    }
+    return nil;
 }
 
 - (NSArray *)results {
@@ -174,6 +182,55 @@
     for (Verb *verb in self.currentList) {
         [verb resetCurrentTest];
     }
+}
+
+#pragma mark - Test Types
+
++ (void)initializeTestTypes:(VerbsStore *)sharedStore
+{
+    sharedStore.testTypesMap = [[NSMutableDictionary alloc] init];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequency)) forKey:@"Most Common"];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequencyDes)) forKey:@"Less Common"];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFailure)) forKey:@"Most Failed"];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByRandom)) forKey:@"Random"];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByTestNumber)) forKey:@"Less Tested"];
+}
+
+- (int)verbsNumberInTest {
+    return [[NSUserDefaults standardUserDefaults] integerForKey:@"verbsCountInTest"];
+}
+
+- (NSArray *)testTypes {
+    return [self.testTypesMap allKeys];
+}
+
+- (NSArray *)testByFrequency {
+    NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByFrequency:)];
+    list = [list subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
+    return [list shuffledCopy];
+}
+
+- (NSArray *)testByFrequencyDes {
+    NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByFrequency:)];
+    list = [list subarrayWithRange:NSMakeRange(list.count-self.verbsNumberInTest, self.verbsNumberInTest)];
+    return [list shuffledCopy];
+}
+
+- (NSArray *)testByFailure {
+    NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByHistoricalPerformance:)];
+    list = [list subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
+    return [list shuffledCopy];
+}
+
+- (NSArray *)testByRandom {
+    NSArray *list = [self.currentList shuffledCopy];
+    return [list subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
+}
+
+- (NSArray *)testByTestNumber {
+    NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByTestNumber:)];
+    list = [list subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
+    return [list shuffledCopy];
 }
 
 
