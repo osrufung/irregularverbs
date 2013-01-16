@@ -60,8 +60,7 @@
         [counterCell addTarget:self action:@selector(verbsNumberChanged:)];
         counterCell.minimumValue=1;
         counterCell.maximumValue=[[[VerbsStore sharedStore] alphabetic] count];
-        counterCell.value=[[NSUserDefaults standardUserDefaults] integerForKey:@"verbsCountInTest"];
-        if ((counterCell.value==0)||(counterCell.value>=counterCell.maximumValue)) counterCell.value = MIN(10,counterCell.maximumValue);
+        counterCell.value=[[VerbsStore sharedStore] verbsNumberInTest];
         return counterCell;
     } else {
         static NSString *TestTypeIdentifier = @"TestTypeCell";
@@ -76,7 +75,7 @@
 }
 
 - (void)verbsNumberChanged:(CounterCell *)sender {
-    [[NSUserDefaults standardUserDefaults] setInteger:sender.value forKey:@"verbsCountInTest"];
+    [[VerbsStore sharedStore] setVerbsNumberInTest:sender.value];
 }
 
 #pragma mark - Table view delegate

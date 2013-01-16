@@ -18,7 +18,7 @@
 @property (nonatomic, readonly) NSArray *history;
 @property (nonatomic, readonly) NSArray *testTypes;
 @property (nonatomic, strong) NSString *selectedTestType;
-@property (nonatomic, readonly) int verbsNumberInTest;
+@property (nonatomic) int verbsNumberInTest;
 
 + (VerbsStore *)sharedStore;
 
