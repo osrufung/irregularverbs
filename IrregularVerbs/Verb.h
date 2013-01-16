@@ -19,14 +19,15 @@
 @property (nonatomic,readonly) BOOL failed;
 @property (nonatomic,readonly) float responseTime;
 @property (nonatomic) float frequency;
+@property (nonatomic,readonly) BOOL testPending;
 
 - (id)initFromDictionary:(NSDictionary *)dictonary;
 - (void)failTest;
 - (void)passTestWithTime:(float)time;
 - (void)resetCurrentTest;
 - (void)resetHistory;
+- (BOOL)isPendingOrFailed;
 
--(BOOL)isPendingOrFailed;
 - (NSComparisonResult)compareVerbsAlphabetically:(Verb *)other;
 - (NSComparisonResult)compareVerbsByTestResults:(Verb *)other;
 - (NSComparisonResult)compareVerbsByHistoricalPerformance:(Verb *)other;

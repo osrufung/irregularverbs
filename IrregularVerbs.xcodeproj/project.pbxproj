@@ -41,6 +41,12 @@
 		E5C2CA32169C6A0C00BEE2ED /* Verb.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA31169C6A0C00BEE2ED /* Verb.m */; };
 		E5C70A45169F2D6200E09847 /* calendar_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C70A44169F2D6200E09847 /* calendar_24.png */; };
 		E5DEC60A169F70C60006AE38 /* gear_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DEC609169F70C60006AE38 /* gear_24.png */; };
+		E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */; };
+		E5F49E2116A5C89C0078EC5D /* TestCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */; };
+		E5F49E2716A5CAF30078EC5D /* thumbup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E2316A5CAF30078EC5D /* thumbup@2x.png */; };
+		E5F49E2816A5CAF30078EC5D /* thumbup.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E2416A5CAF30078EC5D /* thumbup.png */; };
+		E5F49E2916A5CAF30078EC5D /* thumbdown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E2516A5CAF30078EC5D /* thumbdown@2x.png */; };
+		E5F49E2A16A5CAF30078EC5D /* thumbdown.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E2616A5CAF30078EC5D /* thumbdown.png */; };
 		E5FE5827169B12B7002AC8A2 /* CardsStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +108,13 @@
 		E5C2CA31169C6A0C00BEE2ED /* Verb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Verb.m; sourceTree = "<group>"; };
 		E5C70A44169F2D6200E09847 /* calendar_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_24.png; sourceTree = "<group>"; };
 		E5DEC609169F70C60006AE38 /* gear_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_24.png; sourceTree = "<group>"; };
+		E5F49E1D16A5C89C0078EC5D /* TestCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCardViewController.h; sourceTree = "<group>"; };
+		E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCardViewController.m; sourceTree = "<group>"; };
+		E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCardViewController.xib; sourceTree = "<group>"; };
+		E5F49E2316A5CAF30078EC5D /* thumbup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbup@2x.png"; sourceTree = "<group>"; };
+		E5F49E2416A5CAF30078EC5D /* thumbup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbup.png; sourceTree = "<group>"; };
+		E5F49E2516A5CAF30078EC5D /* thumbdown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbdown@2x.png"; sourceTree = "<group>"; };
+		E5F49E2616A5CAF30078EC5D /* thumbdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbdown.png; sourceTree = "<group>"; };
 		E5FE5825169B12B7002AC8A2 /* CardsStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsStackViewController.h; sourceTree = "<group>"; };
 		E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsStackViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +236,9 @@
 				091C61F216A018EF00F3606A /* CardsTableViewController.h */,
 				091C61F316A018EF00F3606A /* CardsTableViewController.m */,
 				091C61F416A018EF00F3606A /* CardsTableViewController.xib */,
+				E5F49E1D16A5C89C0078EC5D /* TestCardViewController.h */,
+				E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */,
+				E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -252,6 +268,10 @@
 		E550A5EE169CC9AE00DCA8D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E5F49E2316A5CAF30078EC5D /* thumbup@2x.png */,
+				E5F49E2416A5CAF30078EC5D /* thumbup.png */,
+				E5F49E2516A5CAF30078EC5D /* thumbdown@2x.png */,
+				E5F49E2616A5CAF30078EC5D /* thumbdown.png */,
 				E5DEC609169F70C60006AE38 /* gear_24.png */,
 				E5C70A44169F2D6200E09847 /* calendar_24.png */,
 				E550A5DB169CC88600DCA8D6 /* media-shuffle.png */,
@@ -335,6 +355,11 @@
 				E5C70A45169F2D6200E09847 /* calendar_24.png in Resources */,
 				E5DEC60A169F70C60006AE38 /* gear_24.png in Resources */,
 				091C61F616A018EF00F3606A /* CardsTableViewController.xib in Resources */,
+				E5F49E2116A5C89C0078EC5D /* TestCardViewController.xib in Resources */,
+				E5F49E2716A5CAF30078EC5D /* thumbup@2x.png in Resources */,
+				E5F49E2816A5CAF30078EC5D /* thumbup.png in Resources */,
+				E5F49E2916A5CAF30078EC5D /* thumbdown@2x.png in Resources */,
+				E5F49E2A16A5CAF30078EC5D /* thumbdown.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +383,7 @@
 				E550A5D3169CC83800DCA8D6 /* NSArray+Shuffling.m in Sources */,
 				E550A5D6169CC85700DCA8D6 /* TestProgressView.m in Sources */,
 				091C61F516A018EF00F3606A /* CardsTableViewController.m in Sources */,
+				E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

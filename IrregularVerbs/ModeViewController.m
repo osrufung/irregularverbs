@@ -43,12 +43,6 @@
     [self addChildViewController:vc];
 
     vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardsStackViewController"];
-    vc.presentationMode = CardViewControllerPresentationModeReview;
-    vc.title = @"Review";
-    vc.tabBarItem.image = [UIImage imageNamed:@"chart_bar_24.png"];
-    [self addChildViewController:vc];
-
-    vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardsStackViewController"];
     vc.presentationMode = CardViewControllerPresentationModeHistory;
     vc.title = @"History";
     vc.tabBarItem.image = [UIImage imageNamed:@"calendar_24.png"];
