@@ -47,6 +47,7 @@
     NSArray *allVerbs = [[VerbsStore sharedStore] alphabetic];
     [self makeIndexFor:allVerbs withSearchText:nil];
     [self.tableView reloadData];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 #pragma mark UITableViewDataSource Delegate Methods

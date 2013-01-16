@@ -36,6 +36,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self updateUI];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 -(void)updateUI{

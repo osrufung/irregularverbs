@@ -56,6 +56,8 @@
     
     [self setViewControllers:@[[self verbCardAtIndex:0 forPresentationMode:self.presentationMode]]
                    direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
 }
 
 - (void)viewDidLoad

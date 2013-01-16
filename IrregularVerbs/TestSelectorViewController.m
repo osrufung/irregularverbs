@@ -31,6 +31,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.tableView reloadData];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 #pragma mark - Table view data source
