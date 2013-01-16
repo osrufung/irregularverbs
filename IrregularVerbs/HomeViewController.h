@@ -14,5 +14,6 @@
 - (IBAction)openTest:(id)sender;
 - (IBAction)openHistory:(id)sender;
 - (IBAction)openSetup:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *labelNumberVerbs;
  
 @end

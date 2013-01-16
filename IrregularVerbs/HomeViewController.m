@@ -10,6 +10,7 @@
 #import "CardsTableViewController.h"
 #import "PreferencesViewController.h"
 #import "CardsStackViewController.h" 
+#import "VerbsStore.h"
 
 @interface HomeViewController ()
 
@@ -25,9 +26,22 @@
         
         UINavigationItem *item = [self navigationItem];
         [item setTitle:@"a list of Verbs"];
+        
+        
+        //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Default"]];
     }
     return self;
 
+}
+-(void)viewDidLoad{
+    [self updateUI];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [self updateUI];
+}
+
+-(void)updateUI{
+      [[self labelNumberVerbs] setText: [NSString stringWithFormat: @"%d Verbs to learn",[[[VerbsStore sharedStore] alphabetic] count]  ]]; 
 }
 - (IBAction)openLearn:(id)sender {
     CardsTableViewController   *ctvc = [[CardsTableViewController alloc] init];
@@ -47,6 +61,7 @@
     vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"CardsStackViewController"];
     vc.presentationMode = CardViewControllerPresentationModeHistory;
     vc.title = @"History";
+    
     [[self navigationController] pushViewController:vc animated:YES];
     
 }
