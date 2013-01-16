@@ -77,6 +77,7 @@
     if (_testTimer) {
         [_testTimer invalidate];
         _testTimer = nil;
+        self.testProgress.progress=0;
     }
 }
 
@@ -120,34 +121,47 @@
 
 - (void)refreshUIForTestEnd:(BOOL)testEnd {
     
-    BOOL isACorrection = (self.imagePass.image!=nil);
+    BOOL isACorrection = (self.imagePass.image!=nil)&&testEnd;
     
-    self.labelSimple.text = self.verb.simple;    
-    self.labelTranslation.text = @"";
-    self.labelPast.text = @"";
-    self.labelParticiple.text = @"";
-    self.labelTime.text = @"";
-
-    if (!self.verb.testPending) {
+    self.labelSimple.text = self.verb.simple;
+    
+    if (self.verb.testPending) {
+        self.labelTranslation.text = @"";
+        self.labelPast.text = @"";
+        self.labelParticiple.text = @"";
+        self.labelTime.text = @"";
+        self.imageFail.image = nil;
+        self.imagePass.image = nil;
+    } else {
         self.labelTranslation.text = self.verb.translation;
         self.labelPast.text = self.verb.past;
         self.labelParticiple.text = self.verb.participle;
         if (self.verb.failed) {
-            self.imageFail.image = [[Referee sharedReferee] imageForFail];
-            self.imagePass.image = nil;
             if (isACorrection) {
-                self.imageFail.alpha = 1;
-                self.buttonFail.alpha = 0;
+                [UIView animateWithDuration:0.4 animations:^{
+                    self.imageFail.image = [[Referee sharedReferee] imageForFail];
+                    self.labelTime.alpha = 0;
+                    self.imageFail.alpha = 1;
+                    self.imagePass.alpha = 0;
+                    self.buttonPass.alpha = 0;
+                    self.buttonFail.alpha = 0;
+                }];
+            } else {
+                self.imageFail.image = [[Referee sharedReferee] imageForFail];
+                self.imagePass.image = nil;
+                self.labelTime.text = @"";
                 self.buttonPass.alpha = 0;
+                self.buttonFail.alpha = 0;
             }
         } else {
             self.labelTime.text = [NSString stringWithFormat:@"%.2fs",self.verb.responseTime];
             self.labelTime.textColor = [[Referee sharedReferee] colorForValue:self.verb.responseTime];
             self.imagePass.image = [[Referee sharedReferee] imageForValue:self.verb.responseTime];
             self.imageFail.image = nil;
+            self.buttonPass.alpha = 0;
         }
     }
-    
+
     if ((testEnd)&&(!isACorrection)) {
         self.labelTranslation.alpha = 0;
         self.labelPast.alpha = 0;
