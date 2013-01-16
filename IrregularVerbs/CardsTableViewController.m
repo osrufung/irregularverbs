@@ -41,8 +41,6 @@
             [currentSection addObject:verb];
         }
     }
-    NSLog(@"Index %@",_indexEntries);
-    NSLog(@"Data %@",_indexedData);
 }
 
 - (void)viewWillAppear:(BOOL)animated {

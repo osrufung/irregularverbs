@@ -7,6 +7,7 @@
 //
 
 #import "CardsStackViewController.h"
+#import "TestCardViewController.h"
 #import "VerbsStore.h"
 
 @interface CardsStackViewController ()
@@ -85,22 +86,31 @@
         
         //Flip a card without finishing the test implies a failure
         vc = previousViewControllers[0];
-        [vc endTestWithFailure:YES];
+//        [vc endTestWithFailure:YES];
         vc = pageViewController.viewControllers[0];
-        [vc beginTest];
+//        [vc beginTest];
     }
 }
 
 #pragma mark - Model Managment
 
-- (CardViewController *)verbCardAtIndex:(int)index forPresentationMode:(enum CardViewControllerPresentationMode)mode {
-    CardViewController *vc=nil;
-    if((index>=0)&&(index< self.verbs.count)){
-        vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardViewController"];
-        vc.verb = [self.verbs objectAtIndex:index];
-        vc.presentationMode = mode;
+- (UIViewController *)verbCardAtIndex:(int)index forPresentationMode:(enum CardViewControllerPresentationMode)mode {
+    if (mode!=CardViewControllerPresentationModeTest) {
+        CardViewController *vc=nil;
+        if((index>=0)&&(index< self.verbs.count)){
+            vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardViewController"];
+            vc.verb = [self.verbs objectAtIndex:index];
+            vc.presentationMode = mode;
+        }
+        return vc;
+    } else {
+        TestCardViewController *vc=nil;
+        if((index>=0)&&(index< self.verbs.count)){
+            vc = [[TestCardViewController alloc] init];
+            vc.verb = [self.verbs objectAtIndex:index];
+        }
+        return vc;
     }
-    return vc;
 }
 
 @end

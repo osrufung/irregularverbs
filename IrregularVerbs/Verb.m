@@ -10,9 +10,6 @@
 #import "VerbsStore.h"
 
 @interface Verb()
-{
-    BOOL _testPending;
-}
 
 @property (nonatomic) int numberOfTests;
 @property (nonatomic) int numberOfFailures;
@@ -22,7 +19,7 @@
 @implementation Verb
 
 // Only the readonly properties needs that we explicit synthesize them
-@synthesize averageResponseTime=_averageResponseTime, failureRatio=_failureRatio, failed=_failed, responseTime=_responseTime;
+@synthesize averageResponseTime=_averageResponseTime, failureRatio=_failureRatio, failed=_failed, responseTime=_responseTime, testPending=_testPending;
 
 - (id)initFromDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -37,30 +34,52 @@
     return self;
 }
 
+- (void)computeAverageAddingSample:(float)time {
+    int numberOk = self.numberOfTests-self.numberOfFailures;
+    _responseTime = time;
+    _averageResponseTime = (_averageResponseTime*numberOk+_responseTime)/(numberOk+1);
+    self.numberOfTests++;
+}
+
+- (void)computeAverageRemovingSample:(float)time {
+    int numberOk = self.numberOfTests-self.numberOfFailures;
+    _responseTime = time;
+    if (numberOk==1)
+        _averageResponseTime = 0.0f;
+    else
+        _averageResponseTime = (_averageResponseTime*numberOk-_responseTime)/(numberOk-1);
+    _responseTime = 0.0f;
+    self.numberOfTests--;
+}
+
 - (void)passTestWithTime:(float)time {
-    if (_testPending) {
+    if (self.testPending) {
         _testPending=NO;
         _failed=NO;
-        int numberOk = self.numberOfTests-self.numberOfFailures;
-        _responseTime = time;
-        _averageResponseTime = (_averageResponseTime*numberOk+_responseTime)/(numberOk+1);
-        self.numberOfTests++;
-        
-        NSLog(@"Adding %fs the average response time for %@ is %fs",_responseTime,self.simple, _averageResponseTime);
+        [self computeAverageAddingSample:time];
+        NSLog(@"Adding %fs the average response time for %@ is %fs in %d tests",_responseTime,self.simple, _averageResponseTime,_numberOfTests);
     }
 }
--(BOOL)isPendingOrFailed{
-    return _testPending | _failed;
-}
+
 - (void)failTest {
-    if (_testPending) {
+    if (self.testPending) {
         _testPending = NO;
         _failed = YES;
         self.numberOfFailures++;
         self.numberOfTests++;
         
         NSLog(@"After this fail, the failure ratio for %@ is %f",self.simple,self.failureRatio);
+    } else if (!_failed) {
+        _failed = YES;
+        [self computeAverageRemovingSample:_responseTime];
+        NSLog(@"Removing current sample the average response time for %@ is %fs in %d tests",self.simple, _averageResponseTime,_numberOfTests);
+        self.numberOfFailures++;
+        self.numberOfTests++;
     }
+}
+
+- (BOOL)isPendingOrFailed{
+    return self.testPending | self.failed;
 }
 
 - (float)averageResponseTime {
