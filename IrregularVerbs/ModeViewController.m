@@ -13,6 +13,7 @@
 #import "PreferencesViewController.h"
 #import "NSArray+Shuffling.h"
 #import "CardsTableViewController.h"
+#import "TestSelectorViewController.h"
 
 @interface ModeViewController ()
 
@@ -36,11 +37,18 @@
     
     [self addChildViewController:tmvc];
 
+    /*
     vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardsStackViewController"];
     vc.presentationMode = CardViewControllerPresentationModeTest;
     vc.title = @"Test";
     vc.tabBarItem.image = [UIImage imageNamed:@"clock_24.png"];
     [self addChildViewController:vc];
+     */
+
+    TestSelectorViewController *tsvc = [[TestSelectorViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    tsvc.title = @"Test";
+    tsvc.tabBarItem.image = [UIImage imageNamed:@"clock_24.png"];
+    [self addChildViewController:[[UINavigationController alloc] initWithRootViewController:tsvc]];
 
     vc = [self.storyboard instantiateViewControllerWithIdentifier:@"CardsStackViewController"];
     vc.presentationMode = CardViewControllerPresentationModeHistory;

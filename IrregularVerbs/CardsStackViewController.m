@@ -32,7 +32,7 @@
 
             case CardViewControllerPresentationModeTest:
                 [[VerbsStore sharedStore] resetTest];
-                _verbs = [[VerbsStore sharedStore] random];
+                _verbs = [[VerbsStore sharedStore] testSubSet];
                 break;
 
             case CardViewControllerPresentationModeReview:
@@ -56,6 +56,7 @@
     
     [self setViewControllers:@[[self verbCardAtIndex:0 forPresentationMode:self.presentationMode]]
                    direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)viewDidLoad

@@ -32,5 +32,6 @@
 - (NSComparisonResult)compareVerbsByTestResults:(Verb *)other;
 - (NSComparisonResult)compareVerbsByHistoricalPerformance:(Verb *)other;
 - (NSComparisonResult)compareVerbsByFrequency:(Verb *)other;
+- (NSComparisonResult)compareVerbsByTestNumber:(Verb *)other;
 
 @end

@@ -13,9 +13,12 @@
 @property (nonatomic) float frequency;
 
 @property (nonatomic, readonly) NSArray *alphabetic;
-@property (nonatomic, readonly) NSArray *random;
+@property (nonatomic, readonly) NSArray *testSubSet;
 @property (nonatomic, readonly) NSArray *results;
 @property (nonatomic, readonly) NSArray *history;
+@property (nonatomic, readonly) NSArray *testTypes;
+@property (nonatomic, strong) NSString *selectedTestType;
+@property (nonatomic, readonly) int verbsNumberInTest;
 
 + (VerbsStore *)sharedStore;
 
