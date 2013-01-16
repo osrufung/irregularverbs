@@ -51,12 +51,12 @@
 
  
 -(NSAttributedString *) attributedHomeLabel{
-   NSString *str = [NSString stringWithFormat: @"%d Verbs to learn",[[[VerbsStore sharedStore] alphabetic] count]  ];
+   NSString *str = [NSString stringWithFormat: @"%d verbs to learn",[[[VerbsStore sharedStore] alphabetic] count]  ];
     NSMutableAttributedString *result  = [[NSMutableAttributedString alloc] initWithString:str];
     
-    NSDictionary *attributesForNumber = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:30.0f],NSForegroundColorAttributeName:[UIColor redColor]};
+    NSDictionary *attributesForNumber = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:30.0f],NSForegroundColorAttributeName:[UIColor orangeColor]};
     
-    NSRange afterNumberRange = [str rangeOfString:@" Verbs to learn"];
+    NSRange afterNumberRange = [str rangeOfString:@" verbs to learn"];
     
     [result setAttributes:attributesForNumber range: NSMakeRange(0,afterNumberRange.location)];
     return [[NSAttributedString alloc] initWithAttributedString:result];
