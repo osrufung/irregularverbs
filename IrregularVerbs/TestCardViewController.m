@@ -91,6 +91,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self refreshUIForTestEnd:NO];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     if (self.verb.testPending) [self beginTest];
 }
 
