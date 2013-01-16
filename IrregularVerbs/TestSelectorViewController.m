@@ -17,6 +17,10 @@
 
 @implementation TestSelectorViewController
 
+- (id)init {
+    return [self initWithStyle:UITableViewStyleGrouped];
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
