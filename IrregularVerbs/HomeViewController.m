@@ -26,9 +26,8 @@
         
         UINavigationItem *item = [self navigationItem];
         [item setTitle:@"a list of Verbs"];
-        
-        
-        //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Default"]];
+   
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg.png"]];
     }
     return self;
 
@@ -41,6 +40,7 @@
 }
 
 -(void)updateUI{
+    
       [[self labelNumberVerbs] setText: [NSString stringWithFormat: @"%d Verbs to learn",[[[VerbsStore sharedStore] alphabetic] count]  ]]; 
 }
 - (IBAction)openLearn:(id)sender {

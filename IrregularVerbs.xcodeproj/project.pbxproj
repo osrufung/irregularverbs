@@ -25,6 +25,8 @@
 		09D373001681BC5200F80410 /* verbs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09D372FF1681BC5200F80410 /* verbs.plist */; };
 		09F7933816A6A7C90067EE3C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F7933616A6A7C90067EE3C /* HomeViewController.m */; };
 		09F7933916A6A7C90067EE3C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F7933716A6A7C90067EE3C /* HomeViewController.xib */; };
+		09F7933D16A6C6490067EE3C /* HomeViewbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7933B16A6C6490067EE3C /* HomeViewbg.png */; };
+		09F7933E16A6C6490067EE3C /* HomeViewbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7933C16A6C6490067EE3C /* HomeViewbg@2x.png */; };
 		E53DBB4C169BFFD50080276A /* ModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53DBB4B169BFFD50080276A /* ModeViewController.m */; };
 		E53DBB57169C05DE0080276A /* book_bookmark_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB56169C05DE0080276A /* book_bookmark_24.png */; };
 		E53DBB59169C05F00080276A /* chart_bar_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB58169C05F00080276A /* chart_bar_24.png */; };
@@ -88,6 +90,8 @@
 		09F7933516A6A7C90067EE3C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		09F7933616A6A7C90067EE3C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		09F7933716A6A7C90067EE3C /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		09F7933B16A6C6490067EE3C /* HomeViewbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HomeViewbg.png; sourceTree = "<group>"; };
+		09F7933C16A6C6490067EE3C /* HomeViewbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeViewbg@2x.png"; sourceTree = "<group>"; };
 		E53DBB4A169BFFD50080276A /* ModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeViewController.h; sourceTree = "<group>"; };
 		E53DBB4B169BFFD50080276A /* ModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeViewController.m; sourceTree = "<group>"; };
 		E53DBB56169C05DE0080276A /* book_bookmark_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_bookmark_24.png; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 		E550A5EE169CC9AE00DCA8D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				09F7933B16A6C6490067EE3C /* HomeViewbg.png */,
+				09F7933C16A6C6490067EE3C /* HomeViewbg@2x.png */,
 				E5F49E2316A5CAF30078EC5D /* thumbup@2x.png */,
 				E5F49E2416A5CAF30078EC5D /* thumbup.png */,
 				E5F49E2516A5CAF30078EC5D /* thumbdown@2x.png */,
@@ -369,6 +375,8 @@
 				E5F49E2916A5CAF30078EC5D /* thumbdown@2x.png in Resources */,
 				E5F49E2A16A5CAF30078EC5D /* thumbdown.png in Resources */,
 				09F7933916A6A7C90067EE3C /* HomeViewController.xib in Resources */,
+				09F7933D16A6C6490067EE3C /* HomeViewbg.png in Resources */,
+				09F7933E16A6C6490067EE3C /* HomeViewbg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
