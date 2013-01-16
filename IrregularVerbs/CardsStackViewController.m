@@ -16,13 +16,6 @@
 
 @implementation CardsStackViewController
 
-+ (void)initialize{
-    
-    //load default settings values
-    
-    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
-}
-
 - (NSArray *)verbs {
     if (!_verbs) {
         switch (self.presentationMode) {

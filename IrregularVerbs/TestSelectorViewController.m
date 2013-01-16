@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 //
 
-#import "CardsStackViewController.h"
-#import "TestSelectorViewController.h"
 #import "CounterCell.h"
 #import "VerbsStore.h"
+#import "TestCardsStackViewController.h"
+#import "TestSelectorViewController.h"
 
 @interface TestSelectorViewController ()
 
@@ -86,15 +86,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     VerbsStore *store = [VerbsStore sharedStore];
     store.selectedTestType = store.testTypes[indexPath.row];
     
-    CardsStackViewController *csvc = [[CardsStackViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
-                                                                         navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
-                                                                                       options:nil];
-    csvc.presentationMode = CardViewControllerPresentationModeTest;
-    csvc.title =store.selectedTestType;
-    [self.navigationController pushViewController:csvc animated:YES];
+    [self.navigationController pushViewController:[[TestCardsStackViewController alloc] init]
+                                         animated:YES];
 }
 
 @end

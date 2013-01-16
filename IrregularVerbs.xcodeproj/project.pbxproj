@@ -52,6 +52,7 @@
 		E5C2CA2E169C5F6600BEE2ED /* Referee.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA2D169C5F6600BEE2ED /* Referee.m */; };
 		E5C2CA32169C6A0C00BEE2ED /* Verb.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA31169C6A0C00BEE2ED /* Verb.m */; };
 		E5C70A45169F2D6200E09847 /* calendar_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C70A44169F2D6200E09847 /* calendar_24.png */; };
+		E5CAFA1D16A7290E0015B16E /* TestCardsStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CAFA1C16A7290E0015B16E /* TestCardsStackViewController.m */; };
 		E5DEC60A169F70C60006AE38 /* gear_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DEC609169F70C60006AE38 /* gear_24.png */; };
 		E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */; };
 		E5E05A9316A6BF8A00CEB889 /* CounterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A9216A6BF8A00CEB889 /* CounterCell.m */; };
@@ -135,6 +136,8 @@
 		E5C2CA30169C6A0C00BEE2ED /* Verb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Verb.h; sourceTree = "<group>"; };
 		E5C2CA31169C6A0C00BEE2ED /* Verb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Verb.m; sourceTree = "<group>"; };
 		E5C70A44169F2D6200E09847 /* calendar_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_24.png; sourceTree = "<group>"; };
+		E5CAFA1B16A7290E0015B16E /* TestCardsStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCardsStackViewController.h; sourceTree = "<group>"; };
+		E5CAFA1C16A7290E0015B16E /* TestCardsStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCardsStackViewController.m; sourceTree = "<group>"; };
 		E5DEC609169F70C60006AE38 /* gear_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_24.png; sourceTree = "<group>"; };
 		E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSelectorViewController.h; sourceTree = "<group>"; };
 		E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSelectorViewController.m; sourceTree = "<group>"; };
@@ -322,14 +325,16 @@
 				09F7933516A6A7C90067EE3C /* HomeViewController.h */,
 				09F7933616A6A7C90067EE3C /* HomeViewController.m */,
 				09F7933716A6A7C90067EE3C /* HomeViewController.xib */,
-				E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */,
-				E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */,
 				E5E05A9116A6BF8A00CEB889 /* CounterCell.h */,
 				E5E05A9216A6BF8A00CEB889 /* CounterCell.m */,
 				E5E05A9416A6BF9A00CEB889 /* CounterCell.xib */,
 				E5F49E1D16A5C89C0078EC5D /* TestCardViewController.h */,
 				E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */,
 				E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */,
+				E5CAFA1B16A7290E0015B16E /* TestCardsStackViewController.h */,
+				E5CAFA1C16A7290E0015B16E /* TestCardsStackViewController.m */,
+				E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */,
+				E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */,
 			);
 			name = "New Interface";
 			sourceTree = "<group>";
@@ -466,6 +471,7 @@
 				E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */,
 				09F7933816A6A7C90067EE3C /* HomeViewController.m in Sources */,
 				E5E05A9316A6BF8A00CEB889 /* CounterCell.m in Sources */,
+				E5CAFA1D16A7290E0015B16E /* TestCardsStackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
