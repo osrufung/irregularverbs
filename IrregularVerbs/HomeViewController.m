@@ -94,8 +94,9 @@
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
                                                              bundle: nil];
     
-    PreferencesViewController *pvc = (PreferencesViewController*)[mainStoryboard
-                                                                  instantiateViewControllerWithIdentifier: @"PreferencesViewController"];
+//    PreferencesViewController *pvc = (PreferencesViewController*)[mainStoryboard
+ //                                                                 instantiateViewControllerWithIdentifier: @"PreferencesViewController"];
+    PreferencesViewController *pvc = [[PreferencesViewController alloc] init];
     
     pvc.title = @"Config";
     [[self navigationController] pushViewController:pvc animated:YES];
