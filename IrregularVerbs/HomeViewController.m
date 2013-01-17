@@ -9,8 +9,8 @@
 #import "HomeViewController.h"
 #import "CardsTableViewController.h"
 #import "PreferencesViewController.h"
-#import "CardsStackViewController.h" 
 #import "TestSelectorViewController.h"
+#import "CardsTableViewController.h"
 #import "VerbsStore.h"
 #import "HistoryViewController.h"
 

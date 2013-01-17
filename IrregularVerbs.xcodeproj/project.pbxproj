@@ -24,8 +24,6 @@
 		09D372EF1681BA4F00F80410 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D372EE1681BA4F00F80410 /* Default.png */; };
 		09D372F11681BA4F00F80410 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D372F01681BA4F00F80410 /* Default@2x.png */; };
 		09D372F31681BA4F00F80410 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D372F21681BA4F00F80410 /* Default-568h@2x.png */; };
-		09D372F61681BA4F00F80410 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D372F41681BA4F00F80410 /* MainStoryboard.storyboard */; };
-		09D372F91681BA4F00F80410 /* CardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D372F81681BA4F00F80410 /* CardViewController.m */; };
 		09D373001681BC5200F80410 /* verbs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09D372FF1681BC5200F80410 /* verbs.plist */; };
 		09F7933816A6A7C90067EE3C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F7933616A6A7C90067EE3C /* HomeViewController.m */; };
 		09F7933916A6A7C90067EE3C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F7933716A6A7C90067EE3C /* HomeViewController.xib */; };
@@ -39,7 +37,6 @@
 		09F7935616A6F5670067EE3C /* lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7935216A6F5670067EE3C /* lock@2x.png */; };
 		09F7935716A6F5670067EE3C /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7935316A6F5670067EE3C /* search@2x.png */; };
 		09F7935816A6F5670067EE3C /* speedometer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7935416A6F5670067EE3C /* speedometer@2x.png */; };
-		E53DBB4C169BFFD50080276A /* ModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53DBB4B169BFFD50080276A /* ModeViewController.m */; };
 		E53DBB57169C05DE0080276A /* book_bookmark_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB56169C05DE0080276A /* book_bookmark_24.png */; };
 		E53DBB59169C05F00080276A /* chart_bar_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB58169C05F00080276A /* chart_bar_24.png */; };
 		E53DBB5B169C05FF0080276A /* clock_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB5A169C05FF0080276A /* clock_24.png */; };
@@ -74,7 +71,6 @@
 		E5F49E2816A5CAF30078EC5D /* thumbup.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E2416A5CAF30078EC5D /* thumbup.png */; };
 		E5F49E2916A5CAF30078EC5D /* thumbdown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E2516A5CAF30078EC5D /* thumbdown@2x.png */; };
 		E5F49E2A16A5CAF30078EC5D /* thumbdown.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E2616A5CAF30078EC5D /* thumbdown.png */; };
-		E5FE5827169B12B7002AC8A2 /* CardsStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,9 +108,6 @@
 		09D372EE1681BA4F00F80410 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		09D372F01681BA4F00F80410 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		09D372F21681BA4F00F80410 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		09D372F51681BA4F00F80410 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		09D372F71681BA4F00F80410 /* CardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardViewController.h; sourceTree = "<group>"; };
-		09D372F81681BA4F00F80410 /* CardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardViewController.m; sourceTree = "<group>"; };
 		09D372FF1681BC5200F80410 /* verbs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = verbs.plist; sourceTree = "<group>"; };
 		09F7933516A6A7C90067EE3C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		09F7933616A6A7C90067EE3C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -129,8 +122,6 @@
 		09F7935216A6F5670067EE3C /* lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock@2x.png"; sourceTree = "<group>"; };
 		09F7935316A6F5670067EE3C /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
 		09F7935416A6F5670067EE3C /* speedometer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speedometer@2x.png"; sourceTree = "<group>"; };
-		E53DBB4A169BFFD50080276A /* ModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeViewController.h; sourceTree = "<group>"; };
-		E53DBB4B169BFFD50080276A /* ModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeViewController.m; sourceTree = "<group>"; };
 		E53DBB56169C05DE0080276A /* book_bookmark_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_bookmark_24.png; sourceTree = "<group>"; };
 		E53DBB58169C05F00080276A /* chart_bar_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart_bar_24.png; sourceTree = "<group>"; };
 		E53DBB5A169C05FF0080276A /* clock_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock_24.png; sourceTree = "<group>"; };
@@ -179,8 +170,6 @@
 		E5F49E2416A5CAF30078EC5D /* thumbup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbup.png; sourceTree = "<group>"; };
 		E5F49E2516A5CAF30078EC5D /* thumbdown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbdown@2x.png"; sourceTree = "<group>"; };
 		E5F49E2616A5CAF30078EC5D /* thumbdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbdown.png; sourceTree = "<group>"; };
-		E5FE5825169B12B7002AC8A2 /* CardsStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsStackViewController.h; sourceTree = "<group>"; };
-		E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsStackViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,11 +337,11 @@
 		E550A5EB169CC92700DCA8D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E52F436D16A81C7F00220CF1 /* Preferences */,
 				E52F436B16A81C6E00220CF1 /* Home */,
+				E5B0A74916A8B55800ADEBCE /* Learn */,
 				E52F436E16A81CA100220CF1 /* Test */,
 				E52F436F16A81CBD00220CF1 /* History */,
-				E5B338FC16A6E8CA008F3377 /* Old Interface */,
+				E52F436D16A81C7F00220CF1 /* Preferences */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -410,21 +399,14 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		E5B338FC16A6E8CA008F3377 /* Old Interface */ = {
+		E5B0A74916A8B55800ADEBCE /* Learn */ = {
 			isa = PBXGroup;
 			children = (
-				E53DBB4A169BFFD50080276A /* ModeViewController.h */,
-				E53DBB4B169BFFD50080276A /* ModeViewController.m */,
-				E5FE5825169B12B7002AC8A2 /* CardsStackViewController.h */,
-				E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */,
-				09D372F71681BA4F00F80410 /* CardViewController.h */,
-				09D372F81681BA4F00F80410 /* CardViewController.m */,
 				091C61F216A018EF00F3606A /* CardsTableViewController.h */,
 				091C61F316A018EF00F3606A /* CardsTableViewController.m */,
 				091C61F416A018EF00F3606A /* CardsTableViewController.xib */,
-				09D372F41681BA4F00F80410 /* MainStoryboard.storyboard */,
 			);
-			name = "Old Interface";
+			name = Learn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -482,7 +464,6 @@
 				09D372EF1681BA4F00F80410 /* Default.png in Resources */,
 				09D372F11681BA4F00F80410 /* Default@2x.png in Resources */,
 				09D372F31681BA4F00F80410 /* Default-568h@2x.png in Resources */,
-				09D372F61681BA4F00F80410 /* MainStoryboard.storyboard in Resources */,
 				09D373001681BC5200F80410 /* verbs.plist in Resources */,
 				092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */,
 				E53DBB57169C05DE0080276A /* book_bookmark_24.png in Resources */,
@@ -530,11 +511,8 @@
 			files = (
 				09D372E91681BA4F00F80410 /* main.m in Sources */,
 				09D372ED1681BA4F00F80410 /* AppDelegate.m in Sources */,
-				09D372F91681BA4F00F80410 /* CardViewController.m in Sources */,
 				099AF69116834580001A6BF3 /* PreferencesViewController.m in Sources */,
 				E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */,
-				E5FE5827169B12B7002AC8A2 /* CardsStackViewController.m in Sources */,
-				E53DBB4C169BFFD50080276A /* ModeViewController.m in Sources */,
 				E5C2CA2E169C5F6600BEE2ED /* Referee.m in Sources */,
 				E5C2CA32169C6A0C00BEE2ED /* Verb.m in Sources */,
 				E550A5CF169CC80B00DCA8D6 /* ColorMapView.m in Sources */,
@@ -564,14 +542,6 @@
 				09D372E61681BA4F00F80410 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		09D372F41681BA4F00F80410 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				09D372F51681BA4F00F80410 /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
