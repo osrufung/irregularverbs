@@ -55,6 +55,15 @@
     return [self testCardViewAtIndex:[self.testVerbs indexOfObject:current.verb]-1];
 }
 
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    return self.testVerbs.count;
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+    TestCardViewController *current = (TestCardViewController *)pageViewController.childViewControllers[0];
+    return [self.testVerbs indexOfObject:current.verb];
+}
+
 - (UIViewController *)testCardViewAtIndex:(int)index {
     TestCardViewController *vc=nil;
     if((index>=0)&&(index< self.testVerbs.count)){
