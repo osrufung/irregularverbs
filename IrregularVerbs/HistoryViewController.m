@@ -7,7 +7,9 @@
 //
 
 #import "HistoryViewController.h"
-
+#import "HistoryDataCell.h"
+#import "VerbsStore.h"
+#import "Verb.h"
 @interface HistoryViewController ()
 
 @end
@@ -18,21 +20,62 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+  
+
     }
     return self;
 }
-
-- (void)viewDidLoad
-{
+-(void)viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    [[self  tableView] registerNib:[UINib nibWithNibName:@"HistoryDataCell" bundle:nil]
+            forCellReuseIdentifier:@"HistoryDataCell"];
+    
 }
 
-- (void)didReceiveMemoryWarning
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [_currentData count];
+}
+- (void)viewWillAppear:(BOOL)animated {
+  
+    _currentData = [[VerbsStore sharedStore] alphabetic];
+    
+    [self.tableView reloadData];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+ 
+    static NSString *CellIdentifier = @"HistoryDataCell";
+    
+    HistoryDataCell *cell =[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+   
+    Verb *v;
+    v = _currentData[indexPath.row];
+    
+    [[cell labelSimple] setText:[v simple]];
+    [[cell labelExtendedForms] setText:[NSString stringWithFormat:@"%@ - %@ - %@",[v past],[v participle],[v translation]]];
+    [[cell labelTime] setText: [NSString stringWithFormat:@"%.1fs. avg.",[v averageResponseTime]]];
+    [[cell labelFailed] setText:[NSString stringWithFormat:@"%d%% failed",(int)[v failureRatio]*100]];
+    return cell;
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 65.0;
 }
 
+- (IBAction)sortCriteriaChanged:(id)sender {
+    
+    int criteriaId =[[self criteriaControl] selectedSegmentIndex];
+    if(criteriaId == 0){
+        _currentData = [[VerbsStore sharedStore] alphabetic];
+        
+    }else if (criteriaId == 1){
+        _currentData = [[VerbsStore sharedStore] results];
+    }else if (criteriaId == 2){
+        _currentData = [[VerbsStore sharedStore] history];
+    }
+    
+    [self.tableView reloadData];
+}
 @end

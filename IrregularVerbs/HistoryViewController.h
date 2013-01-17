@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HistoryViewController : UIViewController
+@interface HistoryViewController : UIViewController<UISearchBarDelegate, UISearchDisplayDelegate>{
+    NSArray *_currentData;
+}
+@property (weak, nonatomic) IBOutlet UISegmentedControl *criteriaControl;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)sortCriteriaChanged:(id)sender;
 
 @end
