@@ -36,7 +36,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _colors = @[[UIColor greenColor], [UIColor greenColor], [UIColor yellowColor], [UIColor redColor]];
+        _colors = @[[UIColor greenColor], [UIColor greenColor], [UIColor orangeColor], [UIColor redColor]];
     }
     return self;
 }

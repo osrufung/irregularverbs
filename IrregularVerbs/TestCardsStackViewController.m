@@ -46,13 +46,31 @@
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    TestCardViewController *current = (TestCardViewController *)viewController;
-    return [self testCardViewAtIndex:[self.testVerbs indexOfObject:current.verb]+1];
+    if ([viewController isMemberOfClass:[TestScoreCardViewController class]]) {
+        return nil;
+    }
+    if ([viewController isMemberOfClass:[TestCardViewController class]]) {
+        TestCardViewController *current = (TestCardViewController *)viewController;
+        UIViewController *next = [self testCardViewAtIndex:[self.testVerbs indexOfObject:current.verb]+1];
+        if (!next) {
+            TestScoreCardViewController * tsc = [[TestScoreCardViewController alloc] init];
+            tsc.dataSource = self;
+            return tsc;
+        }
+        return next;
+    }
+    return nil;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    TestCardViewController *current = (TestCardViewController *)viewController;
-    return [self testCardViewAtIndex:[self.testVerbs indexOfObject:current.verb]-1];
+    if ([viewController isMemberOfClass:[TestScoreCardViewController class]]) {
+        return [self testCardViewAtIndex:self.testVerbs.count-1];
+    }
+    if ([viewController isMemberOfClass:[TestCardViewController class]]) {
+        TestCardViewController *current = (TestCardViewController *)viewController;
+        return [self testCardViewAtIndex:[self.testVerbs indexOfObject:current.verb]-1];
+    }
+    return nil;
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
@@ -71,6 +89,10 @@
         vc.verb = self.testVerbs[index];
     }
     return vc;   
+}
+
+- (NSArray *)verbsForTestScoreCardView:(TestScoreCardViewController *)testScoreCardView {
+    return self.testVerbs;
 }
 
 @end

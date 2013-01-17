@@ -54,6 +54,12 @@
 		E5C70A45169F2D6200E09847 /* calendar_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C70A44169F2D6200E09847 /* calendar_24.png */; };
 		E5CAFA1D16A7290E0015B16E /* TestCardsStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CAFA1C16A7290E0015B16E /* TestCardsStackViewController.m */; };
 		E5CAFA2016A72EC00015B16E /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5CAFA1F16A72EC00015B16E /* PreferencesViewController.xib */; };
+		E5DB039416A7E47900EE1E80 /* TSCVerbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB039316A7E47900EE1E80 /* TSCVerbCell.m */; };
+		E5DB039716A7E4C700EE1E80 /* TestScoreCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB039616A7E4C700EE1E80 /* TestScoreCardViewController.m */; };
+		E5DB039916A7E55700EE1E80 /* TSCVerbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DB039816A7E55700EE1E80 /* TSCVerbCell.xib */; };
+		E5DB039B16A7EBFB00EE1E80 /* TSCSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DB039A16A7EBFA00EE1E80 /* TSCSummaryCell.xib */; };
+		E5DB039E16A7EDCE00EE1E80 /* TSCSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB039D16A7EDCE00EE1E80 /* TSCSummaryCell.m */; };
+		E5DB03A516A7EEAC00EE1E80 /* PassFailGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */; };
 		E5DEC60A169F70C60006AE38 /* gear_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DEC609169F70C60006AE38 /* gear_24.png */; };
 		E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */; };
 		E5E05A9316A6BF8A00CEB889 /* CounterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A9216A6BF8A00CEB889 /* CounterCell.m */; };
@@ -140,6 +146,16 @@
 		E5CAFA1B16A7290E0015B16E /* TestCardsStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCardsStackViewController.h; sourceTree = "<group>"; };
 		E5CAFA1C16A7290E0015B16E /* TestCardsStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCardsStackViewController.m; sourceTree = "<group>"; };
 		E5CAFA1F16A72EC00015B16E /* PreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesViewController.xib; sourceTree = "<group>"; };
+		E5DB039216A7E47900EE1E80 /* TSCVerbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCVerbCell.h; sourceTree = "<group>"; };
+		E5DB039316A7E47900EE1E80 /* TSCVerbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCVerbCell.m; sourceTree = "<group>"; };
+		E5DB039516A7E4C700EE1E80 /* TestScoreCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScoreCardViewController.h; sourceTree = "<group>"; };
+		E5DB039616A7E4C700EE1E80 /* TestScoreCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScoreCardViewController.m; sourceTree = "<group>"; };
+		E5DB039816A7E55700EE1E80 /* TSCVerbCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSCVerbCell.xib; sourceTree = "<group>"; };
+		E5DB039A16A7EBFA00EE1E80 /* TSCSummaryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSCSummaryCell.xib; sourceTree = "<group>"; };
+		E5DB039C16A7EDCE00EE1E80 /* TSCSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCSummaryCell.h; sourceTree = "<group>"; };
+		E5DB039D16A7EDCE00EE1E80 /* TSCSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCSummaryCell.m; sourceTree = "<group>"; };
+		E5DB03A316A7EEAC00EE1E80 /* PassFailGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassFailGraphView.h; sourceTree = "<group>"; };
+		E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassFailGraphView.m; sourceTree = "<group>"; };
 		E5DEC609169F70C60006AE38 /* gear_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_24.png; sourceTree = "<group>"; };
 		E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSelectorViewController.h; sourceTree = "<group>"; };
 		E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSelectorViewController.m; sourceTree = "<group>"; };
@@ -330,6 +346,16 @@
 				099AF68F16834580001A6BF3 /* PreferencesViewController.h */,
 				099AF69016834580001A6BF3 /* PreferencesViewController.m */,
 				E5CAFA1F16A72EC00015B16E /* PreferencesViewController.xib */,
+				E5DB039216A7E47900EE1E80 /* TSCVerbCell.h */,
+				E5DB039316A7E47900EE1E80 /* TSCVerbCell.m */,
+				E5DB039816A7E55700EE1E80 /* TSCVerbCell.xib */,
+				E5DB039C16A7EDCE00EE1E80 /* TSCSummaryCell.h */,
+				E5DB039D16A7EDCE00EE1E80 /* TSCSummaryCell.m */,
+				E5DB039A16A7EBFA00EE1E80 /* TSCSummaryCell.xib */,
+				E5DB03A316A7EEAC00EE1E80 /* PassFailGraphView.h */,
+				E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */,
+				E5DB039516A7E4C700EE1E80 /* TestScoreCardViewController.h */,
+				E5DB039616A7E4C700EE1E80 /* TestScoreCardViewController.m */,
 				E5E05A9116A6BF8A00CEB889 /* CounterCell.h */,
 				E5E05A9216A6BF8A00CEB889 /* CounterCell.m */,
 				E5E05A9416A6BF9A00CEB889 /* CounterCell.xib */,
@@ -448,6 +474,8 @@
 				09F7935716A6F5670067EE3C /* search@2x.png in Resources */,
 				09F7935816A6F5670067EE3C /* speedometer@2x.png in Resources */,
 				E5CAFA2016A72EC00015B16E /* PreferencesViewController.xib in Resources */,
+				E5DB039916A7E55700EE1E80 /* TSCVerbCell.xib in Resources */,
+				E5DB039B16A7EBFB00EE1E80 /* TSCSummaryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +504,10 @@
 				09F7933816A6A7C90067EE3C /* HomeViewController.m in Sources */,
 				E5E05A9316A6BF8A00CEB889 /* CounterCell.m in Sources */,
 				E5CAFA1D16A7290E0015B16E /* TestCardsStackViewController.m in Sources */,
+				E5DB039416A7E47900EE1E80 /* TSCVerbCell.m in Sources */,
+				E5DB039716A7E4C700EE1E80 /* TestScoreCardViewController.m in Sources */,
+				E5DB039E16A7EDCE00EE1E80 /* TSCSummaryCell.m in Sources */,
+				E5DB03A516A7EEAC00EE1E80 /* PassFailGraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

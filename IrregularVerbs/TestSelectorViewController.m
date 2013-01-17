@@ -25,8 +25,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Hack to show the return path
-        self.title = @"Cancel";
+        self.title = @"Test";
         [self.tableView registerNib:[UINib nibWithNibName:@"CounterCell" bundle:[NSBundle mainBundle]]
              forCellReuseIdentifier:@"CounterCell"];
     }

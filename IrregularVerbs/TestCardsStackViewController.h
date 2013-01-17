@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TestScoreCardViewController.h"
 
-@interface TestCardsStackViewController : UIPageViewController<UIPageViewControllerDataSource>
+@interface TestCardsStackViewController : UIPageViewController<UIPageViewControllerDataSource,TestScoreCardViewDataSource>
 
 @end
