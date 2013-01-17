@@ -6,6 +6,7 @@ A very Simple App for review your english knowledge about 154 Irregular Verbs (p
 Experimental use of the frequency of use as a level of difficulty. You can see the values computed in [freq-verbs](https://github.com/rbarbera/freq-verbs)
 
 The verbs were extracted from <http://www.mansioningles.com/gram53.htm>
+The icons, from <http://www.hongkiat.com/blog/freebie-release-cutie-20-high-quality-web-icons/> 
 
 The purpose of this App is basically to learn iOS 6, and review our english :P
 
@@ -28,6 +29,7 @@ You can contact us at:
 * RB - v0.9e NEW EXPERIMENTAL INTERFACE 
 * OR - v0.9.1e internal Model changes. Compute the average time for every verb instead last time only. (9/1/2013)
 * OR - v0.9.2e App badge icon for pending/failed elements. Experimental TableView with SearchDisplayControler (11/1/2013)
+* v0.9.3e New UI layout (16/1/2013)
 
 ## Screenshot
 ![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot8.png)
