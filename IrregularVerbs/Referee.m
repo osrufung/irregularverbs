@@ -25,7 +25,6 @@
     static Referee *_sharedReferee = nil;
     if (!_sharedReferee) {
         _sharedReferee = [[super allocWithZone:nil] init];
-        _sharedReferee.maxValue = MAX_TEST_TIME;
     }
     return _sharedReferee;
 }
@@ -40,6 +39,21 @@
         _colors = @[[UIColor greenColor], [UIColor greenColor], [UIColor yellowColor], [UIColor redColor]];
     }
     return self;
+}
+
+- (float)maxValue {
+    if (_maxValue==0) {
+        _maxValue = [[NSUserDefaults standardUserDefaults] floatForKey:@"refereeMaxValue"];
+        if (_maxValue==0) _maxValue = MAX_TEST_TIME;
+    }
+    return _maxValue;
+}
+
+- (void)setMaxValue:(float)maxValue {
+    if(_maxValue!=maxValue){
+        _maxValue=maxValue;
+        [[NSUserDefaults standardUserDefaults] setFloat:_maxValue forKey:@"refereeMaxValue"];
+    }
 }
 
 - (float)performanceForValue:(float)value {

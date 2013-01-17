@@ -6,16 +6,20 @@
 //  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 //
 
-#import "CardsStackViewController.h"
-#import "TestSelectorViewController.h"
 #import "CounterCell.h"
 #import "VerbsStore.h"
+#import "TestCardsStackViewController.h"
+#import "TestSelectorViewController.h"
 
 @interface TestSelectorViewController ()
 
 @end
 
 @implementation TestSelectorViewController
+
+- (id)init {
+    return [self initWithStyle:UITableViewStyleGrouped];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -60,8 +64,7 @@
         [counterCell addTarget:self action:@selector(verbsNumberChanged:)];
         counterCell.minimumValue=1;
         counterCell.maximumValue=[[[VerbsStore sharedStore] alphabetic] count];
-        counterCell.value=[[NSUserDefaults standardUserDefaults] integerForKey:@"verbsCountInTest"];
-        if ((counterCell.value==0)||(counterCell.value>=counterCell.maximumValue)) counterCell.value = MIN(10,counterCell.maximumValue);
+        counterCell.value=[[VerbsStore sharedStore] verbsNumberInTest];
         return counterCell;
     } else {
         static NSString *TestTypeIdentifier = @"TestTypeCell";
@@ -76,7 +79,7 @@
 }
 
 - (void)verbsNumberChanged:(CounterCell *)sender {
-    [[NSUserDefaults standardUserDefaults] setInteger:sender.value forKey:@"verbsCountInTest"];
+    [[VerbsStore sharedStore] setVerbsNumberInTest:sender.value];
 }
 
 #pragma mark - Table view delegate
@@ -87,15 +90,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     VerbsStore *store = [VerbsStore sharedStore];
     store.selectedTestType = store.testTypes[indexPath.row];
     
-    CardsStackViewController *csvc = [[CardsStackViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
-                                                                         navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
-                                                                                       options:nil];
-    csvc.presentationMode = CardViewControllerPresentationModeTest;
-    csvc.title =store.selectedTestType;
-    [self.navigationController pushViewController:csvc animated:YES];
+    [self.navigationController pushViewController:[[TestCardsStackViewController alloc] init]
+                                         animated:YES];
 }
 
 @end

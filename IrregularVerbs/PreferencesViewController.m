@@ -9,6 +9,7 @@
 #import "PreferencesViewController.h"
 #import "VerbsStore.h"
 #import "Verb.h"
+#import "Referee.h"
 
 
 @interface PreferencesViewController ()
@@ -27,6 +28,8 @@
     
     self.sliderDifficulty.value=[[VerbsStore sharedStore] frequency];
     [self setLabelNumberOfVerbsForDifficulty:self.sliderDifficulty.value];
+    self.stepperTestDuration.value = [[Referee sharedReferee] maxValue];
+    [self setLabeTestDuration];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 
 }
@@ -34,6 +37,16 @@
 - (void)setLabelNumberOfVerbsForDifficulty:(float)difficulty {
     int idx = [[[VerbsStore sharedStore] alphabetic] count];
     self.labelNumberOfVerbs.text = [NSString stringWithFormat:@"(including %d verbs)",idx];
+}
+
+- (void)setLabeTestDuration {
+    self.labelTestDuration.text = [NSString stringWithFormat:@"Test time is %d sec",(int)[[Referee sharedReferee] maxValue]];
+}
+
+
+- (IBAction)testDurationChanged:(UIStepper *)sender {
+    [[Referee sharedReferee] setMaxValue:sender.value];
+    [self setLabeTestDuration];
 }
 
 - (IBAction)difficultyChanged:(UISlider *)sender {
@@ -61,4 +74,5 @@
     NSString *launchUrl= [[NSUserDefaults standardUserDefaults] stringForKey:@"aboutProjectURL"];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 }
+
 @end

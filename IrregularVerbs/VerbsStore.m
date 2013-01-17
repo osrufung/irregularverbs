@@ -20,7 +20,7 @@
  
 @implementation VerbsStore
 
-@synthesize alphabetic=_alphabetic, frequency=_frequency;
+@synthesize alphabetic=_alphabetic, frequency=_frequency, verbsNumberInTest=_verbsNumberInTest;
 
 
 #pragma mark - Singleton
@@ -190,18 +190,29 @@
 {
     sharedStore.testTypesMap = [[NSMutableDictionary alloc] init];
     [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequency)) forKey:@"Most Common"];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequencyDes)) forKey:@"Less Common"];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequencyDes)) forKey:@"Least Common"];
     [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFailure)) forKey:@"Most Failed"];
     [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByRandom)) forKey:@"Random"];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByTestNumber)) forKey:@"Less Tested"];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByTestNumber)) forKey:@"Least Tested"];
 }
 
 - (int)verbsNumberInTest {
-    return [[NSUserDefaults standardUserDefaults] integerForKey:@"verbsCountInTest"];
+    if (_verbsNumberInTest==0) {
+        _verbsNumberInTest = [[NSUserDefaults standardUserDefaults] integerForKey:@"verbsCountInTest"];
+        if (_verbsNumberInTest==0) self.verbsNumberInTest = self.currentList.count/2;
+    }
+    return _verbsNumberInTest;
+}
+
+- (void)setVerbsNumberInTest:(int)verbsNumberInTest {
+    if (_verbsNumberInTest!=verbsNumberInTest) {
+        _verbsNumberInTest=verbsNumberInTest;
+        [[NSUserDefaults standardUserDefaults] setInteger:_verbsNumberInTest forKey:@"verbsCountInTest"];
+    }
 }
 
 - (NSArray *)testTypes {
-    return [self.testTypesMap allKeys];
+    return [[self.testTypesMap allKeys] sortedArrayUsingSelector:@selector(compare:)];
 }
 
 - (NSArray *)testByFrequency {

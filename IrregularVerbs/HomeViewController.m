@@ -19,6 +19,14 @@
 
 @implementation HomeViewController
 
++ (void)initialize{
+    
+    //load default settings values
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,20 +44,14 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self updateUI];
-    [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 -(void)updateUI{
- 
     [[self labelNumberVerbs] setAttributedText:[self attributedHomeLabel]];
 }
-- (IBAction)openLearn:(id)sender {
-    CardsTableViewController   *ctvc = [[CardsTableViewController alloc] init];
-    ctvc.title = @"Learn";
-    [[self navigationController] pushViewController:ctvc animated:YES];
-}
 
- 
+
 -(NSAttributedString *) attributedHomeLabel{
    NSString *str = [NSString stringWithFormat: @"%d verbs to learn",[[[VerbsStore sharedStore] alphabetic] count]  ];
     NSMutableAttributedString *result  = [[NSMutableAttributedString alloc] initWithString:str];
@@ -61,12 +63,21 @@
     [result setAttributes:attributesForNumber range: NSMakeRange(0,afterNumberRange.location)];
     return [[NSAttributedString alloc] initWithAttributedString:result];
 }
+
+- (IBAction)openLearn:(id)sender {
+    [[self navigationController] pushViewController:[[CardsTableViewController alloc] init]
+                                           animated:YES];
+}
+
 - (IBAction)openTest:(id)sender {
-    TestSelectorViewController *tsvc = [[TestSelectorViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    tsvc.title = @"Test";
-    tsvc.tabBarItem.image = [UIImage imageNamed:@"clock_24.png"];
-    [[self navigationController] pushViewController:tsvc animated:YES];
+    [[self navigationController] pushViewController:[[TestSelectorViewController alloc] init]
+                                           animated:YES];
     
+}
+
+- (IBAction)openSetup:(id)sender {
+    [[self navigationController] pushViewController:[[PreferencesViewController alloc] init]
+                                           animated:YES];
 }
 
 - (IBAction)openHistory:(id)sender {
@@ -81,15 +92,4 @@
     
 }
 
-- (IBAction)openSetup:(id)sender {
-    
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
-                                                             bundle: nil];
-    
-    PreferencesViewController *pvc = (PreferencesViewController*)[mainStoryboard
-                                                                  instantiateViewControllerWithIdentifier: @"PreferencesViewController"];
-    
-    pvc.title = @"Config";
-    [[self navigationController] pushViewController:pvc animated:YES];
-}
 @end
