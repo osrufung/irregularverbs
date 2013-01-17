@@ -276,8 +276,6 @@
 				E5DB039C16A7EDCE00EE1E80 /* TSCSummaryCell.h */,
 				E5DB039D16A7EDCE00EE1E80 /* TSCSummaryCell.m */,
 				E5DB039A16A7EBFA00EE1E80 /* TSCSummaryCell.xib */,
-				E5DB03A316A7EEAC00EE1E80 /* PassFailGraphView.h */,
-				E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */,
 				E5DB039516A7E4C700EE1E80 /* TestScoreCardViewController.h */,
 				E5DB039616A7E4C700EE1E80 /* TestScoreCardViewController.m */,
 				E5E05A9116A6BF8A00CEB889 /* CounterCell.h */,
@@ -349,6 +347,8 @@
 		E550A5EC169CC95400DCA8D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E5DB03A316A7EEAC00EE1E80 /* PassFailGraphView.h */,
+				E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */,
 				E550A5D5169CC85700DCA8D6 /* TestProgressView.m */,
 				E550A5D4169CC84A00DCA8D6 /* TestProgressView.h */,
 				E550A5CD169CC80B00DCA8D6 /* ColorMapView.h */,
