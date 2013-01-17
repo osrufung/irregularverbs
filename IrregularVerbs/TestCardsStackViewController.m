@@ -22,7 +22,7 @@
 - (id)init {
     self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                     navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
-                                  options:nil];
+                                  options:@{UIPageViewControllerOptionInterPageSpacingKey:@12.0f}];
     if (self) {
         self.dataSource = self;
     }
@@ -56,7 +56,7 @@
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
-    return self.testVerbs.count;
+    return self.testVerbs.count+1;
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
