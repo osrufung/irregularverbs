@@ -57,7 +57,6 @@
         _testPending=NO;
         _failed=NO;
         [self computeAverageAddingSample:time];
-        NSLog(@"Adding %fs the average response time for %@ is %fs in %d tests",_responseTime,self.simple, _averageResponseTime,_numberOfTests);
     }
 }
 
@@ -68,11 +67,9 @@
         self.numberOfFailures++;
         self.numberOfTests++;
         
-        NSLog(@"After this fail, the failure ratio for %@ is %f",self.simple,self.failureRatio);
     } else if (!_failed) {
         _failed = YES;
         [self computeAverageRemovingSample:_responseTime];
-        NSLog(@"Removing current sample the average response time for %@ is %fs in %d tests",self.simple, _averageResponseTime,_numberOfTests);
         self.numberOfFailures++;
         self.numberOfTests++;
     }
@@ -90,6 +87,19 @@
     if (!self.numberOfTests) return 0.0;
     else return (float)self.numberOfFailures/self.numberOfTests;
 }
+
+- (int)testCount {
+    return self.numberOfTests;
+}
+
+- (int)failCount {
+    return self.numberOfFailures;
+}
+
+- (int)passCount {
+    return self.numberOfTests-self.numberOfFailures;
+}
+
 
 - (void)resetCurrentTest {
     _testPending = YES;
@@ -171,9 +181,9 @@
     } else if (self.failureRatio>other.failureRatio) {
         return (NSComparisonResult)NSOrderedAscending;
     } else {
-        if (self.responseTime>other.responseTime) {
+        if (self.averageResponseTime>other.averageResponseTime) {
             return (NSComparisonResult)NSOrderedAscending;
-        } else if(self.responseTime<other.responseTime) {
+        } else if(self.averageResponseTime<other.averageResponseTime) {
             return (NSComparisonResult)NSOrderedDescending;
         }
         else return [self.simple compare:other.simple];
@@ -186,6 +196,14 @@
 
 - (NSComparisonResult)compareVerbsByTestNumber:(Verb *)other {
     return self.numberOfTests<other.numberOfTests;
+}
+
+- (NSComparisonResult)compareVerbsByAverageResponseTime:(Verb *)other {
+    if (self.averageResponseTime==other.averageResponseTime) {
+        return self.testCount<other.testCount;
+    } else {
+        return self.averageResponseTime<other.averageResponseTime;
+    }
 }
 
 

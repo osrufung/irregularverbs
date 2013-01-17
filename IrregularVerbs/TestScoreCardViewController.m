@@ -83,9 +83,7 @@ static NSString *SummaryCell = @"SummaryCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section==0) {
-        return 1;
-    }
+    if (section==0) return 1;
     return self.testResults.count;
 }
 
