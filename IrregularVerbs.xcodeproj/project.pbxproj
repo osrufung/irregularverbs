@@ -258,6 +258,66 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E52F436B16A81C6E00220CF1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				09F7933516A6A7C90067EE3C /* HomeViewController.h */,
+				09F7933616A6A7C90067EE3C /* HomeViewController.m */,
+				09F7933716A6A7C90067EE3C /* HomeViewController.xib */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		E52F436D16A81C7F00220CF1 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				099AF68F16834580001A6BF3 /* PreferencesViewController.h */,
+				099AF69016834580001A6BF3 /* PreferencesViewController.m */,
+				E5CAFA1F16A72EC00015B16E /* PreferencesViewController.xib */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		E52F436E16A81CA100220CF1 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				E5DB039216A7E47900EE1E80 /* TSCVerbCell.h */,
+				E5DB039316A7E47900EE1E80 /* TSCVerbCell.m */,
+				E5DB039816A7E55700EE1E80 /* TSCVerbCell.xib */,
+				E5DB039C16A7EDCE00EE1E80 /* TSCSummaryCell.h */,
+				E5DB039D16A7EDCE00EE1E80 /* TSCSummaryCell.m */,
+				E5DB039A16A7EBFA00EE1E80 /* TSCSummaryCell.xib */,
+				E5DB03A316A7EEAC00EE1E80 /* PassFailGraphView.h */,
+				E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */,
+				E5DB039516A7E4C700EE1E80 /* TestScoreCardViewController.h */,
+				E5DB039616A7E4C700EE1E80 /* TestScoreCardViewController.m */,
+				E5E05A9116A6BF8A00CEB889 /* CounterCell.h */,
+				E5E05A9216A6BF8A00CEB889 /* CounterCell.m */,
+				E5E05A9416A6BF9A00CEB889 /* CounterCell.xib */,
+				E5F49E1D16A5C89C0078EC5D /* TestCardViewController.h */,
+				E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */,
+				E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */,
+				E5CAFA1B16A7290E0015B16E /* TestCardsStackViewController.h */,
+				E5CAFA1C16A7290E0015B16E /* TestCardsStackViewController.m */,
+				E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */,
+				E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
+		E52F436F16A81CBD00220CF1 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				090F8B3816A7E253002131E1 /* HistoryDataCell.h */,
+				090F8B3916A7E253002131E1 /* HistoryDataCell.m */,
+				090F8B3C16A7E26B002131E1 /* HistoryDataCell.xib */,
+				090F8B3E16A7E52A002131E1 /* HistoryViewController.h */,
+				090F8B3F16A7E52B002131E1 /* HistoryViewController.m */,
+				090F8B4016A7E52B002131E1 /* HistoryViewController.xib */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
 		E550A5DD169CC8C600DCA8D6 /* Readme */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,8 +348,11 @@
 		E550A5EB169CC92700DCA8D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E52F436D16A81C7F00220CF1 /* Preferences */,
+				E52F436B16A81C6E00220CF1 /* Home */,
+				E52F436E16A81CA100220CF1 /* Test */,
+				E52F436F16A81CBD00220CF1 /* History */,
 				E5B338FC16A6E8CA008F3377 /* Old Interface */,
-				E5B338FA16A6E890008F3377 /* New Interface */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -345,45 +408,6 @@
 				E53DBB5A169C05FF0080276A /* clock_24.png */,
 			);
 			name = Images;
-			sourceTree = "<group>";
-		};
-		E5B338FA16A6E890008F3377 /* New Interface */ = {
-			isa = PBXGroup;
-			children = (
-				09F7933516A6A7C90067EE3C /* HomeViewController.h */,
-				09F7933616A6A7C90067EE3C /* HomeViewController.m */,
-				09F7933716A6A7C90067EE3C /* HomeViewController.xib */,
-				099AF68F16834580001A6BF3 /* PreferencesViewController.h */,
-				099AF69016834580001A6BF3 /* PreferencesViewController.m */,
-				E5CAFA1F16A72EC00015B16E /* PreferencesViewController.xib */,
-				E5DB039216A7E47900EE1E80 /* TSCVerbCell.h */,
-				E5DB039316A7E47900EE1E80 /* TSCVerbCell.m */,
-				E5DB039816A7E55700EE1E80 /* TSCVerbCell.xib */,
-				E5DB039C16A7EDCE00EE1E80 /* TSCSummaryCell.h */,
-				E5DB039D16A7EDCE00EE1E80 /* TSCSummaryCell.m */,
-				E5DB039A16A7EBFA00EE1E80 /* TSCSummaryCell.xib */,
-				E5DB03A316A7EEAC00EE1E80 /* PassFailGraphView.h */,
-				E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */,
-				E5DB039516A7E4C700EE1E80 /* TestScoreCardViewController.h */,
-				E5DB039616A7E4C700EE1E80 /* TestScoreCardViewController.m */,
-				E5E05A9116A6BF8A00CEB889 /* CounterCell.h */,
-				E5E05A9216A6BF8A00CEB889 /* CounterCell.m */,
-				E5E05A9416A6BF9A00CEB889 /* CounterCell.xib */,
-				E5F49E1D16A5C89C0078EC5D /* TestCardViewController.h */,
-				E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */,
-				E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */,
-				E5CAFA1B16A7290E0015B16E /* TestCardsStackViewController.h */,
-				E5CAFA1C16A7290E0015B16E /* TestCardsStackViewController.m */,
-				E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */,
-				E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */,
-				090F8B3816A7E253002131E1 /* HistoryDataCell.h */,
-				090F8B3916A7E253002131E1 /* HistoryDataCell.m */,
-				090F8B3C16A7E26B002131E1 /* HistoryDataCell.xib */,
-				090F8B3E16A7E52A002131E1 /* HistoryViewController.h */,
-				090F8B3F16A7E52B002131E1 /* HistoryViewController.m */,
-				090F8B4016A7E52B002131E1 /* HistoryViewController.xib */,
-			);
-			name = "New Interface";
 			sourceTree = "<group>";
 		};
 		E5B338FC16A6E8CA008F3377 /* Old Interface */ = {
