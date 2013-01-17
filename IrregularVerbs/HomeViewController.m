@@ -12,6 +12,7 @@
 #import "CardsStackViewController.h" 
 #import "TestSelectorViewController.h"
 #import "VerbsStore.h"
+#import "HistoryViewController.h"
 
 @interface HomeViewController ()
 
@@ -34,7 +35,7 @@
         // Custom initialization
         
         UINavigationItem *item = [self navigationItem];
-        [item setTitle:@"a list of Verbs"];
+        [item setTitle:@"Home"];
    
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg.png"]];
     }
@@ -81,14 +82,17 @@
 }
 
 - (IBAction)openHistory:(id)sender {
+    /*
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard"
                                                              bundle: nil];
     CardsStackViewController *vc;
     vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"CardsStackViewController"];
     vc.presentationMode = CardViewControllerPresentationModeHistory;
     vc.title = @"History";
+    */
     
-    [[self navigationController] pushViewController:vc animated:YES];
+    
+    [[self navigationController] pushViewController:[[HistoryViewController alloc] init]  animated:YES];
     
 }
 

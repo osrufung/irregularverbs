@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090F8B3A16A7E253002131E1 /* HistoryDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 090F8B3916A7E253002131E1 /* HistoryDataCell.m */; };
+		090F8B3D16A7E26B002131E1 /* HistoryDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 090F8B3C16A7E26B002131E1 /* HistoryDataCell.xib */; };
+		090F8B4116A7E52B002131E1 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090F8B3F16A7E52B002131E1 /* HistoryViewController.m */; };
+		090F8B4216A7E52B002131E1 /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 090F8B4016A7E52B002131E1 /* HistoryViewController.xib */; };
 		091C61F516A018EF00F3606A /* CardsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091C61F316A018EF00F3606A /* CardsTableViewController.m */; };
 		091C61F616A018EF00F3606A /* CardsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 091C61F416A018EF00F3606A /* CardsTableViewController.xib */; };
 		092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 092CDCA7168D8D8C0092FD32 /* Defaults.plist */; };
@@ -74,6 +78,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090F8B3816A7E253002131E1 /* HistoryDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDataCell.h; sourceTree = "<group>"; };
+		090F8B3916A7E253002131E1 /* HistoryDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDataCell.m; sourceTree = "<group>"; };
+		090F8B3C16A7E26B002131E1 /* HistoryDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryDataCell.xib; sourceTree = "<group>"; };
+		090F8B3E16A7E52A002131E1 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		090F8B3F16A7E52B002131E1 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		090F8B4016A7E52B002131E1 /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 		091C61DD169FF67500F3606A /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
 		091C61DE169FF67500F3606A /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
 		091C61DF169FF67500F3606A /* screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot3.png; sourceTree = "<group>"; };
@@ -366,6 +376,12 @@
 				E5CAFA1C16A7290E0015B16E /* TestCardsStackViewController.m */,
 				E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */,
 				E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */,
+				090F8B3816A7E253002131E1 /* HistoryDataCell.h */,
+				090F8B3916A7E253002131E1 /* HistoryDataCell.m */,
+				090F8B3C16A7E26B002131E1 /* HistoryDataCell.xib */,
+				090F8B3E16A7E52A002131E1 /* HistoryViewController.h */,
+				090F8B3F16A7E52B002131E1 /* HistoryViewController.m */,
+				090F8B4016A7E52B002131E1 /* HistoryViewController.xib */,
 			);
 			name = "New Interface";
 			sourceTree = "<group>";
@@ -476,6 +492,8 @@
 				E5CAFA2016A72EC00015B16E /* PreferencesViewController.xib in Resources */,
 				E5DB039916A7E55700EE1E80 /* TSCVerbCell.xib in Resources */,
 				E5DB039B16A7EBFB00EE1E80 /* TSCSummaryCell.xib in Resources */,
+				090F8B3D16A7E26B002131E1 /* HistoryDataCell.xib in Resources */,
+				090F8B4216A7E52B002131E1 /* HistoryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +524,8 @@
 				E5CAFA1D16A7290E0015B16E /* TestCardsStackViewController.m in Sources */,
 				E5DB039416A7E47900EE1E80 /* TSCVerbCell.m in Sources */,
 				E5DB039716A7E4C700EE1E80 /* TestScoreCardViewController.m in Sources */,
+				090F8B3A16A7E253002131E1 /* HistoryDataCell.m in Sources */,
+				090F8B4116A7E52B002131E1 /* HistoryViewController.m in Sources */,
 				E5DB039E16A7EDCE00EE1E80 /* TSCSummaryCell.m in Sources */,
 				E5DB03A516A7EEAC00EE1E80 /* PassFailGraphView.m in Sources */,
 			);
