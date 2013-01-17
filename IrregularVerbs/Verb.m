@@ -149,11 +149,11 @@
 }
 
 - (NSComparisonResult)compareVerbsByTestResults:(Verb *)other {
-    if (self.failed && other.failed) {
+    if ((self.failed) && (other.failed)) {
         return [self.simple compare:other.simple];
-    } else if (self.failed && !other.failed) {
+    } else if ((self.failed) && (!other.failed)) {
         return (NSComparisonResult)NSOrderedAscending;
-    } else if (!self.failed && other.failed) {
+    } else if ((!self.failed) && (other.failed)) {
         return (NSComparisonResult)NSOrderedDescending;
     } else {
         if (self.responseTime>other.responseTime) {

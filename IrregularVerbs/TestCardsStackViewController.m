@@ -22,7 +22,7 @@
 - (id)init {
     self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                     navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
-                                  options:nil];
+                                  options:@{UIPageViewControllerOptionInterPageSpacingKey:@12.0f}];
     if (self) {
         self.dataSource = self;
     }
@@ -46,13 +46,40 @@
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    TestCardViewController *current = (TestCardViewController *)viewController;
-    return [self testCardViewAtIndex:[self.testVerbs indexOfObject:current.verb]+1];
+    if ([viewController isMemberOfClass:[TestScoreCardViewController class]]) {
+        return nil;
+    }
+    if ([viewController isMemberOfClass:[TestCardViewController class]]) {
+        TestCardViewController *current = (TestCardViewController *)viewController;
+        UIViewController *next = [self testCardViewAtIndex:[self.testVerbs indexOfObject:current.verb]+1];
+        if (!next) {
+            TestScoreCardViewController * tsc = [[TestScoreCardViewController alloc] init];
+            tsc.dataSource = self;
+            return tsc;
+        }
+        return next;
+    }
+    return nil;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    TestCardViewController *current = (TestCardViewController *)viewController;
-    return [self testCardViewAtIndex:[self.testVerbs indexOfObject:current.verb]-1];
+    if ([viewController isMemberOfClass:[TestScoreCardViewController class]]) {
+        return [self testCardViewAtIndex:self.testVerbs.count-1];
+    }
+    if ([viewController isMemberOfClass:[TestCardViewController class]]) {
+        TestCardViewController *current = (TestCardViewController *)viewController;
+        return [self testCardViewAtIndex:[self.testVerbs indexOfObject:current.verb]-1];
+    }
+    return nil;
+}
+
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    return self.testVerbs.count+1;
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+    TestCardViewController *current = (TestCardViewController *)pageViewController.childViewControllers[0];
+    return [self.testVerbs indexOfObject:current.verb];
 }
 
 - (UIViewController *)testCardViewAtIndex:(int)index {
@@ -62,6 +89,10 @@
         vc.verb = self.testVerbs[index];
     }
     return vc;   
+}
+
+- (NSArray *)verbsForTestScoreCardView:(TestScoreCardViewController *)testScoreCardView {
+    return self.testVerbs;
 }
 
 @end
