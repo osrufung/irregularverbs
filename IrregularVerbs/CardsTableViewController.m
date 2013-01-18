@@ -66,13 +66,6 @@
     } else return nil;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if ([self showIndex]) {
-        return _indexEntries[section];
-    } else return @"";
-}
-
-
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [_indexedData[section] count];
 }
@@ -86,6 +79,7 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"UITableViewCell"];
     [[cell textLabel] setText:[v simple]];
     [[cell detailTextLabel] setText: [NSString stringWithFormat:@"%@ - %@ - %@",[v past],[v participle],[v translation]]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
 }
