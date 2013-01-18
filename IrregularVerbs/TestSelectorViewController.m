@@ -71,7 +71,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TestTypeIdentifier];
             cell.textLabel.text = [[VerbsStore sharedStore] testTypes][indexPath.row];
-            [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
+            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         }
         return cell;
     }
