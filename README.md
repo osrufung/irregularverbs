@@ -32,7 +32,7 @@ You can contact us at:
 * v0.9.3e New UI layout (16/1/2013)
 
 ## Screenshot
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot8.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot1.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot2.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot3.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot4.png)
