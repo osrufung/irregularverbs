@@ -118,7 +118,6 @@
 		E513C11C16A93D0F00467B5C /* UIColor+Saturation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Saturation.h"; sourceTree = "<group>"; };
 		E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Saturation.m"; sourceTree = "<group>"; };
 		E513C12516A94CE700467B5C /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
-		E513C12616A94CE700467B5C /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
 		E513C12716A94CE700467B5C /* screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot3.png; sourceTree = "<group>"; };
 		E513C12816A94CE700467B5C /* screenshot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot4.png; sourceTree = "<group>"; };
 		E513C12916A94CE700467B5C /* screenshot5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot5.png; sourceTree = "<group>"; };
@@ -126,6 +125,7 @@
 		E513C12B16A94CE700467B5C /* screenshot7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot7.png; sourceTree = "<group>"; };
 		E513C12C16A94CE700467B5C /* screenshot8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot8.png; sourceTree = "<group>"; };
 		E513C12D16A94CE700467B5C /* screenshot9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot9.png; sourceTree = "<group>"; };
+		E513C13716A9509700467B5C /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
 		E53DBB56169C05DE0080276A /* book_bookmark_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_bookmark_24.png; sourceTree = "<group>"; };
 		E53DBB58169C05F00080276A /* chart_bar_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart_bar_24.png; sourceTree = "<group>"; };
 		E53DBB5A169C05FF0080276A /* clock_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock_24.png; sourceTree = "<group>"; };
@@ -314,7 +314,7 @@
 			children = (
 				099AF61A1681FBAA001A6BF3 /* README.md */,
 				E513C12516A94CE700467B5C /* screenshot1.png */,
-				E513C12616A94CE700467B5C /* screenshot2.png */,
+				E513C13716A9509700467B5C /* screenshot2.png */,
 				E513C12716A94CE700467B5C /* screenshot3.png */,
 				E513C12816A94CE700467B5C /* screenshot4.png */,
 				E513C12916A94CE700467B5C /* screenshot5.png */,
