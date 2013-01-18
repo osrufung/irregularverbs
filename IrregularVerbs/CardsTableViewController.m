@@ -43,6 +43,37 @@
     }
 }
 
+- (void)viewDidLoad {
+    self.searchBar.alpha=0;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                                                                                           target:self action:@selector(toggleSearchBar)];
+}
+
+- (void)toggleSearchBar {
+    if (self.searchBar.alpha==0) {
+        self.searchBar.frame = CGRectOffset(self.searchBar.frame, 0, -self.searchBar.frame.size.height);
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             self.searchBar.alpha=1.0f;
+                             self.searchBar.frame = CGRectOffset(self.searchBar.frame, 0, self.searchBar.frame.size.height);
+                             CGRect currentFrame = self.tableView.frame;
+                             self.tableView.frame=CGRectMake(0, currentFrame.origin.y+self.searchBar.frame.size.height, currentFrame.size.width, currentFrame.size.height-self.searchBar.frame.size.height);
+                         }];
+    } else {
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             self.searchBar.alpha=0.0f;
+                             self.searchBar.frame = CGRectOffset(self.searchBar.frame, 0, -self.searchBar.frame.size.height);
+                             CGRect currentFrame = self.tableView.frame;
+                             self.tableView.frame=CGRectMake(0, currentFrame.origin.y-self.searchBar.frame.size.height, currentFrame.size.width, currentFrame.size.height+self.searchBar.frame.size.height);
+                         }
+                         completion:^(BOOL finished) {
+                             self.searchBar.frame = CGRectOffset(self.searchBar.frame, 0, self.searchBar.frame.size.height);
+                             
+                         }];
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     NSArray *allVerbs = [[VerbsStore sharedStore] alphabetic];
     [self makeIndexFor:allVerbs withSearchText:nil];
@@ -107,6 +138,7 @@
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     NSArray *allVerbs = [[VerbsStore sharedStore] alphabetic];
     [self makeIndexFor:allVerbs withSearchText:nil];
+    self.searchBar.alpha=0;
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
