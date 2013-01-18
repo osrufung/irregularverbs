@@ -71,6 +71,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TestTypeIdentifier];
             cell.textLabel.text = [[VerbsStore sharedStore] testTypes][indexPath.row];
+            [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
         }
         return cell;
     }
@@ -89,9 +90,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  [self openSelectedType:indexPath.row];
+}
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+ 
+    [self openSelectedType:indexPath.row];
+}
 
+-(void)openSelectedType:(NSInteger) type{
     VerbsStore *store = [VerbsStore sharedStore];
-    store.selectedTestType = store.testTypes[indexPath.row];
+    store.selectedTestType = store.testTypes[type];
     
     [self.navigationController pushViewController:[[TestCardsStackViewController alloc] init]
                                          animated:YES];
