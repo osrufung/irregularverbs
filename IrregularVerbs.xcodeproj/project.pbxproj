@@ -37,6 +37,7 @@
 		09F7935616A6F5670067EE3C /* lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7935216A6F5670067EE3C /* lock@2x.png */; };
 		09F7935716A6F5670067EE3C /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7935316A6F5670067EE3C /* search@2x.png */; };
 		09F7935816A6F5670067EE3C /* speedometer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7935416A6F5670067EE3C /* speedometer@2x.png */; };
+		E513C11E16A93D0F00467B5C /* UIColor+Saturation.m in Sources */ = {isa = PBXBuildFile; fileRef = E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */; };
 		E53DBB57169C05DE0080276A /* book_bookmark_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB56169C05DE0080276A /* book_bookmark_24.png */; };
 		E53DBB59169C05F00080276A /* chart_bar_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB58169C05F00080276A /* chart_bar_24.png */; };
 		E53DBB5B169C05FF0080276A /* clock_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB5A169C05FF0080276A /* clock_24.png */; };
@@ -122,6 +123,8 @@
 		09F7935216A6F5670067EE3C /* lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock@2x.png"; sourceTree = "<group>"; };
 		09F7935316A6F5670067EE3C /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
 		09F7935416A6F5670067EE3C /* speedometer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speedometer@2x.png"; sourceTree = "<group>"; };
+		E513C11C16A93D0F00467B5C /* UIColor+Saturation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Saturation.h"; sourceTree = "<group>"; };
+		E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Saturation.m"; sourceTree = "<group>"; };
 		E53DBB56169C05DE0080276A /* book_bookmark_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_bookmark_24.png; sourceTree = "<group>"; };
 		E53DBB58169C05F00080276A /* chart_bar_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart_bar_24.png; sourceTree = "<group>"; };
 		E53DBB5A169C05FF0080276A /* clock_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock_24.png; sourceTree = "<group>"; };
@@ -360,6 +363,8 @@
 		E550A5ED169CC98500DCA8D6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E513C11C16A93D0F00467B5C /* UIColor+Saturation.h */,
+				E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */,
 				E550A5D1169CC83800DCA8D6 /* NSArray+Shuffling.h */,
 				E550A5D2169CC83800DCA8D6 /* NSArray+Shuffling.m */,
 				E5C2CA2C169C5F6600BEE2ED /* Referee.h */,
@@ -530,6 +535,7 @@
 				090F8B4116A7E52B002131E1 /* HistoryViewController.m in Sources */,
 				E5DB039E16A7EDCE00EE1E80 /* TSCSummaryCell.m in Sources */,
 				E5DB03A516A7EEAC00EE1E80 /* PassFailGraphView.m in Sources */,
+				E513C11E16A93D0F00467B5C /* UIColor+Saturation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,12 +617,12 @@
 		09D372FE1681BA4F00F80410 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Oswaldo Rubio (6D49C5XLGW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IrregularVerbs/IrregularVerbs-Prefix.pch";
 				INFOPLIST_FILE = "IrregularVerbs/IrregularVerbs-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2DAFB50C-0D94-4F5E-AB18-B57F8E401482";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

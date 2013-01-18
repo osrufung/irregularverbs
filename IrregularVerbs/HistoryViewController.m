@@ -69,11 +69,27 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
     return _currentData.count;
 }
 
+//Without row height cached performance sucks
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
-    if (indexPath.section==0) cell = [tableView dequeueReusableCellWithIdentifier:SummaryIdentifier];
-    if (indexPath.section==1) cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    return cell.bounds.size.height;
+    if (indexPath.section==0) {
+        static CGFloat headerHeight = 0;
+        if (headerHeight==0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:SummaryIdentifier];
+            headerHeight = cell.bounds.size.height;
+        }
+        return headerHeight;
+    }
+    if (indexPath.section==1) {
+        static CGFloat rowHeight = 0;
+        if (rowHeight==0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            rowHeight = cell.bounds.size.height;
+        }
+        return rowHeight;
+
+    }
+    return 0;
 }
 
 - (NSAttributedString *)attributedAverageString
@@ -98,6 +114,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
     if (indexPath.section==0) {
         TSCSummaryCell *cell = [tableView dequeueReusableCellWithIdentifier:SummaryIdentifier forIndexPath:indexPath];
         
+        [cell.passFailGraph setColorsSaturation:0.5f];
         [cell.passFailGraph setDataCount:self.passCount+self.failCount
                            withPassCount:self.passCount
                             andFailCount:self.failCount];
@@ -105,6 +122,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
         cell.labelTitle.text = @"History";
         cell.labelAverageTime.attributedText = [self attributedAverageString];
         cell.labelFailureRatio.text = [NSString stringWithFormat:@"%.0f%% fail",100.0*self.failCount/(self.passCount+self.failCount)];
+        cell.labelFailureRatio.textColor = [UIColor blackColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
@@ -129,11 +147,13 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
             failCount = v.failureRatio*100;
             passCount = 100-failCount;
             cell.labelFailed.text = [NSString stringWithFormat:@"%d%% fail",failCount];
+            cell.labelFailed.textColor = [UIColor darkGrayColor];
         } else {
             failCount = passCount = 0;
             cell.labelFailed.text = @"";
         }
         
+        [cell.passFailGraph setColorsSaturation:0.3f];
         [cell.passFailGraph setDataCount:100
                            withPassCount:passCount
                             andFailCount:failCount];

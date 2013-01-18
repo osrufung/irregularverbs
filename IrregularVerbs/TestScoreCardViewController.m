@@ -89,9 +89,24 @@ static NSString *SummaryCell = @"SummaryCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
-    if (indexPath.section==0) cell = [tableView dequeueReusableCellWithIdentifier:SummaryCell];
-    if (indexPath.section==1) cell = [tableView dequeueReusableCellWithIdentifier:VerbCell];
-    return cell.bounds.size.height;
+    if (indexPath.section==0) {
+        static CGFloat headerHeight = 0;
+        if (headerHeight==0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:SummaryCell];
+            headerHeight = cell.bounds.size.height;
+        }
+        return headerHeight;
+    }
+    if (indexPath.section==1) {
+        static CGFloat rowHeight = 0;
+        if (rowHeight==0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:VerbCell];
+            rowHeight = cell.bounds.size.height;
+        }
+        return rowHeight;
+        
+    }
+    return 0;
 }
 
 - (NSAttributedString *)attributedAverageString
