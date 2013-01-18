@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet PassFailGraphView *passFailGraph;
 @property (weak, nonatomic) IBOutlet UILabel *labelFailureRatio;
 @property (weak, nonatomic) IBOutlet UILabel *labelAverageTime;
+@property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 
 @end

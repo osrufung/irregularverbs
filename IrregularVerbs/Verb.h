@@ -14,11 +14,16 @@
 @property (nonatomic,strong) NSString *past;
 @property (nonatomic,strong) NSString *participle;
 @property (nonatomic,strong) NSString *translation;
+@property (nonatomic) float frequency;
+
 @property (nonatomic,readonly) float averageResponseTime;
 @property (nonatomic,readonly) float failureRatio;
-@property (nonatomic,readonly) BOOL failed;
+@property (nonatomic,readonly) int testCount;
+@property (nonatomic,readonly) int failCount;
+@property (nonatomic,readonly) int passCount;
+
 @property (nonatomic,readonly) float responseTime;
-@property (nonatomic) float frequency;
+@property (nonatomic,readonly) BOOL failed;
 @property (nonatomic,readonly) BOOL testPending;
 
 - (id)initFromDictionary:(NSDictionary *)dictonary;
@@ -33,5 +38,6 @@
 - (NSComparisonResult)compareVerbsByHistoricalPerformance:(Verb *)other;
 - (NSComparisonResult)compareVerbsByFrequency:(Verb *)other;
 - (NSComparisonResult)compareVerbsByTestNumber:(Verb *)other;
+- (NSComparisonResult)compareVerbsByAverageResponseTime:(Verb *)other;
 
 @end

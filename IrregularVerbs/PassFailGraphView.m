@@ -7,6 +7,7 @@
 //
 
 #import "PassFailGraphView.h"
+#import "UIColor+Saturation.h"
 
 @interface PassFailGraphView()
 @property (nonatomic) int total;
@@ -34,6 +35,14 @@
     self.pass=pass;
     self.fail=fail;
     [self setNeedsDisplay];
+}
+
+- (void)setColorsSaturation:(CGFloat)saturation {
+    NSMutableArray *satCol = [[NSMutableArray alloc] initWithCapacity:self.colors.count];
+    for (UIColor *col in self.colors) {
+        [satCol addObject:[col colorWithSaturation:saturation]];
+    }
+    self.colors = satCol;
 }
 
 - (void)drawRect:(CGRect)rect

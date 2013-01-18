@@ -24,8 +24,6 @@
 		09D372EF1681BA4F00F80410 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D372EE1681BA4F00F80410 /* Default.png */; };
 		09D372F11681BA4F00F80410 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D372F01681BA4F00F80410 /* Default@2x.png */; };
 		09D372F31681BA4F00F80410 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D372F21681BA4F00F80410 /* Default-568h@2x.png */; };
-		09D372F61681BA4F00F80410 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D372F41681BA4F00F80410 /* MainStoryboard.storyboard */; };
-		09D372F91681BA4F00F80410 /* CardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D372F81681BA4F00F80410 /* CardViewController.m */; };
 		09D373001681BC5200F80410 /* verbs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09D372FF1681BC5200F80410 /* verbs.plist */; };
 		09F7933816A6A7C90067EE3C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F7933616A6A7C90067EE3C /* HomeViewController.m */; };
 		09F7933916A6A7C90067EE3C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F7933716A6A7C90067EE3C /* HomeViewController.xib */; };
@@ -39,7 +37,7 @@
 		09F7935616A6F5670067EE3C /* lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7935216A6F5670067EE3C /* lock@2x.png */; };
 		09F7935716A6F5670067EE3C /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7935316A6F5670067EE3C /* search@2x.png */; };
 		09F7935816A6F5670067EE3C /* speedometer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7935416A6F5670067EE3C /* speedometer@2x.png */; };
-		E53DBB4C169BFFD50080276A /* ModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53DBB4B169BFFD50080276A /* ModeViewController.m */; };
+		E513C11E16A93D0F00467B5C /* UIColor+Saturation.m in Sources */ = {isa = PBXBuildFile; fileRef = E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */; };
 		E53DBB57169C05DE0080276A /* book_bookmark_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB56169C05DE0080276A /* book_bookmark_24.png */; };
 		E53DBB59169C05F00080276A /* chart_bar_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB58169C05F00080276A /* chart_bar_24.png */; };
 		E53DBB5B169C05FF0080276A /* clock_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB5A169C05FF0080276A /* clock_24.png */; };
@@ -74,7 +72,6 @@
 		E5F49E2816A5CAF30078EC5D /* thumbup.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E2416A5CAF30078EC5D /* thumbup.png */; };
 		E5F49E2916A5CAF30078EC5D /* thumbdown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E2516A5CAF30078EC5D /* thumbdown@2x.png */; };
 		E5F49E2A16A5CAF30078EC5D /* thumbdown.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E2616A5CAF30078EC5D /* thumbdown.png */; };
-		E5FE5827169B12B7002AC8A2 /* CardsStackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,9 +109,6 @@
 		09D372EE1681BA4F00F80410 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		09D372F01681BA4F00F80410 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		09D372F21681BA4F00F80410 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		09D372F51681BA4F00F80410 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		09D372F71681BA4F00F80410 /* CardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardViewController.h; sourceTree = "<group>"; };
-		09D372F81681BA4F00F80410 /* CardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardViewController.m; sourceTree = "<group>"; };
 		09D372FF1681BC5200F80410 /* verbs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = verbs.plist; sourceTree = "<group>"; };
 		09F7933516A6A7C90067EE3C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		09F7933616A6A7C90067EE3C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -129,8 +123,8 @@
 		09F7935216A6F5670067EE3C /* lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock@2x.png"; sourceTree = "<group>"; };
 		09F7935316A6F5670067EE3C /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
 		09F7935416A6F5670067EE3C /* speedometer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speedometer@2x.png"; sourceTree = "<group>"; };
-		E53DBB4A169BFFD50080276A /* ModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeViewController.h; sourceTree = "<group>"; };
-		E53DBB4B169BFFD50080276A /* ModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeViewController.m; sourceTree = "<group>"; };
+		E513C11C16A93D0F00467B5C /* UIColor+Saturation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Saturation.h"; sourceTree = "<group>"; };
+		E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Saturation.m"; sourceTree = "<group>"; };
 		E53DBB56169C05DE0080276A /* book_bookmark_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_bookmark_24.png; sourceTree = "<group>"; };
 		E53DBB58169C05F00080276A /* chart_bar_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart_bar_24.png; sourceTree = "<group>"; };
 		E53DBB5A169C05FF0080276A /* clock_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock_24.png; sourceTree = "<group>"; };
@@ -179,8 +173,6 @@
 		E5F49E2416A5CAF30078EC5D /* thumbup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbup.png; sourceTree = "<group>"; };
 		E5F49E2516A5CAF30078EC5D /* thumbdown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbdown@2x.png"; sourceTree = "<group>"; };
 		E5F49E2616A5CAF30078EC5D /* thumbdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbdown.png; sourceTree = "<group>"; };
-		E5FE5825169B12B7002AC8A2 /* CardsStackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsStackViewController.h; sourceTree = "<group>"; };
-		E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsStackViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,8 +279,6 @@
 				E5DB039C16A7EDCE00EE1E80 /* TSCSummaryCell.h */,
 				E5DB039D16A7EDCE00EE1E80 /* TSCSummaryCell.m */,
 				E5DB039A16A7EBFA00EE1E80 /* TSCSummaryCell.xib */,
-				E5DB03A316A7EEAC00EE1E80 /* PassFailGraphView.h */,
-				E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */,
 				E5DB039516A7E4C700EE1E80 /* TestScoreCardViewController.h */,
 				E5DB039616A7E4C700EE1E80 /* TestScoreCardViewController.m */,
 				E5E05A9116A6BF8A00CEB889 /* CounterCell.h */,
@@ -348,11 +338,11 @@
 		E550A5EB169CC92700DCA8D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E52F436D16A81C7F00220CF1 /* Preferences */,
 				E52F436B16A81C6E00220CF1 /* Home */,
+				E5B0A74916A8B55800ADEBCE /* Learn */,
 				E52F436E16A81CA100220CF1 /* Test */,
 				E52F436F16A81CBD00220CF1 /* History */,
-				E5B338FC16A6E8CA008F3377 /* Old Interface */,
+				E52F436D16A81C7F00220CF1 /* Preferences */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -360,6 +350,8 @@
 		E550A5EC169CC95400DCA8D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E5DB03A316A7EEAC00EE1E80 /* PassFailGraphView.h */,
+				E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */,
 				E550A5D5169CC85700DCA8D6 /* TestProgressView.m */,
 				E550A5D4169CC84A00DCA8D6 /* TestProgressView.h */,
 				E550A5CD169CC80B00DCA8D6 /* ColorMapView.h */,
@@ -371,6 +363,8 @@
 		E550A5ED169CC98500DCA8D6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E513C11C16A93D0F00467B5C /* UIColor+Saturation.h */,
+				E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */,
 				E550A5D1169CC83800DCA8D6 /* NSArray+Shuffling.h */,
 				E550A5D2169CC83800DCA8D6 /* NSArray+Shuffling.m */,
 				E5C2CA2C169C5F6600BEE2ED /* Referee.h */,
@@ -410,21 +404,14 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		E5B338FC16A6E8CA008F3377 /* Old Interface */ = {
+		E5B0A74916A8B55800ADEBCE /* Learn */ = {
 			isa = PBXGroup;
 			children = (
-				E53DBB4A169BFFD50080276A /* ModeViewController.h */,
-				E53DBB4B169BFFD50080276A /* ModeViewController.m */,
-				E5FE5825169B12B7002AC8A2 /* CardsStackViewController.h */,
-				E5FE5826169B12B7002AC8A2 /* CardsStackViewController.m */,
-				09D372F71681BA4F00F80410 /* CardViewController.h */,
-				09D372F81681BA4F00F80410 /* CardViewController.m */,
 				091C61F216A018EF00F3606A /* CardsTableViewController.h */,
 				091C61F316A018EF00F3606A /* CardsTableViewController.m */,
 				091C61F416A018EF00F3606A /* CardsTableViewController.xib */,
-				09D372F41681BA4F00F80410 /* MainStoryboard.storyboard */,
 			);
-			name = "Old Interface";
+			name = Learn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -482,7 +469,6 @@
 				09D372EF1681BA4F00F80410 /* Default.png in Resources */,
 				09D372F11681BA4F00F80410 /* Default@2x.png in Resources */,
 				09D372F31681BA4F00F80410 /* Default-568h@2x.png in Resources */,
-				09D372F61681BA4F00F80410 /* MainStoryboard.storyboard in Resources */,
 				09D373001681BC5200F80410 /* verbs.plist in Resources */,
 				092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */,
 				E53DBB57169C05DE0080276A /* book_bookmark_24.png in Resources */,
@@ -530,11 +516,8 @@
 			files = (
 				09D372E91681BA4F00F80410 /* main.m in Sources */,
 				09D372ED1681BA4F00F80410 /* AppDelegate.m in Sources */,
-				09D372F91681BA4F00F80410 /* CardViewController.m in Sources */,
 				099AF69116834580001A6BF3 /* PreferencesViewController.m in Sources */,
 				E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */,
-				E5FE5827169B12B7002AC8A2 /* CardsStackViewController.m in Sources */,
-				E53DBB4C169BFFD50080276A /* ModeViewController.m in Sources */,
 				E5C2CA2E169C5F6600BEE2ED /* Referee.m in Sources */,
 				E5C2CA32169C6A0C00BEE2ED /* Verb.m in Sources */,
 				E550A5CF169CC80B00DCA8D6 /* ColorMapView.m in Sources */,
@@ -552,6 +535,7 @@
 				090F8B4116A7E52B002131E1 /* HistoryViewController.m in Sources */,
 				E5DB039E16A7EDCE00EE1E80 /* TSCSummaryCell.m in Sources */,
 				E5DB03A516A7EEAC00EE1E80 /* PassFailGraphView.m in Sources */,
+				E513C11E16A93D0F00467B5C /* UIColor+Saturation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,14 +548,6 @@
 				09D372E61681BA4F00F80410 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		09D372F41681BA4F00F80410 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				09D372F51681BA4F00F80410 /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -641,12 +617,12 @@
 		09D372FE1681BA4F00F80410 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Oswaldo Rubio (6D49C5XLGW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IrregularVerbs/IrregularVerbs-Prefix.pch";
 				INFOPLIST_FILE = "IrregularVerbs/IrregularVerbs-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2DAFB50C-0D94-4F5E-AB18-B57F8E401482";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

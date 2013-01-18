@@ -13,5 +13,6 @@
 @property (nonatomic, copy) NSArray *colors;
 
 - (void)setDataCount:(int)total withPassCount:(int)pass andFailCount:(int)fail;
+- (void)setColorsSaturation:(CGFloat)saturation;
 
 @end
