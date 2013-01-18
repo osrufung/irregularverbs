@@ -1,7 +1,7 @@
 # Irregular Verbs App
 
 ## Overview
-A very Simple App for review your english knowledge about 154 Irregular Verbs (present, past, participle). Select a mode: learn, test or review. Swipe right or left to navigate between verbs. In test mode, each time a new ver appear, you only see the present time. If you think that you knw that verb swipe up. If you don't know swipe down. In each case the time elapsed and the answer is shown. Y can correct a valid response that is erroneous swipping down wen you see the results.
+A very Simple App for review your english knowledge about 154 Irregular Verbs (present, past, participle). Select a mode: learn, test or history.
 
 Experimental use of the frequency of use as a level of difficulty. You can see the values computed in [freq-verbs](https://github.com/rbarbera/freq-verbs)
 
@@ -32,10 +32,12 @@ You can contact us at:
 * v0.9.3e New UI layout (16/1/2013)
 
 ## Screenshot
-![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot8.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot8.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot2.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot3.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot4.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot5.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot6.png)
-![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot7.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot7.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot8.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot9.png)

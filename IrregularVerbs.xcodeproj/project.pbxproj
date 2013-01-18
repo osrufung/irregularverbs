@@ -81,17 +81,9 @@
 		090F8B3E16A7E52A002131E1 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		090F8B3F16A7E52B002131E1 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		090F8B4016A7E52B002131E1 /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
-		091C61DD169FF67500F3606A /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
-		091C61DE169FF67500F3606A /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
-		091C61DF169FF67500F3606A /* screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot3.png; sourceTree = "<group>"; };
-		091C61E0169FF67500F3606A /* screenshot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot4.png; sourceTree = "<group>"; };
-		091C61E1169FF67500F3606A /* screenshot5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot5.png; sourceTree = "<group>"; };
-		091C61E2169FF67500F3606A /* screenshot6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot6.png; sourceTree = "<group>"; };
-		091C61E9169FFC3E00F3606A /* screenshot7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot7.png; sourceTree = "<group>"; };
 		091C61F216A018EF00F3606A /* CardsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsTableViewController.h; sourceTree = "<group>"; };
 		091C61F316A018EF00F3606A /* CardsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsTableViewController.m; sourceTree = "<group>"; };
 		091C61F416A018EF00F3606A /* CardsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardsTableViewController.xib; sourceTree = "<group>"; };
-		091C61F716A02AE500F3606A /* screenshot8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot8.png; sourceTree = "<group>"; };
 		092CDCA7168D8D8C0092FD32 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		099AF61A1681FBAA001A6BF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		099AF68F16834580001A6BF3 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
@@ -125,6 +117,15 @@
 		09F7935416A6F5670067EE3C /* speedometer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speedometer@2x.png"; sourceTree = "<group>"; };
 		E513C11C16A93D0F00467B5C /* UIColor+Saturation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Saturation.h"; sourceTree = "<group>"; };
 		E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Saturation.m"; sourceTree = "<group>"; };
+		E513C12516A94CE700467B5C /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
+		E513C12616A94CE700467B5C /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
+		E513C12716A94CE700467B5C /* screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot3.png; sourceTree = "<group>"; };
+		E513C12816A94CE700467B5C /* screenshot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot4.png; sourceTree = "<group>"; };
+		E513C12916A94CE700467B5C /* screenshot5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot5.png; sourceTree = "<group>"; };
+		E513C12A16A94CE700467B5C /* screenshot6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot6.png; sourceTree = "<group>"; };
+		E513C12B16A94CE700467B5C /* screenshot7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot7.png; sourceTree = "<group>"; };
+		E513C12C16A94CE700467B5C /* screenshot8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot8.png; sourceTree = "<group>"; };
+		E513C12D16A94CE700467B5C /* screenshot9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot9.png; sourceTree = "<group>"; };
 		E53DBB56169C05DE0080276A /* book_bookmark_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_bookmark_24.png; sourceTree = "<group>"; };
 		E53DBB58169C05F00080276A /* chart_bar_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chart_bar_24.png; sourceTree = "<group>"; };
 		E53DBB5A169C05FF0080276A /* clock_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock_24.png; sourceTree = "<group>"; };
@@ -311,15 +312,16 @@
 		E550A5DD169CC8C600DCA8D6 /* Readme */ = {
 			isa = PBXGroup;
 			children = (
-				091C61F716A02AE500F3606A /* screenshot8.png */,
-				091C61E9169FFC3E00F3606A /* screenshot7.png */,
-				091C61DD169FF67500F3606A /* screenshot1.png */,
-				091C61DE169FF67500F3606A /* screenshot2.png */,
-				091C61DF169FF67500F3606A /* screenshot3.png */,
-				091C61E0169FF67500F3606A /* screenshot4.png */,
-				091C61E1169FF67500F3606A /* screenshot5.png */,
-				091C61E2169FF67500F3606A /* screenshot6.png */,
 				099AF61A1681FBAA001A6BF3 /* README.md */,
+				E513C12516A94CE700467B5C /* screenshot1.png */,
+				E513C12616A94CE700467B5C /* screenshot2.png */,
+				E513C12716A94CE700467B5C /* screenshot3.png */,
+				E513C12816A94CE700467B5C /* screenshot4.png */,
+				E513C12916A94CE700467B5C /* screenshot5.png */,
+				E513C12A16A94CE700467B5C /* screenshot6.png */,
+				E513C12B16A94CE700467B5C /* screenshot7.png */,
+				E513C12C16A94CE700467B5C /* screenshot8.png */,
+				E513C12D16A94CE700467B5C /* screenshot9.png */,
 			);
 			name = Readme;
 			sourceTree = "<group>";
