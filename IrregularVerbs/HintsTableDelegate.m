@@ -38,15 +38,15 @@
 }
 
 - (UIView *)headerViewWithText:(NSString *)text {
-    int currHeight = 10;
+    int currHeight = 14;
     
-    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(10, currHeight, 300, 44)];
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(18, currHeight, 284, 44)];
     lab.text = text;
     lab.font = [UIFont fontWithName:@"Helvetica-Light" size:14.0f];
     lab.numberOfLines=0;
     lab.backgroundColor = [UIColor clearColor];
     [lab sizeToFitText];
-    currHeight += lab.frame.size.height+4;
+    currHeight += lab.frame.size.height+2;
 
     UILabel *simple = [[UILabel alloc] initWithFrame:CGRectMake(10, currHeight, 98, 21)];
     simple.text = @"Present";
@@ -65,11 +65,11 @@
     participle.textAlignment = NSTextAlignmentCenter;
     participle.font = [UIFont fontWithName:@"Helvetica" size:14.0f];
     participle.backgroundColor = [UIColor clearColor];
-    currHeight += 25;
+    currHeight += simple.frame.size.height+2;
 
     UIView *foot = [[UIView alloc] initWithFrame:CGRectMake(10,currHeight,300, 1)];
     foot.backgroundColor = [UIColor lightGrayColor];
-    currHeight +=4;
+    currHeight += foot.frame.size.height+2;
 
     UIView *back = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, currHeight)];
     back.backgroundColor = [UIColor whiteColor];
