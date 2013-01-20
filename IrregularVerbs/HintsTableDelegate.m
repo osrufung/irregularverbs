@@ -15,48 +15,26 @@
 
 @interface HintsTableDelegate()
 
-@property (nonatomic, strong) NSMutableArray * indexedData;
-@property (nonatomic, strong) NSMutableArray * indexEntries;
+@property (nonatomic, strong) NSMutableArray *flatDataSet;
 
 @end
 
 @implementation HintsTableDelegate
 
-- (void)makeHintsIndex {
-    _indexedData = [[NSMutableArray alloc] init];
-    _indexEntries = [[NSMutableArray alloc] init];
-    int currentHint = -1;
-
-    NSArray *array = [[[VerbsStore sharedStore] alphabetic] sortedArrayUsingSelector:@selector(compareVerbsByHint:)];
-    NSMutableArray *currentSection = nil;
-    for (Verb * verb in array) {
-        if (verb.hint!=currentHint) {
-            currentHint = verb.hint;
-            currentSection = [[NSMutableArray alloc] init];
-            [_indexEntries addObject:[[VerbsStore alloc] hintForGroupIndex:currentHint]];
-            [_indexedData addObject:currentSection];
+- (NSArray *)flatDataSet {
+    if (!_flatDataSet) {
+        NSArray *verbs = [[[VerbsStore sharedStore] alphabetic] sortedArrayUsingSelector:@selector(compareVerbsByHint:)];
+        _flatDataSet = [[NSMutableArray alloc] initWithCapacity:verbs.count];
+        int currentHint = -1;
+        for (Verb *verb in verbs) {
+            if (verb.hint!=currentHint) {
+                currentHint = verb.hint;
+                [_flatDataSet addObject:[[VerbsStore alloc] hintForGroupIndex:currentHint]];
+            }
+            [_flatDataSet addObject:verb];
         }
-        [currentSection addObject:verb];
     }
-
-}
-
-- (NSMutableArray *)indexedData {
-    if (!_indexedData) {
-        [self makeHintsIndex];
-    }
-    return _indexedData;
-}
-
-- (NSMutableArray *)indexEntries {
-    if (!_indexEntries) {
-        [self makeHintsIndex];
-    }
-    return _indexEntries;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.indexedData.count;
+    return _flatDataSet;
 }
 
 - (UIView *)headerViewWithText:(NSString *)text {
@@ -104,41 +82,52 @@
     
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return [self headerViewWithText:self.indexEntries[section]];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    UIView *v = [self tableView:tableView viewForHeaderInSection:section];
-    return v.frame.size.height;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static CGFloat hintHeigth = 0;
-    if (!hintHeigth) {
-        HintsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HintsCell"];
-        hintHeigth = cell.frame.size.height;
+    static CGFloat verbCellHeight = 0;
+    id item = self.flatDataSet[indexPath.row];
+
+    if ([item isKindOfClass:[NSString class]]) {
+        UIView *cellView = [self headerViewWithText:item];
+        return cellView.frame.size.height;
     }
-    return hintHeigth;
+    if ([item isKindOfClass:[Verb class]]) {
+        if (verbCellHeight==0) {
+            HintsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HintsCell"];
+            verbCellHeight = cell.frame.size.height;
+        }
+        return verbCellHeight;
+    }
+    return 44.0f;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.indexedData[section] count];
+    return self.flatDataSet.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Verb *v;
+    id item = self.flatDataSet[indexPath.row];
     
-    v = self.indexedData[indexPath.section][indexPath.row];
+    if ([item isKindOfClass:[Verb class] ]) {
+        Verb *v = item;
+        HintsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HintsCell" forIndexPath:indexPath];
+        cell.labelSimple.text = v.simple;
+        cell.labelPass.text = v.past;
+        cell.labelParticiple.text = v.participle;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if ([item isKindOfClass:[NSString class]]) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HeaderCell"];
+        }
+        cell.accessoryView = [self headerViewWithText:item];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
     
-    HintsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HintsCell" forIndexPath:indexPath];
-    cell.labelSimple.text = v.simple;
-    cell.labelPass.text = v.past;
-    cell.labelParticiple.text = v.participle;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
-    
+    return nil;
 }
 
 @end
