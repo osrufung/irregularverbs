@@ -24,7 +24,6 @@
 		09D372EF1681BA4F00F80410 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D372EE1681BA4F00F80410 /* Default.png */; };
 		09D372F11681BA4F00F80410 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D372F01681BA4F00F80410 /* Default@2x.png */; };
 		09D372F31681BA4F00F80410 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D372F21681BA4F00F80410 /* Default-568h@2x.png */; };
-		09D373001681BC5200F80410 /* verbs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09D372FF1681BC5200F80410 /* verbs.plist */; };
 		09F7933816A6A7C90067EE3C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F7933616A6A7C90067EE3C /* HomeViewController.m */; };
 		09F7933916A6A7C90067EE3C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F7933716A6A7C90067EE3C /* HomeViewController.xib */; };
 		09F7933D16A6C6490067EE3C /* HomeViewbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7933B16A6C6490067EE3C /* HomeViewbg.png */; };
@@ -47,6 +46,7 @@
 		E53DC4F416AC4EE3004CF825 /* UILabel+FrameExpand.m in Sources */ = {isa = PBXBuildFile; fileRef = E53DC4F316AC4EE3004CF825 /* UILabel+FrameExpand.m */; };
 		E53DC4F716AC56B5004CF825 /* HintsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53DC4F616AC56B5004CF825 /* HintsCell.m */; };
 		E53DC4F916AC56C6004CF825 /* HintsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53DC4F816AC56C6004CF825 /* HintsCell.xib */; };
+		E53DC50216AC7D5B004CF825 /* verbs.plist in Resources */ = {isa = PBXBuildFile; fileRef = E53DC50116AC7D5B004CF825 /* verbs.plist */; };
 		E550A5CF169CC80B00DCA8D6 /* ColorMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = E550A5CE169CC80B00DCA8D6 /* ColorMapView.m */; };
 		E550A5D3169CC83800DCA8D6 /* NSArray+Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = E550A5D2169CC83800DCA8D6 /* NSArray+Shuffling.m */; };
 		E550A5D6169CC85700DCA8D6 /* TestProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E550A5D5169CC85700DCA8D6 /* TestProgressView.m */; };
@@ -104,7 +104,6 @@
 		09D372EE1681BA4F00F80410 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		09D372F01681BA4F00F80410 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		09D372F21681BA4F00F80410 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		09D372FF1681BC5200F80410 /* verbs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = verbs.plist; sourceTree = "<group>"; };
 		09F7933516A6A7C90067EE3C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		09F7933616A6A7C90067EE3C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		09F7933716A6A7C90067EE3C /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -141,6 +140,7 @@
 		E53DC4F516AC56B5004CF825 /* HintsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HintsCell.h; sourceTree = "<group>"; };
 		E53DC4F616AC56B5004CF825 /* HintsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HintsCell.m; sourceTree = "<group>"; };
 		E53DC4F816AC56C6004CF825 /* HintsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HintsCell.xib; sourceTree = "<group>"; };
+		E53DC50116AC7D5B004CF825 /* verbs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = verbs.plist; sourceTree = "<group>"; };
 		E550A5CD169CC80B00DCA8D6 /* ColorMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorMapView.h; sourceTree = "<group>"; };
 		E550A5CE169CC80B00DCA8D6 /* ColorMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorMapView.m; sourceTree = "<group>"; };
 		E550A5D1169CC83800DCA8D6 /* NSArray+Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Shuffling.h"; sourceTree = "<group>"; };
@@ -250,8 +250,8 @@
 				09D372EC1681BA4F00F80410 /* AppDelegate.m */,
 				092CDCA7168D8D8C0092FD32 /* Defaults.plist */,
 				E550A5EE169CC9AE00DCA8D6 /* Images */,
-				09D372FF1681BC5200F80410 /* verbs.plist */,
 				09D372E41681BA4F00F80410 /* IrregularVerbs-Info.plist */,
+				E53DC50116AC7D5B004CF825 /* verbs.plist */,
 				09D372E51681BA4F00F80410 /* InfoPlist.strings */,
 				09D372EE1681BA4F00F80410 /* Default.png */,
 				09D372F01681BA4F00F80410 /* Default@2x.png */,
@@ -484,7 +484,6 @@
 				09D372EF1681BA4F00F80410 /* Default.png in Resources */,
 				09D372F11681BA4F00F80410 /* Default@2x.png in Resources */,
 				09D372F31681BA4F00F80410 /* Default-568h@2x.png in Resources */,
-				09D373001681BC5200F80410 /* verbs.plist in Resources */,
 				092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */,
 				E53DBB57169C05DE0080276A /* book_bookmark_24.png in Resources */,
 				E53DBB59169C05F00080276A /* chart_bar_24.png in Resources */,
@@ -520,6 +519,7 @@
 				090F8B4216A7E52B002131E1 /* HistoryViewController.xib in Resources */,
 				E57BA4DD16AA1FB0004AFF04 /* hints.plist in Resources */,
 				E53DC4F916AC56C6004CF825 /* HintsCell.xib in Resources */,
+				E53DC50216AC7D5B004CF825 /* verbs.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

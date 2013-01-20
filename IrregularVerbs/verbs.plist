@@ -454,7 +454,7 @@
 		<key>frequency</key>
 		<real>0.01138146187901019</real>
 		<key>hint</key>
-		<integer>0</integer>
+		<integer>21</integer>
 		<key>participle</key>
 		<string>done</string>
 		<key>past</key>
@@ -720,7 +720,7 @@
 		<key>frequency</key>
 		<real>0.01062633816365253</real>
 		<key>hint</key>
-		<integer>0</integer>
+		<integer>21</integer>
 		<key>participle</key>
 		<string>gone</string>
 		<key>past</key>

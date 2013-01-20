@@ -102,7 +102,6 @@
     if (!_hints) {
         _hints  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"hints" ofType:@"plist"]];
     }
-    NSLog(@"%@",_hints);
     return _hints;
 }
 

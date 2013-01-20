@@ -51,11 +51,14 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  
-    [self chooseDataSet:0];
+    int historyView = [[NSUserDefaults standardUserDefaults] integerForKey:@"historyView"];
+    self.criteriaControl.selectedSegmentIndex = historyView;
+    [self chooseDataSet:historyView];
+    
     [self computeStatistics];
     [self.tableView reloadData];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -146,8 +149,12 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
         if (v.testCount!=0) {
             failCount = v.failureRatio*100;
             passCount = 100-failCount;
-            cell.labelFailed.text = [NSString stringWithFormat:@"%d%% fail",failCount];
-            cell.labelFailed.textColor = [UIColor darkGrayColor];
+            if ((failCount!=0)&&(failCount!=100)) {
+                cell.labelFailed.text = [NSString stringWithFormat:@"%d%% fail",failCount];
+                cell.labelFailed.textColor = [UIColor darkGrayColor];
+            } else {
+                cell.labelFailed.text = @"";    
+            }
         } else {
             failCount = passCount = 0;
             cell.labelFailed.text = @"";
@@ -197,6 +204,8 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
             _currentData = nil;
             break;
     }
+    [[NSUserDefaults standardUserDefaults] setInteger:criteriaId forKey:@"historyView"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (IBAction)sortCriteriaChanged:(id)sender {
