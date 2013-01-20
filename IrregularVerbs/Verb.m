@@ -38,7 +38,8 @@
 - (void)computeAverageAddingSample:(float)time {
     int numberOk = self.numberOfTests-self.numberOfFailures;
     _responseTime = time;
-    _averageResponseTime = (_averageResponseTime*numberOk+_responseTime)/(numberOk+1);
+    if (numberOk==0) _averageResponseTime = _responseTime;
+    else _averageResponseTime = _averageResponseTime + 0.1*(_responseTime-_averageResponseTime);
     self.numberOfTests++;
 }
 
@@ -48,7 +49,7 @@
     if (numberOk==1)
         _averageResponseTime = 0.0f;
     else
-        _averageResponseTime = (_averageResponseTime*numberOk-_responseTime)/(numberOk-1);
+        _averageResponseTime = (_averageResponseTime - 0.1*_responseTime)/0.9f;
     _responseTime = 0.0f;
     self.numberOfTests--;
 }
