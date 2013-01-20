@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>Verbs without hints</string>
+	<string>Irregular ending with no vowel change. Past and participle are equal. 'd' ending changes to 't', 'ent' changes to 'end'</string>
+	<string>Irregular ending with no vowel change. Past and participle are equal. The verbs 'have' and 'make'</string>
+	<string>Irregular ending with no vowel change. Past and participle are equal. Regular past and participle in US English, irregular in UK English</string>
+	<string>Irregular ending with no vowel change. Past and participle are equal. 'ay' ending changes to 'aid'</string>
+	<string>Vowel change, irregular ending. Past and participle are equal. Vowel change , 'd' or 't' ending</string>
+	<string>Vowel change, irregular ending. Past and participle are equal. Different pronunciation of the same vowel ('d' or 't' ending)</string>
+	<string>Vowel change, irregular ending. Past and participle are equal. 'ell' turns to 'old'</string>
+	<string>Vowel change, irregular ending. Past and participle are equal. Vowel change with 'ought' (or '*aught') ending</string>
+	<string>Verbs with the same form. Present, past and participle are equal. Verbs that do not change ('d' or 't' ending)</string>
+	<string>Vowel change, participle ending with '(e)n'. Past and participle with long /o/ sound</string>
+	<string>Vowel change, participle ending with '(e)n'. Past long 'o' sound, participle 'shirt' /i/ sound</string>
+	<string>Vowel change, participle ending with '(e)n'.</string>
+	<string>Vowel change, participle ending with '(e)n'. The 'ear-ore-orn' pattern</string>
+	<string>Vowel change, participle ending with '(e)n'. Present with 'ow', past with 'ew', participle with 'own'</string>
+	<string>Regular past, regular or irregular participle</string>
+	<string>Vowel change, no ending. Past and participle are equal. Vowel change pattern, no ending</string>
+	<string>Vowel change, no ending. Past and participle are equal. Vowel change pattern i - ou - ou</string>
+	<string>Vowel change, no ending. Past and participle are equal. Vowel change ee - e - e</string>
+	<string>The craziest verbs!. Vowel change pattern i - a - u</string>
+	<string>The craziest verbs!. Vowel change. Present and participle are equal</string>
+	<string>The craziest verbs!. Miscellaneous</string>
+</array>
+</plist>

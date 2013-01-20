@@ -43,6 +43,10 @@
 		E53DBB5B169C05FF0080276A /* clock_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB5A169C05FF0080276A /* clock_24.png */; };
 		E53DBB5D169C0E550080276A /* checkmark_64.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB5C169C0E550080276A /* checkmark_64.png */; };
 		E53DBB5F169C0E670080276A /* delete_64.png in Resources */ = {isa = PBXBuildFile; fileRef = E53DBB5E169C0E670080276A /* delete_64.png */; };
+		E53DC4F016ABF9CB004CF825 /* HintsTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E53DC4EF16ABF9CB004CF825 /* HintsTableDelegate.m */; };
+		E53DC4F416AC4EE3004CF825 /* UILabel+FrameExpand.m in Sources */ = {isa = PBXBuildFile; fileRef = E53DC4F316AC4EE3004CF825 /* UILabel+FrameExpand.m */; };
+		E53DC4F716AC56B5004CF825 /* HintsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53DC4F616AC56B5004CF825 /* HintsCell.m */; };
+		E53DC4F916AC56C6004CF825 /* HintsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53DC4F816AC56C6004CF825 /* HintsCell.xib */; };
 		E550A5CF169CC80B00DCA8D6 /* ColorMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = E550A5CE169CC80B00DCA8D6 /* ColorMapView.m */; };
 		E550A5D3169CC83800DCA8D6 /* NSArray+Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = E550A5D2169CC83800DCA8D6 /* NSArray+Shuffling.m */; };
 		E550A5D6169CC85700DCA8D6 /* TestProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E550A5D5169CC85700DCA8D6 /* TestProgressView.m */; };
@@ -50,6 +54,7 @@
 		E550A5DA169CC87300DCA8D6 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = E550A5D8169CC87300DCA8D6 /* icon114.png */; };
 		E550A5DC169CC88600DCA8D6 /* media-shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = E550A5DB169CC88600DCA8D6 /* media-shuffle.png */; };
 		E570094616939C7300219C24 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E570094516939C7300219C24 /* QuartzCore.framework */; };
+		E57BA4DD16AA1FB0004AFF04 /* hints.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57BA4DC16AA1FB0004AFF04 /* hints.plist */; };
 		E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D12F81695BAEC00C8DE51 /* VerbsStore.m */; };
 		E5C2CA2E169C5F6600BEE2ED /* Referee.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA2D169C5F6600BEE2ED /* Referee.m */; };
 		E5C2CA32169C6A0C00BEE2ED /* Verb.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA31169C6A0C00BEE2ED /* Verb.m */; };
@@ -64,8 +69,6 @@
 		E5DB03A516A7EEAC00EE1E80 /* PassFailGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */; };
 		E5DEC60A169F70C60006AE38 /* gear_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DEC609169F70C60006AE38 /* gear_24.png */; };
 		E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */; };
-		E5E05A9316A6BF8A00CEB889 /* CounterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A9216A6BF8A00CEB889 /* CounterCell.m */; };
-		E5E05A9516A6BF9A00CEB889 /* CounterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E05A9416A6BF9A00CEB889 /* CounterCell.xib */; };
 		E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */; };
 		E5F49E2116A5C89C0078EC5D /* TestCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */; };
 		E5F49E2716A5CAF30078EC5D /* thumbup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E2316A5CAF30078EC5D /* thumbup@2x.png */; };
@@ -131,6 +134,13 @@
 		E53DBB5A169C05FF0080276A /* clock_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock_24.png; sourceTree = "<group>"; };
 		E53DBB5C169C0E550080276A /* checkmark_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark_64.png; sourceTree = "<group>"; };
 		E53DBB5E169C0E670080276A /* delete_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_64.png; sourceTree = "<group>"; };
+		E53DC4EE16ABF9CB004CF825 /* HintsTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HintsTableDelegate.h; sourceTree = "<group>"; };
+		E53DC4EF16ABF9CB004CF825 /* HintsTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HintsTableDelegate.m; sourceTree = "<group>"; };
+		E53DC4F216AC4EE3004CF825 /* UILabel+FrameExpand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FrameExpand.h"; sourceTree = "<group>"; };
+		E53DC4F316AC4EE3004CF825 /* UILabel+FrameExpand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FrameExpand.m"; sourceTree = "<group>"; };
+		E53DC4F516AC56B5004CF825 /* HintsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HintsCell.h; sourceTree = "<group>"; };
+		E53DC4F616AC56B5004CF825 /* HintsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HintsCell.m; sourceTree = "<group>"; };
+		E53DC4F816AC56C6004CF825 /* HintsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HintsCell.xib; sourceTree = "<group>"; };
 		E550A5CD169CC80B00DCA8D6 /* ColorMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorMapView.h; sourceTree = "<group>"; };
 		E550A5CE169CC80B00DCA8D6 /* ColorMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorMapView.m; sourceTree = "<group>"; };
 		E550A5D1169CC83800DCA8D6 /* NSArray+Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Shuffling.h"; sourceTree = "<group>"; };
@@ -141,6 +151,7 @@
 		E550A5D8169CC87300DCA8D6 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
 		E550A5DB169CC88600DCA8D6 /* media-shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-shuffle.png"; sourceTree = "<group>"; };
 		E570094516939C7300219C24 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E57BA4DC16AA1FB0004AFF04 /* hints.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hints.plist; sourceTree = "<group>"; };
 		E59D12F71695BAEC00C8DE51 /* VerbsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerbsStore.h; sourceTree = "<group>"; };
 		E59D12F81695BAEC00C8DE51 /* VerbsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerbsStore.m; sourceTree = "<group>"; };
 		E5C2CA2C169C5F6600BEE2ED /* Referee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Referee.h; sourceTree = "<group>"; };
@@ -164,9 +175,6 @@
 		E5DEC609169F70C60006AE38 /* gear_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_24.png; sourceTree = "<group>"; };
 		E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSelectorViewController.h; sourceTree = "<group>"; };
 		E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSelectorViewController.m; sourceTree = "<group>"; };
-		E5E05A9116A6BF8A00CEB889 /* CounterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CounterCell.h; sourceTree = "<group>"; };
-		E5E05A9216A6BF8A00CEB889 /* CounterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CounterCell.m; sourceTree = "<group>"; };
-		E5E05A9416A6BF9A00CEB889 /* CounterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CounterCell.xib; sourceTree = "<group>"; };
 		E5F49E1D16A5C89C0078EC5D /* TestCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCardViewController.h; sourceTree = "<group>"; };
 		E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCardViewController.m; sourceTree = "<group>"; };
 		E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCardViewController.xib; sourceTree = "<group>"; };
@@ -235,6 +243,7 @@
 		09D372E31681BA4F00F80410 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E57BA4DC16AA1FB0004AFF04 /* hints.plist */,
 				09D372E81681BA4F00F80410 /* main.m */,
 				09D372EA1681BA4F00F80410 /* IrregularVerbs-Prefix.pch */,
 				09D372EB1681BA4F00F80410 /* AppDelegate.h */,
@@ -282,9 +291,6 @@
 				E5DB039A16A7EBFA00EE1E80 /* TSCSummaryCell.xib */,
 				E5DB039516A7E4C700EE1E80 /* TestScoreCardViewController.h */,
 				E5DB039616A7E4C700EE1E80 /* TestScoreCardViewController.m */,
-				E5E05A9116A6BF8A00CEB889 /* CounterCell.h */,
-				E5E05A9216A6BF8A00CEB889 /* CounterCell.m */,
-				E5E05A9416A6BF9A00CEB889 /* CounterCell.xib */,
 				E5F49E1D16A5C89C0078EC5D /* TestCardViewController.h */,
 				E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */,
 				E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */,
@@ -365,6 +371,8 @@
 		E550A5ED169CC98500DCA8D6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E53DC4F216AC4EE3004CF825 /* UILabel+FrameExpand.h */,
+				E53DC4F316AC4EE3004CF825 /* UILabel+FrameExpand.m */,
 				E513C11C16A93D0F00467B5C /* UIColor+Saturation.h */,
 				E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */,
 				E550A5D1169CC83800DCA8D6 /* NSArray+Shuffling.h */,
@@ -409,6 +417,11 @@
 		E5B0A74916A8B55800ADEBCE /* Learn */ = {
 			isa = PBXGroup;
 			children = (
+				E53DC4F516AC56B5004CF825 /* HintsCell.h */,
+				E53DC4F616AC56B5004CF825 /* HintsCell.m */,
+				E53DC4F816AC56C6004CF825 /* HintsCell.xib */,
+				E53DC4EE16ABF9CB004CF825 /* HintsTableDelegate.h */,
+				E53DC4EF16ABF9CB004CF825 /* HintsTableDelegate.m */,
 				091C61F216A018EF00F3606A /* CardsTableViewController.h */,
 				091C61F316A018EF00F3606A /* CardsTableViewController.m */,
 				091C61F416A018EF00F3606A /* CardsTableViewController.xib */,
@@ -489,7 +502,6 @@
 				E5F49E2816A5CAF30078EC5D /* thumbup.png in Resources */,
 				E5F49E2916A5CAF30078EC5D /* thumbdown@2x.png in Resources */,
 				E5F49E2A16A5CAF30078EC5D /* thumbdown.png in Resources */,
-				E5E05A9516A6BF9A00CEB889 /* CounterCell.xib in Resources */,
 				09F7933916A6A7C90067EE3C /* HomeViewController.xib in Resources */,
 				09F7933D16A6C6490067EE3C /* HomeViewbg.png in Resources */,
 				09F7933E16A6C6490067EE3C /* HomeViewbg@2x.png in Resources */,
@@ -506,6 +518,8 @@
 				E5DB039B16A7EBFB00EE1E80 /* TSCSummaryCell.xib in Resources */,
 				090F8B3D16A7E26B002131E1 /* HistoryDataCell.xib in Resources */,
 				090F8B4216A7E52B002131E1 /* HistoryViewController.xib in Resources */,
+				E57BA4DD16AA1FB0004AFF04 /* hints.plist in Resources */,
+				E53DC4F916AC56C6004CF825 /* HintsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +543,6 @@
 				E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */,
 				E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */,
 				09F7933816A6A7C90067EE3C /* HomeViewController.m in Sources */,
-				E5E05A9316A6BF8A00CEB889 /* CounterCell.m in Sources */,
 				E5CAFA1D16A7290E0015B16E /* TestCardsStackViewController.m in Sources */,
 				E5DB039416A7E47900EE1E80 /* TSCVerbCell.m in Sources */,
 				E5DB039716A7E4C700EE1E80 /* TestScoreCardViewController.m in Sources */,
@@ -538,6 +551,9 @@
 				E5DB039E16A7EDCE00EE1E80 /* TSCSummaryCell.m in Sources */,
 				E5DB03A516A7EEAC00EE1E80 /* PassFailGraphView.m in Sources */,
 				E513C11E16A93D0F00467B5C /* UIColor+Saturation.m in Sources */,
+				E53DC4F016ABF9CB004CF825 /* HintsTableDelegate.m in Sources */,
+				E53DC4F416AC4EE3004CF825 /* UILabel+FrameExpand.m in Sources */,
+				E53DC4F716AC56B5004CF825 /* HintsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

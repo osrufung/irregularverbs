@@ -21,9 +21,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelNumberOfVerbs;
 @property (weak, nonatomic) IBOutlet UILabel *labelTestDuration;
 @property (weak, nonatomic) IBOutlet UIStepper *stepperTestDuration;
+@property (weak, nonatomic) IBOutlet UISwitch *useHints;
 
 - (IBAction)difficultyChanged:(UISlider *)sender;
 - (IBAction)clearStatistics:(UIButton *)sender;
 - (IBAction)showAboutLink:(id)sender;
 - (IBAction)testDurationChanged:(UIStepper *)sender;
+- (IBAction)changeHintsInTests:(UISwitch *)sender;
 @end

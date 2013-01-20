@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSArray *allVerbs;
 @property (nonatomic, strong) NSArray *currentList;
 @property (nonatomic, strong) NSMutableDictionary *testTypesMap;
+@property (nonatomic, strong) NSArray *hints;
 
 @end
  
@@ -97,6 +98,14 @@
     return _allVerbs;
 }
 
+- (NSArray *)hints {
+    if (!_hints) {
+        _hints  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"hints" ofType:@"plist"]];
+    }
+    NSLog(@"%@",_hints);
+    return _hints;
+}
+
 -(NSArray *)verbsByFrequency:(float) frequency{
     int idx = 0;
     
@@ -170,6 +179,10 @@
     return [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByHistoricalPerformance:)];
 }
 
+- (NSString *)hintForGroupIndex:(int)index {
+    return self.hints[index];
+}
+
 
 - (void)resetHistory {
     for (Verb *verb in self.allVerbs) {
@@ -192,9 +205,9 @@
     [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequency)) forKey:@"Most Common"];
     [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequencyDes)) forKey:@"Least Common"];
     [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFailure)) forKey:@"Most Failed"];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByRandom)) forKey:@"Random"];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByRandom)) forKey:@"Randomly Choosed"];
     [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByTestNumber)) forKey:@"Least Tested"];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByHint)) forKey:@"Hint"];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByHint)) forKey:@"By Hint Group"];
 }
 
 - (int)verbsNumberInTest {

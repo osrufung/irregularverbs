@@ -6,12 +6,14 @@
 //  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 //
 
-#import "CounterCell.h"
 #import "VerbsStore.h"
 #import "TestCardsStackViewController.h"
 #import "TestSelectorViewController.h"
 
 @interface TestSelectorViewController ()
+
+@property (nonatomic,strong) UITableViewCell *counterCell;
+@property (nonatomic,strong) UITableViewCell *onOffCell;
 
 @end
 
@@ -45,26 +47,51 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSArray *secTitles = @[@"Number of verbs",@"Test Type"];
+    NSArray *secTitles = @[@"Test Options",@"Test Type"];
     return secTitles[section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int lenSec[] = {1,[[[VerbsStore sharedStore] testTypes] count]};
+    int lenSec[] = {2,[[[VerbsStore sharedStore] testTypes] count]};
     return lenSec[section];
+}
+
+- (UITableViewCell *)counterCell {
+    if (!_counterCell) {
+        int verbsCount = [[[VerbsStore sharedStore] alphabetic] count];
+        _counterCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CounterCell"];
+        UIStepper *step = [[UIStepper alloc] init];
+        step.minimumValue = 1;
+        step.maximumValue = verbsCount;
+        step.value = [[VerbsStore sharedStore] verbsNumberInTest];
+        [step addTarget:self action:@selector(verbsNumberChanged:) forControlEvents:UIControlEventValueChanged];
+        _counterCell.accessoryView = step;
+    }
+    _counterCell.textLabel.text = [NSString stringWithFormat:@"Use %d of %d",[[VerbsStore sharedStore] verbsNumberInTest], [[[VerbsStore sharedStore] alphabetic] count]] ;;
+    return _counterCell;
+}
+
+- (UITableViewCell *)onOffCell {
+    if (!_onOffCell) {
+        _onOffCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OnOffCell"];
+        UISwitch *onOff = [[UISwitch alloc] init];
+        onOff.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"hintsInTest"];
+        [onOff addTarget:self action:@selector(useHintsChanged:) forControlEvents:UIControlEventValueChanged];
+        _onOffCell.accessoryView = onOff;
+        _onOffCell.textLabel.text = @"Use hints";
+    }
+    return _onOffCell;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
-        static NSString *CounterIdentifier = @"CounterCell";
-        CounterCell *counterCell = [tableView dequeueReusableCellWithIdentifier:CounterIdentifier forIndexPath:indexPath];
-        [counterCell addTarget:self action:@selector(verbsNumberChanged:)];
-        counterCell.minimumValue=1;
-        counterCell.maximumValue=[[[VerbsStore sharedStore] alphabetic] count];
-        counterCell.value=[[VerbsStore sharedStore] verbsNumberInTest];
-        return counterCell;
+        if (indexPath.row==0) {
+            return [self counterCell];
+        } else {
+            return [self onOffCell];
+        }
     } else {
         static NSString *TestTypeIdentifier = @"TestTypeCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TestTypeIdentifier];
@@ -78,8 +105,13 @@
     return nil;
 }
 
-- (void)verbsNumberChanged:(CounterCell *)sender {
+- (void)verbsNumberChanged:(UIStepper *)sender {
     [[VerbsStore sharedStore] setVerbsNumberInTest:sender.value];
+    [self.tableView reloadData];
+}
+
+- (void)useHintsChanged:(UISwitch *)sender {
+    [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:@"hintsInTest"];
 }
 
 #pragma mark - Table view delegate
