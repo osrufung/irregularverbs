@@ -113,11 +113,11 @@ static NSString *SummaryCell = @"SummaryCell";
 {
     NSMutableAttributedString *atStr;
     if (self.averageTime==0) {
-        atStr = [[NSMutableAttributedString alloc] initWithString:@"No pass verb!"];
+        atStr = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"nopassverbs",nil)];
         NSDictionary *attr = @{NSForegroundColorAttributeName:[[Referee sharedReferee] colorForFail]};
         [atStr setAttributes:attr range:NSMakeRange(0,[atStr length])];
     } else {
-        NSString *average = [NSString stringWithFormat:@"Average time %.2fs",self.averageTime];
+        NSString *average = [NSString stringWithFormat:NSLocalizedString(@"avgtime_format", nil),self.averageTime];
         atStr = [[NSMutableAttributedString alloc] initWithString:average];
         NSDictionary *attr = @{NSForegroundColorAttributeName:[[Referee sharedReferee] colorForValue:self.averageTime]};
         [atStr setAttributes:attr range:NSMakeRange([average length]-5, 5)];
@@ -135,7 +135,8 @@ static NSString *SummaryCell = @"SummaryCell";
                             andFailCount:self.failCount];
         
         cell.labelAverageTime.attributedText = [self attributedAverageString];
-        cell.labelFailureRatio.text = [NSString stringWithFormat:@"%.0f%% fail",100.0*self.failCount/self.testResults.count];
+        
+        cell.labelFailureRatio.text = [NSString stringWithFormat:NSLocalizedString(@"fail_format",nil),100.0*self.failCount/self.testResults.count];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
         return cell;

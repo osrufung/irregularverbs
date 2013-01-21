@@ -47,7 +47,8 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSArray *secTitles = @[@"Test Options",@"Test Type"];
+    
+    NSArray *secTitles = @[NSLocalizedString(@"TestOptions", nil),NSLocalizedString(@"TestType", nil)];
     return secTitles[section];
 }
 
@@ -68,7 +69,8 @@
         [step addTarget:self action:@selector(verbsNumberChanged:) forControlEvents:UIControlEventValueChanged];
         _counterCell.accessoryView = step;
     }
-    _counterCell.textLabel.text = [NSString stringWithFormat:@"Use %d of %d",[[VerbsStore sharedStore] verbsNumberInTest], [[[VerbsStore sharedStore] alphabetic] count]] ;;
+    
+    _counterCell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"usexofy", "use x of y"),[[VerbsStore sharedStore] verbsNumberInTest], [[[VerbsStore sharedStore] alphabetic] count]] ;;
     return _counterCell;
 }
 
@@ -79,7 +81,7 @@
         onOff.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"hintsInTest"];
         [onOff addTarget:self action:@selector(useHintsChanged:) forControlEvents:UIControlEventValueChanged];
         _onOffCell.accessoryView = onOff;
-        _onOffCell.textLabel.text = @"Use hints";
+        _onOffCell.textLabel.text = NSLocalizedString(@"usehints", nil);
     }
     return _onOffCell;
 }

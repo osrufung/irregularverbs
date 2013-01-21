@@ -201,12 +201,12 @@
 + (void)initializeTestTypes:(VerbsStore *)sharedStore
 {
     sharedStore.testTypesMap = [[NSMutableDictionary alloc] init];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequency)) forKey:@"Most Common"];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequencyDes)) forKey:@"Least Common"];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFailure)) forKey:@"Most Failed"];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByRandom)) forKey:@"Randomly Choosed"];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByTestNumber)) forKey:@"Least Tested"];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByHint)) forKey:@"By Hint Group"];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequency)) forKey:NSLocalizedString(@"mostcommon", nil)];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequencyDes)) forKey:NSLocalizedString(@"leastcommon", nil)];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFailure)) forKey:NSLocalizedString(@"mostfailed", nil)];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByRandom)) forKey:NSLocalizedString(@"randomchoosed", nil)];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByTestNumber)) forKey:NSLocalizedString(@"leasttested", nil)];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByHint)) forKey:NSLocalizedString(@"byhintgroup", nil)];
 }
 
 - (int)verbsNumberInTest {
@@ -271,7 +271,7 @@
     if ([list count]>self.verbsNumberInTest) {
         list = [[list shuffledCopy] subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
     }
-    return list;
+    return [list shuffledCopy];
 }
 
 - (int)selectOneHintAtRandom:(NSArray *)list {

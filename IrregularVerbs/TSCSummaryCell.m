@@ -15,6 +15,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        [[self labelTitle] setText:NSLocalizedString(@"scoreboard", nil)];
+
     }
     return self;
 }
@@ -25,5 +27,6 @@
 
     // Configure the view for the selected state
 }
+
 
 @end

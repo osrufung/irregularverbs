@@ -15,5 +15,14 @@
 - (IBAction)openHistory:(id)sender;
 - (IBAction)openSetup:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *labelNumberVerbs;
+@property (weak, nonatomic) IBOutlet UILabel *labelLearnButton;
+@property (weak, nonatomic) IBOutlet UILabel *labelTestButton;
+ 
+@property (weak, nonatomic) IBOutlet UILabel *labelHistoryButton;
+@property (weak, nonatomic) IBOutlet UILabel *labelSetupButton;
+@property (strong, nonatomic) IBOutlet UIView *popUpView;
+@property (weak, nonatomic) IBOutlet UITextView *labelPopUp;
+- (IBAction)showWizard:(id)sender;
+- (IBAction)closePopUp:(id)sender;
  
 @end

@@ -47,6 +47,11 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
             forCellReuseIdentifier:SummaryIdentifier];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [[self criteriaControl] setTitle:NSLocalizedString(@"alpha", nil) forSegmentAtIndex:0];
+    [[self criteriaControl] setTitle:NSLocalizedString(@"averagetime_abrev", nil) forSegmentAtIndex:1];
+    [[self criteriaControl] setTitle:NSLocalizedString(@"failures", nil) forSegmentAtIndex:2];
+    
 
 }
 
@@ -99,11 +104,11 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
 {
     NSMutableAttributedString *atStr;
     if (self.averageTime==0) {
-        atStr = [[NSMutableAttributedString alloc] initWithString:@"No pass verb!"];
+        atStr = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"nopassverbs", nil)];
         NSDictionary *attr = @{NSForegroundColorAttributeName:[[Referee sharedReferee] colorForFail]};
         [atStr setAttributes:attr range:NSMakeRange(0,[atStr length])];
     } else {
-        NSString *average = [NSString stringWithFormat:@"Average time %.2fs",self.averageTime];
+        NSString *average = [NSString stringWithFormat:NSLocalizedString(@"avgtime_format",nil),self.averageTime];
         atStr = [[NSMutableAttributedString alloc] initWithString:average];
         NSDictionary *attr = @{NSForegroundColorAttributeName:[[Referee sharedReferee] colorForValue:self.averageTime]};
         [atStr setAttributes:attr range:NSMakeRange([average length]-5, 5)];
@@ -122,7 +127,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
                            withPassCount:self.passCount
                             andFailCount:self.failCount];
         
-        cell.labelTitle.text = @"History";
+        cell.labelTitle.text = NSLocalizedString(@"historyLabel", nil);
         cell.labelAverageTime.attributedText = [self attributedAverageString];
         cell.labelFailureRatio.text = [NSString stringWithFormat:@"%.0f%% fail",100.0*self.failCount/(self.passCount+self.failCount)];
         cell.labelFailureRatio.textColor = [UIColor blackColor];
@@ -136,8 +141,8 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
         Verb *v;
         v = _currentData[indexPath.row];
         
-        [[cell labelSimple] setText:[v simple]];
-        [[cell labelExtendedForms] setText:[NSString stringWithFormat:@"%@ - %@ - %@",[v past],[v participle],[v translation]]];
+        cell.labelSimple.text = [NSString stringWithFormat:@"%@ - %@ - %@",v.simple, v.past, v.participle];
+        cell.labelExtendedForms.text = v.translation;
         if (v.averageResponseTime==0) {
             cell.labelTime.text=@"";
         } else {

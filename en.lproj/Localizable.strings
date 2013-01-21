@@ -1,0 +1,57 @@
+/* 
+  Localizable.strings
+  IrregularVerbs
+
+  Created by Oswaldo Rubio on 21/01/13.
+  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
+*/
+
+"InfoPopupHome" = "learn, test your knowledge with a small number of verbs, and check your progress. You can increase your level by increasing the number of verbs in Setup.";
+
+//home View
+"verbstolearn" = "%d verbs to learn.";
+"back" = "Back";
+"LearnLabel" = "Learn";
+"TestLabel" = "Test";
+"HistoryLabel" = "History";
+"SetupLabel" = "Setup";
+
+//Learn View
+"alpha" = "Alpha";
+"hints" = "Hints";
+
+//test
+"TestOptions" = "Test Options";
+"TestType" = "Test Type";
+"usexofy" = "Use %d of %d";
+"usehints" = "Use hints";
+"scoreboard"= "Scoreboard";
+"averagetime" ="Average time";
+"fail_format" = "%.0f%% fail";
+"avgtime_format"="Average time %.2fs";
+"nopassverbs" = "No pass verb!";
+
+
+//Verbs Store
+"mostcommon" = "Most Common";
+"leastcommon"="Least Common";
+"mostfailed" = "Most Failed";
+"randomchoosed"= "Randomly Choosed";
+"leasttested"="Least Tested";
+"byhintgroup" = "By Hint Group";
+
+//history
+"historyLabel" = "History";
+"averagetime_abrev" = "avg. time";
+"failures" = "Failures";
+
+//Setup
+"levelOfDifficulty" = "Level of difficulty";
+"includingverbs_format"=  "(including %d verbs)";
+"testtime_format" = "Test time is %d sec";
+"clearbuttontitle" = "Clear Statistics";
+"clearhistorydata" = "Clear Historical Data";
+"clearconsequence"= "You will clear all the data from old tests";
+"cancel" = "Cancel";
+"clearall" = "Clear All";
+"aboutbuttontitle" = "Show Project Info at GitHub";

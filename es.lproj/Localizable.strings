@@ -1,0 +1,56 @@
+/* 
+  Localizable.strings
+  IrregularVerbs
+
+  Created by Oswaldo Rubio on 21/01/13.
+  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
+*/
+"InfoPopupHome" = "aprende, verifica tu conocimiento con un pequeño nº de verbos y comprueba tu progreso. Puedes incrementar el nivel aumentando el nº de verbos en Ajustes.";
+
+//home View
+"verbstolearn" = "%d verbos para aprender";
+"back" = "volver";
+"LearnLabel" = "Aprender";
+"TestLabel" = "Evaluar";
+"HistoryLabel" = "Historial";
+"SetupLabel" = "Ajustes";
+
+//Learn View
+"alpha" = "A-Z";
+"hints" = "por reglas";
+
+//test
+"TestOptions" = "Opciones";
+"TestType" = "Tipo de test";
+"usexofy" = "Limitar a %d de %d";
+"usehints" = "Usar reglas";
+"scoreboard"= "Marcador";
+"averagetime" ="tiempo de respuesta medio";
+"fail_format" = "%.0f%% fallos";
+"avgtime_format"="Tiempo medio %.2fs";
+"nopassverbs" = "Ningún verbo superado";
+
+//Verbs Store
+"mostcommon" = "Más comunes";
+"leastcommon"="Menos comunes";
+"mostfailed" = "Más falladas";
+"randomchoosed"= "Aleatorio";
+"leasttested"="Menos evaluadas";
+"byhintgroup" = "Por regla";
+
+//history
+"historyLabel" = "Historial";
+"averagetime_abrev" = "T. medio";
+"failures" = "Nº fallos";
+
+
+//Setup
+"levelOfDifficulty" = "Nivel de dificultad";
+"includingverbs_format"=  "(incluyendo %d verbos)";
+"testtime_format" = "Tiempo en test: %ds";
+"clearbuttontitle" = "Inicializar datos";
+"clearhistorydata" = "Inicializar datos";
+"clearconsequence"= "Se eliminarán los datos de los test anteriores";
+"cancel" = "Cancelar";
+"clearall" = "Inicializar";
+"aboutbuttontitle" = "Ver info del proyecto en GitHub";
