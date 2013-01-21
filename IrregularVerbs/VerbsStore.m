@@ -271,7 +271,7 @@
     if ([list count]>self.verbsNumberInTest) {
         list = [[list shuffledCopy] subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
     }
-    return list;
+    return [list shuffledCopy];
 }
 
 - (int)selectOneHintAtRandom:(NSArray *)list {
