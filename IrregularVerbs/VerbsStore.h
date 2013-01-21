@@ -23,6 +23,7 @@
 + (VerbsStore *)sharedStore;
 
 - (int)lastTestFailedVerbsCount;
+- (NSString *)hintForGroupIndex:(int)index;
 
 - (BOOL) saveChanges;
 - (BOOL) resetVerbsStore;

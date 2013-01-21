@@ -29,6 +29,7 @@
         self.participle = dictionary[@"participle"];
         self.translation = dictionary[@"translation"];
         self.frequency = [dictionary[@"frequency"] floatValue];
+        self.hint = [dictionary[@"hint"] integerValue];
         _testPending = YES;
     }
     return self;
@@ -115,7 +116,8 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@ - %f (%f)",self.simple,self.responseTime,self.frequency];
+    return [NSString stringWithFormat:@"%-15s freq:%.4f time:%.2fs hint:%2d test#:%2d fail#:%2d",[self.simple UTF8String],
+            self.frequency, self.averageResponseTime, self.hint,self.numberOfTests,self.numberOfFailures];
 }
 
 #pragma  mark - NSCoding Persistence
@@ -126,6 +128,7 @@
     [aCoder encodeObject:self.participle forKey:@"participle"];
     [aCoder encodeObject:self.translation forKey:@"translation"];
     [aCoder encodeFloat:self.frequency forKey:@"frequency"];
+    [aCoder encodeInt:self.hint forKey:@"hint"];
 
     [aCoder encodeInt:self.numberOfTests forKey:@"numberOfTests"];
     [aCoder encodeInt:self.numberOfFailures forKey:@"numberOfFailures"];
@@ -141,6 +144,7 @@
         [self setParticiple:[aDecoder decodeObjectForKey:@"participle"]];
         [self setTranslation:[aDecoder decodeObjectForKey:@"translation"]];
         [self setFrequency:[aDecoder decodeFloatForKey:@"frequency"]];
+        [self setHint:[aDecoder decodeIntForKey:@"hint"]];
         
         self.numberOfTests = [aDecoder decodeIntForKey:@"numberOfTests"];
         self.numberOfFailures = [aDecoder decodeIntForKey:@"numberOfFailures"];
@@ -195,7 +199,14 @@
 }
 
 - (NSComparisonResult)compareVerbsByTestNumber:(Verb *)other {
-    return self.numberOfTests<other.numberOfTests;
+    return self.numberOfTests>other.numberOfTests;
+}
+
+- (NSComparisonResult)compareVerbsByHint:(Verb *)other {
+    if (self.hint==other.hint) {
+        return [self.simple compare:other.simple];
+    } else
+        return self.hint>other.hint;
 }
 
 - (NSComparisonResult)compareVerbsByAverageResponseTime:(Verb *)other {

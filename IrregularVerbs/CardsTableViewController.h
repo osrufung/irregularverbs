@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CardsTableViewController : UIViewController <UISearchBarDelegate, UISearchDisplayDelegate>
-{
-    NSMutableArray *_indexedData;
-    NSMutableArray *_indexEntries;
-}
+@interface CardsTableViewController : UIViewController <UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @end

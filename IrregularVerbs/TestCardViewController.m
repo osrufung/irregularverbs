@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 //
 
+#import "VerbsStore.h"
 #import "Verb.h"
 #import "TestCardViewController.h"
 #import "TestProgressView.h"
@@ -29,6 +30,9 @@
 @property (weak, nonatomic) IBOutlet TestProgressView *testProgress;
 @property (weak, nonatomic) IBOutlet UIImageView *imageFail;
 @property (weak, nonatomic) IBOutlet UIImageView *imagePass;
+@property (weak, nonatomic) IBOutlet UILabel *labelHint;
+
+@property (nonatomic) BOOL useHintsInTest;
 
 @end
 
@@ -40,6 +44,10 @@
     float elapsedTime = CACurrentMediaTime() - _beginTestTime;
     self.testProgress.progress=[[Referee sharedReferee] performanceForValue:elapsedTime];
     self.testProgress.backgroundColor = [[Referee sharedReferee] colorForValue:elapsedTime];
+    if ((self.testProgress.progress>=0.5f)&&(self.useHintsInTest)) {
+        self.labelHint.text = [[VerbsStore sharedStore] hintForGroupIndex:self.verb.hint];
+        [UIView animateWithDuration:0.5 animations:^{ self.labelHint.alpha=1.0f; }];
+    }
     if (self.testProgress.progress>=1.0f) {
         [self endTestWithFailure:YES];
         [self refreshUIForTestEnd:YES];
@@ -92,6 +100,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self refreshUIForTestEnd:NO];
+    self.labelHint.alpha = 0;
+    self.useHintsInTest = [[NSUserDefaults standardUserDefaults] boolForKey:@"hintsInTest"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -174,6 +184,7 @@
             self.labelPast.alpha = 1;
             self.labelParticiple.alpha = 1;
             self.labelTime.alpha = 1;
+            self.labelHint.alpha = 0;
             if (self.verb.failed) {
                 self.buttonFail.alpha = 0;
                 self.buttonPass.alpha = 0;

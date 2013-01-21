@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSArray *allVerbs;
 @property (nonatomic, strong) NSArray *currentList;
 @property (nonatomic, strong) NSMutableDictionary *testTypesMap;
+@property (nonatomic, strong) NSArray *hints;
 
 @end
  
@@ -97,6 +98,13 @@
     return _allVerbs;
 }
 
+- (NSArray *)hints {
+    if (!_hints) {
+        _hints  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"hints" ofType:@"plist"]];
+    }
+    return _hints;
+}
+
 -(NSArray *)verbsByFrequency:(float) frequency{
     int idx = 0;
     
@@ -170,6 +178,10 @@
     return [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByHistoricalPerformance:)];
 }
 
+- (NSString *)hintForGroupIndex:(int)index {
+    return self.hints[index];
+}
+
 
 - (void)resetHistory {
     for (Verb *verb in self.allVerbs) {
@@ -192,8 +204,9 @@
     [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequency)) forKey:@"Most Common"];
     [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequencyDes)) forKey:@"Least Common"];
     [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFailure)) forKey:@"Most Failed"];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByRandom)) forKey:@"Random"];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByRandom)) forKey:@"Randomly Choosed"];
     [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByTestNumber)) forKey:@"Least Tested"];
+    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByHint)) forKey:@"By Hint Group"];
 }
 
 - (int)verbsNumberInTest {
@@ -217,32 +230,58 @@
 
 - (NSArray *)testByFrequency {
     NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByFrequency:)];
+    NSLog(@"%@",list);
     list = [list subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
     return [list shuffledCopy];
 }
 
 - (NSArray *)testByFrequencyDes {
     NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByFrequency:)];
+    NSLog(@"%@",list);
     list = [list subarrayWithRange:NSMakeRange(list.count-self.verbsNumberInTest, self.verbsNumberInTest)];
     return [list shuffledCopy];
 }
 
 - (NSArray *)testByFailure {
     NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByHistoricalPerformance:)];
+    NSLog(@"%@",list);
     list = [list subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
     return [list shuffledCopy];
 }
 
 - (NSArray *)testByRandom {
     NSArray *list = [self.currentList shuffledCopy];
+    NSLog(@"%@",list);
     return [list subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
 }
 
 - (NSArray *)testByTestNumber {
     NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByTestNumber:)];
+    NSLog(@"%@",list);
     list = [list subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
     return [list shuffledCopy];
 }
+
+- (NSArray *)testByHint {
+    NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByHint:)];
+    int hint=[self selectOneHintAtRandom:list];
+    NSPredicate *query = [NSPredicate predicateWithFormat:@"hint==%d",hint];
+    list = [list filteredArrayUsingPredicate:query];
+    NSLog(@"%@",list);
+    if ([list count]>self.verbsNumberInTest) {
+        list = [[list shuffledCopy] subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
+    }
+    return list;
+}
+
+- (int)selectOneHintAtRandom:(NSArray *)list {
+    NSMutableSet *hints = [[NSMutableSet alloc] init];
+    for (Verb *verb in list) {
+        [hints addObject:@(verb.hint)];
+    }
+    return [[[hints allObjects] objectAtIndex:arc4random()%[hints count]] integerValue];
+}
+
 
 
 @end

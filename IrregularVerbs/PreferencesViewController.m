@@ -30,6 +30,7 @@
     [self setLabelNumberOfVerbsForDifficulty:self.sliderDifficulty.value];
     self.stepperTestDuration.value = [[Referee sharedReferee] maxValue];
     [self setLabeTestDuration];
+    self.useHints.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"hintsInTest"];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 
 }
@@ -47,6 +48,10 @@
 - (IBAction)testDurationChanged:(UIStepper *)sender {
     [[Referee sharedReferee] setMaxValue:sender.value];
     [self setLabeTestDuration];
+}
+
+- (IBAction)changeHintsInTests:(UISwitch *)sender {
+    [[NSUserDefaults standardUserDefaults] setBool:self.useHints.on forKey:@"hintsInTest"];
 }
 
 - (IBAction)difficultyChanged:(UISlider *)sender {

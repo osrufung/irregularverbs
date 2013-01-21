@@ -15,6 +15,7 @@
 @property (nonatomic,strong) NSString *participle;
 @property (nonatomic,strong) NSString *translation;
 @property (nonatomic) float frequency;
+@property (nonatomic) int hint;
 
 @property (nonatomic,readonly) float averageResponseTime;
 @property (nonatomic,readonly) float failureRatio;
@@ -39,5 +40,6 @@
 - (NSComparisonResult)compareVerbsByFrequency:(Verb *)other;
 - (NSComparisonResult)compareVerbsByTestNumber:(Verb *)other;
 - (NSComparisonResult)compareVerbsByAverageResponseTime:(Verb *)other;
+- (NSComparisonResult)compareVerbsByHint:(Verb *)other;
 
 @end
