@@ -47,7 +47,6 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUIContentMode">1</int>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<bool key="IBUIHighlighted">YES</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">Learn</string>
@@ -562,6 +561,7 @@
 						<string key="labelHistoryButton">UILabel</string>
 						<string key="labelLearnButton">UILabel</string>
 						<string key="labelNumberVerbs">UILabel</string>
+						<string key="labelSetupButton">UILabel</string>
 						<string key="labelTestButton">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -575,6 +575,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="labelNumberVerbs">
 							<string key="name">labelNumberVerbs</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="labelSetupButton">
+							<string key="name">labelSetupButton</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="labelTestButton">
