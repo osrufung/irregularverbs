@@ -35,13 +35,23 @@
 
 }
 
+-(void)viewDidLoad
+{
+    [[self labelLevelOf] setText:NSLocalizedString(@"levelOfDifficulty", nil)];
+    [[self buttonClear] setTitle:NSLocalizedString(@"clearbuttontitle", nil) forState:UIControlStateNormal];
+    [[self buttonAbout] setTitle:NSLocalizedString(@"aboutbuttontitle", nil) forState:UIControlStateNormal];
+    
+}
+
 - (void)setLabelNumberOfVerbsForDifficulty:(float)difficulty {
     int idx = [[[VerbsStore sharedStore] alphabetic] count];
-    self.labelNumberOfVerbs.text = [NSString stringWithFormat:@"(including %d verbs)",idx];
+    
+    self.labelNumberOfVerbs.text = [NSString stringWithFormat:NSLocalizedString(@"includingverbs_format", nil),idx];
+    
 }
 
 - (void)setLabeTestDuration {
-    self.labelTestDuration.text = [NSString stringWithFormat:@"Test time is %d sec",(int)[[Referee sharedReferee] maxValue]];
+    self.labelTestDuration.text = [NSString stringWithFormat:NSLocalizedString(@"testtime_format",nil),(int)[[Referee sharedReferee] maxValue]];
 }
 
 
@@ -60,11 +70,11 @@
 }
 
 - (IBAction)clearStatistics:(UIButton *)sender {
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Clear Historical Data"
-                                                 message:@"You will clear all the data from old tests"
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"clearhistorydata", nil)
+                                                 message:NSLocalizedString(@"clearconsequence", nil)
                                                 delegate:self
-                                       cancelButtonTitle:@"Cancel"
-                                       otherButtonTitles:@"Clear All", nil];
+                                       cancelButtonTitle:NSLocalizedString(@"cancel", nil)
+                                       otherButtonTitles:NSLocalizedString(@"clearall", nil), nil];
     [av show];
 }
 

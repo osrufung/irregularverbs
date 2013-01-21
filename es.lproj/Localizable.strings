@@ -15,7 +15,7 @@
 "SetupLabel" = "Ajustes";
 
 //Learn View
-"alpha" = "a-z";
+"alpha" = "A-Z";
 "hints" = "por reglas";
 
 //test
@@ -27,6 +27,7 @@
 "averagetime" ="tiempo de respuesta medio";
 "fail_format" = "%.0f%% fallos";
 "avgtime_format"="Tiempo medio %.2fs";
+"nopassverbs" = "Ningún verbo superado";
 
 //Verbs Store
 "mostcommon" = "Más comunes";
@@ -35,3 +36,20 @@
 "randomchoosed"= "Aleatorio";
 "leasttested"="Menos evaluadas";
 "byhintgroup" = "Por regla";
+
+//history
+"historyLabel" = "Historial";
+"averagetime_abrev" = "T. medio";
+"failures" = "Nº fallos";
+
+
+//Setup
+"levelOfDifficulty" = "Nivel de dificultad";
+"includingverbs_format"=  "(incluyendo %d verbos)";
+"testtime_format" = "Tiempo en test: %ds";
+"clearbuttontitle" = "Inicializar datos";
+"clearhistorydata" = "Inicializar datos";
+"clearconsequence"= "Se eliminarán los datos de los test anteriores";
+"cancel" = "Cancelar";
+"clearall" = "Inicializar";
+"aboutbuttontitle" = "Ver info del proyecto en GitHub";

@@ -147,7 +147,7 @@
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">1312</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
-						<string key="NSFrame">{{98, 79}, {124, 21}}</string>
+						<string key="NSFrame">{{20, 79}, {280, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="708698420"/>
@@ -318,6 +318,30 @@
 					<int key="connectionID">138</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">labelLevelOf</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1049114656"/>
+					</object>
+					<int key="connectionID">148</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">buttonClear</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="67806644"/>
+					</object>
+					<int key="connectionID">149</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">buttonAbout</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="535289519"/>
+					</object>
+					<int key="connectionID">150</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">showAboutLink:</string>
 						<reference key="source" ref="535289519"/>
@@ -463,7 +487,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">147</int>
+			<int key="maxID">150</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -501,6 +525,9 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="aboutLabel">UILabel</string>
+						<string key="buttonAbout">UIButton</string>
+						<string key="buttonClear">UIButton</string>
+						<string key="labelLevelOf">UILabel</string>
 						<string key="labelNumberOfVerbs">UILabel</string>
 						<string key="labelTestDuration">UILabel</string>
 						<string key="sliderDifficulty">UISlider</string>
@@ -510,6 +537,18 @@
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="aboutLabel">
 							<string key="name">aboutLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="buttonAbout">
+							<string key="name">buttonAbout</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="buttonClear">
+							<string key="name">buttonClear</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="labelLevelOf">
+							<string key="name">labelLevelOf</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="labelNumberOfVerbs">

@@ -22,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelTestDuration;
 @property (weak, nonatomic) IBOutlet UIStepper *stepperTestDuration;
 @property (weak, nonatomic) IBOutlet UISwitch *useHints;
+@property (weak, nonatomic) IBOutlet UILabel *labelLevelOf;
+@property (weak, nonatomic) IBOutlet UIButton *buttonClear;
+@property (weak, nonatomic) IBOutlet UIButton *buttonAbout;
 
 - (IBAction)difficultyChanged:(UISlider *)sender;
 - (IBAction)clearStatistics:(UIButton *)sender;
