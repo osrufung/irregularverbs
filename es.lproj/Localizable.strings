@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  IrregularVerbs
+
+  Created by Oswaldo Rubio on 21/01/13.
+  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
+*/
+
+"verbstolearn" = "%d verbos para aprender.";
+"back" = "volver";
+"LearnLabel" = "Aprender";
+"TestLabel" = "Evaluar";
+"HistoryLabel" = "Historial";
+"SetupLabel" = "Ajustes";
