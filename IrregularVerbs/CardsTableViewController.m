@@ -83,7 +83,8 @@
 
     self.navigationItem.rightBarButtonItem = self.searchButton;
     
-    self.segmentedMode = [[UISegmentedControl alloc] initWithItems:@[@"Alpha",@"Hints"]];
+    self.segmentedMode = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"alpha", @"alpha list"),NSLocalizedString(@"hints", @"hints list")]];
+    
     self.segmentedMode.segmentedControlStyle = UISegmentedControlStyleBar;
     [self.segmentedMode addTarget:self action:@selector(dataSetChanged:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = self.segmentedMode;

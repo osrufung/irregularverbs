@@ -6,9 +6,32 @@
   Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 */
 
+//home View
 "verbstolearn" = "%d verbs to learn.";
 "back" = "Back";
 "LearnLabel" = "Learn";
 "TestLabel" = "Test";
 "HistoryLabel" = "History";
 "SetupLabel" = "Setup";
+
+//Learn View
+"alpha" = "Alpha";
+"hints" = "Hints";
+
+//test
+"TestOptions" = "Test Options";
+"TestType" = "Test Type";
+"usexofy" = "Use %d of %d";
+"usehints" = "Use hints";
+"scoreboard"= "Scoreboard";
+"averagetime" ="Average time";
+"fail_format" = "%.0f%% fail";
+"avgtime_format"="Average time %.2fs";
+
+//Verbs Store
+"mostcommon" = "Most Common";
+"leastcommon"="Least Common";
+"mostfailed" = "Most Failed";
+"randomchoosed"= "Randomly Choosed";
+"leasttested"="Least Tested";
+"byhintgroup" = "By Hint Group";

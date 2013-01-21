@@ -135,7 +135,8 @@ static NSString *SummaryCell = @"SummaryCell";
                             andFailCount:self.failCount];
         
         cell.labelAverageTime.attributedText = [self attributedAverageString];
-        cell.labelFailureRatio.text = [NSString stringWithFormat:@"%.0f%% fail",100.0*self.failCount/self.testResults.count];
+        
+        cell.labelFailureRatio.text = [NSString stringWithFormat:NSLocalizedString(@"fail_format",nil),100.0*self.failCount/self.testResults.count];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
         return cell;
