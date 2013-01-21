@@ -141,8 +141,8 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
         Verb *v;
         v = _currentData[indexPath.row];
         
-        [[cell labelSimple] setText:[v simple]];
-        [[cell labelExtendedForms] setText:[NSString stringWithFormat:@"%@ - %@ - %@",[v past],[v participle],[v translation]]];
+        cell.labelSimple.text = [NSString stringWithFormat:@"%@ - %@ - %@",v.simple, v.past, v.participle];
+        cell.labelExtendedForms.text = v.translation;
         if (v.averageResponseTime==0) {
             cell.labelTime.text=@"";
         } else {
