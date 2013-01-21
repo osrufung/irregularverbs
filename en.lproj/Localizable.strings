@@ -6,7 +6,7 @@
   Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 */
 
-
+"InfoPopupHome" = "learn, test your knowledge with a small number of verbs, and check your progress. You can increase your level by increasing the number of verbs in Setup.";
 
 //home View
 "verbstolearn" = "%d verbs to learn.";

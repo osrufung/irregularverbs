@@ -33,7 +33,7 @@
 @property (nonatomic, assign) CGAffineTransform initialPopupTransform;;
 @end
 
-static NSTimeInterval const kModalViewAnimationDuration = 0.3;
+static NSTimeInterval const kModalViewAnimationDuration = 0.6;
 
 @implementation ASDepthModalViewController
 @synthesize popupView;
@@ -104,17 +104,18 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.3;
         {
             
             CGAffineTransform newTransform;
-            newTransform = CGAffineTransformMakeRotation(45.0);
-            
-            self.popupView.transform = CGAffineTransformScale(newTransform,.5,.5);
+            newTransform = CGAffineTransformMakeRotation(90.0);
+           // newTransform = CGAffineTransformScale(newTransform,.5,.5);
+           
+            self.popupView.transform = CGAffineTransformTranslate(newTransform, 500.0, 0.0);
             
             self.initialPopupTransform = self.popupView.transform;
             
+            [UIView animateWithDuration:kModalViewAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                self.popupView.transform = CGAffineTransformIdentity;
+            } completion:nil];
             
-            [UIView animateWithDuration:kModalViewAnimationDuration
-                             animations:^{
-                                 self.popupView.transform = CGAffineTransformIdentity;
-                             }];
+            
             
             
         }

@@ -50,7 +50,7 @@
     [[self labelTestButton] setText:NSLocalizedString(@"TestLabel", @"Test label button")];
     [[self labelHistoryButton] setText:NSLocalizedString(@"HistoryLabel", @"History label button")];
     [[self labelSetupButton] setText:NSLocalizedString(@"SetupLabel", @"Setup label button")];
-    
+    [[self labelPopUp] setText:NSLocalizedString(@"InfoPopupHome", @"info about App at home")];
     //setup popup view
    
     self.popUpView.layer.cornerRadius = 12;
