@@ -100,7 +100,25 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.3;
         }
             break;
             
-
+        case ASDepthModalAnimationDisplace:
+        {
+            
+            CGAffineTransform newTransform;
+            newTransform = CGAffineTransformMakeRotation(45.0);
+            
+            self.popupView.transform = CGAffineTransformScale(newTransform,.5,.5);
+            
+            self.initialPopupTransform = self.popupView.transform;
+            
+            
+            [UIView animateWithDuration:kModalViewAnimationDuration
+                             animations:^{
+                                 self.popupView.transform = CGAffineTransformIdentity;
+                             }];
+            
+            
+        }
+            break;
         default:
             self.initialPopupTransform = self.popupView.transform;
             break;
