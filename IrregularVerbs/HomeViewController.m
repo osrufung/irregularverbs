@@ -13,6 +13,8 @@
 #import "CardsTableViewController.h"
 #import "VerbsStore.h"
 #import "HistoryViewController.h"
+#import "ASDepthModalViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface HomeViewController ()
 
@@ -48,6 +50,16 @@
     [[self labelTestButton] setText:NSLocalizedString(@"TestLabel", @"Test label button")];
     [[self labelHistoryButton] setText:NSLocalizedString(@"HistoryLabel", @"History label button")];
     [[self labelSetupButton] setText:NSLocalizedString(@"SetupLabel", @"Setup label button")];
+    
+    //setup popup view
+   
+    self.popUpView.layer.cornerRadius = 12;
+    self.popUpView.layer.shadowOpacity = 0.7;
+    self.popUpView.layer.shadowOffset = CGSizeMake(6, 6); 
+    self.popUpView.layer.shouldRasterize = YES;
+    self.popUpView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+ 
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -55,7 +67,19 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     
+    
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+    //firs time? show popupview assistant
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firsTimeAssistantShown"]){
+         [ASDepthModalViewController presentView:self.popUpView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationShrink];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firsTimeAssistantShown"];
+    }
+    
+}
+
+
 
 -(void)updateUI{
     [[self labelNumberVerbs] setAttributedText:[self attributedHomeLabel]];
@@ -105,4 +129,11 @@
     
 }
 
+- (IBAction)showWizard:(id)sender {
+    [ASDepthModalViewController presentView:self.popUpView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationDisplace];
+}
+
+- (IBAction)closePopUp:(id)sender {
+    [ASDepthModalViewController dismiss];
+}
 @end

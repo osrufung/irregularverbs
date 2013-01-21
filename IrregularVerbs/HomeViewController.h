@@ -20,5 +20,8 @@
  
 @property (weak, nonatomic) IBOutlet UILabel *labelHistoryButton;
 @property (weak, nonatomic) IBOutlet UILabel *labelSetupButton;
+@property (strong, nonatomic) IBOutlet UIView *popUpView;
+- (IBAction)showWizard:(id)sender;
+- (IBAction)closePopUp:(id)sender;
  
 @end
