@@ -31,10 +31,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
+
+    
+    }
+-(void)viewWillAppear:(BOOL)animated{
+    self.view.transform = CGAffineTransformMakeTranslation( 0.0, 400.0);
+    
+    
+    
+    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.view.transform = CGAffineTransformIdentity;
+    } completion:nil];
+    
+
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+     [[self headLabel] setText:[NSString stringWithFormat:@"%d",[[[VerbsStore sharedStore] alphabetic] count]]];
 }
--(void)viewDidAppear:(BOOL)animated{
-    [[self headLabel] setText:[NSString stringWithFormat:@"%d",[[[VerbsStore sharedStore] alphabetic] count]]];
-}
+ 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 4;
