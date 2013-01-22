@@ -14,6 +14,7 @@
 #import "PreferencesViewController.h"
 #import "HistoryViewController.h"
 #import "VSRotatingView.h"
+#import "ASDepthModalViewController.h"
 
 @interface NewHomeViewController ()
 
@@ -53,16 +54,7 @@
     if (selection) {
         [self.tableView deselectRowAtIndexPath:selection animated:YES];
     }
-    self.view.transform = CGAffineTransformMakeTranslation( 0.0, 400.0);
-    
-    
-    
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.view.transform = CGAffineTransformIdentity;
-    } completion:nil];
-    
-
-    
+ 
     [self.navigationController setNavigationBarHidden:YES animated:YES];
      [[self headLabel] setText:[NSString stringWithFormat:@"%d",[[[VerbsStore sharedStore] alphabetic] count]]];
 }
@@ -127,5 +119,11 @@
                                                    animated:YES];
             break;
     }
+}
+- (IBAction)showInfo:(id)sender {
+        [ASDepthModalViewController presentView:self.popupView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationDisplace];
+}
+- (IBAction)closePopUp:(id)sender {
+      [ASDepthModalViewController dismiss];
 }
 @end

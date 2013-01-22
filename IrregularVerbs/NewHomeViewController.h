@@ -17,8 +17,12 @@
     NSArray *buttonHomeViewArrayLabels;
     NSArray *buttonHomeViewArrayIcons;
 }
+- (IBAction)showInfo:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *headLabel;
+@property (strong, nonatomic) IBOutlet UIView *popupView;
+ 
+- (IBAction)closePopUp:(id)sender;
 @end
