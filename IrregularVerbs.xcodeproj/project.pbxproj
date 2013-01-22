@@ -11,6 +11,18 @@
 		090F8B3D16A7E26B002131E1 /* HistoryDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 090F8B3C16A7E26B002131E1 /* HistoryDataCell.xib */; };
 		090F8B4116A7E52B002131E1 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090F8B3F16A7E52B002131E1 /* HistoryViewController.m */; };
 		090F8B4216A7E52B002131E1 /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 090F8B4016A7E52B002131E1 /* HistoryViewController.xib */; };
+		0917BF6F16AEC1A2009221EF /* check_ok_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0917BF6216AEC187009221EF /* check_ok_grey@2x.png */; };
+		0917BF7016AEC1A2009221EF /* check_ok_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 0917BF6316AEC187009221EF /* check_ok_grey.png */; };
+		0917BF7116AEC1A2009221EF /* check_ok_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0917BF6416AEC188009221EF /* check_ok_green@2x.png */; };
+		0917BF7216AEC1A2009221EF /* check_ok_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 0917BF6516AEC189009221EF /* check_ok_green.png */; };
+		0917BF7316AEC1A2009221EF /* check_ok_dark_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0917BF6616AEC18A009221EF /* check_ok_dark_grey@2x.png */; };
+		0917BF7416AEC1A2009221EF /* check_ok_dark_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 0917BF6716AEC18C009221EF /* check_ok_dark_grey.png */; };
+		0917BF7616AEC1A2009221EF /* check_nok_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0917BF6916AEC190009221EF /* check_nok_red@2x.png */; };
+		0917BF7816AEC1A2009221EF /* check_nok_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0917BF6B16AEC195009221EF /* check_nok_grey@2x.png */; };
+		0917BF7916AEC1A2009221EF /* check_nok_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 0917BF6C16AEC199009221EF /* check_nok_grey.png */; };
+		0917BF7A16AEC1A2009221EF /* check_nok_dark_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0917BF6D16AEC19C009221EF /* check_nok_dark_grey@2x.png */; };
+		0917BF7B16AEC1A2009221EF /* check_nok_dark_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 0917BF6E16AEC19F009221EF /* check_nok_dark_grey.png */; };
+		0917BF7D16AECECA009221EF /* check_nok_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 0917BF7C16AECECA009221EF /* check_nok_red.png */; };
 		091C61F516A018EF00F3606A /* CardsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091C61F316A018EF00F3606A /* CardsTableViewController.m */; };
 		091C61F616A018EF00F3606A /* CardsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 091C61F416A018EF00F3606A /* CardsTableViewController.xib */; };
 		092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 092CDCA7168D8D8C0092FD32 /* Defaults.plist */; };
@@ -92,6 +104,18 @@
 		090F8B3E16A7E52A002131E1 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		090F8B3F16A7E52B002131E1 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		090F8B4016A7E52B002131E1 /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
+		0917BF6216AEC187009221EF /* check_ok_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_ok_grey@2x.png"; sourceTree = "<group>"; };
+		0917BF6316AEC187009221EF /* check_ok_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_ok_grey.png; sourceTree = "<group>"; };
+		0917BF6416AEC188009221EF /* check_ok_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_ok_green@2x.png"; sourceTree = "<group>"; };
+		0917BF6516AEC189009221EF /* check_ok_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_ok_green.png; sourceTree = "<group>"; };
+		0917BF6616AEC18A009221EF /* check_ok_dark_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_ok_dark_grey@2x.png"; sourceTree = "<group>"; };
+		0917BF6716AEC18C009221EF /* check_ok_dark_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_ok_dark_grey.png; sourceTree = "<group>"; };
+		0917BF6916AEC190009221EF /* check_nok_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_nok_red@2x.png"; sourceTree = "<group>"; };
+		0917BF6B16AEC195009221EF /* check_nok_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_nok_grey@2x.png"; sourceTree = "<group>"; };
+		0917BF6C16AEC199009221EF /* check_nok_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_nok_grey.png; sourceTree = "<group>"; };
+		0917BF6D16AEC19C009221EF /* check_nok_dark_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_nok_dark_grey@2x.png"; sourceTree = "<group>"; };
+		0917BF6E16AEC19F009221EF /* check_nok_dark_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_nok_dark_grey.png; sourceTree = "<group>"; };
+		0917BF7C16AECECA009221EF /* check_nok_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_nok_red.png; sourceTree = "<group>"; };
 		091C61F216A018EF00F3606A /* CardsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsTableViewController.h; sourceTree = "<group>"; };
 		091C61F316A018EF00F3606A /* CardsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsTableViewController.m; sourceTree = "<group>"; };
 		091C61F416A018EF00F3606A /* CardsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardsTableViewController.xib; sourceTree = "<group>"; };
@@ -427,6 +451,18 @@
 		E550A5EE169CC9AE00DCA8D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0917BF7C16AECECA009221EF /* check_nok_red.png */,
+				0917BF6216AEC187009221EF /* check_ok_grey@2x.png */,
+				0917BF6316AEC187009221EF /* check_ok_grey.png */,
+				0917BF6416AEC188009221EF /* check_ok_green@2x.png */,
+				0917BF6516AEC189009221EF /* check_ok_green.png */,
+				0917BF6616AEC18A009221EF /* check_ok_dark_grey@2x.png */,
+				0917BF6716AEC18C009221EF /* check_ok_dark_grey.png */,
+				0917BF6916AEC190009221EF /* check_nok_red@2x.png */,
+				0917BF6B16AEC195009221EF /* check_nok_grey@2x.png */,
+				0917BF6C16AEC199009221EF /* check_nok_grey.png */,
+				0917BF6D16AEC19C009221EF /* check_nok_dark_grey@2x.png */,
+				0917BF6E16AEC19F009221EF /* check_nok_dark_grey.png */,
 				0973DA1116ADC3D000A8E30A /* cog_02@2x.png */,
 				0973DA1216ADC3D000A8E30A /* crayon@2x.png */,
 				0973DA1316ADC3D000A8E30A /* graph_bar_trend@2x.png */,
@@ -572,6 +608,18 @@
 				0973DA1616ADC3D100A8E30A /* crayon@2x.png in Resources */,
 				0973DA1716ADC3D100A8E30A /* graph_bar_trend@2x.png in Resources */,
 				0973DA1816ADC3D100A8E30A /* page_empty@2x.png in Resources */,
+				0917BF6F16AEC1A2009221EF /* check_ok_grey@2x.png in Resources */,
+				0917BF7016AEC1A2009221EF /* check_ok_grey.png in Resources */,
+				0917BF7116AEC1A2009221EF /* check_ok_green@2x.png in Resources */,
+				0917BF7216AEC1A2009221EF /* check_ok_green.png in Resources */,
+				0917BF7316AEC1A2009221EF /* check_ok_dark_grey@2x.png in Resources */,
+				0917BF7416AEC1A2009221EF /* check_ok_dark_grey.png in Resources */,
+				0917BF7616AEC1A2009221EF /* check_nok_red@2x.png in Resources */,
+				0917BF7816AEC1A2009221EF /* check_nok_grey@2x.png in Resources */,
+				0917BF7916AEC1A2009221EF /* check_nok_grey.png in Resources */,
+				0917BF7A16AEC1A2009221EF /* check_nok_dark_grey@2x.png in Resources */,
+				0917BF7B16AEC1A2009221EF /* check_nok_dark_grey.png in Resources */,
+				0917BF7D16AECECA009221EF /* check_nok_red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,7 +25,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        buttonHomeViewArrayLabels = [NSArray arrayWithObjects:@"Learn",@"Test",@"History",@"Setup", nil];
+ 
+        
+        buttonHomeViewArrayLabels = [NSArray arrayWithObjects:NSLocalizedString(@"LearnLabel", @"Learn label button"),NSLocalizedString(@"TestLabel", @"Test label button"),NSLocalizedString(@"HistoryLabel", @"History label button"),NSLocalizedString(@"SetupLabel", @"Setup label button"), nil];
         buttonHomeViewArrayIcons = [NSArray arrayWithObjects:@"page_empty.png",@"crayon.png",@"graph_bar_trend.png",@"cog_02.png", nil];
     }
     return self;
@@ -35,10 +37,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
- [self.tableView footerViewForSection:0].backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg.png"]];
     
     }
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    // Unselect the selected row if any
+    NSIndexPath*    selection = [self.tableView indexPathForSelectedRow];
+    if (selection) {
+        [self.tableView deselectRowAtIndexPath:selection animated:YES];
+    }
     self.view.transform = CGAffineTransformMakeTranslation( 0.0, 400.0);
     
     

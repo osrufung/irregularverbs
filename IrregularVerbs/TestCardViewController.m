@@ -153,22 +153,22 @@
                     self.labelTime.alpha = 0;
                     self.imageFail.alpha = 1;
                     self.imagePass.alpha = 0;
-                    self.buttonPass.alpha = 0;
-                    self.buttonFail.alpha = 0;
+                    //self.buttonPass.alpha = 1;
+                    //self.buttonFail.alpha = 1;
                 }];
             } else {
                 self.imageFail.image = [[Referee sharedReferee] imageForFail];
                 self.imagePass.image = nil;
                 self.labelTime.text = @"";
-                self.buttonPass.alpha = 0;
-                self.buttonFail.alpha = 0;
+                //self.buttonPass.alpha = 1;
+                //self.buttonFail.alpha = 1;
             }
         } else {
             self.labelTime.text = [NSString stringWithFormat:@"%.2fs",self.verb.responseTime];
             self.labelTime.textColor = [[Referee sharedReferee] colorForValue:self.verb.responseTime];
             self.imagePass.image = [[Referee sharedReferee] imageForValue:self.verb.responseTime];
             self.imageFail.image = nil;
-            self.buttonPass.alpha = 0;
+            //self.buttonPass.alpha = 1;
         }
     }
 
@@ -186,11 +186,11 @@
             self.labelTime.alpha = 1;
             self.labelHint.alpha = 0;
             if (self.verb.failed) {
-                self.buttonFail.alpha = 0;
-                self.buttonPass.alpha = 0;
+                //self.buttonFail.alpha = 0;
+                //self.buttonPass.alpha = 0;
                 self.imageFail.alpha = 1;
             } else {
-                self.buttonPass.alpha = 0;
+                //self.buttonPass.alpha = 0;
                 self.imagePass.alpha = 1;
             }
         }];

@@ -79,11 +79,13 @@
 }
 
 - (UIImage *)imageForFail {
-    return [self paintImage:[UIImage imageNamed:@"delete_64.png"] withColor:_colors[_colors.count-1]];
+    return [UIImage imageNamed:@"check_nok_red.png"];
+    //return [self paintImage:[UIImage imageNamed:@"check_nok_red.png"] withColor:_colors[_colors.count-1]];
 }
 
 - (UIImage *)imageForValue:(float)value {
-    return [self paintImage:[UIImage imageNamed:@"checkmark_64.png"] withColor:[self colorForValue:value]];
+    return [UIImage imageNamed:@"check_ok_green.png"];
+    //return [self paintImage:[UIImage imageNamed:@"check_ok_green.png"] withColor:[self colorForValue:value]];
 }
 
 - (UIColor *)interpolateBetween:(UIColor *)c1 and:(UIColor *)c2 atMix:(float)mix {
@@ -106,7 +108,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     [color setFill];
     CGContextFillRect(context, rect);
-    [image drawAtPoint:CGPointZero blendMode:kCGBlendModeDestinationIn alpha:1.0];
+    [image drawAtPoint:CGPointZero blendMode:kCGBlendModeDestinationIn alpha:0.4];
     img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return img;
