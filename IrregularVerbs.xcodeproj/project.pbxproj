@@ -35,6 +35,16 @@
 		0973DA1716ADC3D100A8E30A /* graph_bar_trend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0973DA1316ADC3D000A8E30A /* graph_bar_trend@2x.png */; };
 		0973DA1816ADC3D100A8E30A /* page_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0973DA1416ADC3D000A8E30A /* page_empty@2x.png */; };
 		099AF69116834580001A6BF3 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099AF69016834580001A6BF3 /* PreferencesViewController.m */; };
+		09CB351716AEDE3100995380 /* DialClick.caf in Resources */ = {isa = PBXBuildFile; fileRef = 09CB350C16AEDE3100995380 /* DialClick.caf */; };
+		09CB351816AEDE3100995380 /* dropShadowTop.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CB350D16AEDE3100995380 /* dropShadowTop.png */; };
+		09CB351916AEDE3100995380 /* dropShadowTop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CB350E16AEDE3100995380 /* dropShadowTop@2x.png */; };
+		09CB351A16AEDE3100995380 /* pain-cycle.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CB350F16AEDE3100995380 /* pain-cycle.png */; };
+		09CB351B16AEDE3100995380 /* pain-cycle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CB351016AEDE3100995380 /* pain-cycle@2x.png */; };
+		09CB351C16AEDE3100995380 /* white-circular-bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CB351116AEDE3100995380 /* white-circular-bg1.png */; };
+		09CB351D16AEDE3100995380 /* white-circular-bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CB351216AEDE3100995380 /* white-circular-bg1@2x.png */; };
+		09CB351E16AEDE3100995380 /* VSRotatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CB351516AEDE3100995380 /* VSRotatingView.m */; };
+		09CB351F16AEDE3100995380 /* VSRotatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09CB351616AEDE3100995380 /* VSRotatingView.xib */; };
+		09CB352216AEDECC00995380 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB352116AEDECC00995380 /* AVFoundation.framework */; };
 		09D372DD1681BA4F00F80410 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DC1681BA4F00F80410 /* UIKit.framework */; };
 		09D372DF1681BA4F00F80410 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DE1681BA4F00F80410 /* Foundation.framework */; };
 		09D372E11681BA4F00F80410 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372E01681BA4F00F80410 /* CoreGraphics.framework */; };
@@ -134,6 +144,18 @@
 		099AF61A1681FBAA001A6BF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		099AF68F16834580001A6BF3 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
 		099AF69016834580001A6BF3 /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
+		09CB350C16AEDE3100995380 /* DialClick.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DialClick.caf; sourceTree = "<group>"; };
+		09CB350D16AEDE3100995380 /* dropShadowTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropShadowTop.png; sourceTree = "<group>"; };
+		09CB350E16AEDE3100995380 /* dropShadowTop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropShadowTop@2x.png"; sourceTree = "<group>"; };
+		09CB350F16AEDE3100995380 /* pain-cycle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pain-cycle.png"; sourceTree = "<group>"; };
+		09CB351016AEDE3100995380 /* pain-cycle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pain-cycle@2x.png"; sourceTree = "<group>"; };
+		09CB351116AEDE3100995380 /* white-circular-bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-circular-bg1.png"; sourceTree = "<group>"; };
+		09CB351216AEDE3100995380 /* white-circular-bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-circular-bg1@2x.png"; sourceTree = "<group>"; };
+		09CB351316AEDE3100995380 /* VSConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSConstant.h; sourceTree = "<group>"; };
+		09CB351416AEDE3100995380 /* VSRotatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRotatingView.h; sourceTree = "<group>"; };
+		09CB351516AEDE3100995380 /* VSRotatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRotatingView.m; sourceTree = "<group>"; };
+		09CB351616AEDE3100995380 /* VSRotatingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSRotatingView.xib; sourceTree = "<group>"; };
+		09CB352116AEDECC00995380 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		09D372D81681BA4F00F80410 /* A list of verbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A list of verbs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D372DC1681BA4F00F80410 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09D372DE1681BA4F00F80410 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -232,6 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09CB352216AEDECC00995380 /* AVFoundation.framework in Frameworks */,
 				E570094616939C7300219C24 /* QuartzCore.framework in Frameworks */,
 				09D372DD1681BA4F00F80410 /* UIKit.framework in Frameworks */,
 				09D372DF1681BA4F00F80410 /* Foundation.framework in Frameworks */,
@@ -245,6 +268,7 @@
 		0973D9FA16AD4D8600A8E30A /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				09CB350A16AEDE3100995380 /* VSRotatingView */,
 				0973D9FB16AD4DA700A8E30A /* ViewControllers */,
 			);
 			name = "Third Party";
@@ -259,9 +283,36 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		09CB350A16AEDE3100995380 /* VSRotatingView */ = {
+			isa = PBXGroup;
+			children = (
+				09CB350B16AEDE3100995380 /* Resources */,
+				09CB351316AEDE3100995380 /* VSConstant.h */,
+				09CB351416AEDE3100995380 /* VSRotatingView.h */,
+				09CB351516AEDE3100995380 /* VSRotatingView.m */,
+				09CB351616AEDE3100995380 /* VSRotatingView.xib */,
+			);
+			path = VSRotatingView;
+			sourceTree = "<group>";
+		};
+		09CB350B16AEDE3100995380 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				09CB350C16AEDE3100995380 /* DialClick.caf */,
+				09CB350D16AEDE3100995380 /* dropShadowTop.png */,
+				09CB350E16AEDE3100995380 /* dropShadowTop@2x.png */,
+				09CB350F16AEDE3100995380 /* pain-cycle.png */,
+				09CB351016AEDE3100995380 /* pain-cycle@2x.png */,
+				09CB351116AEDE3100995380 /* white-circular-bg1.png */,
+				09CB351216AEDE3100995380 /* white-circular-bg1@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		09D372CD1681BA4F00F80410 = {
 			isa = PBXGroup;
 			children = (
+				09CB352116AEDECC00995380 /* AVFoundation.framework */,
 				E550A5DD169CC8C600DCA8D6 /* Readme */,
 				09D372E21681BA4F00F80410 /* IrregularVerbs */,
 				09D372DB1681BA4F00F80410 /* Frameworks */,
@@ -620,6 +671,14 @@
 				0917BF7A16AEC1A2009221EF /* check_nok_dark_grey@2x.png in Resources */,
 				0917BF7B16AEC1A2009221EF /* check_nok_dark_grey.png in Resources */,
 				0917BF7D16AECECA009221EF /* check_nok_red.png in Resources */,
+				09CB351716AEDE3100995380 /* DialClick.caf in Resources */,
+				09CB351816AEDE3100995380 /* dropShadowTop.png in Resources */,
+				09CB351916AEDE3100995380 /* dropShadowTop@2x.png in Resources */,
+				09CB351A16AEDE3100995380 /* pain-cycle.png in Resources */,
+				09CB351B16AEDE3100995380 /* pain-cycle@2x.png in Resources */,
+				09CB351C16AEDE3100995380 /* white-circular-bg1.png in Resources */,
+				09CB351D16AEDE3100995380 /* white-circular-bg1@2x.png in Resources */,
+				09CB351F16AEDE3100995380 /* VSRotatingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +715,7 @@
 				E53DC4F716AC56B5004CF825 /* HintsCell.m in Sources */,
 				0973D9FE16AD4DBE00A8E30A /* ASDepthModalViewController.m in Sources */,
 				0973DA0E16ADB9F700A8E30A /* NewHomeViewController.m in Sources */,
+				09CB351E16AEDE3100995380 /* VSRotatingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 #import "TestSelectorViewController.h"
 #import "PreferencesViewController.h"
 #import "HistoryViewController.h"
+#import "VSRotatingView.h"
 
 @interface NewHomeViewController ()
 
@@ -29,6 +30,8 @@
         
         buttonHomeViewArrayLabels = [NSArray arrayWithObjects:NSLocalizedString(@"LearnLabel", @"Learn label button"),NSLocalizedString(@"TestLabel", @"Test label button"),NSLocalizedString(@"HistoryLabel", @"History label button"),NSLocalizedString(@"SetupLabel", @"Setup label button"), nil];
         buttonHomeViewArrayIcons = [NSArray arrayWithObjects:@"page_empty.png",@"crayon.png",@"graph_bar_trend.png",@"cog_02.png", nil];
+        
+
     }
     return self;
 }
@@ -36,8 +39,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    VSRotatingView *rv = [VSRotatingView new];
+     
+    [[self bottomView] addSubview:rv];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg.png"]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg.png"]];
     
     }
 -(void)viewWillAppear:(BOOL)animated{
