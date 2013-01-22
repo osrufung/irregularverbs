@@ -21,21 +21,26 @@
 
 @implementation HintsTableDelegate
 
+- (void)populateWithVerbsInArray:(NSArray *)verbs {
+    _flatDataSet = [[NSMutableArray alloc] initWithCapacity:verbs.count];
+    int currentHint = -1;
+    for (Verb *verb in verbs) {
+        if (verb.hint!=currentHint) {
+            currentHint = verb.hint;
+            [_flatDataSet addObject:[[VerbsStore alloc] hintForGroupIndex:currentHint]];
+        }
+        [_flatDataSet addObject:verb];
+    }
+}
+
 - (NSArray *)flatDataSet {
     if (!_flatDataSet) {
         NSArray *verbs = [[[VerbsStore sharedStore] alphabetic] sortedArrayUsingSelector:@selector(compareVerbsByHint:)];
-        _flatDataSet = [[NSMutableArray alloc] initWithCapacity:verbs.count];
-        int currentHint = -1;
-        for (Verb *verb in verbs) {
-            if (verb.hint!=currentHint) {
-                currentHint = verb.hint;
-                [_flatDataSet addObject:[[VerbsStore alloc] hintForGroupIndex:currentHint]];
-            }
-            [_flatDataSet addObject:verb];
-        }
+        [self populateWithVerbsInArray:verbs];
     }
     return _flatDataSet;
 }
+
 
 - (UIView *)headerViewWithText:(NSString *)text {
     int currHeight = 14;
@@ -72,7 +77,7 @@
     currHeight += foot.frame.size.height+2;
 
     UIView *back = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, currHeight)];
-    back.backgroundColor = [UIColor whiteColor];
+    back.backgroundColor = [UIColor clearColor];
     [back addSubview:lab];
     [back addSubview:pass];
     [back addSubview:simple];

@@ -68,12 +68,7 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.6;
                      animations:^{
                          self.coverView.alpha = 0;
                          self.rootViewController.view.transform = CGAffineTransformIdentity;
-                         
-                         CGAffineTransform newTransform;
-                         newTransform = CGAffineTransformMakeRotation(90.0);
-                         self.popupView.transform = CGAffineTransformTranslate(newTransform, -500.0, 0.0);
-
-//                       self.popupView.transform = self.initialPopupTransform;
+                         self.popupView.transform = self.initialPopupTransform;
                      }
                      completion:^(BOOL finished) {
                          [self restoreRootViewController];
@@ -154,6 +149,7 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.6;
 
     self.popupView = [[UIView alloc] initWithFrame:view.frame];
     self.popupView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
+    
     [self.popupView addSubview:view];
     
     self.coverView = [[UIView alloc] initWithFrame:self.rootViewController.view.bounds];
