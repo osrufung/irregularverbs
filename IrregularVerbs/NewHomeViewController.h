@@ -16,6 +16,7 @@
 {
     NSArray *buttonHomeViewArrayLabels;
     NSArray *buttonHomeViewArrayIcons;
+    NSArray *discretLevelsValues;
 }
 - (IBAction)showInfo:(id)sender;
 

@@ -31,7 +31,7 @@
         
         buttonHomeViewArrayLabels = [NSArray arrayWithObjects:NSLocalizedString(@"LearnLabel", @"Learn label button"),NSLocalizedString(@"TestLabel", @"Test label button"),NSLocalizedString(@"HistoryLabel", @"History label button"),NSLocalizedString(@"SetupLabel", @"Setup label button"), nil];
         buttonHomeViewArrayIcons = [NSArray arrayWithObjects:@"page_empty.png",@"crayon.png",@"graph_bar_trend.png",@"cog_02.png", nil];
-        
+        discretLevelsValues  = @[@0.1, @0.2, @0.3, @0.4,@0.5,@0.6,@1.0];
 
     }
     return self;
@@ -41,7 +41,7 @@
 {
     [super viewDidLoad];
     VSRotatingView *rv = [VSRotatingView new];
-     
+    rv.rotatingViewDelegate = self;
     [[self bottomView] addSubview:rv];
     // Do any additional setup after loading the view from its nib.
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg.png"]];
@@ -57,6 +57,16 @@
  
     [self.navigationController setNavigationBarHidden:YES animated:YES];
      [[self headLabel] setText:[NSString stringWithFormat:@"%d",[[[VerbsStore sharedStore] alphabetic] count]]];
+}
+#pragma mark RotatingViewDelegateMethods
+
+- (void)viewCirculatedToSegmentIndex:(NSUInteger)index
+{
+    NSLog(@"Wheel rotated to index: %d", index);
+    
+    float f = [[discretLevelsValues objectAtIndex:index] floatValue];
+    [[VerbsStore sharedStore] setFrequency:f];
+    [[self headLabel] setText:[NSString stringWithFormat:@"%d",[[[VerbsStore sharedStore] alphabetic] count]]];
 }
 
 #pragma mark UITableViewDataSource Delegate Methods
