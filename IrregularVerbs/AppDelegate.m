@@ -28,8 +28,8 @@
     if(frequency == 0.0)
         [[NSUserDefaults standardUserDefaults] setFloat:0.4 forKey:@"frequency"];
     
-    HomeViewController *hvc = [[HomeViewController alloc] init];
-    //NewHomeViewController *hvc = [[NewHomeViewController alloc] init];
+    //HomeViewController *hvc = [[HomeViewController alloc] init];
+    NewHomeViewController *hvc = [[NewHomeViewController alloc] init];
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:hvc];
    
     [[nc navigationBar] setTintColor:DARKGREYTINT];
