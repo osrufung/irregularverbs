@@ -47,7 +47,6 @@
 		09CB352216AEDECC00995380 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB352116AEDECC00995380 /* AVFoundation.framework */; };
 		09CE63FC16B015D40061C968 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63F716B015D40061C968 /* greyButton.png */; };
 		09CE63FD16B015D40061C968 /* greyButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63F816B015D40061C968 /* greyButton@2x.png */; };
-		09CE63FE16B015D40061C968 /* greyButton@2xpng in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63F916B015D40061C968 /* greyButton@2xpng */; };
 		09CE63FF16B015D40061C968 /* greyButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63FA16B015D40061C968 /* greyButtonHighlight.png */; };
 		09CE640016B015D40061C968 /* greyButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63FB16B015D40061C968 /* greyButtonHighlight@2x.png */; };
 		09D372DD1681BA4F00F80410 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DC1681BA4F00F80410 /* UIKit.framework */; };
@@ -107,6 +106,8 @@
 		E5DB03A516A7EEAC00EE1E80 /* PassFailGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */; };
 		E5DEC60A169F70C60006AE38 /* gear_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DEC609169F70C60006AE38 /* gear_24.png */; };
 		E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */; };
+		E5F428CD16B0A86B00058D72 /* greyButtonSpacer.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F428CB16B0A86700058D72 /* greyButtonSpacer.png */; };
+		E5F428CE16B0A86B00058D72 /* greyButtonSpacer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F428CC16B0A86900058D72 /* greyButtonSpacer@2x.png */; };
 		E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */; };
 		E5F49E2116A5C89C0078EC5D /* TestCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */; };
 		E5F49E2716A5CAF30078EC5D /* thumbup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E2316A5CAF30078EC5D /* thumbup@2x.png */; };
@@ -166,7 +167,6 @@
 		09CB352116AEDECC00995380 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		09CE63F716B015D40061C968 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
 		09CE63F816B015D40061C968 /* greyButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyButton@2x.png"; sourceTree = "<group>"; };
-		09CE63F916B015D40061C968 /* greyButton@2xpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "greyButton@2xpng"; sourceTree = "<group>"; };
 		09CE63FA16B015D40061C968 /* greyButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButtonHighlight.png; sourceTree = "<group>"; };
 		09CE63FB16B015D40061C968 /* greyButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyButtonHighlight@2x.png"; sourceTree = "<group>"; };
 		09D372D81681BA4F00F80410 /* A list of verbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A list of verbs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,6 +256,8 @@
 		E5DEC609169F70C60006AE38 /* gear_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_24.png; sourceTree = "<group>"; };
 		E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSelectorViewController.h; sourceTree = "<group>"; };
 		E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSelectorViewController.m; sourceTree = "<group>"; };
+		E5F428CB16B0A86700058D72 /* greyButtonSpacer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButtonSpacer.png; sourceTree = "<group>"; };
+		E5F428CC16B0A86900058D72 /* greyButtonSpacer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyButtonSpacer@2x.png"; sourceTree = "<group>"; };
 		E5F49E1D16A5C89C0078EC5D /* TestCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCardViewController.h; sourceTree = "<group>"; };
 		E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCardViewController.m; sourceTree = "<group>"; };
 		E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCardViewController.xib; sourceTree = "<group>"; };
@@ -519,9 +521,10 @@
 		E550A5EE169CC9AE00DCA8D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E5F428CB16B0A86700058D72 /* greyButtonSpacer.png */,
+				E5F428CC16B0A86900058D72 /* greyButtonSpacer@2x.png */,
 				09CE63F716B015D40061C968 /* greyButton.png */,
 				09CE63F816B015D40061C968 /* greyButton@2x.png */,
-				09CE63F916B015D40061C968 /* greyButton@2xpng */,
 				09CE63FA16B015D40061C968 /* greyButtonHighlight.png */,
 				09CE63FB16B015D40061C968 /* greyButtonHighlight@2x.png */,
 				095BC75A16AEEEEF0020ADCF /* check_nok_red@2x.png */,
@@ -708,9 +711,10 @@
 				095BC75D16AEEEF00020ADCF /* check_nok_red.png in Resources */,
 				09CE63FC16B015D40061C968 /* greyButton.png in Resources */,
 				09CE63FD16B015D40061C968 /* greyButton@2x.png in Resources */,
-				09CE63FE16B015D40061C968 /* greyButton@2xpng in Resources */,
 				09CE63FF16B015D40061C968 /* greyButtonHighlight.png in Resources */,
 				09CE640016B015D40061C968 /* greyButtonHighlight@2x.png in Resources */,
+				E5F428CD16B0A86B00058D72 /* greyButtonSpacer.png in Resources */,
+				E5F428CE16B0A86B00058D72 /* greyButtonSpacer@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

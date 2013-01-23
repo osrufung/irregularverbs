@@ -35,9 +35,9 @@
         self.title = @"Test";
         [self.tableView registerNib:[UINib nibWithNibName:@"CounterCell" bundle:[NSBundle mainBundle]]
              forCellReuseIdentifier:@"CounterCell"];
-        self.buttonImage = [[UIImage imageNamed:@"greyButton.png"]
+        self.buttonImage = [[UIImage imageNamed:@"greyButtonSpacer"]
                             resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-        self.buttonImageHighlight = [[UIImage imageNamed:@"greyButtonHighlight.png"]
+        self.buttonImageHighlight = [[UIImage imageNamed:@"greyButtonHighlightSpacer"]
                                      resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
     }
     return self;
@@ -117,7 +117,9 @@
         }
     } else {
         static NSString *TestTypeIdentifier = @"TestTypeCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TestTypeIdentifier];
+        UITableViewCell *cell;
+
+        cell = [tableView dequeueReusableCellWithIdentifier:TestTypeIdentifier];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TestTypeIdentifier];
             cell.textLabel.backgroundColor = [UIColor clearColor];
@@ -126,8 +128,10 @@
             cell.selectionStyle = UITableViewCellSelectionStyleGray;
             cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
             cell.textLabel.textColor = [UIColor darkGrayColor];
+            cell.backgroundView.frame = CGRectInset(cell.frame, -20, -20);
         }
         cell.textLabel.text = [[VerbsStore sharedStore] testTypes][indexPath.row];
+
         return cell;
     }
     return nil;
