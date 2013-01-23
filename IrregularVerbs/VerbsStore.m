@@ -182,6 +182,11 @@
     return self.hints[index];
 }
 
+- (NSArray *)verbsForGroupIndex:(int)index {
+    NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByHint:)];
+    NSPredicate *query = [NSPredicate predicateWithFormat:@"hint==%d",index];
+    return [list filteredArrayUsingPredicate:query];
+}
 
 - (void)resetHistory {
     for (Verb *verb in self.allVerbs) {
@@ -271,7 +276,7 @@
     if ([list count]>self.verbsNumberInTest) {
         list = [[list shuffledCopy] subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
     }
-    return list;
+    return [list shuffledCopy];
 }
 
 - (int)selectOneHintAtRandom:(NSArray *)list {

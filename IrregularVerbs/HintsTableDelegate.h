@@ -10,4 +10,6 @@
 
 @interface HintsTableDelegate : NSObject <UITableViewDataSource, UITableViewDelegate>
 
+- (void)populateWithVerbsInArray:(NSArray *)verbs;
+
 @end

@@ -24,6 +24,7 @@
 
 - (int)lastTestFailedVerbsCount;
 - (NSString *)hintForGroupIndex:(int)index;
+- (NSArray *)verbsForGroupIndex:(int)index;
 
 - (BOOL) saveChanges;
 - (BOOL) resetVerbsStore;

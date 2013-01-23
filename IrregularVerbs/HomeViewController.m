@@ -39,15 +39,13 @@
         UINavigationItem *item = [self navigationItem];
         [item setTitle:NSLocalizedString(@"back",@"back button")];
    
-        //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg.png"]];
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg.png"]];
     }
     return self;
 
 }
 
 -(void)viewDidLoad{
-    [super viewDidLoad];
-    
     [[self labelLearnButton] setText:NSLocalizedString(@"LearnLabel", @"Learn label button")];
     [[self labelTestButton] setText:NSLocalizedString(@"TestLabel", @"Test label button")];
     [[self labelHistoryButton] setText:NSLocalizedString(@"HistoryLabel", @"History label button")];
@@ -117,7 +115,6 @@
 }
 
 - (IBAction)openHistory:(id)sender {
- 
     [[self navigationController] pushViewController:[[HistoryViewController alloc] init]  animated:YES];
     
 }

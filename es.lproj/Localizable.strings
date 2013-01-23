@@ -8,7 +8,7 @@
 "InfoPopupHome" = "aprende, verifica tu conocimiento con un pequeño nº de verbos y comprueba tu progreso. Puedes incrementar el nivel aumentando el nº de verbos en Ajustes.";
 
 //home View
-"verbstolearn" = "%d verbos para aprender.";
+"verbstolearn" = "%d verbos para aprender";
 "back" = "volver";
 "LearnLabel" = "Aprender";
 "TestLabel" = "Evaluar";

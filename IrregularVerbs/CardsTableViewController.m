@@ -165,8 +165,10 @@
     v = self.indexedData[indexPath.section][indexPath.row];
  
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"UITableViewCell"];
-    [[cell textLabel] setText:[v simple]];
-    [[cell detailTextLabel] setText: [NSString stringWithFormat:@"%@ - %@ - %@",[v past],[v participle],[v translation]]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ - %@",v.simple, v.past, v.participle];
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:16.0f];
+    cell.detailTextLabel.text = v.translation;
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:14.0f];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     

@@ -149,6 +149,7 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.6;
 
     self.popupView = [[UIView alloc] initWithFrame:view.frame];
     self.popupView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
+    
     [self.popupView addSubview:view];
     
     self.coverView = [[UIView alloc] initWithFrame:self.rootViewController.view.bounds];
@@ -158,7 +159,7 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.6;
     
     dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
     dismissButton.frame = self.coverView.bounds;
-    [dismissButton addTarget:self action:@selector(handleCloseAction:) forControlEvents:UIControlEventTouchUpInside];
+    [dismissButton addTarget:self action:@selector(handleCloseAction:) forControlEvents:UIControlEventTouchDown];
     [self.coverView addSubview:dismissButton];
     
     [self.coverView addSubview:self.popupView];

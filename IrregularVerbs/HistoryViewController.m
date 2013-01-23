@@ -13,12 +13,18 @@
 #import "TSCSummaryCell.h"
 #import "PassFailGraphView.h"
 #import "Referee.h"
+#import "HintsTableDelegate.h"
+#import "UIColor+Saturation.h"
+#import "ASDepthModalViewController.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @interface HistoryViewController ()
 
 @property (nonatomic) int failCount;
 @property (nonatomic) int passCount;
 @property (nonatomic) float averageTime;
+@property (nonatomic,strong) HintsTableDelegate *hintsDelegate;
 
 @end
 
@@ -51,8 +57,18 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
     [[self criteriaControl] setTitle:NSLocalizedString(@"alpha", nil) forSegmentAtIndex:0];
     [[self criteriaControl] setTitle:NSLocalizedString(@"averagetime_abrev", nil) forSegmentAtIndex:1];
     [[self criteriaControl] setTitle:NSLocalizedString(@"failures", nil) forSegmentAtIndex:2];
-    
 
+    self.hintsDelegate = [[HintsTableDelegate alloc] init];
+    [self.tableHelp registerNib:[UINib nibWithNibName:@"HintsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"HintsCell"];
+    self.tableHelp.delegate = self.hintsDelegate;
+    self.tableHelp.dataSource = self.hintsDelegate;
+    self.tableHelp.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.helpView.layer.cornerRadius = 12;
+    self.helpView.layer.shadowOpacity = 0.8;
+    self.helpView.layer.shadowOffset = CGSizeMake(6, 6);
+    self.helpView.layer.shouldRasterize = YES;
+    self.helpView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -141,8 +157,8 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
         Verb *v;
         v = _currentData[indexPath.row];
         
-        [[cell labelSimple] setText:[v simple]];
-        [[cell labelExtendedForms] setText:[NSString stringWithFormat:@"%@ - %@ - %@",[v past],[v participle],[v translation]]];
+        cell.labelSimple.text = [NSString stringWithFormat:@"%@ - %@ - %@",v.simple, v.past, v.participle];
+        cell.labelExtendedForms.text = v.translation;
         if (v.averageResponseTime==0) {
             cell.labelTime.text=@"";
         } else {
@@ -176,6 +192,21 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
     }
     return nil;
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section==1) {
+        NSLog(@"Selected row %d",indexPath.row);
+        Verb *selectedVerb = _currentData[indexPath.row];
+        
+        [self.hintsDelegate populateWithVerbsInArray:[[VerbsStore sharedStore] verbsForGroupIndex:selectedVerb.hint]];
+        [self.tableHelp reloadData];
+        [ASDepthModalViewController presentView:self.helpView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationGrow];
+    }
+}
+
+- (IBAction)closeHelpView:(UIButton *)sender {
+    [ASDepthModalViewController dismiss];
 }
 
 - (void)computeStatistics {
