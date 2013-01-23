@@ -48,7 +48,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
-    NSArray *secTitles = @[@"",NSLocalizedString(@"TestType", nil)];
+    NSArray *secTitles = @[@"",NSLocalizedString(@"TestOptions", nil)];
     return secTitles[section];
 }
 
