@@ -11,9 +11,14 @@
 #import "TestSelectorViewController.h"
 
 @interface TestSelectorViewController ()
+{
+    
+}
 
 @property (nonatomic,strong) UITableViewCell *counterCell;
 @property (nonatomic,strong) UITableViewCell *onOffCell;
+@property (nonatomic,strong) UIImage *buttonImage;
+@property (nonatomic,strong) UIImage *buttonImageHighlight;
 
 @end
 
@@ -30,11 +35,18 @@
         self.title = @"Test";
         [self.tableView registerNib:[UINib nibWithNibName:@"CounterCell" bundle:[NSBundle mainBundle]]
              forCellReuseIdentifier:@"CounterCell"];
+        self.buttonImage = [[UIImage imageNamed:@"greyButton.png"]
+                            resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+        self.buttonImageHighlight = [[UIImage imageNamed:@"greyButtonHighlight.png"]
+                                     resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
     }
     return self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+
+    self.tableView.backgroundView = nil;
+    self.tableView.backgroundColor = [UIColor whiteColor];
     [self.tableView reloadData];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
@@ -68,6 +80,11 @@
         step.value = [[VerbsStore sharedStore] verbsNumberInTest];
         [step addTarget:self action:@selector(verbsNumberChanged:) forControlEvents:UIControlEventValueChanged];
         _counterCell.accessoryView = step;
+        _counterCell.textLabel.backgroundColor = [UIColor clearColor];
+        _counterCell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
+        _counterCell.textLabel.textColor = [UIColor darkGrayColor];
+        _counterCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage highlightedImage:self.buttonImageHighlight];
+
     }
     
     _counterCell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"usexofy", "use x of y"),[[VerbsStore sharedStore] verbsNumberInTest], [[[VerbsStore sharedStore] alphabetic] count]] ;;
@@ -82,6 +99,10 @@
         [onOff addTarget:self action:@selector(useHintsChanged:) forControlEvents:UIControlEventValueChanged];
         _onOffCell.accessoryView = onOff;
         _onOffCell.textLabel.text = NSLocalizedString(@"usehints", nil);
+        _onOffCell.textLabel.backgroundColor = [UIColor clearColor];
+        _onOffCell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
+        _onOffCell.textLabel.textColor = [UIColor darkGrayColor];
+        _onOffCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage highlightedImage:self.buttonImageHighlight];
     }
     return _onOffCell;
 }
@@ -99,9 +120,14 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TestTypeIdentifier];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TestTypeIdentifier];
-            cell.textLabel.text = [[VerbsStore sharedStore] testTypes][indexPath.row];
-            cell.imageView.image = [UIImage imageNamed:@"pencil_24.png"];
+            cell.textLabel.backgroundColor = [UIColor clearColor];
+            cell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage highlightedImage:self.buttonImageHighlight];
+            cell.accessoryView =  [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"crayon"]];
+            cell.selectionStyle = UITableViewCellSelectionStyleGray;
+            cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
+            cell.textLabel.textColor = [UIColor darkGrayColor];
         }
+        cell.textLabel.text = [[VerbsStore sharedStore] testTypes][indexPath.row];
         return cell;
     }
     return nil;

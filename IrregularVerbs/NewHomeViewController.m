@@ -29,8 +29,8 @@
         // Custom initialization
  
         
-        buttonHomeViewArrayLabels = [NSArray arrayWithObjects:NSLocalizedString(@"LearnLabel", @"Learn label button"),NSLocalizedString(@"TestLabel", @"Test label button"),NSLocalizedString(@"HistoryLabel", @"History label button"),NSLocalizedString(@"SetupLabel", @"Setup label button"), nil];
-        buttonHomeViewArrayIcons = [NSArray arrayWithObjects:@"page_empty.png",@"crayon.png",@"graph_bar_trend.png",@"cog_02.png", nil];
+        buttonHomeViewArrayLabels = @[NSLocalizedString(@"LearnLabel", @"Learn label button"),NSLocalizedString(@"TestLabel", @"Test label button"),NSLocalizedString(@"HistoryLabel", @"History label button"),NSLocalizedString(@"SetupLabel", @"Setup label button")];
+        buttonHomeViewArrayIcons = @[@"page_empty.png",@"crayon.png",@"graph_bar_trend.png",@"cog_02.png"];
         discretLevelsValues  = @[@0.4, @0.5, @0.6, @0.7,@0.8,@0.9,@1.0];
 
     }

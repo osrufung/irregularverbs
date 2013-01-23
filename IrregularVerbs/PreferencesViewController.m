@@ -30,16 +30,25 @@
     [self setLabelNumberOfVerbsForDifficulty:self.sliderDifficulty.value];
     self.stepperTestDuration.value = [[Referee sharedReferee] maxValue];
     [self setLabeTestDuration];
-    self.useHints.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"hintsInTest"];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 
 }
 
 -(void)viewDidLoad
 {
+    UIImage *buttonImage = [[UIImage imageNamed:@"greyButton.png"]
+                            resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    UIImage *buttonImageHighlight = [[UIImage imageNamed:@"greyButtonHighlight.png"]
+                                     resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+
     [[self labelLevelOf] setText:NSLocalizedString(@"levelOfDifficulty", nil)];
-    [[self buttonClear] setTitle:NSLocalizedString(@"clearbuttontitle", nil) forState:UIControlStateNormal];
-    [[self buttonAbout] setTitle:NSLocalizedString(@"aboutbuttontitle", nil) forState:UIControlStateNormal];
+
+    [self.buttonClear setTitle:NSLocalizedString(@"clearbuttontitle", nil) forState:UIControlStateNormal];
+    [self.buttonClear setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [self.buttonClear setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+    [self.buttonAbout setTitle:NSLocalizedString(@"aboutbuttontitle", nil) forState:UIControlStateNormal];
+    [self.buttonAbout setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [self.buttonAbout setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
     
 }
 
@@ -58,10 +67,6 @@
 - (IBAction)testDurationChanged:(UIStepper *)sender {
     [[Referee sharedReferee] setMaxValue:sender.value];
     [self setLabeTestDuration];
-}
-
-- (IBAction)changeHintsInTests:(UISwitch *)sender {
-    [[NSUserDefaults standardUserDefaults] setBool:self.useHints.on forKey:@"hintsInTest"];
 }
 
 - (IBAction)difficultyChanged:(UISlider *)sender {

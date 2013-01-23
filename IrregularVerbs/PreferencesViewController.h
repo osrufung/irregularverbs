@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelNumberOfVerbs;
 @property (weak, nonatomic) IBOutlet UILabel *labelTestDuration;
 @property (weak, nonatomic) IBOutlet UIStepper *stepperTestDuration;
-@property (weak, nonatomic) IBOutlet UISwitch *useHints;
 @property (weak, nonatomic) IBOutlet UILabel *labelLevelOf;
 @property (weak, nonatomic) IBOutlet UIButton *buttonClear;
 @property (weak, nonatomic) IBOutlet UIButton *buttonAbout;
@@ -30,5 +29,4 @@
 - (IBAction)clearStatistics:(UIButton *)sender;
 - (IBAction)showAboutLink:(id)sender;
 - (IBAction)testDurationChanged:(UIStepper *)sender;
-- (IBAction)changeHintsInTests:(UISwitch *)sender;
 @end
