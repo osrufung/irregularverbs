@@ -46,6 +46,8 @@
 }
 
 -(void)viewDidLoad{
+    [super viewDidLoad];
+    
     [[self labelLearnButton] setText:NSLocalizedString(@"LearnLabel", @"Learn label button")];
     [[self labelTestButton] setText:NSLocalizedString(@"TestLabel", @"Test label button")];
     [[self labelHistoryButton] setText:NSLocalizedString(@"HistoryLabel", @"History label button")];
@@ -115,6 +117,7 @@
 }
 
 - (IBAction)openHistory:(id)sender {
+ 
     [[self navigationController] pushViewController:[[HistoryViewController alloc] init]  animated:YES];
     
 }
