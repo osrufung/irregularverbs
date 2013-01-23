@@ -48,13 +48,13 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
-    NSArray *secTitles = @[NSLocalizedString(@"TestOptions", nil),NSLocalizedString(@"TestType", nil)];
+    NSArray *secTitles = @[@"",NSLocalizedString(@"TestType", nil)];
     return secTitles[section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int lenSec[] = {2,[[[VerbsStore sharedStore] testTypes] count]};
+    int lenSec[] = {[[[VerbsStore sharedStore] testTypes] count],2};
     return lenSec[section];
 }
 
@@ -88,7 +88,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==0) {
+    if (indexPath.section==1) {
         if (indexPath.row==0) {
             return [self counterCell];
         } else {
@@ -100,7 +100,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TestTypeIdentifier];
             cell.textLabel.text = [[VerbsStore sharedStore] testTypes][indexPath.row];
-            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+            cell.imageView.image = [UIImage imageNamed:@"pencil_24.png"];
         }
         return cell;
     }
@@ -119,7 +119,7 @@
 #pragma mark - Table view delegate
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    return !(indexPath.section==0);
+    return !(indexPath.section==1);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -57,6 +57,8 @@
 		E570094616939C7300219C24 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E570094516939C7300219C24 /* QuartzCore.framework */; };
 		E57BA4DD16AA1FB0004AFF04 /* hints.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57BA4DC16AA1FB0004AFF04 /* hints.plist */; };
 		E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D12F81695BAEC00C8DE51 /* VerbsStore.m */; };
+		E5B3CEB816B0123600CDD6C5 /* pencil_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B3CEB716B0123600CDD6C5 /* pencil_24.png */; };
+		E5B3CEBB16B0127900CDD6C5 /* pencil_24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B3CEBA16B0127900CDD6C5 /* pencil_24@2x.png */; };
 		E5BB4A5716ADB2AB00030041 /* verbs.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5BB4A5616ADB2AB00030041 /* verbs.plist */; };
 		E5C2CA2E169C5F6600BEE2ED /* Referee.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA2D169C5F6600BEE2ED /* Referee.m */; };
 		E5C2CA32169C6A0C00BEE2ED /* Verb.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA31169C6A0C00BEE2ED /* Verb.m */; };
@@ -159,6 +161,8 @@
 		E57BA4DC16AA1FB0004AFF04 /* hints.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hints.plist; sourceTree = "<group>"; };
 		E59D12F71695BAEC00C8DE51 /* VerbsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerbsStore.h; sourceTree = "<group>"; };
 		E59D12F81695BAEC00C8DE51 /* VerbsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerbsStore.m; sourceTree = "<group>"; };
+		E5B3CEB716B0123600CDD6C5 /* pencil_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil_24.png; sourceTree = "<group>"; };
+		E5B3CEBA16B0127900CDD6C5 /* pencil_24@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pencil_24@2x.png"; sourceTree = "<group>"; };
 		E5BB4A5616ADB2AB00030041 /* verbs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = verbs.plist; sourceTree = "<group>"; };
 		E5C2CA2C169C5F6600BEE2ED /* Referee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Referee.h; sourceTree = "<group>"; };
 		E5C2CA2D169C5F6600BEE2ED /* Referee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Referee.m; sourceTree = "<group>"; };
@@ -411,6 +415,8 @@
 		E550A5EE169CC9AE00DCA8D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E5B3CEB716B0123600CDD6C5 /* pencil_24.png */,
+				E5B3CEBA16B0127900CDD6C5 /* pencil_24@2x.png */,
 				09F7935116A6F5670067EE3C /* address_book@2x.png */,
 				09F7935216A6F5670067EE3C /* lock@2x.png */,
 				09F7935316A6F5670067EE3C /* search@2x.png */,
@@ -547,6 +553,8 @@
 				E53DC4F916AC56C6004CF825 /* HintsCell.xib in Resources */,
 				0973D9F216AD2C4500A8E30A /* Localizable.strings in Resources */,
 				E5BB4A5716ADB2AB00030041 /* verbs.plist in Resources */,
+				E5B3CEB816B0123600CDD6C5 /* pencil_24.png in Resources */,
+				E5B3CEBB16B0127900CDD6C5 /* pencil_24@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
