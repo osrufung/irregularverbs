@@ -7,6 +7,7 @@
 //
 
 #import "Referee.h"
+#import "NewHomeViewController.h"
 
 #define MAX_TEST_TIME   10.f
 
@@ -36,7 +37,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _colors = @[[UIColor greenColor], [UIColor greenColor], [UIColor orangeColor], [UIColor redColor]];
+        _colors = @[TURQUESATINT, TURQUESATINT, [UIColor orangeColor], ROJOTINT];
     }
     return self;
 }
