@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HistoryViewController : UIViewController<UISearchBarDelegate, UISearchDisplayDelegate>{
+@interface HistoryViewController : UIViewController<UISearchBarDelegate, UISearchDisplayDelegate,UITableViewDataSource,UITableViewDelegate>{
     NSArray *_currentData;
 }
 @property (weak, nonatomic) IBOutlet UISegmentedControl *criteriaControl;
