@@ -31,7 +31,7 @@
         
         buttonHomeViewArrayLabels = [NSArray arrayWithObjects:NSLocalizedString(@"LearnLabel", @"Learn label button"),NSLocalizedString(@"TestLabel", @"Test label button"),NSLocalizedString(@"HistoryLabel", @"History label button"),NSLocalizedString(@"SetupLabel", @"Setup label button"), nil];
         buttonHomeViewArrayIcons = [NSArray arrayWithObjects:@"page_empty.png",@"crayon.png",@"graph_bar_trend.png",@"cog_02.png", nil];
-        discretLevelsValues  = @[@0.1, @0.2, @0.3, @0.4,@0.5,@0.6,@1.0];
+        discretLevelsValues  = @[@0.4, @0.5, @0.6, @0.7,@0.8,@0.9,@1.0];
 
     }
     return self;
@@ -43,20 +43,50 @@
     VSRotatingView *rv = [VSRotatingView new];
     rv.rotatingViewDelegate = self;
     [[self bottomView] addSubview:rv];
-    // Do any additional setup after loading the view from its nib.
-    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg.png"]];
+    
+    self.popupView.layer.cornerRadius = 12;
+    self.popupView.layer.shadowOpacity = 0.7;
+    self.popupView.layer.shadowOffset = CGSizeMake(6, 6);
+    self.popupView.layer.shouldRasterize = YES;
+    self.popupView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    
+    [[self labelPopUp] setText:NSLocalizedString(@"InfoPopupHome", @"info about App at home")];
+    
+    UIImage *buttonImage = [[UIImage imageNamed:@"greyButton.png"]
+                            resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    UIImage *buttonImageHighlight = [[UIImage imageNamed:@"greyButtonHighlight.png"]
+                                     resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    // Set the background for any states you plan to use
+    [self.buttonLearn setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [self.buttonLearn setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+    [self.buttonLearn setTitle:NSLocalizedString(@"LearnLabel", nil) forState:UIControlStateNormal];
+    
+    [self.buttonTest setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [self.buttonTest setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+    [self.buttonTest setTitle:NSLocalizedString(@"TestLabel", nil) forState:UIControlStateNormal];
+    
+    [self.buttonHistory setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [self.buttonHistory setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+    [self.buttonHistory setTitle:NSLocalizedString(@"HistoryLabel", nil) forState:UIControlStateNormal];
+    
+    [self.buttonSetup setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [self.buttonSetup setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+    [self.buttonSetup setTitle:NSLocalizedString(@"SetupLabel", nil) forState:UIControlStateNormal];
+    
     
     }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    // Unselect the selected row if any
-    NSIndexPath*    selection = [self.tableView indexPathForSelectedRow];
-    if (selection) {
-        [self.tableView deselectRowAtIndexPath:selection animated:YES];
-    }
+ 
  
     [self.navigationController setNavigationBarHidden:YES animated:YES];
      [[self headLabel] setText:[NSString stringWithFormat:@"%d",[[[VerbsStore sharedStore] alphabetic] count]]];
+    
+    //firs time? show popupview assistant
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firsTimeAssistantShown"]){
+        [ASDepthModalViewController presentView:self.popupView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationShrink];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firsTimeAssistantShown"];
+    }
 }
 #pragma mark RotatingViewDelegateMethods
 
@@ -69,70 +99,30 @@
     [[self headLabel] setText:[NSString stringWithFormat:@"%d",[[[VerbsStore sharedStore] alphabetic] count]]];
 }
 
-#pragma mark UITableViewDataSource Delegate Methods
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [buttonHomeViewArrayLabels count];
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 60.0;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-    if(!cell){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-        
-    }
-    [[cell textLabel] setFont:[UIFont fontWithName:@"Helvetica" size:15.0]];
-    [[cell textLabel]setText:[buttonHomeViewArrayLabels objectAtIndex:indexPath.row] ];
-    [[cell imageView] setImage:[UIImage imageNamed:[buttonHomeViewArrayIcons objectAtIndex:indexPath.row]]];
-    
-    cell.layer.shadowOffset = CGSizeMake(0, 10);
-    cell.layer.shadowColor = [[UIColor lightGrayColor] CGColor];
-    cell.layer.shadowRadius = 20;
-    cell.layer.shadowOpacity = 0.8;
-    CGRect shadowFrame = cell.layer.bounds;
-    CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
-    cell.layer.shadowPath = shadowPath;
-    
-    
-    return cell;
-}
  
 
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
- 
-    return 1;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
- 
-        
-    switch([indexPath row]){
-        case 0:
-            [[self navigationController] pushViewController:[[CardsTableViewController alloc] init]
-                                                   animated:YES];
-            break;
-        case 1:
-            [[self navigationController] pushViewController:[[TestSelectorViewController alloc] init]
-                                                   animated:YES];
-            break;
-        case 2:
-               [[self navigationController] pushViewController:[[HistoryViewController alloc] init]  animated:YES];
-            break;
-        case 3:
-            [[self navigationController] pushViewController:[[PreferencesViewController alloc] init]
-                                                   animated:YES];
-            break;
-    }
-}
 - (IBAction)showInfo:(id)sender {
         [ASDepthModalViewController presentView:self.popupView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationDisplace];
 }
+- (IBAction)openLearn:(id)sender {
+    [[self navigationController] pushViewController:[[CardsTableViewController alloc] init]
+                                           animated:YES];
+}
+
+- (IBAction)openTest:(id)sender {
+    [[self navigationController] pushViewController:[[TestSelectorViewController alloc] init]
+                                           animated:YES];
+}
+
+- (IBAction)openHistory:(id)sender {
+       [[self navigationController] pushViewController:[[HistoryViewController alloc] init]  animated:YES];
+}
+
+- (IBAction)openSetup:(id)sender {
+    [[self navigationController] pushViewController:[[PreferencesViewController alloc] init]
+                                           animated:YES];
+}
+
 - (IBAction)closePopUp:(id)sender {
       [ASDepthModalViewController dismiss];
 }

@@ -8,6 +8,7 @@
 
 #import "PassFailGraphView.h"
 #import "UIColor+Saturation.h"
+#import "NewHomeViewController.h"
 
 @interface PassFailGraphView()
 @property (nonatomic) int total;
@@ -21,13 +22,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.colors = @[[UIColor greenColor],[UIColor redColor]];
+        self.colors = @[TURQUESATINT,ROJOTINT];
     }
     return self;
 }
 
 - (void)awakeFromNib {
-    self.colors = @[[UIColor greenColor],[UIColor redColor]];    
+    self.colors =@[TURQUESATINT,ROJOTINT];  
 }
 
 - (void)setDataCount:(int)total withPassCount:(int)pass andFailCount:(int)fail {

@@ -45,6 +45,11 @@
 		09CB351E16AEDE3100995380 /* VSRotatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CB351516AEDE3100995380 /* VSRotatingView.m */; };
 		09CB351F16AEDE3100995380 /* VSRotatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09CB351616AEDE3100995380 /* VSRotatingView.xib */; };
 		09CB352216AEDECC00995380 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB352116AEDECC00995380 /* AVFoundation.framework */; };
+		09CE63FC16B015D40061C968 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63F716B015D40061C968 /* greyButton.png */; };
+		09CE63FD16B015D40061C968 /* greyButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63F816B015D40061C968 /* greyButton@2x.png */; };
+		09CE63FE16B015D40061C968 /* greyButton@2xpng in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63F916B015D40061C968 /* greyButton@2xpng */; };
+		09CE63FF16B015D40061C968 /* greyButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63FA16B015D40061C968 /* greyButtonHighlight.png */; };
+		09CE640016B015D40061C968 /* greyButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63FB16B015D40061C968 /* greyButtonHighlight@2x.png */; };
 		09D372DD1681BA4F00F80410 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DC1681BA4F00F80410 /* UIKit.framework */; };
 		09D372DF1681BA4F00F80410 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DE1681BA4F00F80410 /* Foundation.framework */; };
 		09D372E11681BA4F00F80410 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372E01681BA4F00F80410 /* CoreGraphics.framework */; };
@@ -159,6 +164,11 @@
 		09CB351516AEDE3100995380 /* VSRotatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRotatingView.m; sourceTree = "<group>"; };
 		09CB351616AEDE3100995380 /* VSRotatingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSRotatingView.xib; sourceTree = "<group>"; };
 		09CB352116AEDECC00995380 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		09CE63F716B015D40061C968 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
+		09CE63F816B015D40061C968 /* greyButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyButton@2x.png"; sourceTree = "<group>"; };
+		09CE63F916B015D40061C968 /* greyButton@2xpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "greyButton@2xpng"; sourceTree = "<group>"; };
+		09CE63FA16B015D40061C968 /* greyButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButtonHighlight.png; sourceTree = "<group>"; };
+		09CE63FB16B015D40061C968 /* greyButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyButtonHighlight@2x.png"; sourceTree = "<group>"; };
 		09D372D81681BA4F00F80410 /* A list of verbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A list of verbs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D372DC1681BA4F00F80410 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09D372DE1681BA4F00F80410 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -318,7 +328,6 @@
 		09D372CD1681BA4F00F80410 = {
 			isa = PBXGroup;
 			children = (
-				09CB352116AEDECC00995380 /* AVFoundation.framework */,
 				E550A5DD169CC8C600DCA8D6 /* Readme */,
 				09D372E21681BA4F00F80410 /* IrregularVerbs */,
 				09D372DB1681BA4F00F80410 /* Frameworks */,
@@ -337,6 +346,7 @@
 		09D372DB1681BA4F00F80410 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				09CB352116AEDECC00995380 /* AVFoundation.framework */,
 				E570094516939C7300219C24 /* QuartzCore.framework */,
 				09D372DC1681BA4F00F80410 /* UIKit.framework */,
 				09D372DE1681BA4F00F80410 /* Foundation.framework */,
@@ -509,6 +519,11 @@
 		E550A5EE169CC9AE00DCA8D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				09CE63F716B015D40061C968 /* greyButton.png */,
+				09CE63F816B015D40061C968 /* greyButton@2x.png */,
+				09CE63F916B015D40061C968 /* greyButton@2xpng */,
+				09CE63FA16B015D40061C968 /* greyButtonHighlight.png */,
+				09CE63FB16B015D40061C968 /* greyButtonHighlight@2x.png */,
 				095BC75A16AEEEEF0020ADCF /* check_nok_red@2x.png */,
 				095BC75B16AEEEEF0020ADCF /* check_nok_red.png */,
 				0917BF6216AEC187009221EF /* check_ok_grey@2x.png */,
@@ -691,6 +706,11 @@
 				095BC75C16AEEEF00020ADCF /* check_nok_red@2x.png in Resources */,
 				E5B3CEBB16B0127900CDD6C5 /* pencil_24@2x.png in Resources */,
 				095BC75D16AEEEF00020ADCF /* check_nok_red.png in Resources */,
+				09CE63FC16B015D40061C968 /* greyButton.png in Resources */,
+				09CE63FD16B015D40061C968 /* greyButton@2x.png in Resources */,
+				09CE63FE16B015D40061C968 /* greyButton@2xpng in Resources */,
+				09CE63FF16B015D40061C968 /* greyButtonHighlight.png in Resources */,
+				09CE640016B015D40061C968 /* greyButtonHighlight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

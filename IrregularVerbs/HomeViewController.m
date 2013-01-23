@@ -117,7 +117,6 @@
 }
 
 - (IBAction)openHistory:(id)sender {
- 
     [[self navigationController] pushViewController:[[HistoryViewController alloc] init]  animated:YES];
     
 }
