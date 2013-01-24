@@ -32,7 +32,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.title = @"Test";
+        self.title = NSLocalizedString(@"TestLabel", @"Test label button");
         self.buttonImage = [[UIImage imageNamed:@"greyButtonSpacer"]
                             resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20) resizingMode:UIImageResizingModeStretch];
     }
