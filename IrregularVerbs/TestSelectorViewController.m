@@ -18,7 +18,6 @@
 @property (nonatomic,strong) UITableViewCell *counterCell;
 @property (nonatomic,strong) UITableViewCell *onOffCell;
 @property (nonatomic,strong) UIImage *buttonImage;
-@property (nonatomic,strong) UIImage *buttonImageHighlight;
 
 @end
 
@@ -33,12 +32,8 @@
     self = [super initWithStyle:style];
     if (self) {
         self.title = @"Test";
-        [self.tableView registerNib:[UINib nibWithNibName:@"CounterCell" bundle:[NSBundle mainBundle]]
-             forCellReuseIdentifier:@"CounterCell"];
         self.buttonImage = [[UIImage imageNamed:@"greyButtonSpacer"]
-                            resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-        self.buttonImageHighlight = [[UIImage imageNamed:@"greyButtonHighlightSpacer"]
-                                     resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+                            resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20) resizingMode:UIImageResizingModeStretch];
     }
     return self;
 }
@@ -83,7 +78,7 @@
         _counterCell.textLabel.backgroundColor = [UIColor clearColor];
         _counterCell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
         _counterCell.textLabel.textColor = [UIColor darkGrayColor];
-        _counterCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage highlightedImage:self.buttonImageHighlight];
+        _counterCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage];
 
     }
     
@@ -102,7 +97,7 @@
         _onOffCell.textLabel.backgroundColor = [UIColor clearColor];
         _onOffCell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
         _onOffCell.textLabel.textColor = [UIColor darkGrayColor];
-        _onOffCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage highlightedImage:self.buttonImageHighlight];
+        _onOffCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage];
     }
     return _onOffCell;
 }
@@ -123,7 +118,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TestTypeIdentifier];
             cell.textLabel.backgroundColor = [UIColor clearColor];
-            cell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage highlightedImage:self.buttonImageHighlight];
+            cell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage ];
             cell.accessoryView =  [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"crayon"]];
             cell.selectionStyle = UITableViewCellSelectionStyleGray;
             cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
