@@ -9,14 +9,15 @@
 #import "VerbsStore.h"
 #import "TestCardsStackViewController.h"
 #import "TestSelectorViewController.h"
+#import "Referee.h"
 
 @interface TestSelectorViewController ()
 {
     
 }
 
-@property (nonatomic,strong) UITableViewCell *counterCell;
-@property (nonatomic,strong) UITableViewCell *onOffCell;
+//@property (nonatomic,strong) UITableViewCell *counterCell;
+//@property (nonatomic,strong) UITableViewCell *onOffCell;
 @property (nonatomic,strong) UIImage *buttonImage;
 
 @end
@@ -53,40 +54,30 @@
     return 2;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    
-    NSArray *secTitles = @[@"",NSLocalizedString(@"TestOptions", nil)];
-    return secTitles[section];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int lenSec[] = {[[[VerbsStore sharedStore] testTypes] count],2};
+    int lenSec[] = {[[[VerbsStore sharedStore] testTypes] count],3};
     return lenSec[section];
 }
 
-- (UITableViewCell *)counterCell {
+- (UITableViewCell *)counterCellWithTarget:(id)target action:(SEL)action {
+    UITableViewCell *_counterCell;
     if (!_counterCell) {
-        int verbsCount = [[[VerbsStore sharedStore] alphabetic] count];
         _counterCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CounterCell"];
         UIStepper *step = [[UIStepper alloc] init];
-        step.minimumValue = 1;
-        step.maximumValue = verbsCount;
-        step.value = [[VerbsStore sharedStore] verbsNumberInTest];
-        [step addTarget:self action:@selector(verbsNumberChanged:) forControlEvents:UIControlEventValueChanged];
+        [step addTarget:target action:action forControlEvents:UIControlEventValueChanged];
         _counterCell.accessoryView = step;
         _counterCell.textLabel.backgroundColor = [UIColor clearColor];
         _counterCell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
         _counterCell.textLabel.textColor = [UIColor darkGrayColor];
         _counterCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage];
 
-    }
-    
-    _counterCell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"usexofy", "use x of y"),[[VerbsStore sharedStore] verbsNumberInTest], [[[VerbsStore sharedStore] alphabetic] count]] ;;
+    }    
     return _counterCell;
 }
 
 - (UITableViewCell *)onOffCell {
+    UITableViewCell *_onOffCell;
     if (!_onOffCell) {
         _onOffCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OnOffCell"];
         UISwitch *onOff = [[UISwitch alloc] init];
@@ -105,11 +96,39 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==1) {
-        if (indexPath.row==0) {
-            return [self counterCell];
-        } else {
-            return [self onOffCell];
+        UITableViewCell *cell;
+        UIStepper *step;
+        
+        switch (indexPath.row) {
+            case 0:
+            {
+                int verbsCount = [[[VerbsStore sharedStore] alphabetic] count];
+                cell = [self counterCellWithTarget:self action:@selector(verbsNumberChanged:)];
+                step = (UIStepper *)cell.accessoryView;
+                step.minimumValue = 1;
+                step.maximumValue = verbsCount;
+                step.value = [[VerbsStore sharedStore] verbsNumberInTest];
+                cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"usexofy", "use x of y"),(int)step.value, verbsCount];
+            }
+                break;
+                
+            case 1:
+            {
+                cell = [self counterCellWithTarget:self action:@selector(maxTimeChanged:)];
+                UIStepper *step = (UIStepper *)cell.accessoryView;
+                step.minimumValue = 1;
+                step.maximumValue = 10;
+                step.value = [[Referee sharedReferee] maxValue];
+                cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"testtime_format",nil),(int)[[Referee sharedReferee] maxValue]];
+            }
+                break;
+            case 2:
+                cell = [self onOffCell];
+                break;
+            default:
+                break;
         }
+        return cell;
     } else {
         static NSString *TestTypeIdentifier = @"TestTypeCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TestTypeIdentifier];
@@ -132,6 +151,11 @@
 
 - (void)verbsNumberChanged:(UIStepper *)sender {
     [[VerbsStore sharedStore] setVerbsNumberInTest:sender.value];
+    [self.tableView reloadData];
+}
+
+- (void)maxTimeChanged:(UIStepper *)sender {
+    [[Referee sharedReferee] setMaxValue:sender.value];
     [self.tableView reloadData];
 }
 

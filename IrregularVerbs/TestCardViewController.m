@@ -150,18 +150,18 @@
             if (isACorrection) {
                 [UIView animateWithDuration:0.4 animations:^{
                     self.imageFail.image = [[Referee sharedReferee] imageForFail];
+                    self.imagePass.image = [[Referee sharedReferee] imageForValue:self.verb.responseTime];
                     self.labelTime.alpha = 0;
                     self.imageFail.alpha = 1;
-                    self.imagePass.alpha = 0;
-                    self.buttonPass.alpha = 0;
-//                    self.buttonFail.alpha = 0;
+                    self.imagePass.alpha = 0.2;
                 }];
             } else {
                 self.imageFail.image = [[Referee sharedReferee] imageForFail];
-                self.imagePass.image = nil;
+                self.imagePass.image = [[Referee sharedReferee] imageForValue:self.verb.responseTime];
                 self.labelTime.text = @"";
                 self.buttonPass.alpha = 0;
                 self.buttonFail.alpha = 0;
+                self.imagePass.alpha = 0.2;
             }
         } else {
             self.labelTime.text = [NSString stringWithFormat:@"%.2fs",self.verb.responseTime];
@@ -189,6 +189,8 @@
                 self.buttonFail.alpha = 0;
                 self.buttonPass.alpha = 0;
                 self.imageFail.alpha = 1;
+                self.imagePass.alpha = 0.2;
+
             } else {
                 self.buttonPass.alpha = 0;
                 self.imagePass.alpha = 1;
