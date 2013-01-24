@@ -17,16 +17,9 @@
 @interface PreferencesViewController : UIViewController<UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *aboutLabel;
-@property (weak, nonatomic) IBOutlet UISlider *sliderDifficulty;
-@property (weak, nonatomic) IBOutlet UILabel *labelNumberOfVerbs;
-@property (weak, nonatomic) IBOutlet UILabel *labelTestDuration;
-@property (weak, nonatomic) IBOutlet UIStepper *stepperTestDuration;
-@property (weak, nonatomic) IBOutlet UILabel *labelLevelOf;
 @property (weak, nonatomic) IBOutlet UIButton *buttonClear;
 @property (weak, nonatomic) IBOutlet UIButton *buttonAbout;
 
-- (IBAction)difficultyChanged:(UISlider *)sender;
 - (IBAction)clearStatistics:(UIButton *)sender;
 - (IBAction)showAboutLink:(id)sender;
-- (IBAction)testDurationChanged:(UIStepper *)sender;
 @end
