@@ -18,7 +18,7 @@
 {
     NSArray *buttonHomeViewArrayLabels;
     NSArray *buttonHomeViewArrayIcons;
-    NSArray *discretLevelsValues;
+   
 }
 - (IBAction)showInfo:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *labelPopUp;

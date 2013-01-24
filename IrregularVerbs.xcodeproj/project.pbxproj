@@ -59,8 +59,6 @@
 		09D372EF1681BA4F00F80410 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D372EE1681BA4F00F80410 /* Default.png */; };
 		09D372F11681BA4F00F80410 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D372F01681BA4F00F80410 /* Default@2x.png */; };
 		09D372F31681BA4F00F80410 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D372F21681BA4F00F80410 /* Default-568h@2x.png */; };
-		09F7933816A6A7C90067EE3C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F7933616A6A7C90067EE3C /* HomeViewController.m */; };
-		09F7933916A6A7C90067EE3C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F7933716A6A7C90067EE3C /* HomeViewController.xib */; };
 		09F7933D16A6C6490067EE3C /* HomeViewbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7933B16A6C6490067EE3C /* HomeViewbg.png */; };
 		09F7933E16A6C6490067EE3C /* HomeViewbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7933C16A6C6490067EE3C /* HomeViewbg@2x.png */; };
 		09F7934D16A6F05E0067EE3C /* address_book.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7934916A6F05E0067EE3C /* address_book.png */; };
@@ -179,9 +177,6 @@
 		09D372EE1681BA4F00F80410 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		09D372F01681BA4F00F80410 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		09D372F21681BA4F00F80410 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		09F7933516A6A7C90067EE3C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		09F7933616A6A7C90067EE3C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		09F7933716A6A7C90067EE3C /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		09F7933B16A6C6490067EE3C /* HomeViewbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HomeViewbg.png; sourceTree = "<group>"; };
 		09F7933C16A6C6490067EE3C /* HomeViewbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeViewbg@2x.png"; sourceTree = "<group>"; };
 		09F7934916A6F05E0067EE3C /* address_book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = address_book.png; sourceTree = "<group>"; };
@@ -386,9 +381,6 @@
 		E52F436B16A81C6E00220CF1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				09F7933516A6A7C90067EE3C /* HomeViewController.h */,
-				09F7933616A6A7C90067EE3C /* HomeViewController.m */,
-				09F7933716A6A7C90067EE3C /* HomeViewController.xib */,
 				0973DA0B16ADB9F700A8E30A /* NewHomeViewController.h */,
 				0973DA0C16ADB9F700A8E30A /* NewHomeViewController.m */,
 				0973DA0D16ADB9F700A8E30A /* NewHomeViewController.xib */,
@@ -649,7 +641,6 @@
 				E5F49E2816A5CAF30078EC5D /* thumbup.png in Resources */,
 				E5F49E2916A5CAF30078EC5D /* thumbdown@2x.png in Resources */,
 				E5F49E2A16A5CAF30078EC5D /* thumbdown.png in Resources */,
-				09F7933916A6A7C90067EE3C /* HomeViewController.xib in Resources */,
 				09F7933D16A6C6490067EE3C /* HomeViewbg.png in Resources */,
 				09F7933E16A6C6490067EE3C /* HomeViewbg@2x.png in Resources */,
 				09F7934D16A6F05E0067EE3C /* address_book.png in Resources */,
@@ -721,7 +712,6 @@
 				091C61F516A018EF00F3606A /* CardsTableViewController.m in Sources */,
 				E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */,
 				E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */,
-				09F7933816A6A7C90067EE3C /* HomeViewController.m in Sources */,
 				E5CAFA1D16A7290E0015B16E /* TestCardsStackViewController.m in Sources */,
 				E5DB039416A7E47900EE1E80 /* TSCVerbCell.m in Sources */,
 				E5DB039716A7E4C700EE1E80 /* TestScoreCardViewController.m in Sources */,

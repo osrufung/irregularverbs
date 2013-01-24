@@ -31,8 +31,7 @@
         
         buttonHomeViewArrayLabels = [NSArray arrayWithObjects:NSLocalizedString(@"LearnLabel", @"Learn label button"),NSLocalizedString(@"TestLabel", @"Test label button"),NSLocalizedString(@"HistoryLabel", @"History label button"),NSLocalizedString(@"SetupLabel", @"Setup label button"), nil];
         buttonHomeViewArrayIcons = [NSArray arrayWithObjects:@"page_empty.png",@"crayon.png",@"graph_bar_trend.png",@"cog_02.png", nil];
-        discretLevelsValues  = @[@0.4, @0.5, @0.6, @0.7,@0.8,@0.9,@1.0];
-
+     
     }
     return self;
 }
@@ -42,6 +41,10 @@
     [super viewDidLoad];
     VSRotatingView *rv = [VSRotatingView new];
     rv.rotatingViewDelegate = self;
+    
+    
+    [rv setCurrentSegment:[[VerbsStore sharedStore] currentFrequencyByGroup]];
+    
     [[self bottomView] addSubview:rv];
     
     self.popupView.layer.cornerRadius = 12;
@@ -56,6 +59,7 @@
                             resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
     UIImage *buttonImageHighlight = [[UIImage imageNamed:@"greyButtonHighlight.png"]
                                      resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    
     // Set the background for any states you plan to use
     [self.buttonLearn setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [self.buttonLearn setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
@@ -94,7 +98,8 @@
 {
     NSLog(@"Wheel rotated to index: %d", index);
     
-    float f = [[discretLevelsValues objectAtIndex:index] floatValue];
+    float f = [[[[VerbsStore sharedStore] defaultFrequencyGroups] objectAtIndex:index] floatValue];
+    NSLog(@"Save frequency in store: %f",f);
     [[VerbsStore sharedStore] setFrequency:f];
     [[self headLabel] setText:[NSString stringWithFormat:@"%d",[[[VerbsStore sharedStore] alphabetic] count]]];
 }

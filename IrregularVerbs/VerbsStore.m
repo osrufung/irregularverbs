@@ -150,7 +150,25 @@
     }
     return _currentList;
 }
-
+-(NSArray *)defaultFrequencyGroups
+{
+    return @[@0.4, @0.5, @0.6, @0.7,@0.8,@0.9,@1.0];
+}
+-(int)currentFrequencyByGroup{
+    float freq = [[NSUserDefaults standardUserDefaults] floatForKey:@"frequency"];
+    NSLog(@"current freq %f ",freq);
+    if(freq == 0.0) return 0;   
+    NSArray *freqsArray = [self defaultFrequencyGroups];
+    float lastValue = 0.0;
+    for(int i=0;i<[freqsArray count];i++){
+        if((lastValue< freq) && (freq<=[freqsArray[i] floatValue])){
+            return i;
+        }
+        
+        lastValue = [freqsArray[i] floatValue];
+    }
+    return 0;
+}
 - (int)lastTestFailedVerbsCount {
     NSPredicate *isFailed = [NSPredicate predicateWithFormat:@"isPendingOrFailed == %d",TRUE];
     return [[self.currentList filteredArrayUsingPredicate:isFailed] count];

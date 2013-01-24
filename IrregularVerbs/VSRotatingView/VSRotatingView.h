@@ -31,6 +31,7 @@
 @property (nonatomic, assign) id rotatingViewDelegate;
 
 -(void) setupGestures;
+-(void)setCurrentSegment:(int)segment;
 //-(void) rotate:(int) move;
 
 

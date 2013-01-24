@@ -29,24 +29,7 @@
     }
     return self;
 }
-
-/*
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        // Initialization code
-        NSLog(@"coder called");
-    }
-    return self;
-}
-
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
-*/
+ 
 
 - (void) awakeFromNib
 {
@@ -120,6 +103,19 @@
         
         [self callDelegateMethods];
     }
+}
+-(void)setCurrentSegment:(int)segment
+{
+    NSLog(@"set to segment %d",segment);
+    CGFloat segmentAngle = (2 * M_PI / NUMBER_OF_SEGMENTS); // 7 Pieces in the Dial PNG.
+ 
+    [UIView animateWithDuration:0.35
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.wellnessDial.transform = CGAffineTransformMakeRotation(-segment * segmentAngle);
+                     }
+                     completion:NULL];
 }
 
 - (void)callDelegateMethods {
