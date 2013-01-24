@@ -142,7 +142,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
         cell.labelTitle.text = NSLocalizedString(@"historyLabel", nil);
         cell.labelAverageTime.attributedText = [self attributedAverageString];
         cell.labelFailureRatio.text = [NSString stringWithFormat:@"%.0f%% fail",100.0*self.failCount/(self.passCount+self.failCount)];
-        cell.labelFailureRatio.textColor = [UIColor blackColor];
+        cell.labelFailureRatio.textColor = [UIColor whiteColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
@@ -168,7 +168,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
             passCount = 100-failCount;
             if ((failCount!=0)&&(failCount!=100)) {
                 cell.labelFailed.text = [NSString stringWithFormat:@"%d%% fail",failCount];
-                cell.labelFailed.textColor = [UIColor darkGrayColor];
+                cell.labelFailed.textColor = [UIColor whiteColor];
             } else {
                 cell.labelFailed.text = @"";    
             }
