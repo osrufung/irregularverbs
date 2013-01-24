@@ -14,7 +14,7 @@
 #define ROJOTINT [UIColor colorWithRed:230.0/255 green:68.0/255 blue:97.0/255 alpha:1.0]
 
 
-@interface NewHomeViewController : UIViewController
+@interface HomeViewController : UIViewController
 {
  
    

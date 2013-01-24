@@ -63,12 +63,8 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
     self.tableHelp.delegate = self.hintsDelegate;
     self.tableHelp.dataSource = self.hintsDelegate;
     self.tableHelp.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    self.helpView.layer.cornerRadius = 12;
-    self.helpView.layer.shadowOpacity = 0.8;
-    self.helpView.layer.shadowOffset = CGSizeMake(6, 6);
-    self.helpView.layer.shouldRasterize = YES;
-    self.helpView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    self.tableHelp.backgroundColor = [UIColor whiteColor];
+    self.helpView.layer.cornerRadius = 8;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

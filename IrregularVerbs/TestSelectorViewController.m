@@ -11,9 +11,13 @@
 #import "TestSelectorViewController.h"
 
 @interface TestSelectorViewController ()
+{
+    
+}
 
 @property (nonatomic,strong) UITableViewCell *counterCell;
 @property (nonatomic,strong) UITableViewCell *onOffCell;
+@property (nonatomic,strong) UIImage *buttonImage;
 
 @end
 
@@ -28,13 +32,16 @@
     self = [super initWithStyle:style];
     if (self) {
         self.title = @"Test";
-        [self.tableView registerNib:[UINib nibWithNibName:@"CounterCell" bundle:[NSBundle mainBundle]]
-             forCellReuseIdentifier:@"CounterCell"];
+        self.buttonImage = [[UIImage imageNamed:@"greyButtonSpacer"]
+                            resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20) resizingMode:UIImageResizingModeStretch];
     }
     return self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+
+    self.tableView.backgroundView = nil;
+    self.tableView.backgroundColor = [UIColor whiteColor];
     [self.tableView reloadData];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
@@ -48,13 +55,13 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
-    NSArray *secTitles = @[NSLocalizedString(@"TestOptions", nil),NSLocalizedString(@"TestType", nil)];
+    NSArray *secTitles = @[@"",NSLocalizedString(@"TestOptions", nil)];
     return secTitles[section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int lenSec[] = {2,[[[VerbsStore sharedStore] testTypes] count]};
+    int lenSec[] = {[[[VerbsStore sharedStore] testTypes] count],2};
     return lenSec[section];
 }
 
@@ -68,6 +75,11 @@
         step.value = [[VerbsStore sharedStore] verbsNumberInTest];
         [step addTarget:self action:@selector(verbsNumberChanged:) forControlEvents:UIControlEventValueChanged];
         _counterCell.accessoryView = step;
+        _counterCell.textLabel.backgroundColor = [UIColor clearColor];
+        _counterCell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
+        _counterCell.textLabel.textColor = [UIColor darkGrayColor];
+        _counterCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage];
+
     }
     
     _counterCell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"usexofy", "use x of y"),[[VerbsStore sharedStore] verbsNumberInTest], [[[VerbsStore sharedStore] alphabetic] count]] ;;
@@ -82,13 +94,17 @@
         [onOff addTarget:self action:@selector(useHintsChanged:) forControlEvents:UIControlEventValueChanged];
         _onOffCell.accessoryView = onOff;
         _onOffCell.textLabel.text = NSLocalizedString(@"usehints", nil);
+        _onOffCell.textLabel.backgroundColor = [UIColor clearColor];
+        _onOffCell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
+        _onOffCell.textLabel.textColor = [UIColor darkGrayColor];
+        _onOffCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage];
     }
     return _onOffCell;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==0) {
+    if (indexPath.section==1) {
         if (indexPath.row==0) {
             return [self counterCell];
         } else {
@@ -99,9 +115,16 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TestTypeIdentifier];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TestTypeIdentifier];
-            cell.textLabel.text = [[VerbsStore sharedStore] testTypes][indexPath.row];
-            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+            cell.textLabel.backgroundColor = [UIColor clearColor];
+            cell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage ];
+            cell.imageView.image = [UIImage imageNamed:@"crayon"];
+            cell.selectionStyle = UITableViewCellSelectionStyleGray;
+            cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
+            cell.textLabel.textColor = [UIColor darkGrayColor];
+            cell.backgroundView.frame = CGRectInset(cell.frame, -20, -20);
         }
+        cell.textLabel.text = [[VerbsStore sharedStore] testTypes][indexPath.row];
+
         return cell;
     }
     return nil;
@@ -119,7 +142,7 @@
 #pragma mark - Table view delegate
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    return !(indexPath.section==0);
+    return !(indexPath.section==1);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
