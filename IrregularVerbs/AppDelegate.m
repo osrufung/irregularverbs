@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "VerbsStore.h"
 #import "HomeViewController.h"
-#import "NewHomeViewController.h"
+#import "HomeViewController.h"
 
 
   
@@ -29,7 +29,7 @@
         [[NSUserDefaults standardUserDefaults] setFloat:0.4 forKey:@"frequency"];
     
     //HomeViewController *hvc = [[HomeViewController alloc] init];
-    NewHomeViewController *hvc = [[NewHomeViewController alloc] init];
+    HomeViewController *hvc = [[HomeViewController alloc] init];
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:hvc];
    
     [[nc navigationBar] setTintColor:DARKGREYTINT];

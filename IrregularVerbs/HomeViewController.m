@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 //
 
-#import "NewHomeViewController.h"
+#import "HomeViewController.h"
 #import "VerbsStore.h"
 #import <QuartzCore/QuartzCore.h>
 #import "CardsTableViewController.h"
@@ -16,11 +16,11 @@
 #import "VSRotatingView.h"
 #import "ASDepthModalViewController.h"
 
-@interface NewHomeViewController ()
+@interface HomeViewController ()
 
 @end
 
-@implementation NewHomeViewController
+@implementation HomeViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

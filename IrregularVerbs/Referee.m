@@ -7,7 +7,7 @@
 //
 
 #import "Referee.h"
-#import "NewHomeViewController.h"
+#import "HomeViewController.h"
 
 #define MAX_TEST_TIME   10.f
 

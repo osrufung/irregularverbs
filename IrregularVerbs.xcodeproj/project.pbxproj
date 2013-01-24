@@ -28,8 +28,8 @@
 		095BC75D16AEEEF00020ADCF /* check_nok_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 095BC75B16AEEEEF0020ADCF /* check_nok_red.png */; };
 		0973D9F216AD2C4500A8E30A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0973D9F416AD2C4500A8E30A /* Localizable.strings */; };
 		0973D9FE16AD4DBE00A8E30A /* ASDepthModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0973D9FD16AD4DBE00A8E30A /* ASDepthModalViewController.m */; };
-		0973DA0E16ADB9F700A8E30A /* NewHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0973DA0C16ADB9F700A8E30A /* NewHomeViewController.m */; };
-		0973DA0F16ADB9F700A8E30A /* NewHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0973DA0D16ADB9F700A8E30A /* NewHomeViewController.xib */; };
+		0973DA0E16ADB9F700A8E30A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0973DA0C16ADB9F700A8E30A /* HomeViewController.m */; };
+		0973DA0F16ADB9F700A8E30A /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0973DA0D16ADB9F700A8E30A /* HomeViewController.xib */; };
 		0973DA1516ADC3D100A8E30A /* cog_02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0973DA1116ADC3D000A8E30A /* cog_02@2x.png */; };
 		0973DA1616ADC3D100A8E30A /* crayon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0973DA1216ADC3D000A8E30A /* crayon@2x.png */; };
 		0973DA1716ADC3D100A8E30A /* graph_bar_trend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0973DA1316ADC3D000A8E30A /* graph_bar_trend@2x.png */; };
@@ -141,9 +141,9 @@
 		0973D9F516AD2C5000A8E30A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0973D9FC16AD4DBE00A8E30A /* ASDepthModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDepthModalViewController.h; sourceTree = "<group>"; };
 		0973D9FD16AD4DBE00A8E30A /* ASDepthModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDepthModalViewController.m; sourceTree = "<group>"; };
-		0973DA0B16ADB9F700A8E30A /* NewHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewHomeViewController.h; sourceTree = "<group>"; };
-		0973DA0C16ADB9F700A8E30A /* NewHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewHomeViewController.m; sourceTree = "<group>"; };
-		0973DA0D16ADB9F700A8E30A /* NewHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewHomeViewController.xib; sourceTree = "<group>"; };
+		0973DA0B16ADB9F700A8E30A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		0973DA0C16ADB9F700A8E30A /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		0973DA0D16ADB9F700A8E30A /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		0973DA1116ADC3D000A8E30A /* cog_02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog_02@2x.png"; sourceTree = "<group>"; };
 		0973DA1216ADC3D000A8E30A /* crayon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crayon@2x.png"; sourceTree = "<group>"; };
 		0973DA1316ADC3D000A8E30A /* graph_bar_trend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "graph_bar_trend@2x.png"; sourceTree = "<group>"; };
@@ -390,9 +390,9 @@
 		E52F436B16A81C6E00220CF1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0973DA0B16ADB9F700A8E30A /* NewHomeViewController.h */,
-				0973DA0C16ADB9F700A8E30A /* NewHomeViewController.m */,
-				0973DA0D16ADB9F700A8E30A /* NewHomeViewController.xib */,
+				0973DA0B16ADB9F700A8E30A /* HomeViewController.h */,
+				0973DA0C16ADB9F700A8E30A /* HomeViewController.m */,
+				0973DA0D16ADB9F700A8E30A /* HomeViewController.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -672,7 +672,7 @@
 				E53DC4F916AC56C6004CF825 /* HintsCell.xib in Resources */,
 				E53DC50216AC7D5B004CF825 /* verbs.plist in Resources */,
 				0973D9F216AD2C4500A8E30A /* Localizable.strings in Resources */,
-				0973DA0F16ADB9F700A8E30A /* NewHomeViewController.xib in Resources */,
+				0973DA0F16ADB9F700A8E30A /* HomeViewController.xib in Resources */,
 				0973DA1516ADC3D100A8E30A /* cog_02@2x.png in Resources */,
 				0973DA1616ADC3D100A8E30A /* crayon@2x.png in Resources */,
 				0973DA1716ADC3D100A8E30A /* graph_bar_trend@2x.png in Resources */,
@@ -740,7 +740,7 @@
 				E53DC4F416AC4EE3004CF825 /* UILabel+FrameExpand.m in Sources */,
 				E53DC4F716AC56B5004CF825 /* HintsCell.m in Sources */,
 				0973D9FE16AD4DBE00A8E30A /* ASDepthModalViewController.m in Sources */,
-				0973DA0E16ADB9F700A8E30A /* NewHomeViewController.m in Sources */,
+				0973DA0E16ADB9F700A8E30A /* HomeViewController.m in Sources */,
 				09CB351E16AEDE3100995380 /* VSRotatingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
