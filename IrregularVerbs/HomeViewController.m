@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonTest;
 @property (weak, nonatomic) IBOutlet UIButton *buttonHistory;
 @property (weak, nonatomic) IBOutlet UIButton *buttonSetup;
+@property (weak, nonatomic) IBOutlet UIButton *buttonClosePopUp;
+@property (weak, nonatomic) IBOutlet UILabel *labelVerbsToLearn;
 @end
 
 @implementation HomeViewController
@@ -80,6 +82,8 @@
     [self.buttonSetup setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
     [self.buttonSetup setTitle:NSLocalizedString(@"SetupLabel", nil) forState:UIControlStateNormal];
     
+    [self.buttonClosePopUp setTitle:NSLocalizedString(@"close", nil) forState:UIControlStateNormal];
+    [self.labelVerbsToLearn setText:NSLocalizedString(@"verbstolearn", nil)];
     
     }
 -(void)viewWillAppear:(BOOL)animated{
