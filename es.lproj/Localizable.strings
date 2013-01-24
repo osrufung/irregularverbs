@@ -34,7 +34,7 @@
 "mostcommon" = "Más comunes";
 "leastcommon"="Menos comunes";
 "mostfailed" = "Más falladas";
-"randomchoosed"= "Aleatorio";
+"randomchose"= "Aleatorio";
 "leasttested"="Menos evaluadas";
 "byhintgroup" = "Por regla";
 
