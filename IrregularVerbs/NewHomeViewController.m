@@ -17,7 +17,14 @@
 #import "ASDepthModalViewController.h"
 
 @interface NewHomeViewController ()
-
+@property (weak, nonatomic) IBOutlet UITextView *labelPopUp;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UILabel *headLabel;
+@property (strong, nonatomic) IBOutlet UIView *popupView;
+@property (weak, nonatomic) IBOutlet UIButton *buttonLearn;
+@property (weak, nonatomic) IBOutlet UIButton *buttonTest;
+@property (weak, nonatomic) IBOutlet UIButton *buttonHistory;
+@property (weak, nonatomic) IBOutlet UIButton *buttonSetup;
 @end
 
 @implementation NewHomeViewController
@@ -26,11 +33,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
  
-        
-        buttonHomeViewArrayLabels = [NSArray arrayWithObjects:NSLocalizedString(@"LearnLabel", @"Learn label button"),NSLocalizedString(@"TestLabel", @"Test label button"),NSLocalizedString(@"HistoryLabel", @"History label button"),NSLocalizedString(@"SetupLabel", @"Setup label button"), nil];
-        buttonHomeViewArrayIcons = [NSArray arrayWithObjects:@"page_empty.png",@"crayon.png",@"graph_bar_trend.png",@"cog_02.png", nil];
      
     }
     return self;

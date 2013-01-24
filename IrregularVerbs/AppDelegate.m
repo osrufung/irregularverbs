@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "VerbsStore.h"
-#import "HomeViewController.h"
+#import "VerbsStore.h" 
 #import "NewHomeViewController.h"
 
 

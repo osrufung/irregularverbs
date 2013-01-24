@@ -34,13 +34,7 @@
 - (void) awakeFromNib
 {
     [super awakeFromNib];
-    
-    // Create and initialize the audio player.
-    NSError *error;
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"DialClick" ofType:@"caf"] isDirectory:NO] error:&error];
-    audioPlayer.volume = 1.0;
-    [audioPlayer prepareToPlay];
-    
+ 
     normalWellnessDialYPosition = self.wellnessDial.layer.position.y;
     normalWellnessDialOverlayYPosition = self.wellnessDialOverlay.layer.position.y;
     
@@ -87,9 +81,7 @@
             // Set our iVar with this new value.
             rotation = newRotation;
             
-            // And play the click noise.
-            if(PLAY_AUDIO)
-                [audioPlayer play];
+ 
         }
     } else {
         // Center on the nearest segment.
@@ -104,18 +96,11 @@
         [self callDelegateMethods];
     }
 }
+//new method for setting the current segment
 -(void)setCurrentSegment:(int)segment
 {
-    NSLog(@"set to segment %d",segment);
-    CGFloat segmentAngle = (2 * M_PI / NUMBER_OF_SEGMENTS); // 7 Pieces in the Dial PNG.
- 
-    [UIView animateWithDuration:0.35
-                          delay:0
-                        options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         self.wellnessDial.transform = CGAffineTransformMakeRotation(-segment * segmentAngle);
-                     }
-                     completion:NULL];
+    CGFloat segmentAngle = (2 * M_PI / NUMBER_OF_SEGMENTS);  
+    self.wellnessDial.transform = CGAffineTransformMakeRotation(-segment * segmentAngle);
 }
 
 - (void)callDelegateMethods {
