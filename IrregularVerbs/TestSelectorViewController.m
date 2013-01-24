@@ -54,12 +54,6 @@
     return 2;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    
-    NSArray *secTitles = @[@"",NSLocalizedString(@"TestOptions", nil)];
-    return secTitles[section];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     int lenSec[] = {[[[VerbsStore sharedStore] testTypes] count],3};
