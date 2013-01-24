@@ -185,7 +185,7 @@
  
     
     if(searchText){
-        NSMutableArray *filteredArray = [[NSMutableArray alloc] init];
+        NSMutableArray *filteredArray;
         NSArray *sorted = [[VerbsStore sharedStore] alphabetic];
         // Filter the array using NSPredicate
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(SELF.simple contains[c] %@) OR (SELF.past contains[c] %@) OR (SELF.participle contains[c] %@) OR (SELF.translation contains[c] %@)",searchText,searchText,searchText,searchText];

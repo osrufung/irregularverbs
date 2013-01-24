@@ -21,8 +21,7 @@
     int rotation;
     CGFloat initialAngle;
     CGAffineTransform initialTransform;
-
-    AVAudioPlayer *audioPlayer;
+ 
 
 }
 
@@ -32,7 +31,5 @@
 
 -(void) setupGestures;
 -(void)setCurrentSegment:(int)segment;
-//-(void) rotate:(int) move;
-
-
+ 
 @end

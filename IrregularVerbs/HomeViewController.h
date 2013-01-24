@@ -16,25 +16,13 @@
 
 @interface HomeViewController : UIViewController
 {
-    NSArray *buttonHomeViewArrayLabels;
-    NSArray *buttonHomeViewArrayIcons;
+ 
    
 }
 - (IBAction)showInfo:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextView *labelPopUp;
-
-@property (weak, nonatomic) IBOutlet UIView *bottomView;
- 
-@property (weak, nonatomic) IBOutlet UILabel *headLabel;
-@property (strong, nonatomic) IBOutlet UIView *popupView;
-@property (weak, nonatomic) IBOutlet UIButton *buttonLearn;
-@property (weak, nonatomic) IBOutlet UIButton *buttonTest;
-@property (weak, nonatomic) IBOutlet UIButton *buttonHistory;
-@property (weak, nonatomic) IBOutlet UIButton *buttonSetup;
 - (IBAction)openLearn:(id)sender;
 - (IBAction)openTest:(id)sender;
 - (IBAction)openHistory:(id)sender;
-- (IBAction)openSetup:(id)sender;
- 
+- (IBAction)openSetup:(id)sender; 
 - (IBAction)closePopUp:(id)sender;
 @end
