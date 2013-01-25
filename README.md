@@ -35,6 +35,7 @@ You can contact us at:
 ## Screenshot
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot1.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot2.png)
+![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot2b.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot3.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot4.png)
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot5.png)

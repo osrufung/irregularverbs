@@ -8,16 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class TestScoreCardViewController;
-
-@protocol TestScoreCardViewDataSource <NSObject>
-
-- (NSArray *)verbsForTestScoreCardView:(TestScoreCardViewController *)testScoreCardView;
-
-@end
+@class TestCase;
 
 @interface TestScoreCardViewController : UITableViewController
-
-@property (nonatomic, weak) id<TestScoreCardViewDataSource> dataSource;
-
+- (id)initWithTestCase:(TestCase *)testCase;
 @end
