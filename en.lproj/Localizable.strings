@@ -10,11 +10,12 @@
 "close" = "close";
 //home View
 "verbstolearn" = "verbs to learn.";
-"back" = "Back";
+"back" = "Home";
 "LearnLabel" = "Learn";
 "TestLabel" = "Test";
 "HistoryLabel" = "History";
 "SetupLabel" = "Setup";
+"selecttesttype" = "Select Test Type";
 
 //Learn View
 "alpha" = "Alpha";

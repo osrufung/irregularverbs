@@ -9,7 +9,7 @@
 "close" = "cerrar";
 //home View
 "verbstolearn" = "  verbos para aprender";
-"back" = "volver";
+"back" = "Inicio";
 "LearnLabel" = "Aprender";
 "TestLabel" = "Evaluar";
 "HistoryLabel" = "Historial";
