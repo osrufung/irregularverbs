@@ -96,9 +96,11 @@
     [super viewWillAppear:animated];
  
  
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-     [[self headLabel] setText:[NSString stringWithFormat:@"%d",[[[VerbsStore sharedStore] alphabetic] count]]];
-    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [[self headLabel] setAttributedText:[self attributedHomeLabel]];
+    //How strange! if you set textAlignment in UIBuilder it doesn't work
+    self.headLabel.textAlignment = NSTextAlignmentCenter;
+  
     //firs time? show popupview assistant
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firsTimeAssistantShown"]){
         [ASDepthModalViewController presentView:self.popupView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationShrink];
