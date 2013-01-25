@@ -90,7 +90,7 @@
     [super viewWillAppear:animated];
  
  
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
      [[self headLabel] setText:[NSString stringWithFormat:@"%d",[[[VerbsStore sharedStore] alphabetic] count]]];
     
     //firs time? show popupview assistant
