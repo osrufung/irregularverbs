@@ -27,6 +27,8 @@
 
 -(void)viewDidLoad
 {
+    self.title = NSLocalizedString(@"SetupLabel", nil);
+
     UIImage *buttonImage = [[UIImage imageNamed:@"greyButton.png"]
                             resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
     UIImage *buttonImageHighlight = [[UIImage imageNamed:@"greyButtonHighlight.png"]
