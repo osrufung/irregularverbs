@@ -26,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonHistory;
 @property (weak, nonatomic) IBOutlet UIButton *buttonSetup;
 @property (weak, nonatomic) IBOutlet UIButton *buttonClosePopUp;
-@property (weak, nonatomic) IBOutlet UILabel *labelVerbsToLearn;
+ 
 @end
 
 @implementation HomeViewController
@@ -66,25 +66,28 @@
                                      resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
     
     // Set the background for any states you plan to use
+    [[self.buttonLearn imageView] setContentMode: UIViewContentModeScaleAspectFit];
     [self.buttonLearn setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [self.buttonLearn setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
     [self.buttonLearn setTitle:NSLocalizedString(@"LearnLabel", nil) forState:UIControlStateNormal];
     
+    [[self.buttonTest imageView] setContentMode: UIViewContentModeScaleAspectFit];
     [self.buttonTest setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [self.buttonTest setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
     [self.buttonTest setTitle:NSLocalizedString(@"TestLabel", nil) forState:UIControlStateNormal];
     
+    [[self.buttonHistory imageView] setContentMode: UIViewContentModeScaleAspectFit];
     [self.buttonHistory setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [self.buttonHistory setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
     [self.buttonHistory setTitle:NSLocalizedString(@"HistoryLabel", nil) forState:UIControlStateNormal];
     
+    [[self.buttonSetup imageView] setContentMode: UIViewContentModeScaleAspectFit];
     [self.buttonSetup setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [self.buttonSetup setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
     [self.buttonSetup setTitle:NSLocalizedString(@"SetupLabel", nil) forState:UIControlStateNormal];
     
     [self.buttonClosePopUp setTitle:NSLocalizedString(@"close", nil) forState:UIControlStateNormal];
-    [self.labelVerbsToLearn setText:NSLocalizedString(@"verbstolearn", nil)];
-    
+  
     }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -99,17 +102,29 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firsTimeAssistantShown"];
     }
 }
+
+-(NSAttributedString *) attributedHomeLabel{
+    
+    int cntVerbs = [[[VerbsStore sharedStore] alphabetic] count] ;
+    NSString *str = [NSString stringWithFormat: NSLocalizedString(@"verbstolearn", @"home label descriptor"), cntVerbs];
+    NSMutableAttributedString *result  = [[NSMutableAttributedString alloc] initWithString:str];
+    
+    NSDictionary *attributesForNumber = @{NSFontAttributeName:[UIFont fontWithName:@"Helvetica Neue" size:20.0],NSForegroundColorAttributeName:TURQUESATINT};
+    
+    [result setAttributes:attributesForNumber range: NSMakeRange(0,[[NSString stringWithFormat:@"%d",cntVerbs ] length])];
+    return [[NSAttributedString alloc] initWithAttributedString:result];
+}
+
 #pragma mark RotatingViewDelegateMethods
 
 - (void)viewCirculatedToSegmentIndex:(NSUInteger)index
 {
-    NSLog(@"Wheel rotated to index: %d", index);
-    
     float f = [[[[VerbsStore sharedStore] defaultFrequencyGroups] objectAtIndex:index] floatValue];
-    NSLog(@"Save frequency in store: %f",f);
     [[VerbsStore sharedStore] setFrequency:f];
-    [[self headLabel] setText:[NSString stringWithFormat:@"%d",[[[VerbsStore sharedStore] alphabetic] count]]];
+    [[self headLabel] setAttributedText:[self attributedHomeLabel]];
 }
+
+
 
  
 

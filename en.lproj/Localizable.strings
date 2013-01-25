@@ -9,12 +9,13 @@
 "InfoPopupHome" = "learn, test your knowledge with a small number of verbs, and check your progress. You can increase your level by increasing the number of verbs in Setup.";
 "close" = "close";
 //home View
-"verbstolearn" = "verbs to learn.";
-"back" = "Back";
+"verbstolearn" = "%d verbs to learn.";
+"back" = "Home";
 "LearnLabel" = "Learn";
 "TestLabel" = "Test";
 "HistoryLabel" = "History";
 "SetupLabel" = "Setup";
+"selecttesttype" = "Select Test Type";
 
 //Learn View
 "alpha" = "Alpha";
