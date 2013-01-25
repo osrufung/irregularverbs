@@ -87,6 +87,9 @@
     [self.buttonSetup setTitle:NSLocalizedString(@"SetupLabel", nil) forState:UIControlStateNormal];
     
     [self.buttonClosePopUp setTitle:NSLocalizedString(@"close", nil) forState:UIControlStateNormal];
+
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.title = NSLocalizedString(@"Home", @"Title for Home screen and back buttons");
   
     }
 -(void)viewWillAppear:(BOOL)animated{
