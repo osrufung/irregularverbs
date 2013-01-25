@@ -28,6 +28,7 @@
 
 @end
 
+
 static NSString *CellIdentifier = @"HistoryDataCell";
 static NSString *SummaryIdentifier = @"TSCSummaryCell";
 
@@ -43,7 +44,9 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
     }
     return self;
 }
--(void)viewDidLoad{
+
+-(void)viewDidLoad
+{
     [super viewDidLoad];
     
     [[self  tableView] registerNib:[UINib nibWithNibName:@"HistoryDataCell" bundle:nil]
@@ -53,6 +56,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
             forCellReuseIdentifier:SummaryIdentifier];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.title = NSLocalizedString(@"HistoryLabel", nil);
     
     [[self criteriaControl] setTitle:NSLocalizedString(@"alpha", nil) forSegmentAtIndex:0];
     [[self criteriaControl] setTitle:NSLocalizedString(@"averagetime_abrev", nil) forSegmentAtIndex:1];
@@ -75,7 +79,6 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
     [self computeStatistics];
     [self.tableView reloadData];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -85,16 +88,19 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section==0) return 1;
-    return _currentData.count;
+    if (section == 0)
+        return 1;
+    else
+        return _currentData.count;
 }
 
 //Without row height cached performance sucks
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
-    if (indexPath.section==0) {
+    
+    if (indexPath.section == 0) {
         static CGFloat headerHeight = 0;
-        if (headerHeight==0) {
+        if (headerHeight == 0) {
             cell = [tableView dequeueReusableCellWithIdentifier:SummaryIdentifier];
             headerHeight = cell.bounds.size.height;
         }
@@ -107,7 +113,6 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
             rowHeight = cell.bounds.size.height;
         }
         return rowHeight;
-
     }
     return 0;
 }
@@ -130,16 +135,15 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
- 
-    if (indexPath.section==0) {
+    if (indexPath.section == 0) {
         TSCSummaryCell *cell = [tableView dequeueReusableCellWithIdentifier:SummaryIdentifier forIndexPath:indexPath];
-        
+                
         [cell.passFailGraph setColorsSaturation:0.5f];
         [cell.passFailGraph setDataCount:self.passCount+self.failCount
                            withPassCount:self.passCount
                             andFailCount:self.failCount];
         
-        cell.labelTitle.text = NSLocalizedString(@"historyLabel", nil);
+//        cell.labelTitle.text = NSLocalizedString(@"historyLabel", nil);
         cell.labelAverageTime.attributedText = [self attributedAverageString];
         cell.labelFailureRatio.text = [NSString stringWithFormat:@"%.0f%% fail",100.0*self.failCount/(self.passCount+self.failCount)];
         cell.labelFailureRatio.textColor = [UIColor blackColor];
@@ -147,7 +151,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
         
         return cell;
     }
-    if (indexPath.section==1) {
+    if (indexPath.section == 1) {
         HistoryDataCell *cell =[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
         Verb *v;
@@ -191,7 +195,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section==1) {
+    if (indexPath.section == 1) {
         NSLog(@"Selected row %d",indexPath.row);
         Verb *selectedVerb = _currentData[indexPath.row];
         
