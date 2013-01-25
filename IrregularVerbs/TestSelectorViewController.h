@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PresentedViewControllerDelegate.h"
 
-@interface TestSelectorViewController : UITableViewController
+
+@interface TestSelectorViewController : UITableViewController<PresentedViewControllerDelegate>
 
 @end

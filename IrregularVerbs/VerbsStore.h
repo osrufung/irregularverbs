@@ -8,30 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
+@class TestCase;
+
 @interface VerbsStore : NSObject
 
 @property (nonatomic) float frequency;
 
 @property (nonatomic, readonly) NSArray *alphabetic;
-@property (nonatomic, readonly) NSArray *testSubSet;
 @property (nonatomic, readonly) NSArray *results;
 @property (nonatomic, readonly) NSArray *history;
 @property (nonatomic, readonly) NSArray *testTypes;
-@property (nonatomic, strong) NSString *selectedTestType;
 @property (nonatomic) int verbsNumberInTest;
 
 + (VerbsStore *)sharedStore;
 
-- (int)lastTestFailedVerbsCount;
 - (NSString *)hintForGroupIndex:(int)index;
 - (NSArray *)verbsForGroupIndex:(int)index;
+
+- (TestCase *)testCaseForTestType:(NSString *)testType;
 
 - (BOOL) saveChanges;
 - (BOOL) resetVerbsStore;
 
 - (void) resetHistory;
-- (void) resetTest;
--(NSArray *) defaultFrequencyGroups;
--(int)currentFrequencyByGroup;
+
+- (NSArray *) defaultFrequencyGroups;
+- (int)currentFrequencyByGroup;
 
 @end

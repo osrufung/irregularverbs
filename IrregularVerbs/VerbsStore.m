@@ -7,6 +7,7 @@
 //
 
 #import "VerbsStore.h"
+#import "TestCase.h"
 #import "Verb.h"
 #import "NSArray+Shuffling.h"
 
@@ -179,15 +180,6 @@
     return [self.currentList sortedArrayUsingSelector:@selector(compareVerbsAlphabetically:)];
 }
 
-- (NSArray *)testSubSet {
-    SEL selector = NSSelectorFromString([self.testTypesMap objectForKey:self.selectedTestType]);
-    if ([self respondsToSelector:selector]) {
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        return [self performSelector:selector];
-    }
-    return nil;
-}
-
 - (NSArray *)results {
     return [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByTestResults:)];
 }
@@ -211,12 +203,6 @@
         [verb resetHistory];
     }
     [self saveChanges];
-}
-
-- (void)resetTest {
-    for (Verb *verb in self.currentList) {
-        [verb resetCurrentTest];
-    }
 }
 
 #pragma mark - Test Types
@@ -306,5 +292,15 @@
 }
 
 
+- (TestCase *)testCaseForTestType:(NSString *)testType {
+    SEL selector = NSSelectorFromString([self.testTypesMap objectForKey:testType]);
+    if ([self respondsToSelector:selector]) {
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        NSArray * verbs = [self performSelector:selector];
+        return [[TestCase alloc] initWithArray:verbs description:testType];
+    }
+    return nil;
+    
+}
 
 @end

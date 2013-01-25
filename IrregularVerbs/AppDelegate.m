@@ -62,7 +62,7 @@
     }
     
     
-    [UIApplication sharedApplication].applicationIconBadgeNumber = [[VerbsStore sharedStore] lastTestFailedVerbsCount];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [[[VerbsStore sharedStore] alphabetic] count];
     
 }
 

@@ -176,7 +176,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
             passCount = 100-failCount;
             if ((failCount!=0)&&(failCount!=100)) {
                 cell.labelFailed.text = [NSString stringWithFormat:@"%d%% fail",failCount];
-                cell.labelFailed.textColor = [UIColor darkGrayColor];
+                cell.labelFailed.textColor = [UIColor whiteColor];
             } else {
                 cell.labelFailed.text = @"";    
             }
