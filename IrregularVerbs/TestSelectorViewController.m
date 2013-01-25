@@ -10,6 +10,7 @@
 #import "TestCardsStackViewController.h"
 #import "TestSelectorViewController.h"
 #import "Referee.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TestSelectorViewController ()
 {
@@ -19,6 +20,7 @@
 //@property (nonatomic,strong) UITableViewCell *counterCell;
 //@property (nonatomic,strong) UITableViewCell *onOffCell;
 @property (nonatomic,strong) UIImage *buttonImage;
+@property (nonatomic,strong) NSMutableDictionary *testResults;
 
 @end
 
@@ -35,12 +37,13 @@
         self.title = NSLocalizedString(@"TestLabel", @"Test label button");
         self.buttonImage = [[UIImage imageNamed:@"greyButtonSpacer"]
                             resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20) resizingMode:UIImageResizingModeStretch];
+        self.testResults = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-
+- (void)viewWillAppear:(BOOL)animated
+{
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor whiteColor];
     [self.tableView reloadData];
@@ -61,36 +64,33 @@
 }
 
 - (UITableViewCell *)counterCellWithTarget:(id)target action:(SEL)action {
-    UITableViewCell *_counterCell;
-    if (!_counterCell) {
-        _counterCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CounterCell"];
-        UIStepper *step = [[UIStepper alloc] init];
-        [step addTarget:target action:action forControlEvents:UIControlEventValueChanged];
-        _counterCell.accessoryView = step;
-        _counterCell.textLabel.backgroundColor = [UIColor clearColor];
-        _counterCell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
-        _counterCell.textLabel.textColor = [UIColor darkGrayColor];
-        _counterCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage];
-
-    }    
-    return _counterCell;
+    UITableViewCell *cell;
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CounterCell"];
+    UIStepper *step = [[UIStepper alloc] init];
+    [step addTarget:target action:action forControlEvents:UIControlEventValueChanged];
+    cell.accessoryView = step;
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
+    cell.textLabel.textColor = [UIColor darkGrayColor];
+    cell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
+    cell.backgroundColor = [UIColor whiteColor];
+    //        cell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage];
+    return cell;
 }
 
-- (UITableViewCell *)onOffCell {
-    UITableViewCell *_onOffCell;
-    if (!_onOffCell) {
-        _onOffCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OnOffCell"];
-        UISwitch *onOff = [[UISwitch alloc] init];
-        onOff.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"hintsInTest"];
-        [onOff addTarget:self action:@selector(useHintsChanged:) forControlEvents:UIControlEventValueChanged];
-        _onOffCell.accessoryView = onOff;
-        _onOffCell.textLabel.text = NSLocalizedString(@"usehints", nil);
-        _onOffCell.textLabel.backgroundColor = [UIColor clearColor];
-        _onOffCell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
-        _onOffCell.textLabel.textColor = [UIColor darkGrayColor];
-        _onOffCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage];
-    }
-    return _onOffCell;
+- (UITableViewCell *)onOffCellWithTarget:(id)target action:(SEL)action {
+    UITableViewCell *cell;
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OnOffCell"];
+    UISwitch *onOff = [[UISwitch alloc] init];
+    [onOff addTarget:target action:action forControlEvents:UIControlEventValueChanged];
+    cell.accessoryView = onOff;
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
+    cell.textLabel.textColor = [UIColor darkGrayColor];
+    cell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
+    cell.backgroundColor = [UIColor whiteColor];
+    //        _onOffCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage];
+    return cell;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -123,8 +123,13 @@
             }
                 break;
             case 2:
-                cell = [self onOffCell];
+            {
+                cell = [self onOffCellWithTarget:self action:@selector(useHintsChanged:)];
+                cell.textLabel.text = NSLocalizedString(@"usehints", nil);
+                UISwitch *onOff = (UISwitch *)cell.accessoryView;
+                onOff.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"hintsInTest"];
                 break;
+            }
             default:
                 break;
         }
@@ -142,7 +147,17 @@
             cell.textLabel.textColor = [UIColor darkGrayColor];
             cell.backgroundView.frame = CGRectInset(cell.frame, -20, -20);
         }
+        UILabel *answer = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 82, 18)];
         cell.textLabel.text = [[VerbsStore sharedStore] testTypes][indexPath.row];
+        answer.text = [self.testResults objectForKey:cell.textLabel.text];
+        answer.textColor = [UIColor whiteColor];
+        answer.font = [UIFont fontWithName:@"Helvetica-Light" size:12];
+        answer.textAlignment = NSTextAlignmentCenter;
+        answer.backgroundColor = [UIColor darkGrayColor];
+        answer.layer.cornerRadius = 8;
+        [answer sizeToFit];
+        answer.frame = CGRectInset(answer.frame, -6, 0);
+        cell.accessoryView = answer;
 
         return cell;
     }
@@ -178,11 +193,26 @@
     [self openSelectedType:indexPath.row];
 }
 
+- (void)testScoreCardView:(TestScoreCardViewController *)testScoreCardView endWithResults:(NSDictionary *)results {
+    float averageTime = [results[@"averageTime"] floatValue];
+    float failCount = [results[@"failCount"] floatValue];
+    float totalCount = [results[@"totalCount"] floatValue];
+    NSString *badge;
+    if (failCount==0) {
+        badge = [NSString stringWithFormat:@"%.2fs",averageTime];
+    } else if (averageTime==0) {
+        badge = [NSString stringWithFormat:@"%d%%",(int)floorf(100*failCount/totalCount)];
+    } else badge = [NSString stringWithFormat:@"%d%%/%.2fs",(int)floorf(100*failCount/totalCount),averageTime];
+    [self.testResults setObject:badge forKey:testScoreCardView.title];
+}
+
 -(void)openSelectedType:(NSInteger) type{
     VerbsStore *store = [VerbsStore sharedStore];
     store.selectedTestType = store.testTypes[type];
+    [self.testResults setObject:NSLocalizedString(@"resigned", @"user didn't complete the test") forKey:store.selectedTestType];
     
-    [self.navigationController pushViewController:[[TestCardsStackViewController alloc] init]
+    
+    [self.navigationController pushViewController:[[TestCardsStackViewController alloc] initWithScoreCardDelegate:self]
                                          animated:YES];
 }
 

@@ -14,17 +14,18 @@
 @interface TestCardsStackViewController ()
 
 @property (nonatomic, strong) NSArray *testVerbs;
-
+@property (nonatomic, weak) id<TestScoreCardViewDelegate> scoreCardDelegate;
 @end
 
 @implementation TestCardsStackViewController
 
-- (id)init {
+- (id)initWithScoreCardDelegate:(id<TestScoreCardViewDelegate>)delegate {
     self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                     navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                   options:@{UIPageViewControllerOptionInterPageSpacingKey:@12.0f}];
     if (self) {
         self.dataSource = self;
+        self.scoreCardDelegate = delegate;
     }
     return self;
 }
@@ -55,6 +56,8 @@
         if (!next) {
             TestScoreCardViewController * tsc = [[TestScoreCardViewController alloc] init];
             tsc.dataSource = self;
+            tsc.delegate = self.scoreCardDelegate;
+            tsc.title = self.title;
             return tsc;
         }
         return next;

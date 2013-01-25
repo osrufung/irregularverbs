@@ -44,6 +44,10 @@ static NSString *SummaryCell = @"SummaryCell";
             self.passCount++;
         }
     }
+    if (self.delegate) {
+        NSDictionary *stat = @{@"totalCount":@(self.testResults.count), @"passCount":@(self.passCount), @"failCount":@(self.failCount), @"averageTime":@(self.averageTime)};
+        [self.delegate testScoreCardView:self endWithResults:stat];
+    }
 }
 
 - (id)initWithStyle:(UITableViewStyle)style

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "TestScoreCardViewController.h"
 
+
 @interface TestCardsStackViewController : UIPageViewController<UIPageViewControllerDataSource,TestScoreCardViewDataSource>
+
+- (id)initWithScoreCardDelegate:(id<TestScoreCardViewDelegate>)delegate;
 
 @end
