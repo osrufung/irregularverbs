@@ -6,7 +6,7 @@ A very Simple App for review your english knowledge about 154 Irregular Verbs (p
 Experimental use of the frequency of use as a level of difficulty. You can see the values computed in [freq-verbs](https://github.com/rbarbera/freq-verbs)
 
 The verbs were extracted from <http://www.mansioningles.com/gram53.htm>
-The icons, from <http://www.hongkiat.com/blog/freebie-release-cutie-20-high-quality-web-icons/> 
+
 Modal Popup Views <https://github.com/autresphere/ASDepthModal>
 
 The purpose of this App is basically to learn iOS 6, and review our english :P
