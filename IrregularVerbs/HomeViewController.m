@@ -26,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonHistory;
 @property (weak, nonatomic) IBOutlet UIButton *buttonSetup;
 @property (weak, nonatomic) IBOutlet UIButton *buttonClosePopUp;
-@property (weak, nonatomic) IBOutlet UILabel *labelVerbsToLearn;
+ 
 @end
 
 @implementation HomeViewController
@@ -87,33 +87,44 @@
     [self.buttonSetup setTitle:NSLocalizedString(@"SetupLabel", nil) forState:UIControlStateNormal];
     
     [self.buttonClosePopUp setTitle:NSLocalizedString(@"close", nil) forState:UIControlStateNormal];
-    [self.labelVerbsToLearn setText:NSLocalizedString(@"verbstolearn", nil)];
-    
+  
     }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
  
  
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-     [[self headLabel] setText:[NSString stringWithFormat:@"%d",[[[VerbsStore sharedStore] alphabetic] count]]];
-    
+    [[self headLabel] setAttributedText:[self attributedHomeLabel]];
+  
     //firs time? show popupview assistant
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firsTimeAssistantShown"]){
         [ASDepthModalViewController presentView:self.popupView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationShrink];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firsTimeAssistantShown"];
     }
 }
+
+-(NSAttributedString *) attributedHomeLabel{
+    
+    int cntVerbs = [[[VerbsStore sharedStore] alphabetic] count] ;
+    NSString *str = [NSString stringWithFormat: NSLocalizedString(@"verbstolearn", @"home label descriptor"), cntVerbs];
+    NSMutableAttributedString *result  = [[NSMutableAttributedString alloc] initWithString:str];
+    
+    NSDictionary *attributesForNumber = @{NSFontAttributeName:[UIFont fontWithName:@"Helvetica Neue" size:20.0],NSForegroundColorAttributeName:TURQUESATINT};
+    
+    [result setAttributes:attributesForNumber range: NSMakeRange(0,[[NSString stringWithFormat:@"%d",cntVerbs ] length])];
+    return [[NSAttributedString alloc] initWithAttributedString:result];
+}
+
 #pragma mark RotatingViewDelegateMethods
 
 - (void)viewCirculatedToSegmentIndex:(NSUInteger)index
 {
-    NSLog(@"Wheel rotated to index: %d", index);
-    
     float f = [[[[VerbsStore sharedStore] defaultFrequencyGroups] objectAtIndex:index] floatValue];
-    NSLog(@"Save frequency in store: %f",f);
     [[VerbsStore sharedStore] setFrequency:f];
-    [[self headLabel] setText:[NSString stringWithFormat:@"%d",[[[VerbsStore sharedStore] alphabetic] count]]];
+    [[self headLabel] setAttributedText:[self attributedHomeLabel]];
 }
+
+
 
  
 
