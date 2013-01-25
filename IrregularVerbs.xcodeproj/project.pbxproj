@@ -104,6 +104,7 @@
 		E5DB03A516A7EEAC00EE1E80 /* PassFailGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */; };
 		E5DEC60A169F70C60006AE38 /* gear_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5DEC609169F70C60006AE38 /* gear_24.png */; };
 		E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */; };
+		E5E05B9716B2E98100F33CEC /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05B9616B2E98100F33CEC /* TestCase.m */; };
 		E5F428CD16B0A86B00058D72 /* greyButtonSpacer.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F428CB16B0A86700058D72 /* greyButtonSpacer.png */; };
 		E5F428CE16B0A86B00058D72 /* greyButtonSpacer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F428CC16B0A86900058D72 /* greyButtonSpacer@2x.png */; };
 		E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */; };
@@ -252,6 +253,9 @@
 		E5DEC609169F70C60006AE38 /* gear_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_24.png; sourceTree = "<group>"; };
 		E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSelectorViewController.h; sourceTree = "<group>"; };
 		E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSelectorViewController.m; sourceTree = "<group>"; };
+		E5E05B9516B2E98100F33CEC /* TestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCase.h; sourceTree = "<group>"; };
+		E5E05B9616B2E98100F33CEC /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCase.m; sourceTree = "<group>"; };
+		E5E05B9916B2FE2800F33CEC /* PresentedViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentedViewControllerDelegate.h; sourceTree = "<group>"; };
 		E5F428CB16B0A86700058D72 /* greyButtonSpacer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButtonSpacer.png; sourceTree = "<group>"; };
 		E5F428CC16B0A86900058D72 /* greyButtonSpacer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyButtonSpacer@2x.png"; sourceTree = "<group>"; };
 		E5F49E1D16A5C89C0078EC5D /* TestCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCardViewController.h; sourceTree = "<group>"; };
@@ -426,6 +430,7 @@
 				E5CAFA1C16A7290E0015B16E /* TestCardsStackViewController.m */,
 				E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */,
 				E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */,
+				E5E05B9916B2FE2800F33CEC /* PresentedViewControllerDelegate.h */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -468,6 +473,8 @@
 				E59D12F81695BAEC00C8DE51 /* VerbsStore.m */,
 				E5C2CA30169C6A0C00BEE2ED /* Verb.h */,
 				E5C2CA31169C6A0C00BEE2ED /* Verb.m */,
+				E5E05B9516B2E98100F33CEC /* TestCase.h */,
+				E5E05B9616B2E98100F33CEC /* TestCase.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -744,6 +751,7 @@
 				0973D9FE16AD4DBE00A8E30A /* ASDepthModalViewController.m in Sources */,
 				0973DA0E16ADB9F700A8E30A /* HomeViewController.m in Sources */,
 				09CB351E16AEDE3100995380 /* VSRotatingView.m in Sources */,
+				E5E05B9716B2E98100F33CEC /* TestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

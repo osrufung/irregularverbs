@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TestScoreCardViewController.h"
+#import "PresentedViewControllerDelegate.h"
+
+@class TestCase;
+@class TestCardsStackViewController;
 
 
-@interface TestCardsStackViewController : UIPageViewController<UIPageViewControllerDataSource,TestScoreCardViewDataSource>
+@interface TestCardsStackViewController : UIPageViewController<UIPageViewControllerDataSource>
 
-- (id)initWithScoreCardDelegate:(id<TestScoreCardViewDelegate>)delegate;
+@property (nonatomic, strong) TestCase *testCase;
+@property (nonatomic, weak) id<PresentedViewControllerDelegate> presentedDelegate;
+
+- (id)initWithTestCase:(TestCase *)testCase;
 
 @end

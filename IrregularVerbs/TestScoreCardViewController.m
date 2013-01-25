@@ -12,13 +12,12 @@
 #import "Verb.h"
 #import "Referee.h"
 #import "PassFailGraphView.h"
+#import "TestCase.h"
 
 @interface TestScoreCardViewController ()
 
-@property (nonatomic,strong) NSArray *testResults;
-@property (nonatomic) int passCount;
-@property (nonatomic) int failCount;
-@property (nonatomic) float averageTime;
+@property (nonatomic, strong) TestCase *testCase;
+
 @end
 
 @implementation TestScoreCardViewController
@@ -26,42 +25,18 @@
 static NSString *VerbCell = @"VerbCell";
 static NSString *SummaryCell = @"SummaryCell";
 
-- (id)initWithTestData:(NSArray *)testResults {
-    self = [self initWithStyle:UITableViewStylePlain];
+- (id)initWithTestCase:(TestCase *)testCase {
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-    }
-    return self;
-}
-
-- (void)computeScoreCard {
-    self.passCount=0;
-    self.failCount=0;
-    self.averageTime=0;
-    for (Verb * verb in self.testResults) {
-        if (verb.failed) self.failCount++;
-        if (verb.responseTime!=0) {
-            self.averageTime = (self.averageTime*self.passCount+verb.responseTime)/(self.passCount+1);
-            self.passCount++;
-        }
-    }
-    if (self.delegate) {
-        NSDictionary *stat = @{@"totalCount":@(self.testResults.count), @"passCount":@(self.passCount), @"failCount":@(self.failCount), @"averageTime":@(self.averageTime)};
-        [self.delegate testScoreCardView:self endWithResults:stat];
-    }
-}
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
+        self.testCase = testCase;
     }
     return self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSArray *test = [self.dataSource verbsForTestScoreCardView:self];
-    self.testResults = [test sortedArrayUsingSelector:@selector(compareVerbsByTestResults:)];
-    [self computeScoreCard];
+    // We need to sort dataset each time that we show it
+    [self.testCase sortByTestResults];
+    [self.testCase computeSummaryData];
 }
 
 - (void)viewDidLoad
@@ -88,7 +63,7 @@ static NSString *SummaryCell = @"SummaryCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==0) return 1;
-    return self.testResults.count;
+    return self.testCase.totalCount;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -116,14 +91,14 @@ static NSString *SummaryCell = @"SummaryCell";
 - (NSAttributedString *)attributedAverageString
 {
     NSMutableAttributedString *atStr;
-    if (self.averageTime==0) {
+    if (self.testCase.averageTime==0) {
         atStr = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"nopassverbs",nil)];
         NSDictionary *attr = @{NSForegroundColorAttributeName:[[Referee sharedReferee] colorForFail]};
         [atStr setAttributes:attr range:NSMakeRange(0,[atStr length])];
     } else {
-        NSString *average = [NSString stringWithFormat:NSLocalizedString(@"avgtime_format", nil),self.averageTime];
+        NSString *average = [NSString stringWithFormat:NSLocalizedString(@"avgtime_format", nil),self.testCase.averageTime];
         atStr = [[NSMutableAttributedString alloc] initWithString:average];
-        NSDictionary *attr = @{NSForegroundColorAttributeName:[[Referee sharedReferee] colorForValue:self.averageTime]};
+        NSDictionary *attr = @{NSForegroundColorAttributeName:[[Referee sharedReferee] colorForValue:self.testCase.averageTime]};
         [atStr setAttributes:attr range:NSMakeRange([average length]-5, 5)];
     }
     return atStr;
@@ -134,13 +109,13 @@ static NSString *SummaryCell = @"SummaryCell";
     if (indexPath.section==0) {
         TSCSummaryCell *cell = [tableView dequeueReusableCellWithIdentifier:SummaryCell forIndexPath:indexPath];
                 
-        [cell.passFailGraph setDataCount:self.testResults.count
-                           withPassCount:self.passCount
-                            andFailCount:self.failCount];
+        [cell.passFailGraph setDataCount:self.testCase.totalCount
+                           withPassCount:self.testCase.passCount
+                            andFailCount:self.testCase.failCount];
         
         cell.labelAverageTime.attributedText = [self attributedAverageString];
         
-        cell.labelFailureRatio.text = [NSString stringWithFormat:NSLocalizedString(@"fail_format",nil),100.0*self.failCount/self.testResults.count];
+        cell.labelFailureRatio.text = [NSString stringWithFormat:NSLocalizedString(@"fail_format",nil),100.0*self.testCase.failRatio];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
         return cell;
@@ -148,7 +123,7 @@ static NSString *SummaryCell = @"SummaryCell";
     if (indexPath.section==1) {
         TSCVerbCell *cell = [tableView dequeueReusableCellWithIdentifier:VerbCell forIndexPath:indexPath];
         
-        Verb *verb = self.testResults[indexPath.row];
+        Verb *verb = self.testCase.verbs[indexPath.row];
         cell.labelVerb.text = verb.simple;
         if (verb.failed) {
             cell.labelVerb.textColor = [[Referee sharedReferee] colorForFail];

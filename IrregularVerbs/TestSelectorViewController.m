@@ -7,18 +7,14 @@
 //
 
 #import "VerbsStore.h"
+#import "TestCase.h"
 #import "TestCardsStackViewController.h"
 #import "TestSelectorViewController.h"
 #import "Referee.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface TestSelectorViewController ()
-{
-    
-}
 
-//@property (nonatomic,strong) UITableViewCell *counterCell;
-//@property (nonatomic,strong) UITableViewCell *onOffCell;
 @property (nonatomic,strong) UIImage *buttonImage;
 @property (nonatomic,strong) NSMutableDictionary *testResults;
 
@@ -55,6 +51,11 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static int heights[] = {44,40};
+    return heights[indexPath.section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -147,17 +148,20 @@
             cell.textLabel.textColor = [UIColor darkGrayColor];
             cell.backgroundView.frame = CGRectInset(cell.frame, -20, -20);
         }
-        UILabel *answer = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 82, 18)];
+        UILabel *answer = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 82, 20)];
         cell.textLabel.text = [[VerbsStore sharedStore] testTypes][indexPath.row];
-        answer.text = [self.testResults objectForKey:cell.textLabel.text];
-        answer.textColor = [UIColor whiteColor];
-        answer.font = [UIFont fontWithName:@"Helvetica-Light" size:12];
-        answer.textAlignment = NSTextAlignmentCenter;
-        answer.backgroundColor = [UIColor darkGrayColor];
-        answer.layer.cornerRadius = 8;
-        [answer sizeToFit];
-        answer.frame = CGRectInset(answer.frame, -6, 0);
-        cell.accessoryView = answer;
+        NSString *badge = [self.testResults objectForKey:cell.textLabel.text];
+        if (badge) {
+            answer.text = badge;
+            answer.textColor = [UIColor whiteColor];
+            answer.font = [UIFont fontWithName:@"Helvetica-Light" size:12];
+            answer.textAlignment = NSTextAlignmentCenter;
+            answer.backgroundColor = [UIColor darkGrayColor];
+            answer.layer.cornerRadius = 3;
+            [answer sizeToFit];
+            answer.frame = CGRectInset(answer.frame, -3, -2);
+            cell.accessoryView = answer;
+        }
 
         return cell;
     }
@@ -188,32 +192,43 @@
 {
   [self openSelectedType:indexPath.row];
 }
+
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
  
     [self openSelectedType:indexPath.row];
 }
 
-- (void)testScoreCardView:(TestScoreCardViewController *)testScoreCardView endWithResults:(NSDictionary *)results {
-    float averageTime = [results[@"averageTime"] floatValue];
-    float failCount = [results[@"failCount"] floatValue];
-    float totalCount = [results[@"totalCount"] floatValue];
-    NSString *badge;
-    if (failCount==0) {
-        badge = [NSString stringWithFormat:@"%.2fs",averageTime];
-    } else if (averageTime==0) {
-        badge = [NSString stringWithFormat:@"%d%%",(int)floorf(100*failCount/totalCount)];
-    } else badge = [NSString stringWithFormat:@"%d%%/%.2fs",(int)floorf(100*failCount/totalCount),averageTime];
-    [self.testResults setObject:badge forKey:testScoreCardView.title];
+- (NSString *)badgeForTestType:(TestCase *)test {
+    NSString *badge = nil;
+    if (test) {
+        [test computeSummaryData];
+        NSLog(@"total %d pass %d fail %d time %.2f failRatio %.2f",test.totalCount,test.passCount,test.failCount,test.averageTime, test.failRatio);
+        if (test.failCount==0) {
+            badge = [NSString stringWithFormat:@"%.2fs",test.averageTime];
+        } else if (test.averageTime==0) {
+            badge = [NSString stringWithFormat:@"%d%%",(int)floorf(100*test.failRatio)];
+        } else badge = [NSString stringWithFormat:@"%d%%/%.2fs",(int)floorf(100*test.failRatio),test.averageTime];
+        if ((test.failCount+test.passCount)!=test.totalCount) {
+            badge = [NSString stringWithFormat:@"[%@]",badge];
+        }
+    }
+    return badge;
 }
 
--(void)openSelectedType:(NSInteger) type{
-    VerbsStore *store = [VerbsStore sharedStore];
-    store.selectedTestType = store.testTypes[type];
-    [self.testResults setObject:NSLocalizedString(@"resigned", @"user didn't complete the test") forKey:store.selectedTestType];
-    
-    
-    [self.navigationController pushViewController:[[TestCardsStackViewController alloc] initWithScoreCardDelegate:self]
-                                         animated:YES];
+- (void)openSelectedType:(NSInteger) type{
+    NSString *typeDescription = [[VerbsStore sharedStore] testTypes][type];
+    TestCase *testCase = [[VerbsStore sharedStore] testCaseForTestType:typeDescription];
+    TestCardsStackViewController *stack = [[TestCardsStackViewController alloc] initWithTestCase:testCase];
+    stack.presentedDelegate = self;
+    [self.navigationController pushViewController:stack animated:YES];
+}
+
+- (void)presentedViewControllerWillDisapear:(UIViewController *)controller {
+    if ([controller isKindOfClass:[TestCardsStackViewController class]]) {
+        TestCardsStackViewController *stack = (TestCardsStackViewController *)controller;
+        NSString *badge = [self badgeForTestType:stack.testCase];
+        [self.testResults setObject:badge forKey:stack.testCase.description];
+    }
 }
 
 @end

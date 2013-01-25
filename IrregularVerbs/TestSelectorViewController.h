@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TestScoreCardViewController.h"
+#import "PresentedViewControllerDelegate.h"
 
-@interface TestSelectorViewController : UITableViewController <TestScoreCardViewDelegate>
+
+@interface TestSelectorViewController : UITableViewController<PresentedViewControllerDelegate>
 
 @end
