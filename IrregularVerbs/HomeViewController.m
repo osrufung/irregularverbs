@@ -95,6 +95,8 @@
  
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [[self headLabel] setAttributedText:[self attributedHomeLabel]];
+    //How strange! if you set textAlignment in UIBuilder it doesn't work
+    self.headLabel.textAlignment = NSTextAlignmentCenter;
   
     //firs time? show popupview assistant
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firsTimeAssistantShown"]){

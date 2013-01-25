@@ -205,12 +205,6 @@
     [self saveChanges];
 }
 
-- (void)resetTest {
-    for (Verb *verb in self.currentList) {
-        [verb resetCurrentTest];
-    }
-}
-
 #pragma mark - Test Types
 
 + (void)initializeTestTypes:(VerbsStore *)sharedStore

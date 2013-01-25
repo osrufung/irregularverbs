@@ -31,7 +31,6 @@
 - (BOOL) resetVerbsStore;
 
 - (void) resetHistory;
-- (void) resetTest;
 
 - (NSArray *) defaultFrequencyGroups;
 - (int)currentFrequencyByGroup;
