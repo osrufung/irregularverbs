@@ -154,7 +154,7 @@
  
 
 - (IBAction)showInfo:(id)sender {
-        [ASDepthModalViewController presentView:self.popupView withBackgroundColor:[UIColor whiteColor] popupAnimationStyle:ASDepthModalAnimationDisplace];
+        [ASDepthModalViewController presentView:self.popupView withBackgroundColor:[UIColor whiteColor] popupAnimationStyle:ASDepthModalAnimationGrow];
 }
 - (IBAction)openLearn:(id)sender {
     [[self navigationController] pushViewController:[[CardsTableViewController alloc] init]

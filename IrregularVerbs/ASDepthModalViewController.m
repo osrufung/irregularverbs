@@ -33,7 +33,7 @@
 @property (nonatomic, assign) CGAffineTransform initialPopupTransform;;
 @end
 
-static NSTimeInterval const kModalViewAnimationDuration = 0.6;
+static NSTimeInterval const kModalViewAnimationDuration = 0.3;
 
 @implementation ASDepthModalViewController
 @synthesize popupView;
@@ -134,9 +134,9 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.6;
     self.rootViewController = window.rootViewController;
     frame = self.rootViewController.view.frame;
     if([[UIApplication sharedApplication] isStatusBarHidden]){
-       frame.size.height = frame.size.height -20;  
+        frame.size.height = frame.size.height;
     }else{
-       frame.size.height = frame.size.height;  
+         frame.size.height = frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height;  
     }
    
     
@@ -170,7 +170,7 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.6;
     self.coverView.alpha = 0;
     [UIView animateWithDuration:kModalViewAnimationDuration
                      animations:^{
-                         //self.rootViewController.view.transform = CGAffineTransformMakeScale(0.7, 0.7);
+                         //self.rootViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8);
                          self.coverView.alpha = 1;
                      }];
     
