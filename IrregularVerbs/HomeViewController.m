@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonHistory;
 @property (weak, nonatomic) IBOutlet UIButton *buttonSetup;
 @property (weak, nonatomic) IBOutlet UIButton *buttonClosePopUp;
+@property (weak, nonatomic) IBOutlet UILabel *labelHeader;
  
 @end
 
@@ -56,9 +57,9 @@
     
     [[self bottomView] addSubview:rv];
     
-    self.popupView.layer.cornerRadius = 12;
-    self.popupView.layer.shadowOpacity = 0.7;
-    self.popupView.layer.shadowOffset = CGSizeMake(6, 6);
+    self.popupView.layer.cornerRadius = 4;
+    self.popupView.layer.shadowOpacity = 0.3;
+    self.popupView.layer.shadowOffset = CGSizeMake(10, 10   );
     self.popupView.layer.shouldRasterize = YES;
     self.popupView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     
@@ -153,7 +154,7 @@
  
 
 - (IBAction)showInfo:(id)sender {
-        [ASDepthModalViewController presentView:self.popupView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationDisplace];
+        [ASDepthModalViewController presentView:self.popupView withBackgroundColor:[UIColor whiteColor] popupAnimationStyle:ASDepthModalAnimationDisplace];
 }
 - (IBAction)openLearn:(id)sender {
     [[self navigationController] pushViewController:[[CardsTableViewController alloc] init]

@@ -42,10 +42,9 @@
 					<object class="IBUIView" id="826160717">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">269</int>
-						<string key="NSFrame">{{0, 465}, {320, 109}}</string>
+						<string key="NSFrame">{{0, 445}, {320, 109}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
@@ -337,7 +336,7 @@
 					<object class="IBUIButton" id="413509243">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{282, 14}, {18, 19}}</string>
+						<string key="NSFrame">{{273, 14}, {32, 19}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="528499966"/>
@@ -352,7 +351,7 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUITitleShadowOffset">{1, 1}</string>
-						<string key="IBUINormalTitle">i</string>
+						<string key="IBUINormalTitle"> i </string>
 						<reference key="IBUIHighlightedTitleColor" ref="912748109"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -375,7 +374,7 @@
 						</object>
 					</object>
 				</array>
-				<string key="NSFrameSize">{320, 568}</string>
+				<string key="NSFrame">{{0, 20}, {320, 548}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="931568056"/>
@@ -383,6 +382,7 @@
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MC45NDAwMTExNjA3IDAuOTQwMDExMTYwNyAwLjk0MDAxMTE2MDcAA</bytes>
 				</object>
+				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<object class="IBUIScreenMetrics" key="IBUISimulatedDestinationMetrics">
 					<string key="IBUISimulatedSizeMetricsClass">IBUIScreenMetrics</string>
 					<object class="NSMutableDictionary" key="IBUINormalizedOrientationToSizeMap">
@@ -485,7 +485,6 @@
 						<string key="NSFrame">{{202, 194}, {63, 44}}</string>
 						<reference key="NSSuperview" ref="61233166"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>

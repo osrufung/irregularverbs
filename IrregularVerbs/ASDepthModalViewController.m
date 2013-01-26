@@ -46,7 +46,7 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.6;
     if (self)
     {
         self.view.backgroundColor = [UIColor blackColor];
-        self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;                
+        self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         self.view.backgroundColor = [UIColor blackColor];
     }
     return self;
@@ -105,19 +105,12 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.6;
             
             CGAffineTransform newTransform;
             newTransform = CGAffineTransformMakeRotation(90.0);
-           // newTransform = CGAffineTransformScale(newTransform,.5,.5);
-           
             self.popupView.transform = CGAffineTransformTranslate(newTransform, 500.0, 0.0);
-            
             self.initialPopupTransform = self.popupView.transform;
-            
             [UIView animateWithDuration:kModalViewAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 self.popupView.transform = CGAffineTransformIdentity;
             } completion:nil];
-            
-            
-            
-            
+  
         }
             break;
         default:
@@ -136,12 +129,21 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.6;
     {
         self.view.backgroundColor = color;
     }
-    
+ 
     window = [UIApplication sharedApplication].keyWindow;
     self.rootViewController = window.rootViewController;
     frame = self.rootViewController.view.frame;
+    if([[UIApplication sharedApplication] isStatusBarHidden]){
+       frame.size.height = frame.size.height -20;  
+    }else{
+       frame.size.height = frame.size.height;  
+    }
+   
+    
+    
     self.view.transform = self.rootViewController.view.transform;
     self.rootViewController.view.transform = CGAffineTransformIdentity;
+
     frame.origin = CGPointZero;
     self.rootViewController.view.frame = frame;
     [self.view addSubview:self.rootViewController.view];
@@ -168,7 +170,7 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.6;
     self.coverView.alpha = 0;
     [UIView animateWithDuration:kModalViewAnimationDuration
                      animations:^{
-                         self.rootViewController.view.transform = CGAffineTransformMakeScale(0.9, 0.9);
+                         //self.rootViewController.view.transform = CGAffineTransformMakeScale(0.7, 0.7);
                          self.coverView.alpha = 1;
                      }];
     
