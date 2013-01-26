@@ -60,31 +60,38 @@
     
     [[self labelPopUp] setText:NSLocalizedString(@"InfoPopupHome", @"info about App at home")];
     
-    UIImage *buttonImage = [[UIImage imageNamed:@"greyButton.png"]
+    UIImage *buttonImage = [[UIImage imageNamed:@"whiteButton.png"]
                             resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-    UIImage *buttonImageHighlight = [[UIImage imageNamed:@"greyButtonHighlight.png"]
+    UIImage *buttonImageHighlight = [[UIImage imageNamed:@"whiteButtonHighlight.png"]
                                      resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    
+    UIFont* fontButton = [UIFont fontWithName:@"Signika" size:18];
     
     // Set the background for any states you plan to use
     [[self.buttonLearn imageView] setContentMode: UIViewContentModeScaleAspectFit];
+  
     [self.buttonLearn setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [self.buttonLearn setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
     [self.buttonLearn setTitle:NSLocalizedString(@"LearnLabel", nil) forState:UIControlStateNormal];
+    self.buttonLearn.titleLabel.font = fontButton;
     
     [[self.buttonTest imageView] setContentMode: UIViewContentModeScaleAspectFit];
     [self.buttonTest setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [self.buttonTest setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
     [self.buttonTest setTitle:NSLocalizedString(@"TestLabel", nil) forState:UIControlStateNormal];
+    self.buttonTest.titleLabel.font = fontButton;
     
     [[self.buttonHistory imageView] setContentMode: UIViewContentModeScaleAspectFit];
     [self.buttonHistory setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [self.buttonHistory setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
     [self.buttonHistory setTitle:NSLocalizedString(@"HistoryLabel", nil) forState:UIControlStateNormal];
+    self.buttonHistory.titleLabel.font = fontButton;
     
     [[self.buttonSetup imageView] setContentMode: UIViewContentModeScaleAspectFit];
     [self.buttonSetup setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [self.buttonSetup setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
     [self.buttonSetup setTitle:NSLocalizedString(@"SetupLabel", nil) forState:UIControlStateNormal];
+    self.buttonSetup.titleLabel.font = fontButton;
     
     [self.buttonClosePopUp setTitle:NSLocalizedString(@"close", nil) forState:UIControlStateNormal];
 
@@ -109,14 +116,22 @@
 }
 
 -(NSAttributedString *) attributedHomeLabel{
+ 
+    UIFont* fontBold = [UIFont fontWithName:@"Signika-Bold" size:20];
+  
+    UIFont* fontRegular = [UIFont fontWithName:@"Signika" size:20];
     
     int cntVerbs = [[[VerbsStore sharedStore] alphabetic] count] ;
     NSString *str = [NSString stringWithFormat: NSLocalizedString(@"verbstolearn", @"home label descriptor"), cntVerbs];
     NSMutableAttributedString *result  = [[NSMutableAttributedString alloc] initWithString:str];
     
-    NSDictionary *attributesForNumber = @{NSFontAttributeName:[UIFont fontWithName:@"Helvetica Neue" size:20.0],NSForegroundColorAttributeName:TURQUESATINT};
+    NSDictionary *attributesForNumber = @{NSFontAttributeName:fontBold,NSForegroundColorAttributeName:TURQUESATINT};
     
+        NSDictionary *attributesForTest = @{NSFontAttributeName:fontRegular,NSForegroundColorAttributeName:[UIColor darkGrayColor]};
+ 
     [result setAttributes:attributesForNumber range: NSMakeRange(0,[[NSString stringWithFormat:@"%d",cntVerbs ] length])];
+    [result setAttributes:attributesForTest   range: NSMakeRange([[NSString stringWithFormat:@"%d",cntVerbs ] length], ([result length] - [[NSString stringWithFormat:@"%d",cntVerbs ] length]))];
+    
     return [[NSAttributedString alloc] initWithAttributedString:result];
 }
 

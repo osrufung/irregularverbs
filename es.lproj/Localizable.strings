@@ -14,6 +14,7 @@
 "TestLabel" = "Evaluar";
 "HistoryLabel" = "Historial";
 "SetupLabel" = "Ajustes";
+"selecttesttype" = "Elige tipo de test";
 
 //Learn View
 "alpha" = "A-Z";

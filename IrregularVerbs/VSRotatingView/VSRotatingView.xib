@@ -40,6 +40,7 @@
 						<int key="NSvFlags">293</int>
 						<string key="NSFrame">{{-90, 13}, {500, 416}}</string>
 						<reference key="NSSuperview" ref="913423115"/>
+						<reference key="NSNextKeyView" ref="965190982"/>
 						<string key="NSReuseIdentifierKey">_NS:541</string>
 						<bool key="IBUIAutoresizesSubviews">NO</bool>
 						<int key="IBUIContentMode">5</int>
@@ -47,6 +48,19 @@
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">pain-cycle.png</string>
+						</object>
+					</object>
+					<object class="IBUIImageView" id="965190982">
+						<reference key="NSNextResponder" ref="913423115"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{-2, -6}, {325, 138}}</string>
+						<reference key="NSSuperview" ref="913423115"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">white-circular-bg1@2x.png</string>
 						</object>
 					</object>
 				</array>
@@ -99,6 +113,7 @@
 						<reference key="object" ref="913423115"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="344862287"/>
+							<reference ref="965190982"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">DialView</string>
@@ -106,6 +121,11 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">6</int>
 						<reference key="object" ref="344862287"/>
+						<reference key="parent" ref="913423115"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">9</int>
+						<reference key="object" ref="965190982"/>
 						<reference key="parent" ref="913423115"/>
 					</object>
 				</array>
@@ -117,26 +137,23 @@
 				<string key="3.CustomClassName">VSRotatingView</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">8</int>
+			<int key="maxID">9</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1536" key="NS.object.0"/>
-		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">pain-cycle.png</string>
-			<string key="NS.object.0">{417, 416}</string>
-		</object>
+		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="pain-cycle.png">{417, 416}</string>
+			<string key="white-circular-bg1@2x.png">{555, 179}</string>
+		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1930</string>
 	</data>
 </archive>
