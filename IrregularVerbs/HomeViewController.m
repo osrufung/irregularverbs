@@ -44,6 +44,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg.png"]];
+    
     VSRotatingView *rv = [VSRotatingView new];
     rv.rotatingViewDelegate = self;
     

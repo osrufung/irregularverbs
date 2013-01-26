@@ -45,13 +45,14 @@
 						<string key="NSFrame">{{0, 465}, {320, 109}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 					<object class="IBUIButton" id="528499966">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 65}, {280, 55}}</string>
+						<string key="NSFrame">{{20, 65}, {280, 50}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="384885400"/>
@@ -104,7 +105,7 @@
 					<object class="IBUIButton" id="384885400">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 127}, {280, 55}}</string>
+						<string key="NSFrame">{{20, 122}, {280, 50}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="159547957"/>
@@ -142,7 +143,7 @@
 					<object class="IBUIButton" id="159547957">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 189}, {280, 55}}</string>
+						<string key="NSFrame">{{20, 179}, {280, 50}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="472495209"/>
@@ -176,7 +177,7 @@
 					<object class="IBUIButton" id="472495209">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 251}, {280, 55}}</string>
+						<string key="NSFrame">{{20, 236}, {280, 50}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="190166415"/>
@@ -210,7 +211,7 @@
 					<object class="IBUILabel" id="190166415">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">290</int>
-						<string key="NSFrame">{{20, 335}, {280, 24}}</string>
+						<string key="NSFrame">{{20, 345}, {280, 24}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="826160717"/>
@@ -484,6 +485,7 @@
 						<string key="NSFrame">{{202, 194}, {63, 44}}</string>
 						<reference key="NSSuperview" ref="61233166"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -603,6 +605,14 @@
 						<reference key="destination" ref="352564684"/>
 					</object>
 					<int key="connectionID">80</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">labelHeader</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="651858707"/>
+					</object>
+					<int key="connectionID">86</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -803,7 +813,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">85</int>
+			<int key="maxID">86</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -852,6 +862,7 @@
 						<string key="buttonSetup">UIButton</string>
 						<string key="buttonTest">UIButton</string>
 						<string key="headLabel">UILabel</string>
+						<string key="labelHeader">UILabel</string>
 						<string key="labelPopUp">UITextView</string>
 						<string key="popupView">UIView</string>
 					</dictionary>
@@ -882,6 +893,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="headLabel">
 							<string key="name">headLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="labelHeader">
+							<string key="name">labelHeader</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="labelPopUp">
