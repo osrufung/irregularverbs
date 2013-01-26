@@ -11,6 +11,7 @@
 @interface HistoryViewController : UIViewController<UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>{
     NSArray *_currentData;
 }
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *criteriaControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *helpView;
