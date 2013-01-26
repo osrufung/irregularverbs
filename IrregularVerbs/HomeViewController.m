@@ -60,20 +60,26 @@
     
     [[self labelPopUp] setText:NSLocalizedString(@"InfoPopupHome", @"info about App at home")];
     
-    UIImage *buttonImage = [[UIImage imageNamed:@"greyButton.png"]
+    UIImage *buttonImage = [[UIImage imageNamed:@"whiteButton.png"]
                             resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-    UIImage *buttonImageHighlight = [[UIImage imageNamed:@"greyButtonHighlight.png"]
+    UIImage *buttonImageHighlight = [[UIImage imageNamed:@"whiteButtonHighlight.png"]
                                      resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
     
     // Set the background for any states you plan to use
     [[self.buttonLearn imageView] setContentMode: UIViewContentModeScaleAspectFit];
+  
     [self.buttonLearn setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [self.buttonLearn setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+  
+     self.buttonLearn.layer.cornerRadius = 1;
+    
     [self.buttonLearn setTitle:NSLocalizedString(@"LearnLabel", nil) forState:UIControlStateNormal];
     
     [[self.buttonTest imageView] setContentMode: UIViewContentModeScaleAspectFit];
+ 
     [self.buttonTest setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [self.buttonTest setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+   
     [self.buttonTest setTitle:NSLocalizedString(@"TestLabel", nil) forState:UIControlStateNormal];
     
     [[self.buttonHistory imageView] setContentMode: UIViewContentModeScaleAspectFit];

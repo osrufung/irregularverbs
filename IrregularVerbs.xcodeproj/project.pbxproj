@@ -24,8 +24,14 @@
 		091C61F516A018EF00F3606A /* CardsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091C61F316A018EF00F3606A /* CardsTableViewController.m */; };
 		091C61F616A018EF00F3606A /* CardsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 091C61F416A018EF00F3606A /* CardsTableViewController.xib */; };
 		092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 092CDCA7168D8D8C0092FD32 /* Defaults.plist */; };
+		092CE66116B3C76D0008A741 /* whiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 092CE65F16B3C76C0008A741 /* whiteButton.png */; };
+		092CE66216B3C76D0008A741 /* whiteButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 092CE66016B3C76D0008A741 /* whiteButton@2x.png */; };
 		095BC75C16AEEEF00020ADCF /* check_nok_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 095BC75A16AEEEEF0020ADCF /* check_nok_red@2x.png */; };
 		095BC75D16AEEEF00020ADCF /* check_nok_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 095BC75B16AEEEEF0020ADCF /* check_nok_red.png */; };
+		096B5A5C16B3C0C70024CBC3 /* white-circular-bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 096B5A5A16B3C0C70024CBC3 /* white-circular-bg1.png */; };
+		096B5A5D16B3C0C70024CBC3 /* white-circular-bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 096B5A5B16B3C0C70024CBC3 /* white-circular-bg1@2x.png */; };
+		096B5A6516B3C5DB0024CBC3 /* whiteButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 096B5A6116B3C5DB0024CBC3 /* whiteButtonHighlight.png */; };
+		096B5A6616B3C5DB0024CBC3 /* whiteButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 096B5A6216B3C5DB0024CBC3 /* whiteButtonHighlight@2x.png */; };
 		0973D9F216AD2C4500A8E30A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0973D9F416AD2C4500A8E30A /* Localizable.strings */; };
 		0973D9FE16AD4DBE00A8E30A /* ASDepthModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0973D9FD16AD4DBE00A8E30A /* ASDepthModalViewController.m */; };
 		0973DA0E16ADB9F700A8E30A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0973DA0C16ADB9F700A8E30A /* HomeViewController.m */; };
@@ -40,15 +46,9 @@
 		09CB351916AEDE3100995380 /* dropShadowTop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CB350E16AEDE3100995380 /* dropShadowTop@2x.png */; };
 		09CB351A16AEDE3100995380 /* pain-cycle.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CB350F16AEDE3100995380 /* pain-cycle.png */; };
 		09CB351B16AEDE3100995380 /* pain-cycle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CB351016AEDE3100995380 /* pain-cycle@2x.png */; };
-		09CB351C16AEDE3100995380 /* white-circular-bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CB351116AEDE3100995380 /* white-circular-bg1.png */; };
-		09CB351D16AEDE3100995380 /* white-circular-bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CB351216AEDE3100995380 /* white-circular-bg1@2x.png */; };
 		09CB351E16AEDE3100995380 /* VSRotatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CB351516AEDE3100995380 /* VSRotatingView.m */; };
 		09CB351F16AEDE3100995380 /* VSRotatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09CB351616AEDE3100995380 /* VSRotatingView.xib */; };
 		09CB352216AEDECC00995380 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB352116AEDECC00995380 /* AVFoundation.framework */; };
-		09CE63FC16B015D40061C968 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63F716B015D40061C968 /* greyButton.png */; };
-		09CE63FD16B015D40061C968 /* greyButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63F816B015D40061C968 /* greyButton@2x.png */; };
-		09CE63FF16B015D40061C968 /* greyButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63FA16B015D40061C968 /* greyButtonHighlight.png */; };
-		09CE640016B015D40061C968 /* greyButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CE63FB16B015D40061C968 /* greyButtonHighlight@2x.png */; };
 		09D372DD1681BA4F00F80410 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DC1681BA4F00F80410 /* UIKit.framework */; };
 		09D372DF1681BA4F00F80410 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DE1681BA4F00F80410 /* Foundation.framework */; };
 		09D372E11681BA4F00F80410 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372E01681BA4F00F80410 /* CoreGraphics.framework */; };
@@ -136,8 +136,14 @@
 		091C61F316A018EF00F3606A /* CardsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsTableViewController.m; sourceTree = "<group>"; };
 		091C61F416A018EF00F3606A /* CardsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardsTableViewController.xib; sourceTree = "<group>"; };
 		092CDCA7168D8D8C0092FD32 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
+		092CE65F16B3C76C0008A741 /* whiteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteButton.png; path = "../../recursos_irregularverbs/iOS Buttons/buttons/whiteButton.png"; sourceTree = "<group>"; };
+		092CE66016B3C76D0008A741 /* whiteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "whiteButton@2x.png"; path = "../../recursos_irregularverbs/iOS Buttons/buttons/whiteButton@2x.png"; sourceTree = "<group>"; };
 		095BC75A16AEEEEF0020ADCF /* check_nok_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_nok_red@2x.png"; sourceTree = "<group>"; };
 		095BC75B16AEEEEF0020ADCF /* check_nok_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_nok_red.png; sourceTree = "<group>"; };
+		096B5A5A16B3C0C70024CBC3 /* white-circular-bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-circular-bg1.png"; path = "../../../../recursos_irregularverbs/VSCircularDial-master/VSRotatingView/Resources/white-circular-bg1.png"; sourceTree = "<group>"; };
+		096B5A5B16B3C0C70024CBC3 /* white-circular-bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-circular-bg1@2x.png"; path = "../../../../recursos_irregularverbs/VSCircularDial-master/VSRotatingView/Resources/white-circular-bg1@2x.png"; sourceTree = "<group>"; };
+		096B5A6116B3C5DB0024CBC3 /* whiteButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteButtonHighlight.png; sourceTree = "<group>"; };
+		096B5A6216B3C5DB0024CBC3 /* whiteButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteButtonHighlight@2x.png"; sourceTree = "<group>"; };
 		0973D9F316AD2C4500A8E30A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0973D9F516AD2C5000A8E30A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0973D9FC16AD4DBE00A8E30A /* ASDepthModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDepthModalViewController.h; sourceTree = "<group>"; };
@@ -157,17 +163,11 @@
 		09CB350E16AEDE3100995380 /* dropShadowTop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropShadowTop@2x.png"; sourceTree = "<group>"; };
 		09CB350F16AEDE3100995380 /* pain-cycle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pain-cycle.png"; sourceTree = "<group>"; };
 		09CB351016AEDE3100995380 /* pain-cycle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pain-cycle@2x.png"; sourceTree = "<group>"; };
-		09CB351116AEDE3100995380 /* white-circular-bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-circular-bg1.png"; sourceTree = "<group>"; };
-		09CB351216AEDE3100995380 /* white-circular-bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-circular-bg1@2x.png"; sourceTree = "<group>"; };
 		09CB351316AEDE3100995380 /* VSConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSConstant.h; sourceTree = "<group>"; };
 		09CB351416AEDE3100995380 /* VSRotatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSRotatingView.h; sourceTree = "<group>"; };
 		09CB351516AEDE3100995380 /* VSRotatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSRotatingView.m; sourceTree = "<group>"; };
 		09CB351616AEDE3100995380 /* VSRotatingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSRotatingView.xib; sourceTree = "<group>"; };
 		09CB352116AEDECC00995380 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		09CE63F716B015D40061C968 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
-		09CE63F816B015D40061C968 /* greyButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyButton@2x.png"; sourceTree = "<group>"; };
-		09CE63FA16B015D40061C968 /* greyButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButtonHighlight.png; sourceTree = "<group>"; };
-		09CE63FB16B015D40061C968 /* greyButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyButtonHighlight@2x.png"; sourceTree = "<group>"; };
 		09D372D81681BA4F00F80410 /* A list of verbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A list of verbs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D372DC1681BA4F00F80410 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09D372DE1681BA4F00F80410 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -316,13 +316,13 @@
 		09CB350B16AEDE3100995380 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				096B5A5A16B3C0C70024CBC3 /* white-circular-bg1.png */,
+				096B5A5B16B3C0C70024CBC3 /* white-circular-bg1@2x.png */,
 				09CB350C16AEDE3100995380 /* DialClick.caf */,
 				09CB350D16AEDE3100995380 /* dropShadowTop.png */,
 				09CB350E16AEDE3100995380 /* dropShadowTop@2x.png */,
 				09CB350F16AEDE3100995380 /* pain-cycle.png */,
 				09CB351016AEDE3100995380 /* pain-cycle@2x.png */,
-				09CB351116AEDE3100995380 /* white-circular-bg1.png */,
-				09CB351216AEDE3100995380 /* white-circular-bg1@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -522,12 +522,12 @@
 		E550A5EE169CC9AE00DCA8D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				092CE65F16B3C76C0008A741 /* whiteButton.png */,
+				092CE66016B3C76D0008A741 /* whiteButton@2x.png */,
+				096B5A6116B3C5DB0024CBC3 /* whiteButtonHighlight.png */,
+				096B5A6216B3C5DB0024CBC3 /* whiteButtonHighlight@2x.png */,
 				E5F428CB16B0A86700058D72 /* greyButtonSpacer.png */,
 				E5F428CC16B0A86900058D72 /* greyButtonSpacer@2x.png */,
-				09CE63F716B015D40061C968 /* greyButton.png */,
-				09CE63F816B015D40061C968 /* greyButton@2x.png */,
-				09CE63FA16B015D40061C968 /* greyButtonHighlight.png */,
-				09CE63FB16B015D40061C968 /* greyButtonHighlight@2x.png */,
 				095BC75A16AEEEEF0020ADCF /* check_nok_red@2x.png */,
 				095BC75B16AEEEEF0020ADCF /* check_nok_red.png */,
 				0917BF6216AEC187009221EF /* check_ok_grey@2x.png */,
@@ -700,21 +700,21 @@
 				09CB351A16AEDE3100995380 /* pain-cycle.png in Resources */,
 				E5BB4A5716ADB2AB00030041 /* verbs.plist in Resources */,
 				09CB351B16AEDE3100995380 /* pain-cycle@2x.png in Resources */,
-				09CB351C16AEDE3100995380 /* white-circular-bg1.png in Resources */,
-				09CB351D16AEDE3100995380 /* white-circular-bg1@2x.png in Resources */,
 				E5B3CEB816B0123600CDD6C5 /* pencil_24.png in Resources */,
 				09CB351F16AEDE3100995380 /* VSRotatingView.xib in Resources */,
 				095BC75C16AEEEF00020ADCF /* check_nok_red@2x.png in Resources */,
 				E5B3CEBB16B0127900CDD6C5 /* pencil_24@2x.png in Resources */,
 				095BC75D16AEEEF00020ADCF /* check_nok_red.png in Resources */,
-				09CE63FC16B015D40061C968 /* greyButton.png in Resources */,
-				09CE63FD16B015D40061C968 /* greyButton@2x.png in Resources */,
-				09CE63FF16B015D40061C968 /* greyButtonHighlight.png in Resources */,
-				09CE640016B015D40061C968 /* greyButtonHighlight@2x.png in Resources */,
 				E5F428CD16B0A86B00058D72 /* greyButtonSpacer.png in Resources */,
 				E5F428CE16B0A86B00058D72 /* greyButtonSpacer@2x.png in Resources */,
 				E54DD52416B1517A00271679 /* Default.png in Resources */,
 				E54DD52516B1517A00271679 /* Default@2x.png in Resources */,
+				096B5A5C16B3C0C70024CBC3 /* white-circular-bg1.png in Resources */,
+				096B5A5D16B3C0C70024CBC3 /* white-circular-bg1@2x.png in Resources */,
+				096B5A6516B3C5DB0024CBC3 /* whiteButtonHighlight.png in Resources */,
+				096B5A6616B3C5DB0024CBC3 /* whiteButtonHighlight@2x.png in Resources */,
+				092CE66116B3C76D0008A741 /* whiteButton.png in Resources */,
+				092CE66216B3C76D0008A741 /* whiteButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
