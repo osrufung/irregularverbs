@@ -25,13 +25,13 @@
 		091C61F616A018EF00F3606A /* CardsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 091C61F416A018EF00F3606A /* CardsTableViewController.xib */; };
 		0929AB6216B3E813006C5F7C /* white-circular-bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0929AB6016B3E813006C5F7C /* white-circular-bg1.png */; };
 		0929AB6316B3E813006C5F7C /* white-circular-bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0929AB6116B3E813006C5F7C /* white-circular-bg1@2x.png */; };
-		0929AB6716B3E901006C5F7C /* whiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0929AB6516B3E901006C5F7C /* whiteButton.png */; };
-		0929AB6816B3E901006C5F7C /* whiteButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0929AB6616B3E901006C5F7C /* whiteButton@2x.png */; };
 		0929AB6A16B3EB6C006C5F7C /* HomeViewbg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0929AB6916B3EB6C006C5F7C /* HomeViewbg-568h@2x.png */; };
 		092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 092CDCA7168D8D8C0092FD32 /* Defaults.plist */; };
 		092CE66516B3CA260008A741 /* signikaregular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 092CE66416B3CA260008A741 /* signikaregular.ttf */; };
 		092CE66716B3CDBE0008A741 /* signikabold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 092CE66616B3CDBE0008A741 /* signikabold.ttf */; };
 		092CE66916B3CE210008A741 /* signikalight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 092CE66816B3CDCF0008A741 /* signikalight.ttf */; };
+		09391F9316B4844B004102F9 /* whiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 09391F9116B4844B004102F9 /* whiteButton.png */; };
+		09391F9416B4844B004102F9 /* whiteButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09391F9216B4844B004102F9 /* whiteButton@2x.png */; };
 		095BC75C16AEEEF00020ADCF /* check_nok_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 095BC75A16AEEEEF0020ADCF /* check_nok_red@2x.png */; };
 		095BC75D16AEEEF00020ADCF /* check_nok_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 095BC75B16AEEEEF0020ADCF /* check_nok_red.png */; };
 		096B5A6516B3C5DB0024CBC3 /* whiteButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 096B5A6116B3C5DB0024CBC3 /* whiteButtonHighlight.png */; };
@@ -141,13 +141,13 @@
 		091C61F416A018EF00F3606A /* CardsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardsTableViewController.xib; sourceTree = "<group>"; };
 		0929AB6016B3E813006C5F7C /* white-circular-bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-circular-bg1.png"; sourceTree = "<group>"; };
 		0929AB6116B3E813006C5F7C /* white-circular-bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-circular-bg1@2x.png"; sourceTree = "<group>"; };
-		0929AB6516B3E901006C5F7C /* whiteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteButton.png; path = ../../../../Desktop/whiteButton.png; sourceTree = "<group>"; };
-		0929AB6616B3E901006C5F7C /* whiteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "whiteButton@2x.png"; path = "../../../../Desktop/whiteButton@2x.png"; sourceTree = "<group>"; };
 		0929AB6916B3EB6C006C5F7C /* HomeViewbg-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeViewbg-568h@2x.png"; sourceTree = "<group>"; };
 		092CDCA7168D8D8C0092FD32 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		092CE66416B3CA260008A741 /* signikaregular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signikaregular.ttf; sourceTree = "<group>"; };
 		092CE66616B3CDBE0008A741 /* signikabold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signikabold.ttf; sourceTree = "<group>"; };
 		092CE66816B3CDCF0008A741 /* signikalight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signikalight.ttf; sourceTree = "<group>"; };
+		09391F9116B4844B004102F9 /* whiteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteButton.png; sourceTree = "<group>"; };
+		09391F9216B4844B004102F9 /* whiteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteButton@2x.png"; sourceTree = "<group>"; };
 		095BC75A16AEEEEF0020ADCF /* check_nok_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_nok_red@2x.png"; sourceTree = "<group>"; };
 		095BC75B16AEEEEF0020ADCF /* check_nok_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_nok_red.png; sourceTree = "<group>"; };
 		096B5A6116B3C5DB0024CBC3 /* whiteButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteButtonHighlight.png; sourceTree = "<group>"; };
@@ -533,8 +533,8 @@
 		E550A5EE169CC9AE00DCA8D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				0929AB6516B3E901006C5F7C /* whiteButton.png */,
-				0929AB6616B3E901006C5F7C /* whiteButton@2x.png */,
+				09391F9116B4844B004102F9 /* whiteButton.png */,
+				09391F9216B4844B004102F9 /* whiteButton@2x.png */,
 				096B5A6116B3C5DB0024CBC3 /* whiteButtonHighlight.png */,
 				096B5A6216B3C5DB0024CBC3 /* whiteButtonHighlight@2x.png */,
 				E5F428CB16B0A86700058D72 /* greyButtonSpacer.png */,
@@ -728,9 +728,9 @@
 				092CE66916B3CE210008A741 /* signikalight.ttf in Resources */,
 				0929AB6216B3E813006C5F7C /* white-circular-bg1.png in Resources */,
 				0929AB6316B3E813006C5F7C /* white-circular-bg1@2x.png in Resources */,
-				0929AB6716B3E901006C5F7C /* whiteButton.png in Resources */,
-				0929AB6816B3E901006C5F7C /* whiteButton@2x.png in Resources */,
 				0929AB6A16B3EB6C006C5F7C /* HomeViewbg-568h@2x.png in Resources */,
+				09391F9316B4844B004102F9 /* whiteButton.png in Resources */,
+				09391F9416B4844B004102F9 /* whiteButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
