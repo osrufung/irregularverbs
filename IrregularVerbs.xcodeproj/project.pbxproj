@@ -26,6 +26,9 @@
 		092CDCA8168D8D8D0092FD32 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 092CDCA7168D8D8C0092FD32 /* Defaults.plist */; };
 		092CE66116B3C76D0008A741 /* whiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 092CE65F16B3C76C0008A741 /* whiteButton.png */; };
 		092CE66216B3C76D0008A741 /* whiteButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 092CE66016B3C76D0008A741 /* whiteButton@2x.png */; };
+		092CE66516B3CA260008A741 /* signikaregular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 092CE66416B3CA260008A741 /* signikaregular.ttf */; };
+		092CE66716B3CDBE0008A741 /* signikabold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 092CE66616B3CDBE0008A741 /* signikabold.ttf */; };
+		092CE66916B3CE210008A741 /* signikalight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 092CE66816B3CDCF0008A741 /* signikalight.ttf */; };
 		095BC75C16AEEEF00020ADCF /* check_nok_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 095BC75A16AEEEEF0020ADCF /* check_nok_red@2x.png */; };
 		095BC75D16AEEEF00020ADCF /* check_nok_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 095BC75B16AEEEEF0020ADCF /* check_nok_red.png */; };
 		096B5A5C16B3C0C70024CBC3 /* white-circular-bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 096B5A5A16B3C0C70024CBC3 /* white-circular-bg1.png */; };
@@ -138,6 +141,9 @@
 		092CDCA7168D8D8C0092FD32 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		092CE65F16B3C76C0008A741 /* whiteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteButton.png; path = "../../recursos_irregularverbs/iOS Buttons/buttons/whiteButton.png"; sourceTree = "<group>"; };
 		092CE66016B3C76D0008A741 /* whiteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "whiteButton@2x.png"; path = "../../recursos_irregularverbs/iOS Buttons/buttons/whiteButton@2x.png"; sourceTree = "<group>"; };
+		092CE66416B3CA260008A741 /* signikaregular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signikaregular.ttf; sourceTree = "<group>"; };
+		092CE66616B3CDBE0008A741 /* signikabold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signikabold.ttf; sourceTree = "<group>"; };
+		092CE66816B3CDCF0008A741 /* signikalight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = signikalight.ttf; sourceTree = "<group>"; };
 		095BC75A16AEEEEF0020ADCF /* check_nok_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_nok_red@2x.png"; sourceTree = "<group>"; };
 		095BC75B16AEEEEF0020ADCF /* check_nok_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_nok_red.png; sourceTree = "<group>"; };
 		096B5A5A16B3C0C70024CBC3 /* white-circular-bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-circular-bg1.png"; path = "../../../../recursos_irregularverbs/VSCircularDial-master/VSRotatingView/Resources/white-circular-bg1.png"; sourceTree = "<group>"; };
@@ -373,6 +379,9 @@
 		09D372E31681BA4F00F80410 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				092CE66816B3CDCF0008A741 /* signikalight.ttf */,
+				092CE66616B3CDBE0008A741 /* signikabold.ttf */,
+				092CE66416B3CA260008A741 /* signikaregular.ttf */,
 				E54DD52216B1517A00271679 /* Default.png */,
 				E54DD52316B1517A00271679 /* Default@2x.png */,
 				0973D9F416AD2C4500A8E30A /* Localizable.strings */,
@@ -715,6 +724,9 @@
 				096B5A6616B3C5DB0024CBC3 /* whiteButtonHighlight@2x.png in Resources */,
 				092CE66116B3C76D0008A741 /* whiteButton.png in Resources */,
 				092CE66216B3C76D0008A741 /* whiteButton@2x.png in Resources */,
+				092CE66516B3CA260008A741 /* signikaregular.ttf in Resources */,
+				092CE66716B3CDBE0008A741 /* signikabold.ttf in Resources */,
+				092CE66916B3CE210008A741 /* signikalight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
