@@ -114,9 +114,13 @@
     NSString *str = [NSString stringWithFormat: NSLocalizedString(@"verbstolearn", @"home label descriptor"), cntVerbs];
     NSMutableAttributedString *result  = [[NSMutableAttributedString alloc] initWithString:str];
     
-    NSDictionary *attributesForNumber = @{NSFontAttributeName:[UIFont fontWithName:@"Helvetica Neue" size:20.0],NSForegroundColorAttributeName:TURQUESATINT};
+    NSDictionary *attributesForNumber = @{NSFontAttributeName:[UIFont fontWithName:@"Helvetica-Bold" size:20.0],NSForegroundColorAttributeName:TURQUESATINT};
     
+        NSDictionary *attributesForTest = @{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:20.0],NSForegroundColorAttributeName:[UIColor darkGrayColor]};
+ 
     [result setAttributes:attributesForNumber range: NSMakeRange(0,[[NSString stringWithFormat:@"%d",cntVerbs ] length])];
+    [result setAttributes:attributesForTest   range: NSMakeRange([[NSString stringWithFormat:@"%d",cntVerbs ] length], ([result length] - [[NSString stringWithFormat:@"%d",cntVerbs ] length]))];
+    
     return [[NSAttributedString alloc] initWithAttributedString:result];
 }
 
