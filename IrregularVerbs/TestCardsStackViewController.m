@@ -42,21 +42,9 @@
                   completion:nil];
  
 }
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-    //self.navigationController.navigationBar.alpha = 0.0;
-    //self.navigationController.toolbar.alpha = 0.0;
-
-}
+ 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-    //self.navigationController.navigationBar.alpha = 1.0;
-    //self.navigationController.toolbar.alpha = 1.0;
-
     [self.presentedDelegate presentedViewControllerWillDisapear:self];
 }
 
