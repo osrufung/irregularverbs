@@ -25,6 +25,7 @@
 		091C61F616A018EF00F3606A /* CardsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 091C61F416A018EF00F3606A /* CardsTableViewController.xib */; };
 		091DB85A16B55558000372C8 /* pain-cycle-text.png in Resources */ = {isa = PBXBuildFile; fileRef = 091DB85816B55558000372C8 /* pain-cycle-text.png */; };
 		091DB85B16B55558000372C8 /* pain-cycle-text@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 091DB85916B55558000372C8 /* pain-cycle-text@2x.png */; };
+		092960F616B5DD37006954BE /* TestTypeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 092960F516B5DD37006954BE /* TestTypeButton.m */; };
 		0929AB6216B3E813006C5F7C /* white-circular-bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0929AB6016B3E813006C5F7C /* white-circular-bg1.png */; };
 		0929AB6316B3E813006C5F7C /* white-circular-bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0929AB6116B3E813006C5F7C /* white-circular-bg1@2x.png */; };
 		0929AB6A16B3EB6C006C5F7C /* HomeViewbg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0929AB6916B3EB6C006C5F7C /* HomeViewbg-568h@2x.png */; };
@@ -137,6 +138,8 @@
 		091C61F416A018EF00F3606A /* CardsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardsTableViewController.xib; sourceTree = "<group>"; };
 		091DB85816B55558000372C8 /* pain-cycle-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pain-cycle-text.png"; sourceTree = "<group>"; };
 		091DB85916B55558000372C8 /* pain-cycle-text@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pain-cycle-text@2x.png"; sourceTree = "<group>"; };
+		092960F416B5DD37006954BE /* TestTypeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTypeButton.h; sourceTree = "<group>"; };
+		092960F516B5DD37006954BE /* TestTypeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTypeButton.m; sourceTree = "<group>"; };
 		0929AB6016B3E813006C5F7C /* white-circular-bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-circular-bg1.png"; sourceTree = "<group>"; };
 		0929AB6116B3E813006C5F7C /* white-circular-bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-circular-bg1@2x.png"; sourceTree = "<group>"; };
 		0929AB6916B3EB6C006C5F7C /* HomeViewbg-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeViewbg-568h@2x.png"; sourceTree = "<group>"; };
@@ -420,6 +423,8 @@
 		E52F436E16A81CA100220CF1 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				092960F416B5DD37006954BE /* TestTypeButton.h */,
+				092960F516B5DD37006954BE /* TestTypeButton.m */,
 				E5DB039216A7E47900EE1E80 /* TSCVerbCell.h */,
 				E5DB039316A7E47900EE1E80 /* TSCVerbCell.m */,
 				E5DB039816A7E55700EE1E80 /* TSCVerbCell.xib */,
@@ -752,6 +757,7 @@
 				0973DA0E16ADB9F700A8E30A /* HomeViewController.m in Sources */,
 				09CB351E16AEDE3100995380 /* VSRotatingView.m in Sources */,
 				E5E05B9716B2E98100F33CEC /* TestCase.m in Sources */,
+				092960F616B5DD37006954BE /* TestTypeButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
