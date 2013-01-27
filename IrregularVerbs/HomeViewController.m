@@ -47,7 +47,7 @@
     [super viewDidLoad];
     
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
     
     VSRotatingView *rv = [VSRotatingView new];
     rv.rotatingViewDelegate = self;
@@ -91,7 +91,13 @@
     
     [self.buttonClosePopUp setTitle:NSLocalizedString(@"close", nil) forState:UIControlStateNormal];
 
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    //We can change this system button for a custom button with a look more integrated
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [button addTarget:self action:@selector(showInfo:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    // labelHeader is isolated in the XIB, it will be better to construct it with code
+    self.navigationItem.titleView = self.labelHeader;
+    self.navigationItem.rightBarButtonItem = rightButton;
     self.title = NSLocalizedString(@"Home", @"Title for Home screen and back buttons");
   
     }
@@ -99,7 +105,6 @@
     [super viewWillAppear:animated];
  
  
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
     [[self headLabel] setAttributedText:[self attributedHomeLabel]];
     //How strange! if you set textAlignment in UIBuilder it doesn't work
     self.headLabel.textAlignment = NSTextAlignmentCenter;

@@ -19,6 +19,7 @@
 
 @property (nonatomic,readonly) float averageResponseTime;
 @property (nonatomic,readonly) float failureRatio;
+@property (nonatomic,readonly) float failureIndex;
 @property (nonatomic,readonly) int testCount;
 @property (nonatomic,readonly) int failCount;
 @property (nonatomic,readonly) int passCount;
@@ -37,6 +38,7 @@
 - (NSComparisonResult)compareVerbsAlphabetically:(Verb *)other;
 - (NSComparisonResult)compareVerbsByTestResults:(Verb *)other;
 - (NSComparisonResult)compareVerbsByHistoricalPerformance:(Verb *)other;
+- (NSComparisonResult)compareVerbsByRecentFailure:(Verb *)other;
 - (NSComparisonResult)compareVerbsByFrequency:(Verb *)other;
 - (NSComparisonResult)compareVerbsByTestNumber:(Verb *)other;
 - (NSComparisonResult)compareVerbsByAverageResponseTime:(Verb *)other;

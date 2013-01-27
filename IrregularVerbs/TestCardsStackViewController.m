@@ -42,7 +42,11 @@
                   completion:nil];
  
 }
- 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.presentedDelegate presentedViewControllerWillDisapear:self];

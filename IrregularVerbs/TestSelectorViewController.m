@@ -11,194 +11,102 @@
 #import "TestCardsStackViewController.h"
 #import "TestSelectorViewController.h"
 #import "Referee.h"
-#import <QuartzCore/QuartzCore.h>
+#import "TestTypeButton.h"
 
 @interface TestSelectorViewController ()
 
-@property (nonatomic,strong) UIImage *buttonImage;
-@property (nonatomic,strong) NSMutableDictionary *testResults;
+@property (nonatomic,strong) NSMutableDictionary *testButtons;
+@property (weak, nonatomic) IBOutlet UIStepper *countStepper;
+@property (weak, nonatomic) IBOutlet UIStepper *timeStepper;
+@property (weak, nonatomic) IBOutlet UISwitch *useHintsSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *useHintsLabel;
 
 @end
 
 @implementation TestSelectorViewController
 
-- (id)init {
-    return [self initWithStyle:UITableViewStyleGrouped];
+- (void)viewDidLoad {
+    self.title = NSLocalizedString(@"selecttesttype", nil);
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
+    [self setUpTestButtons];
+    [self setUpOptions];
+    [self setUpLabels];
+    [self refreshLabels];
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        self.title = NSLocalizedString(@"selecttesttype", nil);
-        self.buttonImage = [[UIImage imageNamed:@"greyButtonSpacer"]
-                            resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20) resizingMode:UIImageResizingModeStretch];
-        self.testResults = [[NSMutableDictionary alloc] init];
+#pragma mark - Build Test Buttons
+
+- (void)setUpTestButtons {
+    NSArray *testTypes = [[VerbsStore sharedStore] testTypes];
+    
+    CGRect rect = CGRectMake(20, 20, 280, 36);
+    self.testButtons = [[NSMutableDictionary alloc] initWithCapacity:[testTypes count]];
+    for (NSString *type in testTypes) {
+        TestTypeButton *button = [[TestTypeButton alloc] initWithFrame:rect];
+        [button setTitle:type forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(goToTest:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+        [self.testButtons setObject:button forKey:type];
+        rect.origin.y += 44;
     }
-    return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    self.tableView.backgroundView = nil;
-    self.tableView.backgroundColor = [UIColor whiteColor];
-    [self.tableView reloadData];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+- (void)setUpOptions {
+    self.countStepper.minimumValue = 1;
+    self.countStepper.maximumValue = [[[VerbsStore sharedStore] alphabetic] count];
+    self.countStepper.value = [[VerbsStore sharedStore] verbsNumberInTest];
+
+    self.timeStepper.minimumValue = 1;
+    self.timeStepper.maximumValue = 10;
+    self.timeStepper.value = [[Referee sharedReferee] maxValue];
+    
+    self.useHintsSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"hintsInTest"];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 2;
+- (void)setUpLabels {
+    UIFont *font = [UIFont fontWithName:@"Signika" size:18];
+    
+    self.countLabel.textColor = [UIColor lightGrayColor];
+    self.countLabel.font = font;
+    
+    self.timeLabel.textColor = [UIColor lightGrayColor];
+    self.timeLabel.font = font;
+    
+    self.useHintsLabel.textColor = [UIColor lightGrayColor];
+    self.useHintsLabel.font = font;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static int heights[] = {44,40};
-    return heights[indexPath.section];
+#pragma mark - Refresh UI
+
+- (void)refreshLabels {
+    int totalCount = [[[VerbsStore sharedStore] alphabetic] count];
+    int testCount = [[VerbsStore sharedStore] verbsNumberInTest];
+    
+    self.countLabel.text = [NSString stringWithFormat:NSLocalizedString(@"usexofy", "use x of y"),testCount, totalCount];
+    self.timeLabel.text = [NSString stringWithFormat:NSLocalizedString(@"testtime_format",nil),(int)[[Referee sharedReferee] maxValue]];
+    self.useHintsLabel.text = NSLocalizedString(@"usehints", nil);
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    int lenSec[] = {[[[VerbsStore sharedStore] testTypes] count],3};
-    return lenSec[section];
-}
+#pragma mark - Configuration events
 
-- (UITableViewCell *)counterCellWithTarget:(id)target action:(SEL)action {
-    UITableViewCell *cell;
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CounterCell"];
-    UIStepper *step = [[UIStepper alloc] init];
-    [step addTarget:target action:action forControlEvents:UIControlEventValueChanged];
-    cell.accessoryView = step;
-    cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
-    cell.textLabel.textColor = [UIColor darkGrayColor];
-    cell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
-    cell.backgroundColor = [UIColor whiteColor];
-    //        cell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage];
-    return cell;
-}
-
-- (UITableViewCell *)onOffCellWithTarget:(id)target action:(SEL)action {
-    UITableViewCell *cell;
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OnOffCell"];
-    UISwitch *onOff = [[UISwitch alloc] init];
-    [onOff addTarget:target action:action forControlEvents:UIControlEventValueChanged];
-    cell.accessoryView = onOff;
-    cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
-    cell.textLabel.textColor = [UIColor darkGrayColor];
-    cell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
-    cell.backgroundColor = [UIColor whiteColor];
-    //        _onOffCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage];
-    return cell;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section==1) {
-        UITableViewCell *cell;
-        UIStepper *step;
-        
-        switch (indexPath.row) {
-            case 0:
-            {
-                int verbsCount = [[[VerbsStore sharedStore] alphabetic] count];
-                cell = [self counterCellWithTarget:self action:@selector(verbsNumberChanged:)];
-                step = (UIStepper *)cell.accessoryView;
-                step.minimumValue = 1;
-                step.maximumValue = verbsCount;
-                step.value = [[VerbsStore sharedStore] verbsNumberInTest];
-                cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"usexofy", "use x of y"),(int)step.value, verbsCount];
-            }
-                break;
-                
-            case 1:
-            {
-                cell = [self counterCellWithTarget:self action:@selector(maxTimeChanged:)];
-                UIStepper *step = (UIStepper *)cell.accessoryView;
-                step.minimumValue = 1;
-                step.maximumValue = 10;
-                step.value = [[Referee sharedReferee] maxValue];
-                cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"testtime_format",nil),(int)[[Referee sharedReferee] maxValue]];
-            }
-                break;
-            case 2:
-            {
-                cell = [self onOffCellWithTarget:self action:@selector(useHintsChanged:)];
-                cell.textLabel.text = NSLocalizedString(@"usehints", nil);
-                UISwitch *onOff = (UISwitch *)cell.accessoryView;
-                onOff.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"hintsInTest"];
-                break;
-            }
-            default:
-                break;
-        }
-        return cell;
-    } else {
-        static NSString *TestTypeIdentifier = @"TestTypeCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TestTypeIdentifier];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TestTypeIdentifier];
-            cell.textLabel.backgroundColor = [UIColor clearColor];
-            cell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage ];
-            cell.imageView.image = [UIImage imageNamed:@"crayon"];
-            cell.selectionStyle = UITableViewCellSelectionStyleGray;
-            cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
-            cell.textLabel.textColor = [UIColor darkGrayColor];
-            cell.backgroundView.frame = CGRectInset(cell.frame, -20, -20);
-        }
-        UILabel *answer = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 82, 20)];
-        cell.textLabel.text = [[VerbsStore sharedStore] testTypes][indexPath.row];
-        NSString *badge = [self.testResults objectForKey:cell.textLabel.text];
-        if (badge) {
-            answer.text = badge;
-            answer.textColor = [UIColor whiteColor];
-            answer.font = [UIFont fontWithName:@"Helvetica-Light" size:12];
-            answer.textAlignment = NSTextAlignmentCenter;
-            answer.backgroundColor = [UIColor darkGrayColor];
-            answer.layer.cornerRadius = 3;
-            [answer sizeToFit];
-            answer.frame = CGRectInset(answer.frame, -3, -2);
-            cell.accessoryView = answer;
-        }
-
-        return cell;
-    }
-    return nil;
-}
-
-- (void)verbsNumberChanged:(UIStepper *)sender {
+- (IBAction)countChanged:(UIStepper *)sender {
     [[VerbsStore sharedStore] setVerbsNumberInTest:sender.value];
-    [self.tableView reloadData];
+    [self refreshLabels];
 }
-
-- (void)maxTimeChanged:(UIStepper *)sender {
+- (IBAction)timeChanged:(UIStepper *)sender {
     [[Referee sharedReferee] setMaxValue:sender.value];
-    [self.tableView reloadData];
+    [self refreshLabels];
 }
-
-- (void)useHintsChanged:(UISwitch *)sender {
+- (IBAction)useHintsChanged:(UISwitch *)sender {
     [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:@"hintsInTest"];
+    [self refreshLabels];
 }
 
-#pragma mark - Table view delegate
+#pragma mark - Manage test
 
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    return !(indexPath.section==1);
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  [self openSelectedType:indexPath.row];
-}
-
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
- 
-    [self openSelectedType:indexPath.row];
-}
-
-- (NSString *)badgeForTestType:(TestCase *)test {
+- (NSString *)badgeForTestCase:(TestCase *)test {
     NSString *badge = nil;
     if (test) {
         [test computeSummaryData];
@@ -215,8 +123,11 @@
     return badge;
 }
 
-- (void)openSelectedType:(NSInteger) type{
-    NSString *typeDescription = [[VerbsStore sharedStore] testTypes][type];
+- (void)goToTest:(UIButton *)button {
+    [self openSelectedType:button.titleLabel.text];
+}
+
+- (void)openSelectedType:(NSString *) typeDescription{
     TestCase *testCase = [[VerbsStore sharedStore] testCaseForTestType:typeDescription];
     TestCardsStackViewController *stack = [[TestCardsStackViewController alloc] initWithTestCase:testCase];
     stack.presentedDelegate = self;
@@ -226,8 +137,9 @@
 - (void)presentedViewControllerWillDisapear:(UIViewController *)controller {
     if ([controller isKindOfClass:[TestCardsStackViewController class]]) {
         TestCardsStackViewController *stack = (TestCardsStackViewController *)controller;
-        NSString *badge = [self badgeForTestType:stack.testCase];
-        [self.testResults setObject:badge forKey:stack.testCase.description];
+        NSString *badge = [self badgeForTestCase:stack.testCase];
+        TestTypeButton *button = self.testButtons[stack.testCase.description];
+        button.badge = badge;
     }
 }
 
