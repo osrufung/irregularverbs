@@ -10,6 +10,6 @@
 #import "PresentedViewControllerDelegate.h"
 
 
-@interface TestSelectorViewController : UITableViewController<PresentedViewControllerDelegate>
+@interface TestSelectorViewController : UIViewController<PresentedViewControllerDelegate>
 
 @end
