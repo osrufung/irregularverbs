@@ -34,6 +34,7 @@
         self.buttonImage = [[UIImage imageNamed:@"greyButtonSpacer"]
                             resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20) resizingMode:UIImageResizingModeStretch];
         self.testResults = [[NSMutableDictionary alloc] init];
+
     }
     return self;
 }
@@ -41,7 +42,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.tableView.backgroundView = nil;
-    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
     [self.tableView reloadData];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
@@ -71,8 +72,8 @@
     [step addTarget:target action:action forControlEvents:UIControlEventValueChanged];
     cell.accessoryView = step;
     cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
-    cell.textLabel.textColor = [UIColor darkGrayColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Signika" size:18];
+    cell.textLabel.textColor = [UIColor lightGrayColor];
     cell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
     cell.backgroundColor = [UIColor whiteColor];
     //        cell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage];
@@ -86,8 +87,8 @@
     [onOff addTarget:target action:action forControlEvents:UIControlEventValueChanged];
     cell.accessoryView = onOff;
     cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
-    cell.textLabel.textColor = [UIColor darkGrayColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Signika" size:18];
+    cell.textLabel.textColor = [UIColor lightGrayColor];
     cell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
     cell.backgroundColor = [UIColor whiteColor];
     //        _onOffCell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage];
@@ -144,8 +145,8 @@
             cell.backgroundView = [[UIImageView alloc] initWithImage:self.buttonImage ];
             cell.imageView.image = [UIImage imageNamed:@"crayon"];
             cell.selectionStyle = UITableViewCellSelectionStyleGray;
-            cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:18];
-            cell.textLabel.textColor = [UIColor darkGrayColor];
+            cell.textLabel.font = [UIFont fontWithName:@"Signika" size:18];
+            cell.textLabel.textColor = [UIColor lightGrayColor];
             cell.backgroundView.frame = CGRectInset(cell.frame, -20, -20);
         }
         UILabel *answer = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 82, 20)];
@@ -154,7 +155,7 @@
         if (badge) {
             answer.text = badge;
             answer.textColor = [UIColor whiteColor];
-            answer.font = [UIFont fontWithName:@"Helvetica-Light" size:12];
+            answer.font = [UIFont fontWithName:@"Signika" size:12];
             answer.textAlignment = NSTextAlignmentCenter;
             answer.backgroundColor = [UIColor darkGrayColor];
             answer.layer.cornerRadius = 3;
