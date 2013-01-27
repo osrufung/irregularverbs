@@ -106,13 +106,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     if (self.verb.testPending) [self beginTest];
-    
-    UIView * v1 = [UIApplication sharedApplication].keyWindow.rootViewController.view;
-    CGRect fr1 = [v1 frame];
-    
-    CGRect fr2 = [self view].frame;
-    [self view].frame = fr1;
-    self.view.bounds = v1.bounds;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
