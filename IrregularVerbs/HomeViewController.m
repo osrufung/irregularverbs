@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonHistory;
 @property (weak, nonatomic) IBOutlet UIButton *buttonSetup;
 @property (weak, nonatomic) IBOutlet UIButton *buttonClosePopUp;
+@property (weak, nonatomic) IBOutlet UILabel *labelHeader;
  
 @end
 
@@ -44,58 +45,59 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
+    
     VSRotatingView *rv = [VSRotatingView new];
     rv.rotatingViewDelegate = self;
     
     
-    [rv setCurrentSegment:[[VerbsStore sharedStore] currentFrequencyByGroup]];
+    //[rv setCurrentSegment:[[VerbsStore sharedStore] currentFrequencyByGroup]];
+    [rv setCurrentSegment:0];
     
     [[self bottomView] addSubview:rv];
     
-    self.popupView.layer.cornerRadius = 12;
-    self.popupView.layer.shadowOpacity = 0.7;
-    self.popupView.layer.shadowOffset = CGSizeMake(6, 6);
+    self.popupView.layer.cornerRadius = 4;
+    self.popupView.layer.shadowOpacity = 0.3;
+    self.popupView.layer.shadowOffset = CGSizeMake(10, 10   );
     self.popupView.layer.shouldRasterize = YES;
     self.popupView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     
     [[self labelPopUp] setText:NSLocalizedString(@"InfoPopupHome", @"info about App at home")];
-    
-    UIImage *buttonImage = [[UIImage imageNamed:@"whiteButton.png"]
-                            resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-    UIImage *buttonImageHighlight = [[UIImage imageNamed:@"whiteButtonHighlight.png"]
-                                     resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-    
+
     UIFont* fontButton = [UIFont fontWithName:@"Signika" size:18];
     
     // Set the background for any states you plan to use
     [[self.buttonLearn imageView] setContentMode: UIViewContentModeScaleAspectFit];
-  
-    [self.buttonLearn setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    [self.buttonLearn setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+ 
     [self.buttonLearn setTitle:NSLocalizedString(@"LearnLabel", nil) forState:UIControlStateNormal];
     self.buttonLearn.titleLabel.font = fontButton;
     
     [[self.buttonTest imageView] setContentMode: UIViewContentModeScaleAspectFit];
-    [self.buttonTest setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    [self.buttonTest setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+ ;
     [self.buttonTest setTitle:NSLocalizedString(@"TestLabel", nil) forState:UIControlStateNormal];
     self.buttonTest.titleLabel.font = fontButton;
     
     [[self.buttonHistory imageView] setContentMode: UIViewContentModeScaleAspectFit];
-    [self.buttonHistory setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    [self.buttonHistory setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+
     [self.buttonHistory setTitle:NSLocalizedString(@"HistoryLabel", nil) forState:UIControlStateNormal];
     self.buttonHistory.titleLabel.font = fontButton;
     
     [[self.buttonSetup imageView] setContentMode: UIViewContentModeScaleAspectFit];
-    [self.buttonSetup setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    [self.buttonSetup setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+
     [self.buttonSetup setTitle:NSLocalizedString(@"SetupLabel", nil) forState:UIControlStateNormal];
     self.buttonSetup.titleLabel.font = fontButton;
     
     [self.buttonClosePopUp setTitle:NSLocalizedString(@"close", nil) forState:UIControlStateNormal];
 
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    //We can change this system button for a custom button with a look more integrated
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [button addTarget:self action:@selector(showInfo:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    // labelHeader is isolated in the XIB, it will be better to construct it with code
+    self.navigationItem.titleView = self.labelHeader;
+    self.navigationItem.rightBarButtonItem = rightButton;
     self.title = NSLocalizedString(@"Home", @"Title for Home screen and back buttons");
   
     }
@@ -103,7 +105,6 @@
     [super viewWillAppear:animated];
  
  
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
     [[self headLabel] setAttributedText:[self attributedHomeLabel]];
     //How strange! if you set textAlignment in UIBuilder it doesn't work
     self.headLabel.textAlignment = NSTextAlignmentCenter;
@@ -149,7 +150,7 @@
  
 
 - (IBAction)showInfo:(id)sender {
-        [ASDepthModalViewController presentView:self.popupView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationDisplace];
+        [ASDepthModalViewController presentView:self.popupView withBackgroundColor:[UIColor whiteColor] popupAnimationStyle:ASDepthModalAnimationGrow];
 }
 - (IBAction)openLearn:(id)sender {
     [[self navigationController] pushViewController:[[CardsTableViewController alloc] init]

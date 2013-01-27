@@ -32,14 +32,23 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.title = self.testCase.description;
+    
+ 
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+   
     [self setViewControllers:@[[self testCardViewAtIndex:0]]
                    direction:UIPageViewControllerNavigationDirectionForward
                     animated:YES
                   completion:nil];
+ 
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     [self.presentedDelegate presentedViewControllerWillDisapear:self];
 }
 

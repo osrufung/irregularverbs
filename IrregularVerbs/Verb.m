@@ -59,6 +59,8 @@
         _testPending=NO;
         _failed=NO;
         [self computeAverageAddingSample:time];
+        _failureIndex = 0.9*_failureIndex;
+        NSLog(@"%.2f %d",_failureIndex,self.numberOfFailures);
     }
 }
 
@@ -66,12 +68,16 @@
     if (self.testPending) {
         _testPending = NO;
         _failed = YES;
+        _failureIndex = _failureIndex + 0.1*(100-_failureIndex);
+        NSLog(@"%.2f %d",_failureIndex,self.numberOfFailures);
         self.numberOfFailures++;
         self.numberOfTests++;
         
     } else if (!_failed) {
         _failed = YES;
         [self computeAverageRemovingSample:_responseTime];
+        _failureIndex = 0.9*_failureIndex;
+        NSLog(@"%.2f %d",_failureIndex,self.numberOfFailures);
         self.numberOfFailures++;
         self.numberOfTests++;
     }
@@ -134,6 +140,7 @@
     [aCoder encodeInt:self.numberOfTests forKey:@"numberOfTests"];
     [aCoder encodeInt:self.numberOfFailures forKey:@"numberOfFailures"];
     [aCoder encodeFloat:self.averageResponseTime forKey:@"averageResponseTime"];
+    [aCoder encodeFloat:self.failureIndex forKey:@"failureIndex"];
 
 }
 
@@ -150,6 +157,7 @@
         self.numberOfTests = [aDecoder decodeIntForKey:@"numberOfTests"];
         self.numberOfFailures = [aDecoder decodeIntForKey:@"numberOfFailures"];
         _averageResponseTime = [aDecoder decodeFloatForKey:@"averageResponseTime"];
+        _failureIndex = [aDecoder decodeFloatForKey:@"failureIndex"];
         
         _testPending = YES;
     }
@@ -194,6 +202,22 @@
         else return [self.simple compare:other.simple];
     }
 }
+
+- (NSComparisonResult)compareVerbsByRecentFailure:(Verb *)other {
+    if (self.failureIndex<other.failureIndex) {
+        return (NSComparisonResult)NSOrderedDescending;
+    } else if (self.failureIndex>other.failureIndex) {
+        return (NSComparisonResult)NSOrderedAscending;
+    } else {
+        if (self.averageResponseTime>other.averageResponseTime) {
+            return (NSComparisonResult)NSOrderedAscending;
+        } else if(self.averageResponseTime<other.averageResponseTime) {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        else return self.frequency < other.frequency;
+    }
+}
+
 
 - (NSComparisonResult)compareVerbsByFrequency:(Verb *)other {
     return self.frequency<other.frequency;

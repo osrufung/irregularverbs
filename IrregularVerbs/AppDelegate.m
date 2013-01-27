@@ -31,7 +31,7 @@
   
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:hvc];
    
-    [[nc navigationBar] setTintColor:DARKGREYTINT];
+    [[nc navigationBar] setTintColor:TURQUESATINT];
   
     [[self window] setRootViewController:nc];
     self.window.backgroundColor = [UIColor darkGrayColor];
