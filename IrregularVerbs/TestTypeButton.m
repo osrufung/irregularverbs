@@ -63,6 +63,11 @@
     return self;
 }
 
+- (void)dealloc {
+    [self.badgeLabel removeObserver:self forKeyPath:@"text"];
+    [self.badgeLabel removeObserver:self forKeyPath:@"font"];
+}
+
 - (void)computeBadgeFrame {
     [self.badgeLabel sizeToFit];
     self.badgeLabel.frame = CGRectInset(self.badgeLabel.frame,BADGET_INSET, 0);
