@@ -49,8 +49,8 @@
     
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
-    LevelDialSelectorControl *dial =  [[LevelDialSelectorControl alloc] initWithFrame:CGRectMake(0, 0, 320, 200) andDelegate:self withSections:3];
- 
+    LevelDialSelectorControl *dial =  [[LevelDialSelectorControl alloc] initWithFrame:CGRectMake(0, 0, 320, 440) andDelegate:self withSections:3];
+    
     [[self bottomView] addSubview:dial];
     
     self.popupView.layer.cornerRadius = 4;
@@ -158,6 +158,9 @@
 #pragma mark LevelDialSelectorProtocol
 - (void) dialDidChangeValue:(int)newValue{
     NSLog(@"Dial change value %d",newValue);
+    float f = [[[[VerbsStore sharedStore] defaultFrequencyGroups] objectAtIndex:newValue] floatValue];
+    [[VerbsStore sharedStore] setFrequency:f];
+    [[self headLabel] setAttributedText:[self attributedHomeLabel]];
 }
 
 

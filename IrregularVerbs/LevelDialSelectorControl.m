@@ -106,36 +106,34 @@ static float deltaAngle;
      [self.delegate dialDidChangeValue:currentSector];
 }
 
-- (void) rotate {
-    CGAffineTransform t = CGAffineTransformRotate(container.transform, -0.78);
-    container.transform = t;
-}
+ 
 - (void) drawWheel {
     //the initial angle offset (top of the dial)
-    //CGFloat offsetAngle = M_PI/2;
+    CGFloat offsetAngle = M_PI/2;
     // 1
     container = [[UIView alloc] initWithFrame:self.frame];
     // 2
     CGFloat angleSize = 2*M_PI/numberOfSections;
-    // 3
     for (int i = 0; i < numberOfSections; i++) {
-        // 4
-        UILabel *im = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 160   , 40)];
-        im.backgroundColor = [UIColor redColor];
-        im.text = [NSString stringWithFormat:@"%i", i];
+        // 4 - Create image view
+        UIImageView *im = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"sectorImage%i.png", i]]];
         im.layer.anchorPoint = CGPointMake(1.0f, 0.5f);
-        
-        // 5
-        im.layer.position = CGPointMake(container.bounds.size.width/2.0,
-                                        container.bounds.size.height/2.0);
-        im.transform = CGAffineTransformMakeRotation(angleSize * i  );
+        im.layer.position = CGPointMake(container.bounds.size.width/2.0-container.frame.origin.x,
+                                        container.bounds.size.height/2.0-container.frame.origin.y);
+        im.transform = CGAffineTransformMakeRotation(angleSize*i + offsetAngle);
+ 
         im.tag = i;
-        // 6
+  
+ 
+        // 6 - Add image view to container
         [container addSubview:im];
-    }
+	}
+ 
+    
     // 7
     container.userInteractionEnabled = NO;
     [self addSubview:container];
+ 
     // 8 - Initialize sectors
     sectors = [NSMutableArray arrayWithCapacity:numberOfSections];
     if (numberOfSections % 2 == 0) {
