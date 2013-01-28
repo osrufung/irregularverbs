@@ -49,7 +49,7 @@
     
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
-    LevelDialSelectorControl *dial =  [[LevelDialSelectorControl alloc] initWithFrame:CGRectMake(0, 0, 320, 440) andDelegate:self withSections:3];
+    LevelDialSelectorControl *dial =  [[LevelDialSelectorControl alloc] initWithFrame:CGRectMake(0, 0, 320, 440) andDelegate:self withSections:3 initialSection:[[VerbsStore sharedStore] currentFrequencyByGroup]];
     
     [[self bottomView] addSubview:dial];
     

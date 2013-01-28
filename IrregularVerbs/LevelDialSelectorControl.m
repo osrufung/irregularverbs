@@ -22,11 +22,11 @@ static float deltaAngle;
 @implementation LevelDialSelectorControl
 @synthesize delegate, container, numberOfSections,startTransform,sectors,currentSector;
 
-- (id) initWithFrame:(CGRect)frame andDelegate:(id)del withSections:(int)sectionsNumber {
+- (id) initWithFrame:(CGRect)frame andDelegate:(id)del withSections:(int)sectionsNumber  initialSection:(int) initSection;{
     // 1 - Call super init
     if ((self = [super initWithFrame:frame])) {
         // 2 - Set properties
-         self.currentSector = 0;
+         self.currentSector = initSection;
         self.numberOfSections = sectionsNumber;
         self.delegate = del;
         // 3 - Draw wheel
@@ -59,9 +59,7 @@ static float deltaAngle;
 }
 - (BOOL)continueTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event
 {
-    CGFloat radians = atan2f(container.transform.b, container.transform.a);
-    NSLog(@"rad is %f", radians);
-    
+     
     CGPoint pt = [touch locationInView:self];
     float dx = pt.x  - container.center.x;
     float dy = pt.y  - container.center.y;
@@ -114,13 +112,16 @@ static float deltaAngle;
     container = [[UIView alloc] initWithFrame:self.frame];
     // 2
     CGFloat angleSize = 2*M_PI/numberOfSections;
+    NSLog(@"Current segment: %d ",currentSector);
+ 
     for (int i = 0; i < numberOfSections; i++) {
         // 4 - Create image view
-        UIImageView *im = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"sectorImage%i.png", i]]];
+      
+        UIImageView *im = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"sectorImage%i.png", (i+currentSector)%numberOfSections ]]];
         im.layer.anchorPoint = CGPointMake(1.0f, 0.5f);
         im.layer.position = CGPointMake(container.bounds.size.width/2.0-container.frame.origin.x,
                                         container.bounds.size.height/2.0-container.frame.origin.y);
-        im.transform = CGAffineTransformMakeRotation(angleSize*i + offsetAngle);
+        im.transform = CGAffineTransformMakeRotation(angleSize*(i) +offsetAngle );
  
         im.tag = i;
   
@@ -164,7 +165,7 @@ static float deltaAngle;
         sector.midValue = mid;
         sector.minValue = mid - (fanWidth/2);
         sector.maxValue = mid + (fanWidth/2);
-        sector.sector = i;
+        sector.sector = (i+currentSector)%numberOfSections;
         mid -= fanWidth;
         if (sector.minValue < - M_PI) {
             mid = -mid;

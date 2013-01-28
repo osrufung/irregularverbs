@@ -57,7 +57,6 @@
 		0980732016B6E180008A43A9 /* sectorImage0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0980731D16B6E17F008A43A9 /* sectorImage0.png */; };
 		0980732116B6E180008A43A9 /* sectorImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0980731E16B6E180008A43A9 /* sectorImage1.png */; };
 		0980732216B6E180008A43A9 /* sectorImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0980731F16B6E180008A43A9 /* sectorImage2.png */; };
-		0980732416B6E5EB008A43A9 /* Captura de pantalla de Simulador iOS 28.01.2013 17.57.58.png in Resources */ = {isa = PBXBuildFile; fileRef = 0980732316B6E5EB008A43A9 /* Captura de pantalla de Simulador iOS 28.01.2013 17.57.58.png */; };
 		098297EF16B6641A0091A192 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 098297ED16B6641A0091A192 /* info.png */; };
 		098297F016B6641A0091A192 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 098297EE16B6641A0091A192 /* info@2x.png */; };
 		0984867516B6A6F300CE22C9 /* LevelDialSelectorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0984867416B6A6F300CE22C9 /* LevelDialSelectorControl.m */; };
@@ -177,7 +176,6 @@
 		0980731D16B6E17F008A43A9 /* sectorImage0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sectorImage0.png; sourceTree = "<group>"; };
 		0980731E16B6E180008A43A9 /* sectorImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sectorImage1.png; sourceTree = "<group>"; };
 		0980731F16B6E180008A43A9 /* sectorImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sectorImage2.png; sourceTree = "<group>"; };
-		0980732316B6E5EB008A43A9 /* Captura de pantalla de Simulador iOS 28.01.2013 17.57.58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Captura de pantalla de Simulador iOS 28.01.2013 17.57.58.png"; path = "../../../../../Desktop/Captura de pantalla de Simulador iOS 28.01.2013 17.57.58.png"; sourceTree = "<group>"; };
 		098297ED16B6641A0091A192 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		098297EE16B6641A0091A192 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
 		0984867316B6A6F300CE22C9 /* LevelDialSelectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelDialSelectorControl.h; sourceTree = "<group>"; };
@@ -380,7 +378,6 @@
 		E52F436B16A81C6E00220CF1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0980732316B6E5EB008A43A9 /* Captura de pantalla de Simulador iOS 28.01.2013 17.57.58.png */,
 				0973DA0B16ADB9F700A8E30A /* HomeViewController.h */,
 				0973DA0C16ADB9F700A8E30A /* HomeViewController.m */,
 				0973DA0D16ADB9F700A8E30A /* HomeViewController.xib */,
@@ -714,7 +711,6 @@
 				0980732016B6E180008A43A9 /* sectorImage0.png in Resources */,
 				0980732116B6E180008A43A9 /* sectorImage1.png in Resources */,
 				0980732216B6E180008A43A9 /* sectorImage2.png in Resources */,
-				0980732416B6E5EB008A43A9 /* Captura de pantalla de Simulador iOS 28.01.2013 17.57.58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

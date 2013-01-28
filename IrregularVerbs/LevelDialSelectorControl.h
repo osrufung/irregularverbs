@@ -24,6 +24,6 @@
 @property CGAffineTransform startTransform;
 @property (nonatomic, strong) NSMutableArray *sectors;
 @property int currentSector;
-- (id) initWithFrame:(CGRect)frame andDelegate:(id)del withSections:(int)sectionsNumber;
+- (id) initWithFrame:(CGRect)frame andDelegate:(id)del withSections:(int)sectionsNumber initialSection:(int) initSection;
 @end
 
