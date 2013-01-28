@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonSetup;
 @property (weak, nonatomic) IBOutlet UIButton *buttonClosePopUp;
 @property (weak, nonatomic) IBOutlet UILabel *labelHeader;
+@property (strong, nonatomic) IBOutlet UIButton *infoButton;
  
 @end
 
@@ -94,7 +95,7 @@
     //We can change this system button for a custom button with a look more integrated
     UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [button addTarget:self action:@selector(showInfo:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:self.infoButton];
     // labelHeader is isolated in the XIB, it will be better to construct it with code
     self.navigationItem.titleView = self.labelHeader;
     self.navigationItem.rightBarButtonItem = rightButton;

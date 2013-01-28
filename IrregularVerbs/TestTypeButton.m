@@ -25,7 +25,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        UIImage *buttonImage = [[UIImage imageNamed:@"whiteButton.png"]
+        UIImage *buttonImage = [[UIImage imageNamed:@"homeButton.png"]
                                 resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
         UIImage *buttonImageHighlight = [[UIImage imageNamed:@"whiteButtonHighlight.png"]
                                          resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
@@ -34,7 +34,7 @@
         [self setTitleColor:[UIColor whiteColor]        forState:UIControlStateHighlighted];
         [self setBackgroundImage:buttonImage            forState:UIControlStateNormal];
         [self setBackgroundImage:buttonImageHighlight   forState:UIControlStateHighlighted];
-        [self setImage:[UIImage imageNamed:@"crayon"]   forState:UIControlStateNormal];
+        [self setImage:[UIImage imageNamed:@"iconEvaluar"]   forState:UIControlStateNormal];
 
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 0);

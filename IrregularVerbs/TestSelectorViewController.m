@@ -28,7 +28,7 @@
 @implementation TestSelectorViewController
 
 - (void)viewDidLoad {
-    self.title = NSLocalizedString(@"selecttesttype", nil);
+    self.title = NSLocalizedString(@"TestLabel", nil);
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
     [self setUpTestButtons];
     [self setUpOptions];
@@ -49,7 +49,7 @@
         [button addTarget:self action:@selector(goToTest:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         [self.testButtons setObject:button forKey:type];
-        rect.origin.y += 44;
+        rect.origin.y += 42;
     }
 }
 
