@@ -106,7 +106,7 @@
 								</array>
 								<object class="NSColor" key="IBTintColor">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MC4yOTc5MzEyODE5IDAuMjk3OTMxMjgxOSAwLjI5NzkzMTI4MTkAA</bytes>
+									<bytes key="NSRGB">MCAwLjg1NDkwMTk2MDggMC43NjA3ODQzMTM3AA</bytes>
 								</object>
 							</object>
 						</array>
@@ -124,11 +124,15 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUICustomView" ref="255276876"/>
 								<reference key="IBUIToolbar" ref="378843196"/>
+								<object class="NSColor" key="IBUITintColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4yMTY5Nzg3MzQ5IDEgMC43NDM3MzMwMzY3AA</bytes>
+								</object>
 							</object>
 						</array>
 						<object class="NSColor" key="IBUITintColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4yOTc5MzEyODE5IDAuMjk3OTMxMjgxOSAwLjI5NzkzMTI4MTkAA</bytes>
+							<bytes key="NSRGB">MCAwLjg1NDkwMTk2MDggMC43NjA3ODQzMTM3AA</bytes>
 						</object>
 					</object>
 				</array>
