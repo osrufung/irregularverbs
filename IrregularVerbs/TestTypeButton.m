@@ -11,8 +11,6 @@
 
 @interface TestTypeButton()
 
-@property (nonatomic, strong) UILabel *badgeLabel;
-
 @end
 
 @implementation TestTypeButton
@@ -25,7 +23,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        UIImage *buttonImage = [[UIImage imageNamed:@"whiteButton.png"]
+        UIImage *buttonImage = [[UIImage imageNamed:@"homeButton.png"]
                                 resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
         UIImage *buttonImageHighlight = [[UIImage imageNamed:@"whiteButtonHighlight.png"]
                                          resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
@@ -34,7 +32,7 @@
         [self setTitleColor:[UIColor whiteColor]        forState:UIControlStateHighlighted];
         [self setBackgroundImage:buttonImage            forState:UIControlStateNormal];
         [self setBackgroundImage:buttonImageHighlight   forState:UIControlStateHighlighted];
-        [self setImage:[UIImage imageNamed:@"crayon"]   forState:UIControlStateNormal];
+        [self setImage:[UIImage imageNamed:@"iconEvaluar"]   forState:UIControlStateNormal];
 
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 0);
@@ -45,18 +43,32 @@
 
         self.badgeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.badgeLabel.font = [UIFont fontWithName:@"Signika" size:12];
-        self.badgeLabel.textColor = [UIColor lightGrayColor];
+        self.badgeLabel.textColor = [UIColor whiteColor];
         self.badgeLabel.textAlignment = NSTextAlignmentCenter;
         self.badgeLabel.layer.cornerRadius = 3;
-        self.badgeLabel.backgroundColor = [UIColor darkGrayColor];
+        self.badgeLabel.backgroundColor = [UIColor lightGrayColor];
+        
+        [self.badgeLabel addObserver:self
+                          forKeyPath:@"text"
+                             options:NSKeyValueObservingOptionNew
+                             context:NULL];
+
+        [self.badgeLabel addObserver:self
+                          forKeyPath:@"font"
+                             options:NSKeyValueObservingOptionNew
+                             context:NULL];
         
         [self addSubview:self.badgeLabel];
     }
     return self;
 }
 
-- (void)setBadge:(NSString *)badge {
-    self.badgeLabel.text = badge;
+- (void)dealloc {
+    [self.badgeLabel removeObserver:self forKeyPath:@"text"];
+    [self.badgeLabel removeObserver:self forKeyPath:@"font"];
+}
+
+- (void)computeBadgeFrame {
     [self.badgeLabel sizeToFit];
     self.badgeLabel.frame = CGRectInset(self.badgeLabel.frame,BADGET_INSET, 0);
     self.badgeLabel.frame = CGRectMake(self.bounds.size.width-self.badgeLabel.frame.size.width-RIGHT_MARGIN,
@@ -65,14 +77,23 @@
     [self setNeedsDisplay];
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ((object == self.badgeLabel) &&
+        (([keyPath isEqualToString:@"text"])||([keyPath isEqualToString:@"font"]))) {
+        [self computeBadgeFrame];
+    }
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
-    self.badgeLabel.textColor = [UIColor whiteColor];
+    self.badgeLabel.textColor = [UIColor lightGrayColor];
+    self.badgeLabel.backgroundColor = [UIColor darkGrayColor];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
-    self.badgeLabel.textColor = [UIColor lightGrayColor];
+    self.badgeLabel.textColor = [UIColor whiteColor];
+    self.badgeLabel.backgroundColor = [UIColor lightGrayColor];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {

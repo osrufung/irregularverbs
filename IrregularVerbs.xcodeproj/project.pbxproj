@@ -94,6 +94,7 @@
 		E550A5DC169CC88600DCA8D6 /* media-shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = E550A5DB169CC88600DCA8D6 /* media-shuffle.png */; };
 		E570094616939C7300219C24 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E570094516939C7300219C24 /* QuartzCore.framework */; };
 		E57BA4DD16AA1FB0004AFF04 /* hints.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57BA4DC16AA1FB0004AFF04 /* hints.plist */; };
+		E58AC2D616B66D570062D525 /* TestSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58AC2D516B66D570062D525 /* TestSelectorViewController.xib */; };
 		E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D12F81695BAEC00C8DE51 /* VerbsStore.m */; };
 		E5B3CEB816B0123600CDD6C5 /* pencil_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B3CEB716B0123600CDD6C5 /* pencil_24.png */; };
 		E5B3CEBB16B0127900CDD6C5 /* pencil_24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B3CEBA16B0127900CDD6C5 /* pencil_24@2x.png */; };
@@ -238,6 +239,7 @@
 		E550A5DB169CC88600DCA8D6 /* media-shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-shuffle.png"; sourceTree = "<group>"; };
 		E570094516939C7300219C24 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E57BA4DC16AA1FB0004AFF04 /* hints.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hints.plist; sourceTree = "<group>"; };
+		E58AC2D516B66D570062D525 /* TestSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestSelectorViewController.xib; sourceTree = "<group>"; };
 		E59D12F71695BAEC00C8DE51 /* VerbsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerbsStore.h; sourceTree = "<group>"; };
 		E59D12F81695BAEC00C8DE51 /* VerbsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerbsStore.m; sourceTree = "<group>"; };
 		E5B3CEB716B0123600CDD6C5 /* pencil_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil_24.png; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				E5CAFA1C16A7290E0015B16E /* TestCardsStackViewController.m */,
 				E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */,
 				E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */,
+				E58AC2D516B66D570062D525 /* TestSelectorViewController.xib */,
 				E5E05B9916B2FE2800F33CEC /* PresentedViewControllerDelegate.h */,
 			);
 			name = Test;
@@ -728,6 +731,7 @@
 				0958A9D216B5D60B0014621E /* iconHistorial@2x.png in Resources */,
 				098297EF16B6641A0091A192 /* info.png in Resources */,
 				098297F016B6641A0091A192 /* info@2x.png in Resources */,
+				E58AC2D616B66D570062D525 /* TestSelectorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
