@@ -46,10 +46,24 @@
         self.detailLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.detailLabel.textColor = [UIColor whiteColor];
         self.detailLabel.textAlignment = NSTextAlignmentCenter;
-        self.detailLabel.backgroundColor = [UIColor lightGrayColor];
-//        self.detailLabel.layer.cornerRadius = 1;
-//        self.detailLabel.layer.shouldRasterize = YES;
 
+        /*
+         * To improve performance with cornerRadius:
+         *  - background = clear && maskToBounds = NO
+         *  - layer.background = color
+         *  - shouldRasterize = NO && scale to mainScreen scale (for retina)
+         *
+         * http://stackoverflow.com/questions/4735623/uilabel-layer-cornerradius-negatively-impacting-performance
+         */
+        self.opaque = YES;
+        self.detailLabel.opaque = YES;
+        self.detailLabel.backgroundColor = [UIColor clearColor];
+        self.detailLabel.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
+        self.detailLabel.layer.cornerRadius = 3;
+        self.detailLabel.layer.masksToBounds = NO;
+        self.detailLabel.layer.shouldRasterize = YES;
+        self.detailLabel.layer.rasterizationScale = [UIScreen mainScreen].scale;
+        
         [self.detailLabel addObserver:self
                            forKeyPath:@"text"
                               options:NSKeyValueObservingOptionNew
@@ -91,13 +105,13 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     self.detailLabel.textColor = [UIColor lightGrayColor];
-    self.detailLabel.backgroundColor = [UIColor darkGrayColor];
+    self.detailLabel.layer.backgroundColor = [UIColor darkGrayColor].CGColor;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
     self.detailLabel.textColor = [UIColor whiteColor];
-    self.detailLabel.backgroundColor = [UIColor lightGrayColor];
+    self.detailLabel.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
