@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonSetup;
 @property (weak, nonatomic) IBOutlet UIButton *buttonClosePopUp;
 @property (weak, nonatomic) IBOutlet UILabel *labelHeader;
+@property (strong, nonatomic) IBOutlet UIButton *infoButton;
  
 @end
 
@@ -92,12 +93,18 @@
     [self.buttonClosePopUp setTitle:NSLocalizedString(@"close", nil) forState:UIControlStateNormal];
 
     //We can change this system button for a custom button with a look more integrated
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    [button addTarget:self action:@selector(showInfo:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    //UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+ 
+    //[button addTarget:self action:@selector(showInfo:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:[self infoButton]];
+    
     // labelHeader is isolated in the XIB, it will be better to construct it with code
+    [self.labelHeader setAttributedText:[self attributedNavLabel]];
+    [self.labelHeader setTextAlignment:NSTextAlignmentCenter];
     self.navigationItem.titleView = self.labelHeader;
     self.navigationItem.rightBarButtonItem = rightButton;
+ 
     self.title = NSLocalizedString(@"Home", @"Title for Home screen and back buttons");
   
     }
@@ -115,7 +122,25 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firsTimeAssistantShown"];
     }
 }
+-(NSAttributedString *) attributedNavLabel{
+    UIFont* fontLight = [UIFont fontWithName:@"Signika-Light" size:24];    
+    UIFont* fontBold= [UIFont fontWithName:@"Signika-Bold" size:24];
+    NSString *str1 = @"a list of";
+    NSString *str2 = @" Verbs";
+    
+    NSMutableAttributedString *result  = [[NSMutableAttributedString alloc] initWithString:[str1 stringByAppendingString:str2]];
+    
+    NSDictionary *attributesForLight = @{NSFontAttributeName:fontLight,NSForegroundColorAttributeName:[UIColor whiteColor] };
+    
+    NSDictionary *attributesForBold = @{NSFontAttributeName:fontBold,NSForegroundColorAttributeName:[UIColor whiteColor]};
 
+    
+    [result setAttributes:attributesForLight range:NSMakeRange(0, [str1 length])];
+    [result setAttributes:attributesForBold range:NSMakeRange([str1 length], [str2 length])];
+    
+    return [[NSAttributedString alloc] initWithAttributedString:result];;
+   
+}
 -(NSAttributedString *) attributedHomeLabel{
  
     UIFont* fontBold = [UIFont fontWithName:@"Signika-Bold" size:20];
