@@ -40,6 +40,8 @@
 
 - (void)setUpTestButtons {
     NSArray *testTypes = [[VerbsStore sharedStore] testTypes];
+    UIFont *fontLabel = [UIFont fontWithName:@"Signika" size:18];
+    UIFont *fontBadge = [UIFont fontWithName:@"Signika" size:12];
     
     CGRect rect = CGRectMake(20, 20, 280, 36);
     self.testButtons = [[NSMutableDictionary alloc] initWithCapacity:[testTypes count]];
@@ -47,7 +49,9 @@
         TestTypeButton *button = [[TestTypeButton alloc] initWithFrame:rect];
         [button setTitle:type forState:UIControlStateNormal];
         [button addTarget:self action:@selector(goToTest:) forControlEvents:UIControlEventTouchUpInside];
-        button.badgeLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:type];
+        button.detailLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:type];
+        button.titleLabel.font = fontLabel;
+        button.detailLabel.font = fontBadge;
         [self.view addSubview:button];
         [self.testButtons setObject:button forKey:type];
         rect.origin.y += 42;
@@ -140,7 +144,7 @@
         TestCardsStackViewController *stack = (TestCardsStackViewController *)controller;
         NSString *badge = [self badgeForTestCase:stack.testCase];
         TestTypeButton *button = self.testButtons[stack.testCase.description];
-        button.badgeLabel.text = badge;
+        button.detailLabel.text = badge;
         [[NSUserDefaults standardUserDefaults] setObject:badge forKey:stack.testCase.description];
     }
 }
