@@ -139,7 +139,7 @@
         TestCardsStackViewController *stack = (TestCardsStackViewController *)controller;
         NSString *badge = [self badgeForTestCase:stack.testCase];
         TestTypeButton *button = self.testButtons[stack.testCase.description];
-        button.badge = badge;
+        button.badgeLabel.text = badge;
     }
 }
 
