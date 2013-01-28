@@ -13,8 +13,8 @@
 #import "TestSelectorViewController.h"
 #import "PreferencesViewController.h"
 #import "HistoryViewController.h"
-#import "VSRotatingView.h"
 #import "ASDepthModalViewController.h"
+#import "LevelDialSelectorControl.h"
 
 @interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *labelPopUp;
@@ -49,15 +49,9 @@
     
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
-    
-    VSRotatingView *rv = [VSRotatingView new];
-    rv.rotatingViewDelegate = self;
-    
-    
-    //[rv setCurrentSegment:[[VerbsStore sharedStore] currentFrequencyByGroup]];
-    [rv setCurrentSegment:0];
-    
-    [[self bottomView] addSubview:rv];
+    LevelDialSelectorControl *dial =  [[LevelDialSelectorControl alloc] initWithFrame:CGRectMake(0, 0, 320, 200) andDelegate:self withSections:3];
+ 
+    [[self bottomView] addSubview:dial];
     
     self.popupView.layer.cornerRadius = 4;
     self.popupView.layer.shadowOpacity = 0.3;
@@ -161,15 +155,10 @@
     return [[NSAttributedString alloc] initWithAttributedString:result];
 }
 
-#pragma mark RotatingViewDelegateMethods
-
-- (void)viewCirculatedToSegmentIndex:(NSUInteger)index
-{
-    float f = [[[[VerbsStore sharedStore] defaultFrequencyGroups] objectAtIndex:index] floatValue];
-    [[VerbsStore sharedStore] setFrequency:f];
-    [[self headLabel] setAttributedText:[self attributedHomeLabel]];
+#pragma mark LevelDialSelectorProtocol
+- (void) dialDidChangeValue:(int)newValue{
+    NSLog(@"Dial change value %d",newValue);
 }
-
 
 
  

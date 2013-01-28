@@ -153,7 +153,7 @@
 }
 -(NSArray *)defaultFrequencyGroups
 {
-    return @[@0.4, @0.5, @0.6, @0.7,@0.8,@0.9,@1.0];
+    return @[@0.4, @0.9, @1.0];
 }
 -(int)currentFrequencyByGroup{
     float freq = [[NSUserDefaults standardUserDefaults] floatForKey:@"frequency"];

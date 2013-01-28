@@ -640,11 +640,6 @@
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">54</int>
-						<reference key="object" ref="826160717"/>
-						<reference key="parent" ref="191373211"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">58</int>
 						<reference key="object" ref="61233166"/>
 						<array class="NSMutableArray" key="children">
@@ -703,6 +698,11 @@
 						<int key="objectID">73</int>
 						<reference key="object" ref="651858707"/>
 						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">54</int>
+						<reference key="object" ref="826160717"/>
+						<reference key="parent" ref="191373211"/>
 					</object>
 				</array>
 			</object>

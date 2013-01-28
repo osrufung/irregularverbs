@@ -60,6 +60,7 @@
         // Remember some initial values.
         initialAngle = atan2f(location.y - dialCenter.y, location.x - dialCenter.x);
         initialTransform = self.wellnessDial.transform;
+        NSLog(@"Initial Angle %f",initialAngle);
     } else if (panRecognizer.state == UIGestureRecognizerStateChanged) {
         // Calculate the angle between the start of the pan gesture and the current pan gesture location.
         CGFloat currentAngle = atan2f(location.y - dialCenter.y, location.x - dialCenter.x);
@@ -67,6 +68,7 @@
         
         // Calculate the nearest segment the user left the dial on.
         CGFloat currentDialAngle = atan2(self.wellnessDial.transform.b, self.wellnessDial.transform.a);
+        
         
         // Normalize the angle from 0 to 2Pi.
         currentDialAngle += M_PI;
@@ -83,9 +85,11 @@
             
  
         }
+        NSLog(@"Current Angle: %f, Rotation: %d, Current dial Angle %f, current seg %d",currentAngle,rotation, currentDialAngle, currentSegment );
+
     } else {
         // Center on the nearest segment.
-        [UIView animateWithDuration:0.35
+        [UIView animateWithDuration:0.25
                               delay:0
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
@@ -100,7 +104,7 @@
 -(void)setCurrentSegment:(int)segment
 {
     CGFloat segmentAngle = (2 * M_PI / NUMBER_OF_SEGMENTS);  
-    self.wellnessDial.transform = CGAffineTransformMakeRotation(-segment * segmentAngle);
+    //self.wellnessDial.transform = CGAffineTransformMakeRotation(-segment * segmentAngle);
 }
 
 - (void)callDelegateMethods {
