@@ -63,8 +63,9 @@ static float deltaAngle;
     float dx = pt.x  - container.center.x;
     float dy = pt.y  - container.center.y;
     float ang = atan2(dy,dx);
+     
     float angleDifference = deltaAngle - ang;
-    container.transform = CGAffineTransformRotate(startTransform, -angleDifference);
+    container.transform = CGAffineTransformRotate(startTransform, -angleDifference*1.5);
     return YES;
 }
 - (void)endTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event
