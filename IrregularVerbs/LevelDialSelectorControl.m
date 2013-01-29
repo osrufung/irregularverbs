@@ -31,8 +31,7 @@ static float deltaAngle;
         self.delegate = del;
         // 3 - Draw wheel
         [self drawWheel];
-        
- 
+
 	}
     return self;
 }
@@ -42,7 +41,7 @@ static float deltaAngle;
     // 1.1 - Get the distance from the center
     float dist = [self calculateDistanceFromCenter:touchPoint];
     // 1.2 - Filter out touches too close to the center
-    if (dist < 40 || dist > 200)
+    if (dist < 20 || dist > 200)
     {
         // forcing a tap to be on the ferrule
         NSLog(@"ignoring tap (%f,%f)", touchPoint.x, touchPoint.y);
@@ -112,8 +111,6 @@ static float deltaAngle;
     container = [[UIView alloc] initWithFrame:self.frame];
     // 2
     CGFloat angleSize = 2*M_PI/numberOfSections;
-    NSLog(@"Current segment: %d ",currentSector);
- 
     for (int i = 0; i < numberOfSections; i++) {
         // 4 - Create image view
       
@@ -173,7 +170,7 @@ static float deltaAngle;
         }
 		// 5 - Add sector to array
         [sectors addObject:sector];
-		NSLog(@"cl is %@", sector);
+
     }
 }
 - (void) buildSectorsEven {
@@ -196,7 +193,7 @@ static float deltaAngle;
             
         }
         mid -= fanWidth;
-        NSLog(@"cl is %@", sector);
+        
         // 5 - Add sector to array
         [sectors addObject:sector];
     }
