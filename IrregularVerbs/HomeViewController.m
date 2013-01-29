@@ -15,6 +15,7 @@
 #import "HistoryViewController.h"
 #import "ASDepthModalViewController.h"
 #import "LevelDialSelectorControl.h"
+#import "ImgIndependentHelper.h"
 
 @interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *labelPopUp;
@@ -46,9 +47,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
+   
+ 
+    [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
+ 
     LevelDialSelectorControl *dial =  [[LevelDialSelectorControl alloc] initWithFrame:CGRectMake(0, 0, 320, 440) andDelegate:self withSections:3 initialSection:[[VerbsStore sharedStore] currentFrequencyByGroup]];
     
     [[self bottomView] addSubview:dial];
@@ -157,7 +159,6 @@
 
 #pragma mark LevelDialSelectorProtocol
 - (void) dialDidChangeValue:(int)newValue{
-    NSLog(@"Dial change value %d",newValue);
     float f = [[[[VerbsStore sharedStore] defaultFrequencyGroups] objectAtIndex:newValue] floatValue];
     [[VerbsStore sharedStore] setFrequency:f];
     [[self headLabel] setAttributedText:[self attributedHomeLabel]];

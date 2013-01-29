@@ -61,6 +61,7 @@
 		098297F016B6641A0091A192 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 098297EE16B6641A0091A192 /* info@2x.png */; };
 		0984867516B6A6F300CE22C9 /* LevelDialSelectorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0984867416B6A6F300CE22C9 /* LevelDialSelectorControl.m */; };
 		0984867C16B6B3BA00CE22C9 /* SectorDial.m in Sources */ = {isa = PBXBuildFile; fileRef = 0984867B16B6B3BA00CE22C9 /* SectorDial.m */; };
+		0993D38416B7FAE5003B3206 /* ImgIndependentHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0993D38316B7FAE5003B3206 /* ImgIndependentHelper.m */; };
 		099AF69116834580001A6BF3 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099AF69016834580001A6BF3 /* PreferencesViewController.m */; };
 		09CB352216AEDECC00995380 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB352116AEDECC00995380 /* AVFoundation.framework */; };
 		09D372DD1681BA4F00F80410 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DC1681BA4F00F80410 /* UIKit.framework */; };
@@ -182,6 +183,8 @@
 		0984867416B6A6F300CE22C9 /* LevelDialSelectorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelDialSelectorControl.m; sourceTree = "<group>"; };
 		0984867A16B6B3BA00CE22C9 /* SectorDial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectorDial.h; sourceTree = "<group>"; };
 		0984867B16B6B3BA00CE22C9 /* SectorDial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectorDial.m; sourceTree = "<group>"; };
+		0993D38216B7FAE5003B3206 /* ImgIndependentHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgIndependentHelper.h; sourceTree = "<group>"; };
+		0993D38316B7FAE5003B3206 /* ImgIndependentHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgIndependentHelper.m; sourceTree = "<group>"; };
 		099AF61A1681FBAA001A6BF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		099AF68F16834580001A6BF3 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
 		099AF69016834580001A6BF3 /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
@@ -505,6 +508,8 @@
 				E550A5D2169CC83800DCA8D6 /* NSArray+Shuffling.m */,
 				E5C2CA2C169C5F6600BEE2ED /* Referee.h */,
 				E5C2CA2D169C5F6600BEE2ED /* Referee.m */,
+				0993D38216B7FAE5003B3206 /* ImgIndependentHelper.h */,
+				0993D38316B7FAE5003B3206 /* ImgIndependentHelper.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -750,6 +755,7 @@
 				092960F616B5DD37006954BE /* TestTypeButton.m in Sources */,
 				0984867516B6A6F300CE22C9 /* LevelDialSelectorControl.m in Sources */,
 				0984867C16B6B3BA00CE22C9 /* SectorDial.m in Sources */,
+				0993D38416B7FAE5003B3206 /* ImgIndependentHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
