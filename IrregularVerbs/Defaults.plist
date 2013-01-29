@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>loadFromInternet</key>
-	<false/>
-	<key>randomOrder</key>
-	<true/>
-	<key>difficultyLevel</key>
-	<integer>2</integer>
-	<key>sameTime</key>
-	<true/>
 	<key>aboutProjectURL</key>
 	<string>https://github.com/osrufung/irregularverbs/wiki</string>
 </dict>

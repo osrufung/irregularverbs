@@ -18,8 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //load default Settings
+    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
     
- 
     self.window = [[UIWindow alloc] initWithFrame:[[ UIScreen mainScreen]bounds]];
     
     //not frequency? default frequency for a minimal verbs 
