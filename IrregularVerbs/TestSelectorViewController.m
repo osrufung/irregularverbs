@@ -28,7 +28,7 @@
 @implementation TestSelectorViewController
 
 - (void)viewDidLoad {
-    self.title = NSLocalizedString(@"selecttesttype", nil);
+    self.title = NSLocalizedString(@"TestLabel", nil);
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
     [self setUpTestButtons];
     [self setUpOptions];
@@ -47,9 +47,10 @@
         TestTypeButton *button = [[TestTypeButton alloc] initWithFrame:rect];
         [button setTitle:type forState:UIControlStateNormal];
         [button addTarget:self action:@selector(goToTest:) forControlEvents:UIControlEventTouchUpInside];
+        button.badgeLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:type];
         [self.view addSubview:button];
         [self.testButtons setObject:button forKey:type];
-        rect.origin.y += 44;
+        rect.origin.y += 42;
     }
 }
 
@@ -139,7 +140,8 @@
         TestCardsStackViewController *stack = (TestCardsStackViewController *)controller;
         NSString *badge = [self badgeForTestCase:stack.testCase];
         TestTypeButton *button = self.testButtons[stack.testCase.description];
-        button.badge = badge;
+        button.badgeLabel.text = badge;
+        [[NSUserDefaults standardUserDefaults] setObject:badge forKey:stack.testCase.description];
     }
 }
 

@@ -13,8 +13,8 @@
 #import "TestSelectorViewController.h"
 #import "PreferencesViewController.h"
 #import "HistoryViewController.h"
-#import "VSRotatingView.h"
 #import "ASDepthModalViewController.h"
+#import "LevelDialSelectorControl.h"
 
 @interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *labelPopUp;
@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonSetup;
 @property (weak, nonatomic) IBOutlet UIButton *buttonClosePopUp;
 @property (weak, nonatomic) IBOutlet UILabel *labelHeader;
+@property (strong, nonatomic) IBOutlet UIButton *infoButton;
  
 @end
 
@@ -48,15 +49,9 @@
     
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
+    LevelDialSelectorControl *dial =  [[LevelDialSelectorControl alloc] initWithFrame:CGRectMake(0, 0, 320, 440) andDelegate:self withSections:3 initialSection:[[VerbsStore sharedStore] currentFrequencyByGroup]];
     
-    VSRotatingView *rv = [VSRotatingView new];
-    rv.rotatingViewDelegate = self;
-    
-    
-    //[rv setCurrentSegment:[[VerbsStore sharedStore] currentFrequencyByGroup]];
-    [rv setCurrentSegment:0];
-    
-    [[self bottomView] addSubview:rv];
+    [[self bottomView] addSubview:dial];
     
     self.popupView.layer.cornerRadius = 4;
     self.popupView.layer.shadowOpacity = 0.3;
@@ -92,12 +87,18 @@
     [self.buttonClosePopUp setTitle:NSLocalizedString(@"close", nil) forState:UIControlStateNormal];
 
     //We can change this system button for a custom button with a look more integrated
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    [button addTarget:self action:@selector(showInfo:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    //UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+ 
+    //[button addTarget:self action:@selector(showInfo:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:[self infoButton]];
+    
     // labelHeader is isolated in the XIB, it will be better to construct it with code
+    [self.labelHeader setAttributedText:[self attributedNavLabel]];
+    [self.labelHeader setTextAlignment:NSTextAlignmentCenter];
     self.navigationItem.titleView = self.labelHeader;
     self.navigationItem.rightBarButtonItem = rightButton;
+ 
     self.title = NSLocalizedString(@"Home", @"Title for Home screen and back buttons");
   
     }
@@ -115,7 +116,25 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firsTimeAssistantShown"];
     }
 }
+-(NSAttributedString *) attributedNavLabel{
+    UIFont* fontLight = [UIFont fontWithName:@"Signika-Light" size:24];    
+    UIFont* fontBold= [UIFont fontWithName:@"Signika-Bold" size:24];
+    NSString *str1 = @"a list of";
+    NSString *str2 = @" Verbs";
+    
+    NSMutableAttributedString *result  = [[NSMutableAttributedString alloc] initWithString:[str1 stringByAppendingString:str2]];
+    
+    NSDictionary *attributesForLight = @{NSFontAttributeName:fontLight,NSForegroundColorAttributeName:[UIColor whiteColor] };
+    
+    NSDictionary *attributesForBold = @{NSFontAttributeName:fontBold,NSForegroundColorAttributeName:[UIColor whiteColor]};
 
+    
+    [result setAttributes:attributesForLight range:NSMakeRange(0, [str1 length])];
+    [result setAttributes:attributesForBold range:NSMakeRange([str1 length], [str2 length])];
+    
+    return [[NSAttributedString alloc] initWithAttributedString:result];;
+   
+}
 -(NSAttributedString *) attributedHomeLabel{
  
     UIFont* fontBold = [UIFont fontWithName:@"Signika-Bold" size:20];
@@ -136,15 +155,13 @@
     return [[NSAttributedString alloc] initWithAttributedString:result];
 }
 
-#pragma mark RotatingViewDelegateMethods
-
-- (void)viewCirculatedToSegmentIndex:(NSUInteger)index
-{
-    float f = [[[[VerbsStore sharedStore] defaultFrequencyGroups] objectAtIndex:index] floatValue];
+#pragma mark LevelDialSelectorProtocol
+- (void) dialDidChangeValue:(int)newValue{
+    NSLog(@"Dial change value %d",newValue);
+    float f = [[[[VerbsStore sharedStore] defaultFrequencyGroups] objectAtIndex:newValue] floatValue];
     [[VerbsStore sharedStore] setFrequency:f];
     [[self headLabel] setAttributedText:[self attributedHomeLabel]];
 }
-
 
 
  
