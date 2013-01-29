@@ -261,7 +261,7 @@
 }
 
 - (NSArray *)testByFailure {
-    NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByHistoricalPerformance:)];
+    NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByRecentFailure:)];
     NSLog(@"%@",list);
     list = [list subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
     return [list shuffledCopy];
