@@ -12,6 +12,7 @@
 #import "TestSelectorViewController.h"
 #import "Referee.h"
 #import "TestTypeButton.h"
+#import "ImgIndependentHelper.h"
 
 @interface TestSelectorViewController ()
 
@@ -29,7 +30,7 @@
 
 - (void)viewDidLoad {
     self.title = NSLocalizedString(@"TestLabel", nil);
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
+   [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
     [self setUpTestButtons];
     [self setUpOptions];
     [self setUpLabels];
