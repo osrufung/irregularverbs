@@ -157,7 +157,6 @@
 
 #pragma mark LevelDialSelectorProtocol
 - (void) dialDidChangeValue:(int)newValue{
-    NSLog(@"Dial change value %d",newValue);
     float f = [[[[VerbsStore sharedStore] defaultFrequencyGroups] objectAtIndex:newValue] floatValue];
     [[VerbsStore sharedStore] setFrequency:f];
     [[self headLabel] setAttributedText:[self attributedHomeLabel]];
