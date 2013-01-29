@@ -10,6 +10,6 @@
 
 @interface TestTypeButton : UIButton
 
-@property (nonatomic, strong) UILabel *badgeLabel;
+@property (nonatomic, strong) UILabel *detailLabel;
 
 @end
