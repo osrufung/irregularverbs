@@ -42,7 +42,7 @@
 - (void)setUpTestButtons {
     NSArray *testTypes = [[VerbsStore sharedStore] testTypes];
     
-    CGRect rect = CGRectMake(20, 20, 280, 36);
+    CGRect rect = CGRectMake(20, 20, 280, 44);
     self.testButtons = [[NSMutableDictionary alloc] initWithCapacity:[testTypes count]];
     for (NSString *type in testTypes) {
         TestTypeButton *button = [[TestTypeButton alloc] initWithFrame:rect];
@@ -51,7 +51,7 @@
         button.badgeLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:type];
         [self.view addSubview:button];
         [self.testButtons setObject:button forKey:type];
-        rect.origin.y += 42;
+        rect.origin.y += 44;
     }
 }
 

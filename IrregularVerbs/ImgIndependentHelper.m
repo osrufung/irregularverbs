@@ -12,7 +12,7 @@
 
 +(UIImageView *)getBackgroundImageView{
        UIImageView *backgroundImageView;
-    UIImage *backgroundImage = [[UIImage alloc]init];
+    UIImage *backgroundImage;
     if ([[UIScreen mainScreen] bounds].size.height == 568) {
         backgroundImage = [UIImage imageNamed:@"HomeViewbg-568h@2x"];
         backgroundImageView = [[UIImageView alloc] initWithImage:backgroundImage];
