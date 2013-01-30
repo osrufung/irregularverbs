@@ -193,6 +193,8 @@
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     NSArray *allVerbs = [[VerbsStore sharedStore] alphabetic];
     [self makeIndexFor:allVerbs withSearchText:nil];
+    CGRect currentFrame = self.tableView.frame;
+    self.tableView.frame=CGRectMake(0, currentFrame.origin.y-44, currentFrame.size.width, currentFrame.size.height+44);
     self.searchBar.alpha=0;
 }
 
