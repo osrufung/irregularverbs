@@ -44,7 +44,7 @@
     UIFont *fontLabel = [UIFont fontWithName:@"Signika" size:18];
     UIFont *fontBadge = [UIFont fontWithName:@"Signika" size:12];
     
-    CGRect rect = CGRectMake(20, 20, 280, 44);
+    CGRect rect = CGRectMake(20, 20, 280, 40);
     self.testButtons = [[NSMutableDictionary alloc] initWithCapacity:[testTypes count]];
     for (NSString *type in testTypes) {
         TestTypeButton *button = [[TestTypeButton alloc] initWithFrame:rect];

@@ -23,10 +23,10 @@
     self = [super initWithFrame:frame];
     if (self) {
                 
-        UIImage *buttonImage = [[UIImage imageNamed:@"homeButton.png"]
+        UIImage *buttonImage = [imgHomebutton
                                 resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20)
                                 resizingMode:UIImageResizingModeStretch];
-        UIImage *buttonImageHighlight = [[UIImage imageNamed:@"whiteButtonHighlight.png"]
+        UIImage *buttonImageHighlight = [imgWhitebuttonhighlight
                                          resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20)
                                          resizingMode:UIImageResizingModeStretch];
 
@@ -36,7 +36,7 @@
         [self setBackgroundImage:buttonImageHighlight   forState:UIControlStateHighlighted];
 
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [self setImage:[UIImage imageNamed:@"iconEvaluar"]   forState:UIControlStateNormal];
+        [self setImage:imgIconevaluar   forState:UIControlStateNormal];
 
         self.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 0);
         self.titleEdgeInsets = UIEdgeInsetsMake(0, 14, 0, 0);
