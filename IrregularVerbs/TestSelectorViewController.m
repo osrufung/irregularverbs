@@ -8,11 +8,11 @@
 
 #import "VerbsStore.h"
 #import "TestCase.h"
-#import "TestCardsStackViewController.h"
 #import "TestSelectorViewController.h"
 #import "Referee.h"
 #import "TestTypeButton.h"
 #import "ImgIndependentHelper.h"
+#import "RootTestViewController.h"
 
 @interface TestSelectorViewController ()
 
@@ -30,7 +30,7 @@
 
 - (void)viewDidLoad {
     self.title = NSLocalizedString(@"TestLabel", nil);
-   [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
+    [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
     [self setUpTestButtons];
     [self setUpOptions];
     [self setUpLabels];
@@ -135,14 +135,13 @@
 
 - (void)openSelectedType:(NSString *) typeDescription{
     TestCase *testCase = [[VerbsStore sharedStore] testCaseForTestType:typeDescription];
-    TestCardsStackViewController *stack = [[TestCardsStackViewController alloc] initWithTestCase:testCase];
-    stack.presentedDelegate = self;
+    RootTestViewController *stack = [[RootTestViewController alloc] initWithTestCase:testCase andPresenterDelegate:self];
     [self.navigationController pushViewController:stack animated:YES];
 }
 
 - (void)presentedViewControllerWillDisapear:(UIViewController *)controller {
-    if ([controller isKindOfClass:[TestCardsStackViewController class]]) {
-        TestCardsStackViewController *stack = (TestCardsStackViewController *)controller;
+    if ([controller isKindOfClass:[RootTestViewController class]]) {
+        RootTestViewController *stack = (RootTestViewController *)controller;
         NSString *badge = [self badgeForTestCase:stack.testCase];
         TestTypeButton *button = self.testButtons[stack.testCase.description];
         button.detailLabel.text = badge;

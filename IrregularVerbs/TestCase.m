@@ -21,6 +21,16 @@
     return self;
 }
 
+- (id)initWithTestCase:(TestCase *)testCase {
+    self = [super init];
+    if (self) {
+        _verbs = [testCase.verbs copy];
+        _description = [testCase.description copy];
+    }
+    return self;
+}
+
+
 - (void)computeSummaryData {
     _passCount = _failCount = 0;
     _averageTime = 0.0;

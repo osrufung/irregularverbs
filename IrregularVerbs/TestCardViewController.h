@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TestCardViewControllerDelegate.h"
 
 @class Verb;
 
 @interface TestCardViewController : UIViewController
 
 @property (nonatomic,weak) Verb *verb;
+@property (nonatomic,weak) id<TestCardViewControllerDelegate> delegate;
+
+- (void)refreshUIForTestEnd:(BOOL)testEnd;
 
 @end

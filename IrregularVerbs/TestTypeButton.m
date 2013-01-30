@@ -23,17 +23,13 @@
     self = [super initWithFrame:frame];
     if (self) {
                 
-        UIImage *buttonImage = [imgHomebutton
+        UIImage *buttonImage = [imgHomebuttonwochevron
                                 resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20)
                                 resizingMode:UIImageResizingModeStretch];
-        UIImage *buttonImageHighlight = [imgWhitebuttonhighlight
-                                         resizableImageWithCapInsets:UIEdgeInsetsMake(20, 20, 20, 20)
-                                         resizingMode:UIImageResizingModeStretch];
 
         [self setTitleColor:[UIColor lightGrayColor]    forState:UIControlStateNormal];
         [self setTitleColor:[UIColor whiteColor]        forState:UIControlStateHighlighted];
         [self setBackgroundImage:buttonImage            forState:UIControlStateNormal];
-        [self setBackgroundImage:buttonImageHighlight   forState:UIControlStateHighlighted];
 
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [self setImage:imgIconevaluar   forState:UIControlStateNormal];

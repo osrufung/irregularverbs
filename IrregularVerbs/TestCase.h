@@ -19,6 +19,7 @@
 @property (nonatomic,readonly) float failRatio;
 
 - (id)initWithArray:(NSArray *)array description:(NSString *)description;
+- (id)initWithTestCase:(TestCase *)testCase;
 - (void)sortByTestResults;
 - (void)resetTest;
 - (void)computeSummaryData;
