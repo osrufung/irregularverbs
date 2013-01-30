@@ -12,6 +12,7 @@
 #import "TestSelectorViewController.h"
 #import "Referee.h"
 #import "TestTypeButton.h"
+#import "ImgIndependentHelper.h"
 
 @interface TestSelectorViewController ()
 
@@ -29,7 +30,7 @@
 
 - (void)viewDidLoad {
     self.title = NSLocalizedString(@"TestLabel", nil);
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
+   [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
     [self setUpTestButtons];
     [self setUpOptions];
     [self setUpLabels];
@@ -43,7 +44,7 @@
     UIFont *fontLabel = [UIFont fontWithName:@"Signika" size:18];
     UIFont *fontBadge = [UIFont fontWithName:@"Signika" size:12];
     
-    CGRect rect = CGRectMake(20, 20, 280, 36);
+    CGRect rect = CGRectMake(20, 20, 280, 44);
     self.testButtons = [[NSMutableDictionary alloc] initWithCapacity:[testTypes count]];
     for (NSString *type in testTypes) {
         TestTypeButton *button = [[TestTypeButton alloc] initWithFrame:rect];
@@ -54,7 +55,7 @@
         button.detailLabel.font = fontBadge;
         [self.view addSubview:button];
         [self.testButtons setObject:button forKey:type];
-        rect.origin.y += 42;
+        rect.origin.y += 44;
     }
 }
 

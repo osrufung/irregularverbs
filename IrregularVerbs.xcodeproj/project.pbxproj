@@ -98,7 +98,6 @@
 		E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D12F81695BAEC00C8DE51 /* VerbsStore.m */; };
 		E5B3CEB816B0123600CDD6C5 /* pencil_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B3CEB716B0123600CDD6C5 /* pencil_24.png */; };
 		E5B3CEBB16B0127900CDD6C5 /* pencil_24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B3CEBA16B0127900CDD6C5 /* pencil_24@2x.png */; };
-		E5BB4A5716ADB2AB00030041 /* verbs.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5BB4A5616ADB2AB00030041 /* verbs.plist */; };
 		E5C2CA2E169C5F6600BEE2ED /* Referee.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA2D169C5F6600BEE2ED /* Referee.m */; };
 		E5C2CA32169C6A0C00BEE2ED /* Verb.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA31169C6A0C00BEE2ED /* Verb.m */; };
 		E5C70A45169F2D6200E09847 /* calendar_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C70A44169F2D6200E09847 /* calendar_24.png */; };
@@ -118,6 +117,16 @@
 		E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */; };
 		E5F49E2116A5C89C0078EC5D /* TestCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		09656A8D16B91EEA0066F99D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09D372CF1681BA4F00F80410 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09656A8716B91E510066F99D;
+			remoteInfo = "Image Script";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		090F8B3816A7E253002131E1 /* HistoryDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDataCell.h; sourceTree = "<group>"; };
@@ -591,6 +600,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		09656A8716B91E510066F99D /* Image Script */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "\"$(SRCROOT)/IrregularVerbs/image.py\"   -s \"$(SRCROOT)/IrregularVerbs\"  -d \"$(SRCROOT)/IrregularVerbs/images.h\"  --warn-retina RETINA --warn-duplicates DUPLICATES";
+			buildConfigurationList = 09656A8A16B91E520066F99D /* Build configuration list for PBXLegacyTarget "Image Script" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/python;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = "Image Script";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Image Script";
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		09D372D71681BA4F00F80410 /* A list of verbs */ = {
 			isa = PBXNativeTarget;
@@ -603,6 +629,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				09656A8E16B91EEA0066F99D /* PBXTargetDependency */,
 			);
 			name = "A list of verbs";
 			productName = IrregularVerbs;
@@ -632,6 +659,7 @@
 			projectRoot = "";
 			targets = (
 				09D372D71681BA4F00F80410 /* A list of verbs */,
+				09656A8716B91E510066F99D /* Image Script */,
 			);
 		};
 /* End PBXProject section */
@@ -678,7 +706,6 @@
 				0917BF7916AEC1A2009221EF /* check_nok_grey.png in Resources */,
 				0917BF7A16AEC1A2009221EF /* check_nok_dark_grey@2x.png in Resources */,
 				0917BF7B16AEC1A2009221EF /* check_nok_dark_grey.png in Resources */,
-				E5BB4A5716ADB2AB00030041 /* verbs.plist in Resources */,
 				E5B3CEB816B0123600CDD6C5 /* pencil_24.png in Resources */,
 				095BC75C16AEEEF00020ADCF /* check_nok_red@2x.png in Resources */,
 				E5B3CEBB16B0127900CDD6C5 /* pencil_24@2x.png in Resources */,
@@ -761,6 +788,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		09656A8E16B91EEA0066F99D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09656A8716B91E510066F99D /* Image Script */;
+			targetProxy = 09656A8D16B91EEA0066F99D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		0973D9F416AD2C4500A8E30A /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -783,6 +818,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		09656A8816B91E510066F99D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		09656A8916B91E510066F99D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		09D372FA1681BA4F00F80410 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -862,6 +937,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		09656A8A16B91E520066F99D /* Build configuration list for PBXLegacyTarget "Image Script" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09656A8816B91E510066F99D /* Debug */,
+				09656A8916B91E510066F99D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		09D372D21681BA4F00F80410 /* Build configuration list for PBXProject "IrregularVerbs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

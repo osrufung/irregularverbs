@@ -114,7 +114,8 @@ static float deltaAngle;
     CGFloat angleSize = 2*M_PI/numberOfSections;
     for (int i = 0; i < numberOfSections; i++) {
         // 4 - Create image view
-      
+       
+        
         UIImageView *im = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"sectorImage%i.png", (i+currentSector)%numberOfSections ]]];
         im.layer.anchorPoint = CGPointMake(1.0f, 0.5f);
         im.layer.position = CGPointMake(container.bounds.size.width/2.0-container.frame.origin.x,
