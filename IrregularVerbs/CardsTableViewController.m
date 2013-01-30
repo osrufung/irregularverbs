@@ -19,7 +19,6 @@
 
 @property (nonatomic, strong) HintsTableDelegate *hintsDelegate;
 @property (nonatomic, strong) UIBarButtonItem *searchButton;
-@property (nonatomic, strong) UISegmentedControl *segmentedMode;
 
 
 @end
@@ -83,12 +82,9 @@
 
     self.navigationItem.rightBarButtonItem = self.searchButton;
     
-    self.segmentedMode = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"alpha", @"alpha list"),NSLocalizedString(@"hints", @"hints list")]];
-    
-    self.segmentedMode.segmentedControlStyle = UISegmentedControlStyleBar;
-    [self.segmentedMode addTarget:self action:@selector(dataSetChanged:) forControlEvents:UIControlEventValueChanged];
-    self.navigationItem.titleView = self.segmentedMode;
-    
+    [self.segmentedMode setTitle:NSLocalizedString(@"alpha", @"alpha list") forSegmentAtIndex:0];
+    [self.segmentedMode setTitle:NSLocalizedString(@"hints", @"hints list") forSegmentAtIndex:1];
+     self.title = NSLocalizedString(@"LearnLabel",nil);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -98,8 +94,8 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
-- (void)dataSetChanged:(UISegmentedControl *)segmentedControl {
-    if (segmentedControl.selectedSegmentIndex==0) {
+- (IBAction)dataSetChanged:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex==0) {
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.navigationItem.rightBarButtonItem = self.searchButton;
@@ -109,8 +105,8 @@
         self.navigationItem.rightBarButtonItem = nil;
         if (self.searchBar.alpha!=0) [self toggleSearchBar];
     }
-    [[NSUserDefaults standardUserDefaults] setInteger:segmentedControl.selectedSegmentIndex forKey:@"learningMode"];
-    [self.tableView reloadData];    
+    [[NSUserDefaults standardUserDefaults] setInteger:sender.selectedSegmentIndex forKey:@"learningMode"];
+    [self.tableView reloadData];
 }
 
 - (void)toggleSearchBar {
