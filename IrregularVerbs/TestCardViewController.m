@@ -45,7 +45,10 @@
     self.backgroundView.layer.shadowOffset = CGSizeMake(0, 2);
     self.backgroundView.layer.shadowRadius = 2;
     self.backgroundView.layer.shadowOpacity = 0.6;
-    self.backgroundView.layer.shadowPath = CGPathCreateWithRect(self.backgroundView.bounds, nil);
+    
+    CGPathRef path = CGPathCreateWithRect(self.backgroundView.bounds, nil);
+    self.backgroundView.layer.shadowPath = path;
+    CFRelease(path);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -90,6 +93,7 @@
         }
     }
 }
+
 - (void)revealResults {
     self.labelTranslation.alpha = 0;
     self.labelPast.alpha = 0;

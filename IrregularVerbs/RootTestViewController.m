@@ -14,6 +14,7 @@
 #import "Referee.h"
 #import "Verb.h"
 #import "ImgIndependentHelper.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define TEST_TIMER_INTERVAL 1/60.0f
 
@@ -44,6 +45,12 @@
         [self.view addSubview:self.pager.view];
         self.buttonsHidden = NO;
         self.progressView.backgroundColor = [UIColor clearColor];
+        
+        UIBarButtonItem *statsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause
+                                                                                     target:self
+                                                                                     action:@selector(goToResults)];
+        statsButton.style = UIBarButtonItemStylePlain;
+        self.navigationItem.rightBarButtonItem = statsButton;
     }
     return self;
 }
@@ -145,8 +152,7 @@
     [self.presentedDelegate presentedViewControllerWillDisapear:self];
 }
 
-#pragma mark - TestCardViewControllerDelegate
-
+#pragma mark - UI Status
 
 - (void)updateButtonState {
     [UIView animateWithDuration:0.3 animations:^{
@@ -203,7 +209,7 @@
             frameRect = self.failImage.frame;
             frameRect.origin.y -= frameRect.size.height;
             self.failImage.frame = frameRect;
-
+            
             frameRect = self.pager.view.frame;
             frameRect.size.height -= self.passButton.frame.size.height + self.progressView.frame.size.height;
             self.pager.view.frame = frameRect;
@@ -211,6 +217,8 @@
         
     }];
 }
+
+#pragma mark - TestCardViewControllerDelegate
 
 - (void)testCardWillApperar:(TestCardViewController *)cardView {
     self.currentCard = cardView;
@@ -242,11 +250,36 @@
             }
         }
     }
-    NSLog(@"%@ %d",pageViewController.viewControllers[0],completed);
+    NSLog(@"%@",pageViewController.viewControllers);
 }
 
 
 #pragma mark - UIPageViewControllerDataSource
+
+- (void)goToResults {
+
+    // We need to full the pager's cached views with the last verb to ensure a correct navigation in reverse from here
+    self.pager.view.alpha=0;
+    [self.pager setViewControllers:@[[self testCardViewAtIndex:self.testCase.verbs.count-1]]
+                         direction:UIPageViewControllerNavigationDirectionForward
+                          animated:NO
+                        completion:nil];
+    [self.pager setViewControllers:@[[[TestScoreCardViewController alloc] initWithTestCase:self.testCase]]
+                         direction:UIPageViewControllerNavigationDirectionForward
+                          animated:NO
+                        completion:nil];
+
+    // Restore visibility
+    [UIView animateWithDuration:0.4
+                     animations:^{
+                         self.pager.view.alpha=1;
+                     }];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    if (!self.buttonsHidden) {
+        self.buttonsHidden=YES;
+        [self updateButtonFrames];
+    }
+}
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     if ([viewController isMemberOfClass:[TestScoreCardViewController class]]) {
@@ -255,7 +288,9 @@
     if ([viewController isMemberOfClass:[TestCardViewController class]]) {
         TestCardViewController *current = (TestCardViewController *)viewController;
         UIViewController *next = [self testCardViewAtIndex:[self.testCase.verbs indexOfObject:current.verb]+1];
+        self.navigationItem.rightBarButtonItem.enabled = YES;
         if (!next) {
+            self.navigationItem.rightBarButtonItem.enabled = NO;
             return [[TestScoreCardViewController alloc] initWithTestCase:self.testCase];
         }
         return next;
@@ -264,6 +299,7 @@
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    self.navigationItem.rightBarButtonItem.enabled = YES;
     if ([viewController isMemberOfClass:[TestScoreCardViewController class]]) {
         return [self testCardViewAtIndex:self.testCase.totalCount-1];
     }
