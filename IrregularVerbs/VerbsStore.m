@@ -187,7 +187,7 @@
 }
 
 - (NSArray *)history {
-    return [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByHistoricalPerformance:)];
+    return [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByRecentFailure:)];
 }
 
 - (NSString *)hintForGroupIndex:(int)index {
