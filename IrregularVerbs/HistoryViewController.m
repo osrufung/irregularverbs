@@ -69,8 +69,32 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
     self.tableHelp.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableHelp.backgroundColor = [UIColor whiteColor];
     self.helpView.layer.cornerRadius = 8;
+    
+    
+   
+    UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                                                                 target:self
+                                                                                 action:@selector(clearStatistics)];
+ 
+    self.navigationItem.rightBarButtonItem = resetButton;
 }
 
+- (IBAction)clearStatistics{
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"clearhistorydata", nil)
+                                                 message:NSLocalizedString(@"clearconsequence", nil)
+                                                delegate:self
+                                       cancelButtonTitle:NSLocalizedString(@"cancel", nil)
+                                       otherButtonTitles:NSLocalizedString(@"clearall", nil), nil];
+    [av show];
+}
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex==1) {
+        [[VerbsStore sharedStore] resetHistory];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+    }
+}
 - (void)viewWillAppear:(BOOL)animated {
     int historyView = [[NSUserDefaults standardUserDefaults] integerForKey:@"historyView"];
     self.criteriaControl.selectedSegmentIndex = historyView;
