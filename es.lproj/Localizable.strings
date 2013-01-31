@@ -15,6 +15,7 @@
 //home View
 "verbstolearn" = "%d verbos para aprender";
 "back" = "Inicio";
+"Home"= "Inicio";
 "LearnLabel" = "Aprender";
 "TestLabel" = "Evaluar";
 "HistoryLabel" = "Historial";

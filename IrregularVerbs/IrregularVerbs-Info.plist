@@ -30,7 +30,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.9.4</string>
+	<string>0.9.5</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -40,8 +40,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>signikaregular.ttf</string>
-        <string>signikabold.ttf</string>
-        <string>signikalight.ttf</string>
+		<string>signikabold.ttf</string>
+		<string>signikalight.ttf</string>
 	</array>
 	<key>UIPrerenderedIcon</key>
 	<true/>

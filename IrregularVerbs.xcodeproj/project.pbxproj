@@ -200,8 +200,8 @@
 		099AF61A1681FBAA001A6BF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		099AF68F16834580001A6BF3 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
 		099AF69016834580001A6BF3 /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
-		09AF754F16BA67F80075FC0B /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/hints.plist; sourceTree = "<group>"; };
-		09AF755116BA68060075FC0B /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/hints.plist; sourceTree = "<group>"; };
+		09AF754F16BA67F80075FC0B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/hints.plist; sourceTree = "<group>"; };
+		09AF755116BA68060075FC0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/hints.plist; sourceTree = "<group>"; };
 		09CB352116AEDECC00995380 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		09D372D81681BA4F00F80410 /* A list of verbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A list of verbs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D372DC1681BA4F00F80410 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };

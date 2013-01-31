@@ -3,26 +3,26 @@
 <plist version="1.0">
 <array>
 	<string>Verbos sin reglas</string>
-	<string>Irregular ending with no vowel change. Past and participle are equal. &apos;d&apos; ending changes to &apos;t&apos;, &apos;ent&apos; changes to &apos;end&apos;</string>
-	<string>Irregular ending with no vowel change. Past and participle are equal. The verbs &apos;have&apos; and &apos;make&apos;</string>
-	<string>Irregular ending with no vowel change. Past and participle are equal. Regular past and participle in US English, irregular in UK English</string>
-	<string>Irregular ending with no vowel change. Past and participle are equal. &apos;ay&apos; ending changes to &apos;aid&apos;</string>
-	<string>Vowel change, irregular ending. Past and participle are equal. Vowel change , &apos;d&apos; or &apos;t&apos; ending</string>
-	<string>Vowel change, irregular ending. Past and participle are equal. Different pronunciation of the same vowel (&apos;d&apos; or &apos;t&apos; ending)</string>
-	<string>Vowel change, irregular ending. Past and participle are equal. &apos;ell&apos; turns to &apos;old&apos;</string>
-	<string>Vowel change, irregular ending. Past and participle are equal. Vowel change with &apos;ought&apos; (or &apos;*aught&apos;) ending</string>
-	<string>Verbs with the same form. Present, past and participle are equal. Verbs that do not change (&apos;d&apos; or &apos;t&apos; ending)</string>
-	<string>Vowel change, participle ending with &apos;(e)n&apos;. Past and participle with long /o/ sound</string>
-	<string>Vowel change, participle ending with &apos;(e)n&apos;. Past long &apos;o&apos; sound, participle &apos;shirt&apos; /i/ sound</string>
-	<string>Vowel change, participle ending with &apos;(e)n&apos;.</string>
-	<string>Vowel change, participle ending with &apos;(e)n&apos;. The &apos;ear-ore-orn&apos; pattern</string>
-	<string>Vowel change, participle ending with &apos;(e)n&apos;. Present with &apos;ow&apos;, past with &apos;ew&apos;, participle with &apos;own&apos;</string>
-	<string>Regular past, regular or irregular participle</string>
-	<string>Vowel change, no ending. Past and participle are equal. Vowel change pattern, no ending</string>
-	<string>Vowel change, no ending. Past and participle are equal. Vowel change pattern i - ou - ou</string>
-	<string>Vowel change, no ending. Past and participle are equal. Vowel change ee - e - e</string>
-	<string>The craziest verbs!. Vowel change pattern i - a - u</string>
-	<string>The craziest verbs!. Vowel change. Present and participle are equal</string>
-	<string>The craziest verbs!. Miscellaneous</string>
+	<string>Final irregular sin cambio de vocal. Pasado y participio iguales. Acabados en &apos;d&apos; cambian a &apos;t&apos; y &apos;ent&apos; cambia a &apos;end&apos;</string>
+	<string>Final irregular sin cambio de vocal. Pasado y participio iguales. Los verbos &apos;have&apos; y &apos;make&apos;</string>
+	<string>Final irregular sin cambio de vocal. Pasado y participio iguales. Pasado y participio regular en inglés US, irregular en inglés UK</string>
+	<string>Final irregular sin cambio de vocal. Pasado y participio iguales. Acabados en &apos;ay&apos; pasan a &apos;aid&apos;</string>
+	<string>Cambio de vocal con final irregular. Pasado y participio iguales. Termina en &apos;d&apos; o &apos;t&apos;</string>
+	<string>Cambio de vocal con final irregular. Pasado y participio iguales. Diferente pronunciacion de la mismavocal (Final en &apos;d&apos; o &apos;t&apos;)</string>
+	<string>Cambio de vocal con final irregular. Pasado y participio iguales. Acabados en &apos;ell&apos; pasan a &apos;old&apos;</string>
+	<string>Cambio de vocal con final irregular. Pasado y participio iguales. Termina en &apos;ought&apos; (o &apos;*aught&apos;)</string>
+	<string>Misma forma en presente, pasado y participio. Terminan en &apos;d&apos; o &apos;t&apos;</string>
+	<string>Cambio de vocal. Participio termina en &apos;(e)n&apos;. Pasado y participio suenan con /o/ larga</string>
+	<string>Cambio de vocal. Participio termina en &apos;(e)n&apos;. Pasado suena con /o/ larga, participio &apos;shirt&apos; /i/ sound</string>
+	<string>Cambio de vocal. Participio termina en &apos;(e)n&apos;. </string>
+	<string>Cambio de vocal. Participio termina en &apos;(e)n&apos;.  Patrón &apos;ear-ore-orn&apos;</string>
+	<string>Cambio de vocal. Participio termina en &apos;(e)n&apos;.  Presente con &apos;ow&apos;, pasado con &apos;ew&apos;, participio con &apos;own&apos;</string>
+	<string>Pasado regular, particpio regular o irregular</string>
+	<string>Cambio de vocal, sin final. Pasado y participio iguales. </string>
+	<string>Cambio de vocal, sin final. Pasado y participio iguales. Patrón de cambio i - ou - ou</string>
+	<string>Cambio de vocal, sin final. Pasado y participio iguales. Cambio de vocal ee - e - e</string>
+	<string>¡Los verbos más raros!. Patrón de cambio de vocal i - a - u</string>
+	<string>¡Los verbos más raros!. Cambio de vocal. Presente y participio son iguales</string>
+	<string>¡Los verbos más raros!. Otros</string>
 </array>
 </plist>
