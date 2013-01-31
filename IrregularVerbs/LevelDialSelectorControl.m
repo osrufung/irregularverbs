@@ -7,7 +7,7 @@
 //
 
 #import "LevelDialSelectorControl.h"
-
+#import "HomeViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 
@@ -111,19 +111,42 @@ static float deltaAngle;
     // 1
     container = [[UIView alloc] initWithFrame:self.frame];
     // 2
+    int labelWidth= 130;
+    int labelHeight= 30;
     CGFloat angleSize = 2*M_PI/numberOfSections;
     for (int i = 0; i < numberOfSections; i++) {
         // 4 - Create image view
        
         
         UIImageView *im = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"sectorImage%i.png", (i+currentSector)%numberOfSections ]]];
+        UILabel *lbltxt = [[UILabel alloc] init];
+        NSString *txt = [NSString stringWithFormat:@"LevelLabel_%i",i];
+        [lbltxt setText:NSLocalizedString(txt,nil) ];
+        [lbltxt setFont:[UIFont fontWithName:@"Signika" size:16]];
+        [lbltxt setBackgroundColor:TURQUESATINT];
+        [lbltxt setTextColor:[UIColor whiteColor]];
+        [lbltxt setShadowColor:[UIColor lightGrayColor]];
+        [lbltxt setShadowOffset:CGSizeMake(1.0, 1.0)];
+
+        [im addSubview:lbltxt];
+        
         im.layer.anchorPoint = CGPointMake(1.0f, 0.5f);
+       
         im.layer.position = CGPointMake(container.bounds.size.width/2.0-container.frame.origin.x,
                                         container.bounds.size.height/2.0-container.frame.origin.y);
+        
+        [[lbltxt layer] setAnchorPoint:CGPointMake(0.0f, 1.0f)];
+        [[lbltxt layer] setPosition:CGPointMake(64,im.bounds.size.height/2.0+labelWidth/2.0)];
+        [lbltxt setBounds:CGRectMake(0, 0, labelWidth, labelHeight)];
+        lbltxt.textAlignment = NSTextAlignmentCenter;
+       
+        
+        
+        lbltxt.transform = CGAffineTransformMakeRotation(-M_PI/2);
         im.transform = CGAffineTransformMakeRotation(angleSize*(i) +offsetAngle );
  
         im.tag = i;
-  
+   
  
         // 6 - Add image view to container
         [container addSubview:im];
