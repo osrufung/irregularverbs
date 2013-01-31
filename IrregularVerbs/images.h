@@ -12,7 +12,7 @@
 
 #define imgCheckOkGrey (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"check_ok_grey"]; ZAssert(image, @"Image check_ok_grey not found"); return image; }()
 
-#define imgGreybuttonspacer (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"greyButtonSpacer"]; ZAssert(image, @"Image greyButtonSpacer not found"); return image; }()
+#define imgIcon57 (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"icon57"]; ZAssert(image, @"Image icon57 not found"); return image; }()
 
 #define imgBookBookmark24 (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"book_bookmark_24"]; ZAssert(image, @"Image book_bookmark_24 not found"); return image; }()
 
@@ -30,15 +30,13 @@
 
 #define imgSectorimage1 (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"sectorImage1"]; ZAssert(image, @"Image sectorImage1 not found"); return image; }()
 
-#define imgSectorimage0 (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"sectorImage0"]; ZAssert(image, @"Image sectorImage0 not found"); return image; }()
+#define imgPencil24 (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"pencil_24"]; ZAssert(image, @"Image pencil_24 not found"); return image; }()
 
 #define imgIcon114 (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"icon114"]; ZAssert(image, @"Image icon114 not found"); return image; }()
 
 #define imgGear24 (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"gear_24"]; ZAssert(image, @"Image gear_24 not found"); return image; }()
 
 #define imgCheckmark64 (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"checkmark_64"]; ZAssert(image, @"Image checkmark_64 not found"); return image; }()
-
-#define imgDefault (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"Default"]; ZAssert(image, @"Image Default not found"); return image; }()
 
 #define imgCheckNokRed (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"check_nok_red"]; ZAssert(image, @"Image check_nok_red not found"); return image; }()
 
@@ -48,7 +46,7 @@
 
 #define imgCheckNokDarkGrey (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"check_nok_dark_grey"]; ZAssert(image, @"Image check_nok_dark_grey not found"); return image; }()
 
-#define imgPencil24 (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"pencil_24"]; ZAssert(image, @"Image pencil_24 not found"); return image; }()
+#define imgGreybuttonspacer (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"greyButtonSpacer"]; ZAssert(image, @"Image greyButtonSpacer not found"); return image; }()
 
 #define imgWhitebutton (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"whiteButton"]; ZAssert(image, @"Image whiteButton not found"); return image; }()
 
@@ -60,9 +58,9 @@
 
 #define imgIconajustes (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"iconAjustes"]; ZAssert(image, @"Image iconAjustes not found"); return image; }()
 
-#define imgIconaprender (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"iconAprender"]; ZAssert(image, @"Image iconAprender not found"); return image; }()
+#define imgSectorimage0 (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"sectorImage0"]; ZAssert(image, @"Image sectorImage0 not found"); return image; }()
 
-#define imgDefault568h (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"Default-568h"]; ZAssert(image, @"Image Default-568h not found"); return image; }()
+#define imgIconaprender (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"iconAprender"]; ZAssert(image, @"Image iconAprender not found"); return image; }()
 
 #define imgWhiteCircularBg1 (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"white-circular-bg1"]; ZAssert(image, @"Image white-circular-bg1 not found"); return image; }()
 
@@ -71,8 +69,6 @@
 #define imgMediaShuffle (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"media-shuffle"]; ZAssert(image, @"Image media-shuffle not found"); return image; }()
 
 #define imgCheckNokGrey (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"check_nok_grey"]; ZAssert(image, @"Image check_nok_grey not found"); return image; }()
-
-#define imgIcon57 (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"icon57"]; ZAssert(image, @"Image icon57 not found"); return image; }()
 
 #define imgHomeviewbg (UIImage*)^{ UIImage *image = [UIImage imageNamed:@"HomeViewbg"]; ZAssert(image, @"Image HomeViewbg not found"); return image; }()
 
