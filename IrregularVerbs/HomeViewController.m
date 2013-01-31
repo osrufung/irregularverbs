@@ -88,7 +88,7 @@
     [self.buttonClosePopUp setTitle:NSLocalizedString(@"close", nil) forState:UIControlStateNormal];
 
     //We can change this system button for a custom button with a look more integrated
-    //UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    //
  
     //[button addTarget:self action:@selector(showInfo:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -99,7 +99,9 @@
     [self.labelHeader setTextAlignment:NSTextAlignmentCenter];
     self.navigationItem.titleView = self.labelHeader;
     self.navigationItem.rightBarButtonItem = rightButton;
- 
+    UIButton *hideButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [hideButton setHidden:YES];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hideButton];
     self.title = NSLocalizedString(@"Home", @"Title for Home screen and back buttons");
   
     }
