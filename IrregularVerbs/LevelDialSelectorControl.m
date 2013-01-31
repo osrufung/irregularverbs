@@ -116,11 +116,12 @@ static float deltaAngle;
     CGFloat angleSize = 2*M_PI/numberOfSections;
     for (int i = 0; i < numberOfSections; i++) {
         // 4 - Create image view
-       
+        int absIndex = (i+currentSector)%numberOfSections ;
         
-        UIImageView *im = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"sectorImage%i.png", (i+currentSector)%numberOfSections ]]];
+        UIImageView *im = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"sectorImage%i.png",absIndex ]]];
         UILabel *lbltxt = [[UILabel alloc] init];
-        NSString *txt = [NSString stringWithFormat:@"LevelLabel_%i",i];
+        
+        NSString *txt = [NSString stringWithFormat:@"LevelLabel_%i",absIndex];
         [lbltxt setText:NSLocalizedString(txt,nil) ];
         [lbltxt setFont:[UIFont fontWithName:@"Signika" size:16]];
         [lbltxt setBackgroundColor:TURQUESATINT];

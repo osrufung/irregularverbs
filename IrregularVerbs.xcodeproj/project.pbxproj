@@ -63,6 +63,7 @@
 		0984867C16B6B3BA00CE22C9 /* SectorDial.m in Sources */ = {isa = PBXBuildFile; fileRef = 0984867B16B6B3BA00CE22C9 /* SectorDial.m */; };
 		0993D38416B7FAE5003B3206 /* ImgIndependentHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0993D38316B7FAE5003B3206 /* ImgIndependentHelper.m */; };
 		099AF69116834580001A6BF3 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099AF69016834580001A6BF3 /* PreferencesViewController.m */; };
+		09AF754E16BA67F80075FC0B /* hints.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09AF755016BA67F80075FC0B /* hints.plist */; };
 		09CB352216AEDECC00995380 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CB352116AEDECC00995380 /* AVFoundation.framework */; };
 		09D372DD1681BA4F00F80410 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DC1681BA4F00F80410 /* UIKit.framework */; };
 		09D372DF1681BA4F00F80410 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D372DE1681BA4F00F80410 /* Foundation.framework */; };
@@ -93,7 +94,6 @@
 		E550A5DA169CC87300DCA8D6 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = E550A5D8169CC87300DCA8D6 /* icon114.png */; };
 		E550A5DC169CC88600DCA8D6 /* media-shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = E550A5DB169CC88600DCA8D6 /* media-shuffle.png */; };
 		E570094616939C7300219C24 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E570094516939C7300219C24 /* QuartzCore.framework */; };
-		E57BA4DD16AA1FB0004AFF04 /* hints.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57BA4DC16AA1FB0004AFF04 /* hints.plist */; };
 		E58AC2D616B66D570062D525 /* TestSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58AC2D516B66D570062D525 /* TestSelectorViewController.xib */; };
 		E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D12F81695BAEC00C8DE51 /* VerbsStore.m */; };
 		E5A272B116B98D1900F32524 /* RootTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A272AF16B98D1800F32524 /* RootTestViewController.m */; };
@@ -200,6 +200,8 @@
 		099AF61A1681FBAA001A6BF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		099AF68F16834580001A6BF3 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
 		099AF69016834580001A6BF3 /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
+		09AF754F16BA67F80075FC0B /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/hints.plist; sourceTree = "<group>"; };
+		09AF755116BA68060075FC0B /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/hints.plist; sourceTree = "<group>"; };
 		09CB352116AEDECC00995380 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		09D372D81681BA4F00F80410 /* A list of verbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A list of verbs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D372DC1681BA4F00F80410 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -251,7 +253,6 @@
 		E550A5D8169CC87300DCA8D6 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
 		E550A5DB169CC88600DCA8D6 /* media-shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media-shuffle.png"; sourceTree = "<group>"; };
 		E570094516939C7300219C24 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		E57BA4DC16AA1FB0004AFF04 /* hints.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hints.plist; sourceTree = "<group>"; };
 		E58AC2D516B66D570062D525 /* TestSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestSelectorViewController.xib; sourceTree = "<group>"; };
 		E59D12F71695BAEC00C8DE51 /* VerbsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerbsStore.h; sourceTree = "<group>"; };
 		E59D12F81695BAEC00C8DE51 /* VerbsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerbsStore.m; sourceTree = "<group>"; };
@@ -380,7 +381,7 @@
 				E54DD52216B1517A00271679 /* Default.png */,
 				E54DD52316B1517A00271679 /* Default@2x.png */,
 				0973D9F416AD2C4500A8E30A /* Localizable.strings */,
-				E57BA4DC16AA1FB0004AFF04 /* hints.plist */,
+				09AF755016BA67F80075FC0B /* hints.plist */,
 				09D372E81681BA4F00F80410 /* main.m */,
 				09D372EA1681BA4F00F80410 /* IrregularVerbs-Prefix.pch */,
 				09D372EB1681BA4F00F80410 /* AppDelegate.h */,
@@ -704,7 +705,7 @@
 				E5DB039B16A7EBFB00EE1E80 /* TSCSummaryCell.xib in Resources */,
 				090F8B3D16A7E26B002131E1 /* HistoryDataCell.xib in Resources */,
 				090F8B4216A7E52B002131E1 /* HistoryViewController.xib in Resources */,
-				E57BA4DD16AA1FB0004AFF04 /* hints.plist in Resources */,
+				09AF754E16BA67F80075FC0B /* hints.plist in Resources */,
 				E53DC4F916AC56C6004CF825 /* HintsCell.xib in Resources */,
 				E53DC50216AC7D5B004CF825 /* verbs.plist in Resources */,
 				0973D9F216AD2C4500A8E30A /* Localizable.strings in Resources */,
@@ -821,6 +822,15 @@
 			);
 			name = Localizable.strings;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		09AF755016BA67F80075FC0B /* hints.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09AF754F16BA67F80075FC0B /* es */,
+				09AF755116BA68060075FC0B /* en */,
+			);
+			name = hints.plist;
 			sourceTree = "<group>";
 		};
 		09D372E51681BA4F00F80410 /* InfoPlist.strings */ = {
