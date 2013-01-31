@@ -201,6 +201,9 @@
 }
 
 - (void)resetHistory {
+    for (NSString *key in self.testTypes) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:key];
+    }
     for (Verb *verb in self.allVerbs) {
         [verb resetHistory];
     }

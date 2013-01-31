@@ -14,6 +14,7 @@
 #import "Referee.h"
 #import "Verb.h"
 #import "ImgIndependentHelper.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define TEST_TIMER_INTERVAL 1/60.0f
 
@@ -44,6 +45,12 @@
         [self.view addSubview:self.pager.view];
         self.buttonsHidden = NO;
         self.progressView.backgroundColor = [UIColor clearColor];
+        
+        UIBarButtonItem *statsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause
+                                                                                     target:self
+                                                                                     action:@selector(goToResults)];
+        statsButton.style = UIBarButtonItemStylePlain;
+        self.navigationItem.rightBarButtonItem = statsButton;
     }
     return self;
 }
@@ -145,8 +152,7 @@
     [self.presentedDelegate presentedViewControllerWillDisapear:self];
 }
 
-#pragma mark - TestCardViewControllerDelegate
-
+#pragma mark - UI Status
 
 - (void)updateButtonState {
     [UIView animateWithDuration:0.3 animations:^{
@@ -173,6 +179,8 @@
     [UIView animateWithDuration:0.3 animations:^{
         CGRect frameRect;
         if (self.buttonsHidden) {
+            self.navigationItem.rightBarButtonItem.enabled = NO;
+
             frameRect = self.passButton.frame;
             frameRect.origin.y += frameRect.size.height;
             self.passButton.frame = frameRect;
@@ -191,6 +199,8 @@
             self.pager.view.frame = frameRect;
             
         } else {
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+
             frameRect = self.passButton.frame;
             frameRect.origin.y -= frameRect.size.height;
             self.passButton.frame = frameRect;
@@ -203,7 +213,7 @@
             frameRect = self.failImage.frame;
             frameRect.origin.y -= frameRect.size.height;
             self.failImage.frame = frameRect;
-
+            
             frameRect = self.pager.view.frame;
             frameRect.size.height -= self.passButton.frame.size.height + self.progressView.frame.size.height;
             self.pager.view.frame = frameRect;
@@ -211,6 +221,8 @@
         
     }];
 }
+
+#pragma mark - TestCardViewControllerDelegate
 
 - (void)testCardWillApperar:(TestCardViewController *)cardView {
     self.currentCard = cardView;
@@ -242,11 +254,31 @@
             }
         }
     }
-    NSLog(@"%@ %d",pageViewController.viewControllers[0],completed);
+    NSLog(@"%@",pageViewController.viewControllers);
 }
 
 
 #pragma mark - UIPageViewControllerDataSource
+
+- (void)goToResults {
+
+    // We need a pager's views cache empty to ensure navigation. So we reverse the direction hidding the transition
+    self.pager.view.alpha=0;
+    [self.pager setViewControllers:@[[[TestScoreCardViewController alloc] initWithTestCase:self.testCase]]
+                         direction:UIPageViewControllerNavigationDirectionReverse
+                          animated:NO
+                        completion:nil];
+
+    // Restore visibility
+    [UIView animateWithDuration:0.4
+                     animations:^{
+                         self.pager.view.alpha=1;
+                     }];
+    if (!self.buttonsHidden) {
+        self.buttonsHidden=YES;
+        [self updateButtonFrames];
+    }
+}
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     if ([viewController isMemberOfClass:[TestScoreCardViewController class]]) {

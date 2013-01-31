@@ -21,6 +21,7 @@
 "HistoryLabel" = "Historial";
 "SetupLabel" = "Ajustes";
 "selecttesttype" = "Elige tipo de test";
+"Home" = "Principal";
 
 //Learn View
 "alpha" = "A-Z";
@@ -29,7 +30,7 @@
 //test
 "TestOptions" = "Opciones";
 "TestType" = "Tipo de test";
-"usexofy" = "Limitar a %d de %d";
+"usexofy" = "Usar %d verbos de %d";
 "usehints" = "Usar reglas";
 "scoreboard"= "Marcador";
 "averagetime" ="tiempo de respuesta medio";
@@ -54,7 +55,7 @@
 //Setup
 "levelOfDifficulty" = "Nivel de dificultad";
 "includingverbs_format"=  "(incluyendo %d verbos)";
-"testtime_format" = "Tiempo en test: %ds";
+"testtime_format" = "Test de %d segundos";
 "clearbuttontitle" = "Inicializar datos";
 "clearhistorydata" = "Inicializar datos";
 "clearconsequence"= "Se eliminarán los datos de los test anteriores";

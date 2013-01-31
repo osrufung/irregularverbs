@@ -24,7 +24,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelTime;
 @property (weak, nonatomic) IBOutlet UILabel *labelHint;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundView;
-@property (nonatomic) CGRect simpleFrame;
 
 @property (nonatomic) BOOL useHintsInTest;
 
@@ -36,7 +35,6 @@
 #pragma mark - View lifecicle
 
 - (void)viewDidLoad {
-    self.simpleFrame = self.labelSimple.frame;
 
     self.backgroundView.backgroundColor = [UIColor clearColor];
     self.backgroundView.image = [imgHomebuttonwochevron resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 4, 4)
@@ -45,7 +43,10 @@
     self.backgroundView.layer.shadowOffset = CGSizeMake(0, 2);
     self.backgroundView.layer.shadowRadius = 2;
     self.backgroundView.layer.shadowOpacity = 0.6;
-    self.backgroundView.layer.shadowPath = CGPathCreateWithRect(self.backgroundView.bounds, nil);
+    
+    CGPathRef path = CGPathCreateWithRect(self.backgroundView.bounds, nil);
+    self.backgroundView.layer.shadowPath = path;
+    CFRelease(path);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -76,9 +77,7 @@
         self.labelPast.text = @"";
         self.labelParticiple.text = @"";
         self.labelTime.text = @"";
-        CGRect rFrame = self.labelSimple.frame;
-        rFrame.origin.y = (self.backgroundView.bounds.size.height-rFrame.size.height)/2.0;
-        self.labelSimple.frame = rFrame;
+        self.labelSimple.layer.affineTransform = CGAffineTransformMakeTranslation(0, 0.5*self.backgroundView.bounds.size.height-self.labelSimple.bounds.size.height);
     } else {
         self.labelTranslation.text = self.verb.translation;
         self.labelPast.text = self.verb.past;
@@ -90,6 +89,7 @@
         }
     }
 }
+
 - (void)revealResults {
     self.labelTranslation.alpha = 0;
     self.labelPast.alpha = 0;
@@ -97,7 +97,7 @@
     self.labelTime.alpha = 0;
     [self showCard];
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.labelSimple.frame = self.simpleFrame;
+        self.labelSimple.layer.affineTransform = CGAffineTransformIdentity;
     } completion:^(BOOL finished){
         [UIView animateWithDuration:0.2 animations:^{
             self.labelTranslation.alpha = 1;
@@ -112,7 +112,7 @@
 - (void)revealHint {
     if (!self.verb.testPending) return;
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.labelSimple.frame = self.simpleFrame;
+        self.labelSimple.layer.affineTransform = CGAffineTransformIdentity;
     } completion:^(BOOL finished){
         self.labelHint.text = [[VerbsStore sharedStore] hintForGroupIndex:self.verb.hint];
         [UIView animateWithDuration:0.2 animations:^{
