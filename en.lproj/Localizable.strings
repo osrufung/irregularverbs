@@ -38,6 +38,8 @@
 "fail_format" = "%.0f%% fail";
 "avgtime_format"="Average time %.2fs";
 "nopassverbs" = "No pass verb!";
+"%d of %d" = "%d of %d";
+
 
 
 //Verbs Store

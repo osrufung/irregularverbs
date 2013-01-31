@@ -143,7 +143,8 @@
                    direction:UIPageViewControllerNavigationDirectionForward
                     animated:YES
                   completion:nil];
-     [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
+    self.pageNumberLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d of %d", @"{current page} of {total pages}"),1,self.testCase.verbs.count+1];
+    [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
 }
 
 
@@ -176,49 +177,22 @@
 }
 
 - (void)updateButtonFrames {
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.2 animations:^{
         CGRect frameRect;
         if (self.buttonsHidden) {
             self.navigationItem.rightBarButtonItem.enabled = NO;
-
-            frameRect = self.passButton.frame;
-            frameRect.origin.y += frameRect.size.height;
-            self.passButton.frame = frameRect;
-            frameRect = self.passImage.frame;
-            frameRect.origin.y += frameRect.size.height;
-            self.passImage.frame = frameRect;
-            frameRect = self.failButton.frame;
-            frameRect.origin.y += frameRect.size.height;
-            self.failButton.frame = frameRect;
-            frameRect = self.failImage.frame;
-            frameRect.origin.y += frameRect.size.height;
-            self.failImage.frame = frameRect;
-            
+            self.footerView.layer.affineTransform = CGAffineTransformMakeTranslation(0, self.footerView.frame.size.height);
             frameRect = self.pager.view.frame;
-            frameRect.size.height += self.passButton.frame.size.height + self.progressView.frame.size.height;
+            frameRect.size.height += self.footerView.frame.size.height;
             self.pager.view.frame = frameRect;
             
         } else {
             self.navigationItem.rightBarButtonItem.enabled = YES;
-
-            frameRect = self.passButton.frame;
-            frameRect.origin.y -= frameRect.size.height;
-            self.passButton.frame = frameRect;
-            frameRect = self.passImage.frame;
-            frameRect.origin.y -= frameRect.size.height;
-            self.passImage.frame = frameRect;
-            frameRect = self.failButton.frame;
-            frameRect.origin.y -= frameRect.size.height;
-            self.failButton.frame = frameRect;
-            frameRect = self.failImage.frame;
-            frameRect.origin.y -= frameRect.size.height;
-            self.failImage.frame = frameRect;
-            
+            self.footerView.layer.affineTransform = CGAffineTransformIdentity;
             frameRect = self.pager.view.frame;
-            frameRect.size.height -= self.passButton.frame.size.height + self.progressView.frame.size.height;
+            frameRect.size.height -= self.footerView.frame.size.height;
             self.pager.view.frame = frameRect;
-        }
-        
+        }        
     }];
 }
 
@@ -247,11 +221,16 @@
                 self.buttonsHidden = YES;
                 [self updateButtonFrames];
             }
+            self.pageNumberLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d of %d", @"{current page} of {total pages}"),self.testCase.verbs.count+1,self.testCase.verbs.count+1];
         } else {
             if (self.buttonsHidden) {
                 self.buttonsHidden = NO;
                 [self updateButtonFrames];
             }
+            TestCardViewController *vc = (TestCardViewController *)pageViewController.viewControllers[0];
+            int currentPage = [self.testCase.verbs indexOfObject:vc.verb]+1;
+            self.pageNumberLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d of %d", @"{current page} of {total pages}"),currentPage,self.testCase.verbs.count+1];
+            NSLog(@"page");
         }
     }
     NSLog(@"%@",pageViewController.viewControllers);
