@@ -51,6 +51,7 @@
                                                                                      action:@selector(goToResults)];
         statsButton.style = UIBarButtonItemStylePlain;
         self.navigationItem.rightBarButtonItem = statsButton;
+        self.pageNumberLabel.font = [UIFont fontWithName:@"Signika" size:12];
     }
     return self;
 }
@@ -143,7 +144,7 @@
                    direction:UIPageViewControllerNavigationDirectionForward
                     animated:YES
                   completion:nil];
-    self.pageNumberLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d of %d", @"{current page} of {total pages}"),1,self.testCase.verbs.count+1];
+    self.pageNumberLabel.text = [self stringForPage:1 ofTotal:self.testCase.verbs.count+1];
     [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
 }
 
@@ -213,6 +214,9 @@
 
 #pragma mark - UIPageViewControllerDelegate
 
+- (NSString *)stringForPage:(int)page ofTotal:(int)total {
+    return [NSString stringWithFormat:NSLocalizedString(@"%d of %d", @"{current page} of {total pages}"),page,total];
+}
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
     if (completed) {
@@ -221,7 +225,7 @@
                 self.buttonsHidden = YES;
                 [self updateButtonFrames];
             }
-            self.pageNumberLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d of %d", @"{current page} of {total pages}"),self.testCase.verbs.count+1,self.testCase.verbs.count+1];
+            self.pageNumberLabel.text = [self stringForPage:self.testCase.verbs.count+1 ofTotal:self.testCase.verbs.count+1];
         } else {
             if (self.buttonsHidden) {
                 self.buttonsHidden = NO;
@@ -229,7 +233,7 @@
             }
             TestCardViewController *vc = (TestCardViewController *)pageViewController.viewControllers[0];
             int currentPage = [self.testCase.verbs indexOfObject:vc.verb]+1;
-            self.pageNumberLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d of %d", @"{current page} of {total pages}"),currentPage,self.testCase.verbs.count+1];
+            self.pageNumberLabel.text = [self stringForPage:currentPage ofTotal:self.testCase.verbs.count+1];
             NSLog(@"page");
         }
     }
