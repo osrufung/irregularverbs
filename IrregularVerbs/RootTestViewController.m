@@ -179,6 +179,8 @@
     [UIView animateWithDuration:0.3 animations:^{
         CGRect frameRect;
         if (self.buttonsHidden) {
+            self.navigationItem.rightBarButtonItem.enabled = NO;
+
             frameRect = self.passButton.frame;
             frameRect.origin.y += frameRect.size.height;
             self.passButton.frame = frameRect;
@@ -197,6 +199,8 @@
             self.pager.view.frame = frameRect;
             
         } else {
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+
             frameRect = self.passButton.frame;
             frameRect.origin.y -= frameRect.size.height;
             self.passButton.frame = frameRect;
@@ -274,7 +278,6 @@
                      animations:^{
                          self.pager.view.alpha=1;
                      }];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
     if (!self.buttonsHidden) {
         self.buttonsHidden=YES;
         [self updateButtonFrames];
@@ -288,9 +291,7 @@
     if ([viewController isMemberOfClass:[TestCardViewController class]]) {
         TestCardViewController *current = (TestCardViewController *)viewController;
         UIViewController *next = [self testCardViewAtIndex:[self.testCase.verbs indexOfObject:current.verb]+1];
-        self.navigationItem.rightBarButtonItem.enabled = YES;
         if (!next) {
-            self.navigationItem.rightBarButtonItem.enabled = NO;
             return [[TestScoreCardViewController alloc] initWithTestCase:self.testCase];
         }
         return next;
@@ -299,7 +300,6 @@
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    self.navigationItem.rightBarButtonItem.enabled = YES;
     if ([viewController isMemberOfClass:[TestScoreCardViewController class]]) {
         return [self testCardViewAtIndex:self.testCase.totalCount-1];
     }
