@@ -68,6 +68,7 @@
     if (self.testPending) {
         _testPending = NO;
         _failed = YES;
+        if (_failureIndex==0) _failureIndex=0.5;
         _failureIndex = _failureIndex + 0.1*(100-_failureIndex);
         NSLog(@"%.2f %d",_failureIndex,self.numberOfFailures);
         self.numberOfFailures++;
@@ -120,6 +121,7 @@
     self.numberOfTests = 0;
     self.numberOfFailures = 0;
     _averageResponseTime = 0.0;
+    _failureIndex = 0.0;
 }
 
 - (NSString *)description {

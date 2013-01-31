@@ -72,7 +72,6 @@
     self.buttonLearn.titleLabel.font = fontButton;
     
     [[self.buttonTest imageView] setContentMode: UIViewContentModeScaleAspectFit];
- ;
     [self.buttonTest setTitle:NSLocalizedString(@"TestLabel", nil) forState:UIControlStateNormal];
     self.buttonTest.titleLabel.font = fontButton;
     
