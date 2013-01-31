@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelTime;
 @property (weak, nonatomic) IBOutlet UILabel *labelHint;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundView;
+@property (weak, nonatomic) IBOutlet UILabel *historyLabel;
 
 @property (nonatomic) BOOL useHintsInTest;
 
@@ -77,11 +78,13 @@
         self.labelPast.text = @"";
         self.labelParticiple.text = @"";
         self.labelTime.text = @"";
+        self.historyLabel.text = @"";
         self.labelSimple.layer.affineTransform = CGAffineTransformMakeTranslation(0, 0.5*self.backgroundView.bounds.size.height-self.labelSimple.bounds.size.height);
     } else {
         self.labelTranslation.text = self.verb.translation;
         self.labelPast.text = self.verb.past;
         self.labelParticiple.text = self.verb.participle;
+        self.historyLabel.text = [NSString stringWithFormat:@"%d/%d",self.verb.passCount,self.verb.testCount];
         if (self.verb.failed) {
             self.labelTime.text = @"";
         } else {
@@ -95,6 +98,7 @@
     self.labelPast.alpha = 0;
     self.labelParticiple.alpha = 0;
     self.labelTime.alpha = 0;
+    self.historyLabel.alpha=0;
     [self showCard];
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.labelSimple.layer.affineTransform = CGAffineTransformIdentity;
@@ -104,6 +108,7 @@
             self.labelPast.alpha = 1;
             self.labelParticiple.alpha = 1;
             self.labelTime.alpha = 1;
+            self.historyLabel.alpha = 1;
             self.labelHint.alpha = 0;
         }];
     }];    
