@@ -136,6 +136,7 @@
 - (void)openSelectedType:(NSString *) typeDescription{
     TestCase *testCase = [[VerbsStore sharedStore] testCaseForTestType:typeDescription];
     RootTestViewController *stack = [[RootTestViewController alloc] initWithTestCase:testCase andPresenterDelegate:self];
+    stack.useHints = self.useHintsSwitch.on;
     [self.navigationController pushViewController:stack animated:YES];
 }
 

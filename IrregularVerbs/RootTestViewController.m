@@ -52,15 +52,10 @@
 
 - (IBAction)testPassed:(UIButton *)sender {
     [self endTestWithFailure:NO];
-    [self.currentCard refreshUIForTestEnd:YES];
-    [self updateButtonState];
-
 }
 
 - (IBAction)testFailed:(UIButton *)sender {
     [self endTestWithFailure:YES];
-    [self.currentCard refreshUIForTestEnd:YES];
-    [self updateButtonState];
 }
 
 #pragma mark - Test Timming
@@ -69,15 +64,13 @@
     float elapsedTime = CACurrentMediaTime() - self.beginTime;
     self.progressView.progress=[[Referee sharedReferee] performanceForValue:elapsedTime];
     self.progressView.backgroundColor = [[Referee sharedReferee] colorForValue:elapsedTime];
-    /*
-    if ((self.progressView.progress>=0.5f)&&(self.useHintsInTest)) {
-        self.labelHint.text = [[VerbsStore sharedStore] hintForGroupIndex:self.verb.hint];
-        [UIView animateWithDuration:0.5 animations:^{ self.labelHint.alpha=1.0f; }];
+
+    if ((self.progressView.progress>=0.5f)&&(self.useHints)) {
+        [self.currentCard revealHint];
     }
-     */
+    
     if (self.progressView.progress>=1.0f) {
         [self endTestWithFailure:YES];
-        [self.currentCard refreshUIForTestEnd:YES];
     }
 }
 
@@ -105,7 +98,12 @@
             [self.currentCard.verb failTest];
         else
             [self.currentCard.verb passTestWithTime:self.responseTime];
-    } else if (failure) [self.currentCard.verb failTest];
+        [self.currentCard revealResults];
+    } else if (failure) {
+        [self.currentCard.verb failTest];
+        [self.currentCard hideTime];
+    }
+    [self updateButtonState];
 }
 
 - (void)cancelTest {

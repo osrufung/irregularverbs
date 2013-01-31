@@ -16,6 +16,9 @@
 @property (nonatomic,weak) Verb *verb;
 @property (nonatomic,weak) id<TestCardViewControllerDelegate> delegate;
 
-- (void)refreshUIForTestEnd:(BOOL)testEnd;
+- (void)revealResults;
+- (void)revealHint;
+- (void)hideTime;
+
 
 @end

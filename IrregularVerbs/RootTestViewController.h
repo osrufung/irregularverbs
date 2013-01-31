@@ -18,6 +18,7 @@
 @interface RootTestViewController : UIViewController<UIPageViewControllerDataSource,UIPageViewControllerDelegate,TestCardViewControllerDelegate>
 
 @property (strong,nonatomic) TestCase *testCase;
+@property (nonatomic) BOOL useHints;
 
 @property (weak, nonatomic) IBOutlet UIButton *passButton;
 @property (weak, nonatomic) IBOutlet UIButton *failButton;

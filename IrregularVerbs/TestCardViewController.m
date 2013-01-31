@@ -36,17 +36,22 @@
 #pragma mark - View lifecicle
 
 - (void)viewDidLoad {
+    self.simpleFrame = self.labelSimple.frame;
+
     self.backgroundView.backgroundColor = [UIColor clearColor];
     self.backgroundView.image = [imgHomebuttonwochevron resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 4, 4)
                                                               resizingMode:UIImageResizingModeStretch];
-    self.simpleFrame = self.labelSimple.frame;
+    self.backgroundView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.backgroundView.layer.shadowOffset = CGSizeMake(0, 2);
+    self.backgroundView.layer.shadowRadius = 2;
+    self.backgroundView.layer.shadowOpacity = 0.6;
+    self.backgroundView.layer.shadowPath = CGPathCreateWithRect(self.backgroundView.bounds, nil);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self refreshUIForTestEnd:NO];
-    self.labelHint.alpha = 0;
     self.useHintsInTest = [[NSUserDefaults standardUserDefaults] boolForKey:@"hintsInTest"];
     if ([self.delegate respondsToSelector:@selector(testCardWillApperar:)]) [self.delegate testCardWillApperar:self];
+    [self showCard];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -63,10 +68,9 @@
 
 #pragma mark - UI
 
-- (void)refreshUIForTestEnd:(BOOL)testEnd {
-    
+- (void)showCard {
     self.labelSimple.text = self.verb.simple;
-    
+    self.labelHint.text = @"";
     if (self.verb.testPending) {
         self.labelTranslation.text = @"";
         self.labelPast.text = @"";
@@ -85,24 +89,42 @@
             self.labelTime.text = [NSString stringWithFormat:@"%.2fs",self.verb.responseTime];
         }
     }
-
-    if (testEnd) {
-        self.labelTranslation.alpha = 0;
-        self.labelPast.alpha = 0;
-        self.labelParticiple.alpha = 0;
-        self.labelTime.alpha = 0;
-        [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            self.labelSimple.frame = self.simpleFrame;
-        } completion:^(BOOL finished){
-            [UIView animateWithDuration:0.3 animations:^{
-                self.labelTranslation.alpha = 1;
-                self.labelPast.alpha = 1;
-                self.labelParticiple.alpha = 1;
-                self.labelTime.alpha = 1;
-                self.labelHint.alpha = 0;
-            }];
+}
+- (void)revealResults {
+    self.labelTranslation.alpha = 0;
+    self.labelPast.alpha = 0;
+    self.labelParticiple.alpha = 0;
+    self.labelTime.alpha = 0;
+    [self showCard];
+    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.labelSimple.frame = self.simpleFrame;
+    } completion:^(BOOL finished){
+        [UIView animateWithDuration:0.2 animations:^{
+            self.labelTranslation.alpha = 1;
+            self.labelPast.alpha = 1;
+            self.labelParticiple.alpha = 1;
+            self.labelTime.alpha = 1;
+            self.labelHint.alpha = 0;
         }];
-    }
+    }];    
+}
+
+- (void)revealHint {
+    if (!self.verb.testPending) return;
+    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.labelSimple.frame = self.simpleFrame;
+    } completion:^(BOOL finished){
+        self.labelHint.text = [[VerbsStore sharedStore] hintForGroupIndex:self.verb.hint];
+        [UIView animateWithDuration:0.2 animations:^{
+            self.labelHint.alpha = 1;
+        }];
+    }];
+}
+
+- (void)hideTime {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.labelTime.alpha = 0;
+    }];
 }
 
 @end
