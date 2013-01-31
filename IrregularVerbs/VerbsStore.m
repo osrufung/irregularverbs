@@ -98,7 +98,9 @@
     }
     return _allVerbs;
 }
-
+/*
+ verbs hints extracted from http://www.whitesmoke.com/english-irregular-verbs
+ */
 - (NSArray *)hints {
     if (!_hints) {
         _hints  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"hints" ofType:@"plist"]];

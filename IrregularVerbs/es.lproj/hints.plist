@@ -2,21 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>Verbs without hints</string>
-	<string>Irregular ending with no vowel change. Past and participle are equal. 'd' ending changes to 't', 'ent' changes to 'end'</string>
-	<string>Irregular ending with no vowel change. Past and participle are equal. The verbs 'have' and 'make'</string>
+	<string>Verbos sin reglas</string>
+	<string>Irregular ending with no vowel change. Past and participle are equal. &apos;d&apos; ending changes to &apos;t&apos;, &apos;ent&apos; changes to &apos;end&apos;</string>
+	<string>Irregular ending with no vowel change. Past and participle are equal. The verbs &apos;have&apos; and &apos;make&apos;</string>
 	<string>Irregular ending with no vowel change. Past and participle are equal. Regular past and participle in US English, irregular in UK English</string>
-	<string>Irregular ending with no vowel change. Past and participle are equal. 'ay' ending changes to 'aid'</string>
-	<string>Vowel change, irregular ending. Past and participle are equal. Vowel change , 'd' or 't' ending</string>
-	<string>Vowel change, irregular ending. Past and participle are equal. Different pronunciation of the same vowel ('d' or 't' ending)</string>
-	<string>Vowel change, irregular ending. Past and participle are equal. 'ell' turns to 'old'</string>
-	<string>Vowel change, irregular ending. Past and participle are equal. Vowel change with 'ought' (or '*aught') ending</string>
-	<string>Verbs with the same form. Present, past and participle are equal. Verbs that do not change ('d' or 't' ending)</string>
-	<string>Vowel change, participle ending with '(e)n'. Past and participle with long /o/ sound</string>
-	<string>Vowel change, participle ending with '(e)n'. Past long 'o' sound, participle 'shirt' /i/ sound</string>
-	<string>Vowel change, participle ending with '(e)n'.</string>
-	<string>Vowel change, participle ending with '(e)n'. The 'ear-ore-orn' pattern</string>
-	<string>Vowel change, participle ending with '(e)n'. Present with 'ow', past with 'ew', participle with 'own'</string>
+	<string>Irregular ending with no vowel change. Past and participle are equal. &apos;ay&apos; ending changes to &apos;aid&apos;</string>
+	<string>Vowel change, irregular ending. Past and participle are equal. Vowel change , &apos;d&apos; or &apos;t&apos; ending</string>
+	<string>Vowel change, irregular ending. Past and participle are equal. Different pronunciation of the same vowel (&apos;d&apos; or &apos;t&apos; ending)</string>
+	<string>Vowel change, irregular ending. Past and participle are equal. &apos;ell&apos; turns to &apos;old&apos;</string>
+	<string>Vowel change, irregular ending. Past and participle are equal. Vowel change with &apos;ought&apos; (or &apos;*aught&apos;) ending</string>
+	<string>Verbs with the same form. Present, past and participle are equal. Verbs that do not change (&apos;d&apos; or &apos;t&apos; ending)</string>
+	<string>Vowel change, participle ending with &apos;(e)n&apos;. Past and participle with long /o/ sound</string>
+	<string>Vowel change, participle ending with &apos;(e)n&apos;. Past long &apos;o&apos; sound, participle &apos;shirt&apos; /i/ sound</string>
+	<string>Vowel change, participle ending with &apos;(e)n&apos;.</string>
+	<string>Vowel change, participle ending with &apos;(e)n&apos;. The &apos;ear-ore-orn&apos; pattern</string>
+	<string>Vowel change, participle ending with &apos;(e)n&apos;. Present with &apos;ow&apos;, past with &apos;ew&apos;, participle with &apos;own&apos;</string>
 	<string>Regular past, regular or irregular participle</string>
 	<string>Vowel change, no ending. Past and participle are equal. Vowel change pattern, no ending</string>
 	<string>Vowel change, no ending. Past and participle are equal. Vowel change pattern i - ou - ou</string>
