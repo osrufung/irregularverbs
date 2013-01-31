@@ -262,14 +262,10 @@
 
 - (void)goToResults {
 
-    // We need to full the pager's cached views with the last verb to ensure a correct navigation in reverse from here
+    // We need a pager's views cache empty to ensure navigation. So we reverse the direction hidding the transition
     self.pager.view.alpha=0;
-    [self.pager setViewControllers:@[[self testCardViewAtIndex:self.testCase.verbs.count-1]]
-                         direction:UIPageViewControllerNavigationDirectionForward
-                          animated:NO
-                        completion:nil];
     [self.pager setViewControllers:@[[[TestScoreCardViewController alloc] initWithTestCase:self.testCase]]
-                         direction:UIPageViewControllerNavigationDirectionForward
+                         direction:UIPageViewControllerNavigationDirectionReverse
                           animated:NO
                         completion:nil];
 
