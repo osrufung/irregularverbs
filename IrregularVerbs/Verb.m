@@ -13,6 +13,8 @@
 
 @property (nonatomic) int numberOfTests;
 @property (nonatomic) int numberOfFailures;
+@property (nonatomic,readwrite) float failureIndex;
+
 
 @end
 
@@ -59,8 +61,9 @@
         _testPending=NO;
         _failed=NO;
         [self computeAverageAddingSample:time];
-        _failureIndex = 0.9*_failureIndex;
-        NSLog(@"%.2f %d",_failureIndex,self.numberOfFailures);
+        if (self.failureIndex==0) self.failureIndex=0.5;
+        self.failureIndex = 0.9*self.failureIndex;
+        NSLog(@"%.2f %d",self.failureIndex,self.numberOfFailures);
     }
 }
 
@@ -68,17 +71,17 @@
     if (self.testPending) {
         _testPending = NO;
         _failed = YES;
-        if (_failureIndex==0) _failureIndex=0.5;
-        _failureIndex = _failureIndex + 0.1*(100-_failureIndex);
-        NSLog(@"%.2f %d",_failureIndex,self.numberOfFailures);
+        if (self.failureIndex==0) self.failureIndex=0.5;
+        self.failureIndex = self.failureIndex + 0.1*(1-self.failureIndex);
+        NSLog(@"%.2f %d",self.failureIndex,self.numberOfFailures);
         self.numberOfFailures++;
         self.numberOfTests++;
         
     } else if (!_failed) {
         _failed = YES;
         [self computeAverageRemovingSample:_responseTime];
-        _failureIndex = 0.9*_failureIndex;
-        NSLog(@"%.2f %d",_failureIndex,self.numberOfFailures);
+        self.failureIndex = 0.9*self.failureIndex;
+        NSLog(@"%.2f %d",self.failureIndex,self.numberOfFailures);
         self.numberOfFailures++;
         self.numberOfTests++;
     }
@@ -125,8 +128,8 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%-15s freq:%.4f time:%.2fs hint:%2d test#:%2d fail#:%2d",[self.simple UTF8String],
-            self.frequency, self.averageResponseTime, self.hint,self.numberOfTests,self.numberOfFailures];
+    return [NSString stringWithFormat:@"%-15s freq:%.4f time:%.2fs hint:%2d test#:%2d fail#:%2d failIndex:%.2f",[self.simple UTF8String],
+            self.frequency, self.averageResponseTime, self.hint,self.numberOfTests,self.numberOfFailures,self.failureIndex];
 }
 
 #pragma  mark - NSCoding Persistence

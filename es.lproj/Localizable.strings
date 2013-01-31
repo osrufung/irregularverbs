@@ -30,13 +30,14 @@
 //test
 "TestOptions" = "Opciones";
 "TestType" = "Tipo de test";
-"usexofy" = "Usar %d verbos de %d";
+"usexofy" = "Usar %d de %d";
 "usehints" = "Usar reglas";
 "scoreboard"= "Marcador";
 "averagetime" ="tiempo de respuesta medio";
 "fail_format" = "%.0f%% fallos";
 "avgtime_format"="Tiempo medio %.2fs";
 "nopassverbs" = "Ningún verbo superado";
+"%d of %d" = "%d de %d";
 
 //Verbs Store
 "mostcommon" = "Más comunes";

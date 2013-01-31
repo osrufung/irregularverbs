@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *failButton;
 @property (weak, nonatomic) IBOutlet UIImageView *passImage;
 @property (weak, nonatomic) IBOutlet UIImageView *failImage;
+@property (weak, nonatomic) IBOutlet UILabel *pageNumberLabel;
+@property (weak, nonatomic) IBOutlet UIView *footerView;
 @property (weak, nonatomic) IBOutlet TestProgressView *progressView;
 @property (weak, nonatomic) id<PresentedViewControllerDelegate> presentedDelegate;
 

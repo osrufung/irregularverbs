@@ -35,16 +35,6 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
 
 @implementation HistoryViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-  
-
-    }
-    return self;
-}
-
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -195,20 +185,10 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
         }
         
         int failCount, passCount;
-        if (v.testCount!=0) {
-            failCount = v.failureRatio*100;
-            passCount = 100-failCount;
-            if ((failCount!=0)&&(failCount!=100)) {
-                cell.labelFailed.text = [NSString stringWithFormat:@"%d%% fail",failCount];
-                cell.labelFailed.textColor = [UIColor whiteColor];
-            } else {
-                cell.labelFailed.text = @"";    
-            }
-        } else {
-            failCount = passCount = 0;
-            cell.labelFailed.text = @"";
-        }
-        
+        failCount = v.failureIndex*100;
+        passCount = 100-failCount;
+        if (failCount==0) passCount=0;
+
         [cell.passFailGraph setColorsSaturation:0.3f];
         [cell.passFailGraph setDataCount:100
                            withPassCount:passCount
@@ -268,6 +248,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
             _currentData = nil;
             break;
     }
+    NSLog(@"%@",_currentData);
     [[NSUserDefaults standardUserDefaults] setInteger:criteriaId forKey:@"historyView"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

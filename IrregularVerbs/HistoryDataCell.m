@@ -9,7 +9,6 @@
 #import "HistoryDataCell.h"
 
 @implementation HistoryDataCell
-@synthesize  labelSimple,labelExtendedForms,labelFailed,labelTime;
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
