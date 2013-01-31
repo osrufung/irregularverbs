@@ -32,7 +32,7 @@
         [self setTitleColor:[UIColor whiteColor]        forState:UIControlStateHighlighted];
         [self setBackgroundImage:buttonImage            forState:UIControlStateNormal];
         [self setBackgroundImage:buttonImageHighlight   forState:UIControlStateHighlighted];
-        [self setImage:[UIImage imageNamed:@"iconEvaluar"]   forState:UIControlStateNormal];
+        [self setImage:imgIconevaluar   forState:UIControlStateNormal];
 
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 0);

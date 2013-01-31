@@ -8,6 +8,11 @@
 
 "InfoPopupHome" = "learn, test your knowledge with a small number of verbs, and check your progress. You can increase your level by increasing the number of verbs in Setup.";
 "close" = "close";
+
+"LevelLabel_0" = "BEGINNER";
+"LevelLabel_1" = "MEDIUM";
+"LevelLabel_2" = "EXPERT";
+
 //home View
 "verbstolearn" = "%d verbs to learn";
 "back" = "Home";

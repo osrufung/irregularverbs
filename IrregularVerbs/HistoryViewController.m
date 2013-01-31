@@ -200,7 +200,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
-        NSLog(@"Selected row %d",indexPath.row);
+        DLog(@"Selected row %d",indexPath.row);
         Verb *selectedVerb = _currentData[indexPath.row];
         
         [self.hintsDelegate populateWithVerbsInArray:[[VerbsStore sharedStore] verbsForGroupIndex:selectedVerb.hint]];

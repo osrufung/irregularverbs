@@ -603,7 +603,7 @@
 /* Begin PBXLegacyTarget section */
 		09656A8716B91E510066F99D /* Image Script */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "\"$(SRCROOT)/IrregularVerbs/image.py\"   -s \"$(SRCROOT)/IrregularVerbs\"  -d \"$(SRCROOT)/IrregularVerbs/images.h\"  --warn-retina RETINA --warn-duplicates DUPLICATES";
+			buildArgumentsString = "\"$(SRCROOT)/IrregularVerbs/image.py\"   -s \"$(SRCROOT)/IrregularVerbs\"  -d \"$(SRCROOT)/IrregularVerbs/images.h\" ";
 			buildConfigurationList = 09656A8A16B91E520066F99D /* Build configuration list for PBXLegacyTarget "Image Script" */;
 			buildPhases = (
 			);
@@ -944,6 +944,7 @@
 				09656A8916B91E510066F99D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		09D372D21681BA4F00F80410 /* Build configuration list for PBXProject "IrregularVerbs" */ = {
 			isa = XCConfigurationList;

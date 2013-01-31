@@ -7,6 +7,11 @@
 */
 "InfoPopupHome" = "aprende, verifica tu conocimiento con un pequeño nº de verbos y comprueba tu progreso. Puedes incrementar el nivel aumentando el nº de verbos en Ajustes.";
 "close" = "cerrar";
+
+"LevelLabel_0" = "PRINCIPIANTE";
+"LevelLabel_1" = "MEDIO";
+"LevelLabel_2" = "EXPERTO";
+
 //home View
 "verbstolearn" = "%d verbos para aprender";
 "back" = "Inicio";

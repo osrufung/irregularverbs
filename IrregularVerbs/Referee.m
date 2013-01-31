@@ -80,13 +80,11 @@
 }
 
 - (UIImage *)imageForFail {
-    return [UIImage imageNamed:@"check_nok_red.png"];
-    //return [self paintImage:[UIImage imageNamed:@"check_nok_red.png"] withColor:_colors[_colors.count-1]];
+    return  imgCheckNokRed;
 }
 
 - (UIImage *)imageForValue:(float)value {
-    return [UIImage imageNamed:@"check_ok_green.png"];
-    //return [self paintImage:[UIImage imageNamed:@"check_ok_green.png"] withColor:[self colorForValue:value]];
+    return imgCheckOkGreen;
 }
 
 - (UIColor *)interpolateBetween:(UIColor *)c1 and:(UIColor *)c2 atMix:(float)mix {
