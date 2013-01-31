@@ -16,6 +16,7 @@
 //home View
 "verbstolearn" = "%d verbs to learn";
 "back" = "Home";
+"Home" = "Home";
 "LearnLabel" = "Learn";
 "TestLabel" = "Test";
 "HistoryLabel" = "History";
