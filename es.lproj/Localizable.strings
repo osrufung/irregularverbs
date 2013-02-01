@@ -11,7 +11,8 @@
 "LevelLabel_0" = "PRINCIPIANTE";
 "LevelLabel_1" = "MEDIO";
 "LevelLabel_2" = "EXPERTO";
- 
+"whatyouneedtoknow" = "Algunas pistas para memorizar";
+
 //home View
 "verbstolearn" = "%d verbos para aprender";
 "back" = "Inicio";

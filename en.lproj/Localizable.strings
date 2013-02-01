@@ -12,7 +12,7 @@
 "LevelLabel_0" = "BEGINNER";
 "LevelLabel_1" = "MEDIUM";
 "LevelLabel_2" = "EXPERT";
- 
+"whatyouneedtoknow" = "What you need to know";
 
 //home View
 "verbstolearn" = "%d verbs to learn";
