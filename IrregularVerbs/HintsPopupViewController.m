@@ -46,7 +46,14 @@
     self.closeButton.titleLabel.font = [UIFont fontWithName:@"Signika" size:18];
 
     self.view.backgroundColor = [UIColor appTintColor];
-    self.view.layer.cornerRadius = 8;
+    self.view.layer.shadowOpacity = 0.3;
+    self.view.layer.shadowOffset = CGSizeMake(10, 10);
+    self.view.layer.cornerRadius = 4;
+    
+    CGPathRef path = CGPathCreateWithRect(self.view.frame, nil);
+    self.view.layer.shadowPath = path;
+    CGPathRelease(path);
+    
     [self.titleLabel setText:NSLocalizedString(@"whatyouneedtoknow", nil)];
     [self.closeButton setTitle:NSLocalizedString(@"close",nil) forState:UIControlStateNormal];
 }

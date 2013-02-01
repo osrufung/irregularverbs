@@ -59,8 +59,11 @@
     self.popupView.layer.cornerRadius = 4;
     self.popupView.layer.shadowOpacity = 0.3;
     self.popupView.layer.shadowOffset = CGSizeMake(10, 10   );
-    self.popupView.layer.shouldRasterize = YES;
-    self.popupView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    
+    // A better way to get great performance that rasterizing all the view
+    CGPathRef path = CGPathCreateWithRect(self.popupView.frame, nil);
+    self.popupView.layer.shadowPath = path;
+    CGPathRelease(path);
     
     [[self labelPopUp] setText:NSLocalizedString(@"InfoPopupHome", @"info about App at home")];
 
@@ -171,7 +174,7 @@
  
 
 - (IBAction)showInfo:(id)sender {
-        [ASDepthModalViewController presentView:self.popupView withBackgroundColor:[UIColor whiteColor] popupAnimationStyle:ASDepthModalAnimationGrow];
+        [ASDepthModalViewController presentView:self.popupView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationGrow];
 }
 - (IBAction)openLearn:(id)sender {
     [[self navigationController] pushViewController:[[CardsTableViewController alloc] init]
