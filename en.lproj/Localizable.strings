@@ -60,9 +60,8 @@
 "levelOfDifficulty" = "Level of difficulty";
 "includingverbs_format"=  "(including %d verbs)";
 "testtime_format" = "Test time is %d sec";
-"clearbuttontitle" = "Clear Statistics";
-"clearhistorydata" = "Clear Historical Data";
-"clearconsequence"= "You will clear all the data from old tests";
+"clearhistorydata" = "Reset progress";
+"clearconsequence"= "You will clear all the data from old tests. Are you sure?";
 "cancel" = "Cancel";
 "clearall" = "Clear All";
 "aboutbuttontitle" = "Show Project Info at GitHub";
