@@ -166,12 +166,6 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.3;
     [dismissButton addTarget:self action:@selector(handleCloseAction:) forControlEvents:UIControlEventTouchDown];
     [self.coverView addSubview:dismissButton];
     
-    id taggedView = [self.popupView viewWithTag:TAG_CLOSEBUTTON_ASDEPTHMODALVIEWCONTROLLER];
-    if ([taggedView isKindOfClass:[UIButton class]]) {
-        UIButton *closeButton = taggedView;
-        [closeButton addTarget:self action:@selector(handleCloseAction:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
     [self.coverView addSubview:self.popupView];
     self.popupView.center = CGPointMake(self.coverView.bounds.size.width/2, self.coverView.bounds.size.height/2);
     

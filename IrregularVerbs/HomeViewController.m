@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 //
 
+#import "ColorsDefinition.h"
 #import "HomeViewController.h"
 #import "VerbsStore.h"
 #import <QuartzCore/QuartzCore.h>

@@ -36,8 +36,6 @@ typedef enum
     
 } ASDepthModalAnimationStyle;
 
-#define TAG_CLOSEBUTTON_ASDEPTHMODALVIEWCONTROLLER 101
-
 /*
 Mostly inspired by http://lab.hakim.se/avgrund/
 */

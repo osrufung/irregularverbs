@@ -7,7 +7,7 @@
 //
 
 #import "LevelDialSelectorControl.h"
-#import "HomeViewController.h"
+#import "ColorsDefinition.h"
 #import <QuartzCore/QuartzCore.h>
 
 

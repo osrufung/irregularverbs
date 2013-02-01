@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 //
 
+#import "ColorsDefinition.h"
 #import "HintsPopupViewController.h"
 #import "HintsTableDelegate.h"
 #import "VerbsStore.h"
@@ -39,13 +40,17 @@
     self.tableView.dataSource = self.delegate;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = TURQUESATINT;
     self.view.layer.cornerRadius = 8;
-    self.closeButton.tag = TAG_CLOSEBUTTON_ASDEPTHMODALVIEWCONTROLLER;    
 }
 
 - (void)showPopupForHint:(int)hint {
     [self.delegate populateWithVerbsInArray:[[VerbsStore sharedStore] verbsForGroupIndex:hint]];
     [ASDepthModalViewController presentViewController:self withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationGrow];
+}
+
+- (IBAction)dissmissPopup:(UIButton *)sender {
+    [ASDepthModalViewController dismiss];
 }
 
 @end
