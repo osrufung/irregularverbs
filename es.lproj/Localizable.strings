@@ -58,9 +58,9 @@
 "levelOfDifficulty" = "Nivel de dificultad";
 "includingverbs_format"=  "(incluyendo %d verbos)";
 "testtime_format" = "Test de %d segundos";
-"clearbuttontitle" = "Inicializar datos";
-"clearhistorydata" = "Inicializar datos";
-"clearconsequence"= "Se eliminarán los datos de los test anteriores";
+
+"clearhistorydata" = "Reiniciar progreso";
+"clearconsequence"= "Se eliminará las estadísticas de estudio. ¿Estás seguro?";
 "cancel" = "Cancelar";
-"clearall" = "Inicializar";
+"clearall" = "Reiniciar";
 "aboutbuttontitle" = "Ver info del proyecto en GitHub";
