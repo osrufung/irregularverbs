@@ -81,11 +81,12 @@
     [self.buttonHistory setTitle:NSLocalizedString(@"HistoryLabel", nil) forState:UIControlStateNormal];
     self.buttonHistory.titleLabel.font = fontButton;
     
+    /*
     [[self.buttonSetup imageView] setContentMode: UIViewContentModeScaleAspectFit];
 
     [self.buttonSetup setTitle:NSLocalizedString(@"SetupLabel", nil) forState:UIControlStateNormal];
     self.buttonSetup.titleLabel.font = fontButton;
-    
+    */
     [self.buttonClosePopUp setTitle:NSLocalizedString(@"close", nil) forState:UIControlStateNormal];
 
     //We can change this system button for a custom button with a look more integrated
@@ -193,5 +194,10 @@
 
 - (IBAction)closePopUp:(id)sender {
       [ASDepthModalViewController dismiss];
+}
+
+- (IBAction)showProjectInfo:(id)sender {
+    NSString *launchUrl= [[NSUserDefaults standardUserDefaults] stringForKey:@"aboutProjectURL"];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 }
 @end

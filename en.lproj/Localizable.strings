@@ -6,13 +6,13 @@
   Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 */
 
-"InfoPopupHome" = "learn, test your knowledge with a small number of verbs, and check your progress. You can increase your level by increasing the number of verbs in Setup.";
+"InfoPopupHome" = "learn, test your knowledge with a small number of verbs, and check your progress. You can increase your level by setting the dial in Home.";
 "close" = "close";
 
 "LevelLabel_0" = "BEGINNER";
 "LevelLabel_1" = "MEDIUM";
 "LevelLabel_2" = "EXPERT";
- 
+"whatyouneedtoknow" = "What you need to know";
 
 //home View
 "verbstolearn" = "%d verbs to learn";

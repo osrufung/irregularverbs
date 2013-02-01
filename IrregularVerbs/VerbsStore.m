@@ -155,7 +155,7 @@
 }
 -(NSArray *)defaultFrequencyGroups
 {
-    return @[@0.4, @0.9, @1.0];
+    return @[@0.6, @0.8, @1.0];
 }
 -(int)currentFrequencyByGroup{
     float freq = [[NSUserDefaults standardUserDefaults] floatForKey:@"frequency"];
@@ -172,9 +172,9 @@
     }
     return 0;
 }
-- (int)lastTestFailedVerbsCount {
-    NSPredicate *isFailed = [NSPredicate predicateWithFormat:@"isPendingOrFailed == %d",TRUE];
-    return [[self.currentList filteredArrayUsingPredicate:isFailed] count];
+- (int)failedOrNotTestedVerbsCount {
+    NSPredicate *isPendingPred = [NSPredicate predicateWithFormat:@"(numberOfTests == 0) OR (numberOfFailures == numberOfTests) "];
+    return [[self.currentList filteredArrayUsingPredicate:isPendingPred] count];
     
 }
 

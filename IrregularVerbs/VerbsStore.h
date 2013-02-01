@@ -34,5 +34,6 @@
 
 - (NSArray *) defaultFrequencyGroups;
 - (int)currentFrequencyByGroup;
+- (int)failedOrNotTestedVerbsCount;
 
 @end

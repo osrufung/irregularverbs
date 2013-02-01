@@ -26,9 +26,11 @@
     
     //not frequency? default frequency for a minimal verbs 
     float frequency = [[NSUserDefaults standardUserDefaults] floatForKey:@"frequency"];
-    if(frequency == 0.0)
-        [[NSUserDefaults standardUserDefaults] setFloat:0.4 forKey:@"frequency"];
     
+    if(frequency == 0.0){
+        int defFreq = [[[[VerbsStore sharedStore] defaultFrequencyGroups]objectAtIndex:0] intValue];    
+        [[NSUserDefaults standardUserDefaults] setFloat:defFreq forKey:@"frequency"];
+    }
     HomeViewController *hvc = [[HomeViewController alloc] init];
   
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:hvc];
@@ -63,8 +65,8 @@
         NSLog(@"Error saving VerbStore State");
     }
     
-    
-    [UIApplication sharedApplication].applicationIconBadgeNumber = [[[VerbsStore sharedStore] alphabetic] count];
+     
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [[VerbsStore sharedStore] failedOrNotTestedVerbsCount];
     
 }
 

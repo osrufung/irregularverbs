@@ -20,4 +20,5 @@
 - (IBAction)openHistory:(id)sender;
 - (IBAction)openSetup:(id)sender; 
 - (IBAction)closePopUp:(id)sender;
+- (IBAction)showProjectInfo:(id)sender;
 @end
