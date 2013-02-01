@@ -143,7 +143,7 @@
     }];
 }
 - (IBAction)showHintsPopup:(UIButton *)sender {
-    [HintsPopupViewController showPopupForHint:[sender.titleLabel.text integerValue]];
+    [HintsPopupViewController showPopupForHint:self.verb.hint];
 }
 
 @end
