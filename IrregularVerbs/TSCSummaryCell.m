@@ -15,11 +15,19 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        [[self labelTitle] setText:NSLocalizedString(@"scoreboard", nil)];
+        //NO! a Custom cell never will be started with initWithStyle. You must use awakeFromNib  or modify from the view controller (osrufung) 
+        // http://stackoverflow.com/questions/12710235/custom-uitableviewcell-init
+        //[[self labelTitle] setText:NSLocalizedString(@"scoreboard", nil)];
 
     }
     return self;
 }
+ 
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    [[self labelTitle] setText:NSLocalizedString(@"scoreboard", nil)];
+}
+ 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
