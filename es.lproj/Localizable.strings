@@ -11,12 +11,12 @@
 "LevelLabel_0" = "PRINCIPIANTE";
 "LevelLabel_1" = "MEDIO";
 "LevelLabel_2" = "EXPERTO";
-
+ 
 //home View
 "verbstolearn" = "%d verbos para aprender";
 "back" = "Inicio";
 "Home"= "Inicio";
-"LearnLabel" = "Aprender";
+"LearnLabel" = "Consultar";
 "TestLabel" = "Evaluar";
 "HistoryLabel" = "Historial";
 "SetupLabel" = "Ajustes";
@@ -25,13 +25,13 @@
 
 //Learn View
 "alpha" = "A-Z";
-"hints" = "por reglas";
+"hints" = "por pistas";
 
 //test
 "TestOptions" = "Opciones";
 "TestType" = "Tipo de test";
 "usexofy" = "Usar %d de %d";
-"usehints" = "Usar reglas";
+"usehints" = "Usar pistas";
 "scoreboard"= "Marcador";
 "averagetime" ="tiempo de respuesta medio";
 "fail_format" = "%.0f%% fallos";
@@ -45,12 +45,12 @@
 "mostfailed" = "Más falladas";
 "randomchose"= "Aleatorio";
 "leasttested"="Menos evaluadas";
-"byhintgroup" = "Por regla";
+"byhintgroup" = "Por pista";
 
 //history
 "historyLabel" = "Historial";
-"averagetime_abrev" = "T. medio";
-"failures" = "Nº fallos";
+"averagetime_abrev" = "Tiempo";
+"failures" = "Dominio";
 
 
 //Setup
