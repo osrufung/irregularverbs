@@ -8,7 +8,7 @@
 
 #import "PassFailGraphView.h"
 #import "UIColor+Saturation.h"
-#import "HomeViewController.h"
+#import "ColorsDefinition.h"
 
 @interface PassFailGraphView()
 @property (nonatomic) int total;

@@ -14,10 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *criteriaControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UIView *helpView;
-@property (weak, nonatomic) IBOutlet UITableView *tableHelp;
 
 - (IBAction)sortCriteriaChanged:(id)sender;
-- (IBAction)closeHelpView:(UIButton *)sender;
 
 @end

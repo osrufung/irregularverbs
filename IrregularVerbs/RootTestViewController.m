@@ -130,9 +130,9 @@
 }
 
 
-#pragma mark - View Visibility
+#pragma mark - View Lifecicle
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewDidLoad{
     self.title = self.testCase.description;
     CGRect pbFrame = self.view.frame;
     CGRect pgFrame = self.progressView.frame;
@@ -141,11 +141,11 @@
                                    self.view.bounds.size.width, pbFrame.size.height-btFrame.size.height-pgFrame.size.height);
     self.pager.view.frame = pagerFrame;
     [self.pager setViewControllers:@[[self testCardViewAtIndex:0]]
-                   direction:UIPageViewControllerNavigationDirectionForward
-                    animated:YES
-                  completion:nil];
+                         direction:UIPageViewControllerNavigationDirectionForward
+                          animated:YES
+                        completion:nil];
     self.pageNumberLabel.text = [self stringForPage:1 ofTotal:self.testCase.verbs.count+1];
-    [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
+    [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];    
 }
 
 

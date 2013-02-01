@@ -49,6 +49,8 @@
 		E570094616939C7300219C24 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E570094516939C7300219C24 /* QuartzCore.framework */; };
 		E58AC2D616B66D570062D525 /* TestSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58AC2D516B66D570062D525 /* TestSelectorViewController.xib */; };
 		E59D12F91695BAEC00C8DE51 /* VerbsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E59D12F81695BAEC00C8DE51 /* VerbsStore.m */; };
+		E5A0A7CE16BBBD9F00ADC8E9 /* HintsPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A0A7CC16BBBD9F00ADC8E9 /* HintsPopupViewController.m */; };
+		E5A0A7CF16BBBD9F00ADC8E9 /* HintsPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A0A7CD16BBBD9F00ADC8E9 /* HintsPopupViewController.xib */; };
 		E5A272B116B98D1900F32524 /* RootTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A272AF16B98D1800F32524 /* RootTestViewController.m */; };
 		E5A272B216B98D1900F32524 /* RootTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A272B016B98D1900F32524 /* RootTestViewController.xib */; };
 		E5A2E37616BAD8EE009C7700 /* book_bookmark_24.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A2E33D16BAD8EE009C7700 /* book_bookmark_24.png */; };
@@ -211,6 +213,10 @@
 		E58AC2D516B66D570062D525 /* TestSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestSelectorViewController.xib; sourceTree = "<group>"; };
 		E59D12F71695BAEC00C8DE51 /* VerbsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerbsStore.h; sourceTree = "<group>"; };
 		E59D12F81695BAEC00C8DE51 /* VerbsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerbsStore.m; sourceTree = "<group>"; };
+		E5A0A7CB16BBBD9F00ADC8E9 /* HintsPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HintsPopupViewController.h; sourceTree = "<group>"; };
+		E5A0A7CC16BBBD9F00ADC8E9 /* HintsPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HintsPopupViewController.m; sourceTree = "<group>"; };
+		E5A0A7CD16BBBD9F00ADC8E9 /* HintsPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HintsPopupViewController.xib; sourceTree = "<group>"; };
+		E5A0A7D016BBD81400ADC8E9 /* ColorsDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorsDefinition.h; sourceTree = "<group>"; };
 		E5A272AE16B98D1800F32524 /* RootTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTestViewController.h; sourceTree = "<group>"; };
 		E5A272AF16B98D1800F32524 /* RootTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTestViewController.m; sourceTree = "<group>"; };
 		E5A272B016B98D1900F32524 /* RootTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootTestViewController.xib; sourceTree = "<group>"; };
@@ -404,6 +410,7 @@
 		E52F436B16A81C6E00220CF1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E5A0A7D016BBD81400ADC8E9 /* ColorsDefinition.h */,
 				0973DA0B16ADB9F700A8E30A /* HomeViewController.h */,
 				0973DA0C16ADB9F700A8E30A /* HomeViewController.m */,
 				0973DA0D16ADB9F700A8E30A /* HomeViewController.xib */,
@@ -500,6 +507,7 @@
 		E550A5EB169CC92700DCA8D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E5A0A7CA16BBBD6E00ADC8E9 /* Hints */,
 				E52F436B16A81C6E00220CF1 /* Home */,
 				E5B0A74916A8B55800ADEBCE /* Learn */,
 				E52F436E16A81CA100220CF1 /* Test */,
@@ -601,6 +609,16 @@
 				E5A2E37516BAD8EE009C7700 /* whiteButtonHighlight@2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		E5A0A7CA16BBBD6E00ADC8E9 /* Hints */ = {
+			isa = PBXGroup;
+			children = (
+				E5A0A7CB16BBBD9F00ADC8E9 /* HintsPopupViewController.h */,
+				E5A0A7CC16BBBD9F00ADC8E9 /* HintsPopupViewController.m */,
+				E5A0A7CD16BBBD9F00ADC8E9 /* HintsPopupViewController.xib */,
+			);
+			name = Hints;
 			sourceTree = "<group>";
 		};
 		E5B0A74916A8B55800ADEBCE /* Learn */ = {
@@ -768,6 +786,7 @@
 				E5A2E3AC16BAD8EE009C7700 /* whiteButton@2x.png in Resources */,
 				E5A2E3AD16BAD8EE009C7700 /* whiteButtonHighlight.png in Resources */,
 				E5A2E3AE16BAD8EE009C7700 /* whiteButtonHighlight@2x.png in Resources */,
+				E5A0A7CF16BBBD9F00ADC8E9 /* HintsPopupViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,6 +827,7 @@
 				0984867C16B6B3BA00CE22C9 /* SectorDial.m in Sources */,
 				0993D38416B7FAE5003B3206 /* ImgIndependentHelper.m in Sources */,
 				E5A272B116B98D1900F32524 /* RootTestViewController.m in Sources */,
+				E5A0A7CE16BBBD9F00ADC8E9 /* HintsPopupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
