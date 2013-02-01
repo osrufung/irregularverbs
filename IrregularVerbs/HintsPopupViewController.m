@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 //
 
-#import "ColorsDefinition.h"
+#import "UIColor+IrregularVerbs.h"
 #import "HintsPopupViewController.h"
 #import "HintsTableDelegate.h"
 #import "VerbsStore.h"
@@ -40,7 +40,12 @@
     self.tableView.dataSource = self.delegate;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor whiteColor];
-    self.view.backgroundColor = TURQUESATINT;
+    
+    [self.closeButton setTitleColor:[UIColor lightGrayColor]    forState:UIControlStateNormal];
+    [self.closeButton setTitleColor:[UIColor whiteColor]        forState:UIControlStateHighlighted];
+    self.closeButton.titleLabel.font = [UIFont fontWithName:@"Signika" size:18];
+
+    self.view.backgroundColor = [UIColor appTintColor];
     self.view.layer.cornerRadius = 8;
 }
 

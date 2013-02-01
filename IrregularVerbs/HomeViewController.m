@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 //
 
-#import "ColorsDefinition.h"
+#import "UIColor+IrregularVerbs.h"
 #import "HomeViewController.h"
 #import "VerbsStore.h"
 #import <QuartzCore/QuartzCore.h>
@@ -149,7 +149,7 @@
     NSString *str = [NSString stringWithFormat: NSLocalizedString(@"verbstolearn", @"home label descriptor"), cntVerbs];
     NSMutableAttributedString *result  = [[NSMutableAttributedString alloc] initWithString:str];
     
-    NSDictionary *attributesForNumber = @{NSFontAttributeName:fontBold,NSForegroundColorAttributeName:TURQUESATINT};
+    NSDictionary *attributesForNumber = @{NSFontAttributeName:fontBold,NSForegroundColorAttributeName:[UIColor appTintColor]};
     
         NSDictionary *attributesForTest = @{NSFontAttributeName:fontRegular,NSForegroundColorAttributeName:[UIColor darkGrayColor]};
  

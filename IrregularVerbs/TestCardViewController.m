@@ -12,6 +12,8 @@
 #import "TestProgressView.h"
 #import "Referee.h"
 #import "HintsPopupViewController.h"
+#import "UIColor+Saturation.h"
+#import "UIColor+IrregularVerbs.h"
 #import  <QuartzCore/QuartzCore.h>
 
 #define TEST_TIMER_INTERVAL 1/60.0f
@@ -47,6 +49,9 @@
     self.backgroundView.layer.shadowRadius = 2;
     self.backgroundView.layer.shadowOpacity = 0.6;
     
+    [self.hintsButton setTitleColor:[[UIColor appTintColor] colorWithSaturation:0.3] forState:UIControlStateNormal];
+    [self.hintsButton setTitleColor:[UIColor appTintColor] forState:UIControlStateHighlighted];
+    
     CGPathRef path = CGPathCreateWithRect(self.backgroundView.bounds, nil);
     self.backgroundView.layer.shadowPath = path;
     CFRelease(path);
@@ -81,14 +86,13 @@
         self.labelParticiple.text = @"";
         self.labelTime.text = @"";
         self.historyLabel.text = @"";
-        [self.hintsButton setTitle:@"" forState:UIControlStateNormal];
         self.labelSimple.layer.affineTransform = CGAffineTransformMakeTranslation(0, 0.5*self.backgroundView.bounds.size.height-self.labelSimple.bounds.size.height);
+        self.hintsButton.alpha = 0;
     } else {
         self.labelTranslation.text = self.verb.translation;
         self.labelPast.text = self.verb.past;
         self.labelParticiple.text = self.verb.participle;
         self.historyLabel.text = [NSString stringWithFormat:@"%d/%d",self.verb.passCount,self.verb.testCount];
-        [self.hintsButton setTitle:[NSString stringWithFormat:@"%d",self.verb.hint] forState:UIControlStateNormal];
         if (self.verb.failed) {
             self.labelTime.text = @"";
         } else {
@@ -134,6 +138,7 @@
 
 - (void)hideTime {
     [UIView animateWithDuration:0.3 animations:^{
+        self.historyLabel.text = [NSString stringWithFormat:@"%d/%d",self.verb.passCount,self.verb.testCount];
         self.labelTime.alpha = 0;
     }];
 }

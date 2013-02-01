@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "VerbsStore.h" 
 #import "HomeViewController.h"
-#import "ColorsDefinition.h"
+#import "UIColor+IrregularVerbs.h"
 
 
   
@@ -33,7 +33,7 @@
   
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:hvc];
    
-    [[nc navigationBar] setTintColor:TURQUESATINT];
+    [[nc navigationBar] setTintColor:[UIColor appTintColor]];
   
     [[self window] setRootViewController:nc];
     self.window.backgroundColor = [UIColor darkGrayColor];
