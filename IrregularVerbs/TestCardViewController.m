@@ -11,6 +11,7 @@
 #import "TestCardViewController.h"
 #import "TestProgressView.h"
 #import "Referee.h"
+#import "HintsPopupViewController.h"
 #import  <QuartzCore/QuartzCore.h>
 
 #define TEST_TIMER_INTERVAL 1/60.0f
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelHint;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundView;
 @property (weak, nonatomic) IBOutlet UILabel *historyLabel;
+@property (weak, nonatomic) IBOutlet UIButton *hintsButton;
 
 @property (nonatomic) BOOL useHintsInTest;
 
@@ -79,12 +81,14 @@
         self.labelParticiple.text = @"";
         self.labelTime.text = @"";
         self.historyLabel.text = @"";
+        [self.hintsButton setTitle:@"" forState:UIControlStateNormal];
         self.labelSimple.layer.affineTransform = CGAffineTransformMakeTranslation(0, 0.5*self.backgroundView.bounds.size.height-self.labelSimple.bounds.size.height);
     } else {
         self.labelTranslation.text = self.verb.translation;
         self.labelPast.text = self.verb.past;
         self.labelParticiple.text = self.verb.participle;
         self.historyLabel.text = [NSString stringWithFormat:@"%d/%d",self.verb.passCount,self.verb.testCount];
+        [self.hintsButton setTitle:[NSString stringWithFormat:@"%d",self.verb.hint] forState:UIControlStateNormal];
         if (self.verb.failed) {
             self.labelTime.text = @"";
         } else {
@@ -99,6 +103,7 @@
     self.labelParticiple.alpha = 0;
     self.labelTime.alpha = 0;
     self.historyLabel.alpha=0;
+    self.hintsButton.alpha=0;
     [self showCard];
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.labelSimple.layer.affineTransform = CGAffineTransformIdentity;
@@ -109,6 +114,7 @@
             self.labelParticiple.alpha = 1;
             self.labelTime.alpha = 1;
             self.historyLabel.alpha = 1;
+            self.hintsButton.alpha=1;
             self.labelHint.alpha = 0;
         }];
     }];    
@@ -130,6 +136,9 @@
     [UIView animateWithDuration:0.3 animations:^{
         self.labelTime.alpha = 0;
     }];
+}
+- (IBAction)showHintsPopup:(UIButton *)sender {
+    [HintsPopupViewController showPopupForHint:[sender.titleLabel.text integerValue]];
 }
 
 @end
