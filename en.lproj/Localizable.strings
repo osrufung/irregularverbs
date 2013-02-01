@@ -12,12 +12,13 @@
 "LevelLabel_0" = "BEGINNER";
 "LevelLabel_1" = "MEDIUM";
 "LevelLabel_2" = "EXPERT";
+ 
 
 //home View
 "verbstolearn" = "%d verbs to learn";
 "back" = "Home";
 "Home" = "Home";
-"LearnLabel" = "Learn";
+"LearnLabel" = "Look up";
 "TestLabel" = "Test";
 "HistoryLabel" = "History";
 "SetupLabel" = "Setup";
@@ -52,8 +53,8 @@
 
 //history
 "historyLabel" = "History";
-"averagetime_abrev" = "avg. time";
-"failures" = "Failures";
+"averagetime_abrev" = "Time";
+"failures" = "Mastery";
 
 //Setup
 "levelOfDifficulty" = "Level of difficulty";
