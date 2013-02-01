@@ -62,7 +62,17 @@
 - (void)setUpOptions {
     self.countStepper.minimumValue = 1;
     self.countStepper.maximumValue = [[[VerbsStore sharedStore] alphabetic] count];
-    self.countStepper.value = [[VerbsStore sharedStore] verbsNumberInTest];
+    
+    //error prevention #60
+    int numberInTest = [[VerbsStore sharedStore] verbsNumberInTest];
+    if(numberInTest> self.countStepper.maximumValue){
+       self.countStepper.value = self.countStepper.maximumValue;
+        [[VerbsStore sharedStore] setVerbsNumberInTest:self.countStepper.maximumValue];
+    }
+    else{
+        self.countStepper.value = numberInTest;
+    }
+    
 
     self.timeStepper.minimumValue = 1;
     self.timeStepper.maximumValue = 10;
@@ -88,6 +98,7 @@
 
 - (void)refreshLabels {
     int totalCount = [[[VerbsStore sharedStore] alphabetic] count];
+    
     int testCount = [[VerbsStore sharedStore] verbsNumberInTest];
     
     self.countLabel.text = [NSString stringWithFormat:NSLocalizedString(@"usexofy", "use x of y"),testCount, totalCount];
