@@ -5,7 +5,7 @@
   Created by Oswaldo Rubio on 21/01/13.
   Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 */
-"InfoPopupHome" = "aprende, verifica tu conocimiento con un pequeño nº de verbos y comprueba tu progreso. Puedes incrementar el nivel aumentando el nº de verbos en Ajustes.";
+"InfoPopupHome" = "aprende, verifica tu conocimiento con un pequeño nº de verbos y comprueba tu progreso. Puedes incrementar el nivel ajustando el dial en la pantalla de inicio.";
 "close" = "cerrar";
 
 "LevelLabel_0" = "PRINCIPIANTE";
