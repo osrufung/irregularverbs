@@ -37,7 +37,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _colors = @[TURQUESA_TINT, TURQUESA_TINT, [UIColor orangeColor], ROJO_TINT];
+        _colors = @[[UIColor passColor], [UIColor passColor], [UIColor midleColor], [UIColor failColor]];
     }
     return self;
 }

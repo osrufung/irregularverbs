@@ -22,13 +22,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.colors = @[TURQUESA_TINT,ROJO_TINT];
+        self.colors = @[[UIColor passColor],[UIColor failColor]];
     }
     return self;
 }
 
 - (void)awakeFromNib {
-    self.colors =@[TURQUESA_TINT,ROJO_TINT];  
+    self.colors =@[[UIColor passColor],[UIColor failColor]];
 }
 
 - (void)setDataCount:(int)total withPassCount:(int)pass andFailCount:(int)fail {
