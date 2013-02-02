@@ -32,7 +32,7 @@
         [[NSUserDefaults standardUserDefaults] setFloat:defFreq forKey:@"frequency"];
     }
     
-    [[UINavigationBar appearance] setTintColor:TURQUESA_TINT];
+    [[UINavigationBar appearance] setTintColor:[UIColor appTintColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor whiteColor], UITextAttributeTextColor,
                                                            [UIColor colorWithWhite:0.000 alpha:0.090], UITextAttributeTextShadowColor,
@@ -46,13 +46,13 @@
                                                              [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
                                                              nil] forState:UIControlStateNormal];
     
-    [[UIToolbar appearance] setTintColor:TURQUESA_TINT];
+    [[UIToolbar appearance] setTintColor:[UIColor appTintColor]];
     [[UISegmentedControl appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                             [UIColor whiteColor], UITextAttributeTextColor,
                                                             [UIColor colorWithWhite:0.000 alpha:0.090], UITextAttributeTextShadowColor,
                                                             [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
                                                             nil] forState:UIControlStateNormal];
-    [[UISwitch appearance] setOnTintColor:TURQUESA_TINT];
+    [[UISwitch appearance] setOnTintColor:[UIColor appTintColor]];
     
     HomeViewController *hvc = [[HomeViewController alloc] init];
   
