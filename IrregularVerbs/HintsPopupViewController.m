@@ -40,7 +40,7 @@
     self.tableView.dataSource = self.delegate;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor whiteColor];
-    self.view.backgroundColor = TURQUESATINT;
+    self.view.backgroundColor = TURQUESA_TINT;
     self.view.layer.cornerRadius = 8;
     [self.titleLabel setText:NSLocalizedString(@"whatyouneedtoknow", nil)];
     [self.closeButton setTitle:NSLocalizedString(@"close",nil) forState:UIControlStateNormal];

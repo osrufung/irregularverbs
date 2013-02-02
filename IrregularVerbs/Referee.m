@@ -37,7 +37,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _colors = @[TURQUESATINT, TURQUESATINT, [UIColor orangeColor], ROJOTINT];
+        _colors = @[TURQUESA_TINT, TURQUESA_TINT, [UIColor orangeColor], ROJO_TINT];
     }
     return self;
 }

@@ -124,7 +124,7 @@ static float deltaAngle;
         NSString *txt = [NSString stringWithFormat:@"LevelLabel_%i",absIndex];
         [lbltxt setText:NSLocalizedString(txt,nil) ];
         [lbltxt setFont:[UIFont fontWithName:@"Signika" size:16]];
-        [lbltxt setBackgroundColor:TURQUESATINT];
+        [lbltxt setBackgroundColor:TURQUESA_TINT];
         [lbltxt setTextColor:[UIColor whiteColor]];
         [lbltxt setShadowColor:[UIColor lightGrayColor]];
         [lbltxt setShadowOffset:CGSizeMake(1.0, 1.0)];

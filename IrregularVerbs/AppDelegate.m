@@ -31,16 +31,35 @@
         int defFreq = [[[[VerbsStore sharedStore] defaultFrequencyGroups]objectAtIndex:0] intValue];    
         [[NSUserDefaults standardUserDefaults] setFloat:defFreq forKey:@"frequency"];
     }
+    
+    [[UINavigationBar appearance] setTintColor:TURQUESA_TINT];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor whiteColor], UITextAttributeTextColor,
+                                                           [UIColor colorWithWhite:0.000 alpha:0.090], UITextAttributeTextShadowColor,
+                                                           [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
+                                                           [UIFont fontWithName:@"Signika" size:0.0], UITextAttributeFont,
+                                                           nil]];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                             [UIColor whiteColor], UITextAttributeTextColor,
+                                                             [UIColor colorWithWhite:0.000 alpha:0.090], UITextAttributeTextShadowColor,
+                                                             [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
+                                                             nil] forState:UIControlStateNormal];
+    
+    [[UIToolbar appearance] setTintColor:TURQUESA_TINT];
+    [[UISegmentedControl appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                            [UIColor whiteColor], UITextAttributeTextColor,
+                                                            [UIColor colorWithWhite:0.000 alpha:0.090], UITextAttributeTextShadowColor,
+                                                            [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
+                                                            nil] forState:UIControlStateNormal];
+    
     HomeViewController *hvc = [[HomeViewController alloc] init];
   
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:hvc];
-   
-    [[nc navigationBar] setTintColor:TURQUESATINT];
-  
+     
     [[self window] setRootViewController:nc];
     self.window.backgroundColor = [UIColor darkGrayColor];
     [self.window makeKeyAndVisible];
-        
  
     return YES;
 }

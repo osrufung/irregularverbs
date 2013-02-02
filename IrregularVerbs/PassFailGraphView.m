@@ -22,13 +22,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.colors = @[TURQUESATINT,ROJOTINT];
+        self.colors = @[TURQUESA_TINT,ROJO_TINT];
     }
     return self;
 }
 
 - (void)awakeFromNib {
-    self.colors =@[TURQUESATINT,ROJOTINT];  
+    self.colors =@[TURQUESA_TINT,ROJO_TINT];  
 }
 
 - (void)setDataCount:(int)total withPassCount:(int)pass andFailCount:(int)fail {
