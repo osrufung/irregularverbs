@@ -8,7 +8,7 @@
 
 #import "PassFailGraphView.h"
 #import "UIColor+Saturation.h"
-#import "ColorsDefinition.h"
+#import "UIColor+IrregularVerbs.h"
 
 @interface PassFailGraphView()
 @property (nonatomic) int total;
@@ -22,13 +22,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.colors = @[TURQUESA_TINT,ROJO_TINT];
+        self.colors = @[[UIColor passColor],[UIColor failColor]];
     }
     return self;
 }
 
 - (void)awakeFromNib {
-    self.colors =@[TURQUESA_TINT,ROJO_TINT];  
+    self.colors =@[[UIColor passColor],[UIColor failColor]];
 }
 
 - (void)setDataCount:(int)total withPassCount:(int)pass andFailCount:(int)fail {
