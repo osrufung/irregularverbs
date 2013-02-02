@@ -67,20 +67,26 @@
     
     [[self labelPopUp] setText:NSLocalizedString(@"InfoPopupHome", @"info about App at home")];
 
-    UIFont* buttonFont = [UIFont fontWithName:@"Signika" size:18];
+    UIFont* buttonFont = [UIFont fontWithName:@"Signika" size:22];
     
+    CGFloat contentLeftInset = 7.0;
+    CGFloat titleLeftInset = 25.0;
     // Set the background for any states you plan to use
     [[self.buttonLearn imageView] setContentMode: UIViewContentModeScaleAspectFit];
- 
+    [self.buttonLearn setContentEdgeInsets:UIEdgeInsetsMake(0.0,contentLeftInset,0.0,0.0)];
+    [self.buttonLearn setTitleEdgeInsets:UIEdgeInsetsMake(0.0,titleLeftInset,0.0,0.0)];
     [self.buttonLearn setTitle:NSLocalizedString(@"LearnLabel", nil) forState:UIControlStateNormal];
     self.buttonLearn.titleLabel.font = buttonFont;
     
     [[self.buttonTest imageView] setContentMode: UIViewContentModeScaleAspectFit];
+    [self.buttonTest setContentEdgeInsets:UIEdgeInsetsMake(0.0,contentLeftInset,0.0,0.0)];
+    [self.buttonTest setTitleEdgeInsets:UIEdgeInsetsMake(0.0,titleLeftInset,0.0,0.0)];
     [self.buttonTest setTitle:NSLocalizedString(@"TestLabel", nil) forState:UIControlStateNormal];
     self.buttonTest.titleLabel.font = buttonFont;
     
     [[self.buttonHistory imageView] setContentMode: UIViewContentModeScaleAspectFit];
-
+    [self.buttonHistory setContentEdgeInsets:UIEdgeInsetsMake(0.0,contentLeftInset,0.0,0.0)];
+    [self.buttonHistory setTitleEdgeInsets:UIEdgeInsetsMake(0.0,titleLeftInset,0.0,0.0)];
     [self.buttonHistory setTitle:NSLocalizedString(@"HistoryLabel", nil) forState:UIControlStateNormal];
     self.buttonHistory.titleLabel.font = buttonFont;
     
@@ -109,8 +115,9 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hideButton];
     self.title = NSLocalizedString(@"Home", @"Title for Home screen and back buttons");
   
-    }
--(void)viewWillAppear:(BOOL)animated{
+}
+
+-(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
  
  
@@ -124,9 +131,10 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firsTimeAssistantShown"];
     }
 }
--(NSAttributedString *) attributedNavLabel{
-    UIFont* fontLight = [UIFont fontWithName:@"Signika-Light" size:24];    
-    UIFont* fontBold= [UIFont fontWithName:@"Signika-Bold" size:24];
+
+-(NSAttributedString *) attributedNavLabel {
+    UIFont* fontLight = [UIFont fontWithName:@"Signika-Light" size:26];
+    UIFont* fontBold= [UIFont fontWithName:@"Signika-Bold" size:26];
     NSString *str1 = @"a list of";
     NSString *str2 = @" Verbs";
     
@@ -143,56 +151,51 @@
     return [[NSAttributedString alloc] initWithAttributedString:result];;
    
 }
--(NSAttributedString *) attributedHomeLabel{
- 
+
+-(NSAttributedString *) attributedHomeLabel {
     UIFont* fontBold = [UIFont fontWithName:@"Signika-Bold" size:20];
-  
     UIFont* fontRegular = [UIFont fontWithName:@"Signika" size:20];
     
-    int cntVerbs = [[[VerbsStore sharedStore] alphabetic] count] ;
-    NSString *str = [NSString stringWithFormat: NSLocalizedString(@"verbstolearn", @"home label descriptor"), cntVerbs];
-    NSMutableAttributedString *result  = [[NSMutableAttributedString alloc] initWithString:str];
+    int verbsCount = [[[VerbsStore sharedStore] alphabetic] count] ;
+    NSString *verbsCountWithDescription = [NSString stringWithFormat: NSLocalizedString(@"verbstolearn", @"home label descriptor"), verbsCount];
+    NSMutableAttributedString *homeLabelText  = [[NSMutableAttributedString alloc] initWithString:verbsCountWithDescription];
     
-    NSDictionary *attributesForNumber = @{NSFontAttributeName:fontBold,NSForegroundColorAttributeName:[UIColor appTintColor]};
-    
-        NSDictionary *attributesForTest = @{NSFontAttributeName:fontRegular,NSForegroundColorAttributeName:[UIColor darkGrayColor]};
+    NSDictionary *attributesForNumber = @{ NSFontAttributeName:fontBold, NSForegroundColorAttributeName:[UIColor appTintColor] };
+    NSDictionary *attributesForTest = @{ NSFontAttributeName:fontRegular, NSForegroundColorAttributeName:[UIColor darkGrayColor] };
  
-    [result setAttributes:attributesForNumber range: NSMakeRange(0,[[NSString stringWithFormat:@"%d",cntVerbs ] length])];
-    [result setAttributes:attributesForTest   range: NSMakeRange([[NSString stringWithFormat:@"%d",cntVerbs ] length], ([result length] - [[NSString stringWithFormat:@"%d",cntVerbs ] length]))];
+    int verbsCountLength = [[NSString stringWithFormat:@"%d", verbsCount] length];
+    [homeLabelText setAttributes:attributesForNumber range: NSMakeRange(0,verbsCountLength)];
+    [homeLabelText setAttributes:attributesForTest range: NSMakeRange(verbsCountLength, ([homeLabelText length] - verbsCountLength))];
     
-    return [[NSAttributedString alloc] initWithAttributedString:result];
+    return [[NSAttributedString alloc] initWithAttributedString:homeLabelText];
 }
 
-#pragma mark LevelDialSelectorProtocol
-- (void) dialDidChangeValue:(int)newValue{
-    float f = [[[[VerbsStore sharedStore] defaultFrequencyGroups] objectAtIndex:newValue] floatValue];
-    [[VerbsStore sharedStore] setFrequency:f];
+#pragma mark - LevelDialSelectorProtocol
+
+- (void) dialDidChangeValue:(int)newValue {
+    float frequency = [[[[VerbsStore sharedStore] defaultFrequencyGroups] objectAtIndex:newValue] floatValue];
+    [[VerbsStore sharedStore] setFrequency:frequency];
     [[self headLabel] setAttributedText:[self attributedHomeLabel]];
 }
 
-
- 
-
 - (IBAction)showInfo:(id)sender {
-        [ASDepthModalViewController presentView:self.popupView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationGrow];
+    [ASDepthModalViewController presentView:self.popupView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationGrow];
 }
+
 - (IBAction)openLearn:(id)sender {
-    [[self navigationController] pushViewController:[[CardsTableViewController alloc] init]
-                                           animated:YES];
+    [[self navigationController] pushViewController:[[CardsTableViewController alloc] init] animated:YES];
 }
 
 - (IBAction)openTest:(id)sender {
-    [[self navigationController] pushViewController:[[TestSelectorViewController alloc] init]
-                                           animated:YES];
+    [[self navigationController] pushViewController:[[TestSelectorViewController alloc] init] animated:YES];
 }
 
 - (IBAction)openHistory:(id)sender {
-       [[self navigationController] pushViewController:[[HistoryViewController alloc] init]  animated:YES];
+       [[self navigationController] pushViewController:[[HistoryViewController alloc] init] animated:YES];
 }
 
 - (IBAction)openSetup:(id)sender {
-    [[self navigationController] pushViewController:[[PreferencesViewController alloc] init]
-                                           animated:YES];
+    [[self navigationController] pushViewController:[[PreferencesViewController alloc] init] animated:YES];
 }
 
 - (IBAction)closePopUp:(id)sender {
@@ -203,4 +206,5 @@
     NSString *launchUrl= [[NSUserDefaults standardUserDefaults] stringForKey:@"aboutProjectURL"];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 }
+
 @end
