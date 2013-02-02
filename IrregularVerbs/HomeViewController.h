@@ -9,11 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "LevelDialSelectorControl.h"
 
-@interface HomeViewController : UIViewController<LevelDialSelectorProtocol>
-{
- 
-   
-}
+@interface HomeViewController : UIViewController <LevelDialSelectorProtocol>
+
 - (IBAction)showInfo:(id)sender;
 - (IBAction)openLearn:(id)sender;
 - (IBAction)openTest:(id)sender;
@@ -21,4 +18,5 @@
 - (IBAction)openSetup:(id)sender; 
 - (IBAction)closePopUp:(id)sender;
 - (IBAction)showProjectInfo:(id)sender;
+
 @end
