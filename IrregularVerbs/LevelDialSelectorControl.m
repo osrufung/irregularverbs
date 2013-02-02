@@ -7,7 +7,7 @@
 //
 
 #import "LevelDialSelectorControl.h"
-#import "ColorsDefinition.h"
+#import "UIColor+IrregularVerbs.h"
 #import <QuartzCore/QuartzCore.h>
 
 

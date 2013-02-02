@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 //
 
-#import "ColorsDefinition.h"
+#import "UIColor+IrregularVerbs.h"
 #import "HintsPopupViewController.h"
 #import "HintsTableDelegate.h"
 #import "VerbsStore.h"

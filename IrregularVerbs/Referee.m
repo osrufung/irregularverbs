@@ -7,7 +7,7 @@
 //
 
 #import "Referee.h"
-#import "ColorsDefinition.h"
+#import "UIColor+IrregularVerbs.h"
 
 #define MAX_TEST_TIME   10.f
 

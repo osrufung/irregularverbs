@@ -8,7 +8,7 @@
 
 #import "PassFailGraphView.h"
 #import "UIColor+Saturation.h"
-#import "ColorsDefinition.h"
+#import "UIColor+IrregularVerbs.h"
 
 @interface PassFailGraphView()
 @property (nonatomic) int total;

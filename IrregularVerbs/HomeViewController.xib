@@ -301,7 +301,7 @@
 					<object class="IBUITextView" id="462277650">
 						<reference key="NSNextResponder" ref="61233166"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{20, 49}, {228, 153}}</string>
+						<string key="NSFrame">{{20, 49}, {245, 140}}</string>
 						<reference key="NSSuperview" ref="61233166"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="352564684"/>
@@ -319,6 +319,7 @@
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAAA</bytes>
 						</object>
+						<int key="IBUITextAlignment">1</int>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -338,7 +339,7 @@
 					<object class="IBUIButton" id="352564684">
 						<reference key="NSNextResponder" ref="61233166"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{202, 233}, {63, 44}}</string>
+						<string key="NSFrame">{{20, 233}, {245, 44}}</string>
 						<reference key="NSSuperview" ref="61233166"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -375,13 +376,6 @@
 						<reference key="NSSuperview" ref="61233166"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<object class="NSColor" key="IBUIBackgroundColor">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MQA</bytes>
-							<object class="NSColorSpace" key="NSCustomColorSpace">
-								<int key="NSID">2</int>
-							</object>
-						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -420,9 +414,12 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIButton" id="364639760">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{24, 22}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<bool key="IBUIOpaque">NO</bool>
 				<int key="IBUIContentMode">1</int>
@@ -661,10 +658,10 @@
 						<int key="objectID">58</int>
 						<reference key="object" ref="61233166"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="462277650"/>
 							<reference ref="39112189"/>
-							<reference ref="352564684"/>
 							<reference ref="1041147605"/>
+							<reference ref="352564684"/>
+							<reference ref="462277650"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
