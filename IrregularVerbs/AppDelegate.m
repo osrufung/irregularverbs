@@ -52,6 +52,7 @@
                                                             [UIColor colorWithWhite:0.000 alpha:0.090], UITextAttributeTextShadowColor,
                                                             [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
                                                             nil] forState:UIControlStateNormal];
+    [[UISwitch appearance] setOnTintColor:TURQUESA_TINT];
     
     HomeViewController *hvc = [[HomeViewController alloc] init];
   
