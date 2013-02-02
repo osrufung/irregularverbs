@@ -12,6 +12,7 @@
 #import "Verb.h"
 #import "Referee.h"
 
+
 @interface CardsTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray * indexedData;
@@ -20,11 +21,10 @@
 @property (nonatomic, strong) HintsTableDelegate *hintsDelegate;
 @property (nonatomic, strong) UIBarButtonItem *searchButton;
 
-
 @end
 
-@implementation CardsTableViewController
 
+@implementation CardsTableViewController
 
 - (void)makeIndexFor:(NSArray *)array withSearchText:(NSString *)searchText {
     self.indexedData = [[NSMutableArray alloc] init];
@@ -73,15 +73,13 @@
 }
 
 - (void)viewDidLoad {
-    self.searchBar.alpha=0;
+    self.searchBar.alpha = 0;
     [self.tableView registerNib:[UINib nibWithNibName:@"HintsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"HintsCell"];
     
     self.searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
                                                                       target:self
                                                                       action:@selector(toggleSearchBar)];
-
     self.navigationItem.rightBarButtonItem = self.searchButton;
-    
     [self.segmentedMode setTitle:NSLocalizedString(@"alpha", @"alpha list") forSegmentAtIndex:0];
     [self.segmentedMode setTitle:NSLocalizedString(@"hints", @"hints list") forSegmentAtIndex:1];
      self.title = NSLocalizedString(@"LearnLabel",nil);
@@ -90,12 +88,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.segmentedMode.selectedSegmentIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"learningMode"];
     [self dataSetChanged:self.segmentedMode];
-    [self.tableView reloadData];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [self.tableView reloadData];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (IBAction)dataSetChanged:(UISegmentedControl *)sender {
-    if (sender.selectedSegmentIndex==0) {
+    if (sender.selectedSegmentIndex == 0) {
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.navigationItem.rightBarButtonItem = self.searchButton;
@@ -103,29 +101,30 @@
         self.tableView.delegate = self.hintsDelegate;
         self.tableView.dataSource = self.hintsDelegate;
         self.navigationItem.rightBarButtonItem = nil;
-        if (self.searchBar.alpha!=0) [self toggleSearchBar];
+        if (self.searchBar.alpha != 0) [self toggleSearchBar];
     }
     [[NSUserDefaults standardUserDefaults] setInteger:sender.selectedSegmentIndex forKey:@"learningMode"];
+    [self.tableView setContentOffset:self.tableView.contentOffset animated:NO];
     [self.tableView reloadData];
 }
 
 - (void)toggleSearchBar {
-    if (self.searchBar.alpha==0) {
+    if (self.searchBar.alpha == 0) {
         self.searchBar.frame = CGRectOffset(self.searchBar.frame, 0, -self.searchBar.frame.size.height);
         [UIView animateWithDuration:0.3
                          animations:^{
-                             self.searchBar.alpha=1.0f;
+                             self.searchBar.alpha = 1.0f;
                              self.searchBar.frame = CGRectOffset(self.searchBar.frame, 0, self.searchBar.frame.size.height);
                              CGRect currentFrame = self.tableView.frame;
-                             self.tableView.frame=CGRectMake(0, currentFrame.origin.y+self.searchBar.frame.size.height, currentFrame.size.width, currentFrame.size.height-self.searchBar.frame.size.height);
+                             self.tableView.frame = CGRectMake(0, currentFrame.origin.y+self.searchBar.frame.size.height, currentFrame.size.width, currentFrame.size.height-self.searchBar.frame.size.height);
                          }];
     } else {
         [UIView animateWithDuration:0.3
                          animations:^{
-                             self.searchBar.alpha=0.0f;
+                             self.searchBar.alpha = 0.0f;
                              self.searchBar.frame = CGRectOffset(self.searchBar.frame, 0, -self.searchBar.frame.size.height);
                              CGRect currentFrame = self.tableView.frame;
-                             self.tableView.frame=CGRectMake(0, currentFrame.origin.y-self.searchBar.frame.size.height, currentFrame.size.width, currentFrame.size.height+self.searchBar.frame.size.height);
+                             self.tableView.frame = CGRectMake(0, currentFrame.origin.y-self.searchBar.frame.size.height, currentFrame.size.width, currentFrame.size.height+self.searchBar.frame.size.height);
                          }
                          completion:^(BOOL finished) {
                              self.searchBar.frame = CGRectOffset(self.searchBar.frame, 0, self.searchBar.frame.size.height);

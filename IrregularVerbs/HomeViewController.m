@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 //
 
-#import "ColorsDefinition.h"
+#import "UIColor+IrregularVerbs.h"
 #import "HomeViewController.h"
 #import "VerbsStore.h"
 #import <QuartzCore/QuartzCore.h>
@@ -59,27 +59,30 @@
     self.popupView.layer.cornerRadius = 4;
     self.popupView.layer.shadowOpacity = 0.3;
     self.popupView.layer.shadowOffset = CGSizeMake(10, 10   );
-    self.popupView.layer.shouldRasterize = YES;
-    self.popupView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    
+    // A better way to get great performance that rasterizing all the view
+    CGPathRef path = CGPathCreateWithRect(self.popupView.frame, nil);
+    self.popupView.layer.shadowPath = path;
+    CGPathRelease(path);
     
     [[self labelPopUp] setText:NSLocalizedString(@"InfoPopupHome", @"info about App at home")];
 
-    UIFont* fontButton = [UIFont fontWithName:@"Signika" size:18];
+    UIFont* buttonFont = [UIFont fontWithName:@"Signika" size:18];
     
     // Set the background for any states you plan to use
     [[self.buttonLearn imageView] setContentMode: UIViewContentModeScaleAspectFit];
  
     [self.buttonLearn setTitle:NSLocalizedString(@"LearnLabel", nil) forState:UIControlStateNormal];
-    self.buttonLearn.titleLabel.font = fontButton;
+    self.buttonLearn.titleLabel.font = buttonFont;
     
     [[self.buttonTest imageView] setContentMode: UIViewContentModeScaleAspectFit];
     [self.buttonTest setTitle:NSLocalizedString(@"TestLabel", nil) forState:UIControlStateNormal];
-    self.buttonTest.titleLabel.font = fontButton;
+    self.buttonTest.titleLabel.font = buttonFont;
     
     [[self.buttonHistory imageView] setContentMode: UIViewContentModeScaleAspectFit];
 
     [self.buttonHistory setTitle:NSLocalizedString(@"HistoryLabel", nil) forState:UIControlStateNormal];
-    self.buttonHistory.titleLabel.font = fontButton;
+    self.buttonHistory.titleLabel.font = buttonFont;
     
     /*
     [[self.buttonSetup imageView] setContentMode: UIViewContentModeScaleAspectFit];
@@ -150,7 +153,7 @@
     NSString *str = [NSString stringWithFormat: NSLocalizedString(@"verbstolearn", @"home label descriptor"), cntVerbs];
     NSMutableAttributedString *result  = [[NSMutableAttributedString alloc] initWithString:str];
     
-    NSDictionary *attributesForNumber = @{NSFontAttributeName:fontBold,NSForegroundColorAttributeName:TURQUESATINT};
+    NSDictionary *attributesForNumber = @{NSFontAttributeName:fontBold,NSForegroundColorAttributeName:[UIColor appTintColor]};
     
         NSDictionary *attributesForTest = @{NSFontAttributeName:fontRegular,NSForegroundColorAttributeName:[UIColor darkGrayColor]};
  
@@ -171,7 +174,7 @@
  
 
 - (IBAction)showInfo:(id)sender {
-        [ASDepthModalViewController presentView:self.popupView withBackgroundColor:[UIColor whiteColor] popupAnimationStyle:ASDepthModalAnimationGrow];
+        [ASDepthModalViewController presentView:self.popupView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationGrow];
 }
 - (IBAction)openLearn:(id)sender {
     [[self navigationController] pushViewController:[[CardsTableViewController alloc] init]

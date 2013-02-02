@@ -96,6 +96,7 @@
 		E5C2CA2E169C5F6600BEE2ED /* Referee.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA2D169C5F6600BEE2ED /* Referee.m */; };
 		E5C2CA32169C6A0C00BEE2ED /* Verb.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C2CA31169C6A0C00BEE2ED /* Verb.m */; };
 		E5CAFA2016A72EC00015B16E /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5CAFA1F16A72EC00015B16E /* PreferencesViewController.xib */; };
+		E5DA21D316BBE8D100D30140 /* UIColor+IrregularVerbs.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DA21D216BBE8D100D30140 /* UIColor+IrregularVerbs.m */; };
 		E5DB039416A7E47900EE1E80 /* TSCVerbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB039316A7E47900EE1E80 /* TSCVerbCell.m */; };
 		E5DB039716A7E4C700EE1E80 /* TestScoreCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB039616A7E4C700EE1E80 /* TestScoreCardViewController.m */; };
 		E5DB039916A7E55700EE1E80 /* TSCVerbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DB039816A7E55700EE1E80 /* TSCVerbCell.xib */; };
@@ -140,10 +141,10 @@
 		0973D9FC16AD4DBE00A8E30A /* ASDepthModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDepthModalViewController.h; sourceTree = "<group>"; };
 		0973D9FD16AD4DBE00A8E30A /* ASDepthModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDepthModalViewController.m; sourceTree = "<group>"; };
 		0973DA0B16ADB9F700A8E30A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		0973DA0C16ADB9F700A8E30A /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		0973DA0C16ADB9F700A8E30A /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HomeViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0973DA0D16ADB9F700A8E30A /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		0984867316B6A6F300CE22C9 /* LevelDialSelectorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelDialSelectorControl.h; sourceTree = "<group>"; };
-		0984867416B6A6F300CE22C9 /* LevelDialSelectorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelDialSelectorControl.m; sourceTree = "<group>"; };
+		0984867416B6A6F300CE22C9 /* LevelDialSelectorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LevelDialSelectorControl.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0984867A16B6B3BA00CE22C9 /* SectorDial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectorDial.h; sourceTree = "<group>"; };
 		0984867B16B6B3BA00CE22C9 /* SectorDial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectorDial.m; sourceTree = "<group>"; };
 		0993D38216B7FAE5003B3206 /* ImgIndependentHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgIndependentHelper.h; sourceTree = "<group>"; };
@@ -163,7 +164,7 @@
 		09D372E81681BA4F00F80410 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		09D372EA1681BA4F00F80410 /* IrregularVerbs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IrregularVerbs-Prefix.pch"; sourceTree = "<group>"; };
 		09D372EB1681BA4F00F80410 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		09D372EC1681BA4F00F80410 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		09D372EC1681BA4F00F80410 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		09D372F21681BA4F00F80410 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E513C11C16A93D0F00467B5C /* UIColor+Saturation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Saturation.h"; sourceTree = "<group>"; };
 		E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Saturation.m"; sourceTree = "<group>"; };
@@ -198,9 +199,8 @@
 		E59D12F71695BAEC00C8DE51 /* VerbsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerbsStore.h; sourceTree = "<group>"; };
 		E59D12F81695BAEC00C8DE51 /* VerbsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerbsStore.m; sourceTree = "<group>"; };
 		E5A0A7CB16BBBD9F00ADC8E9 /* HintsPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HintsPopupViewController.h; sourceTree = "<group>"; };
-		E5A0A7CC16BBBD9F00ADC8E9 /* HintsPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HintsPopupViewController.m; sourceTree = "<group>"; };
+		E5A0A7CC16BBBD9F00ADC8E9 /* HintsPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HintsPopupViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E5A0A7CD16BBBD9F00ADC8E9 /* HintsPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HintsPopupViewController.xib; sourceTree = "<group>"; };
-		E5A0A7D016BBD81400ADC8E9 /* ColorsDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorsDefinition.h; sourceTree = "<group>"; };
 		E5A272AE16B98D1800F32524 /* RootTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTestViewController.h; sourceTree = "<group>"; };
 		E5A272AF16B98D1800F32524 /* RootTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTestViewController.m; sourceTree = "<group>"; };
 		E5A272B016B98D1900F32524 /* RootTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootTestViewController.xib; sourceTree = "<group>"; };
@@ -248,10 +248,12 @@
 		E5A2E37116BAD8EE009C7700 /* white-circular-bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-circular-bg1@2x.png"; path = "images/white-circular-bg1@2x.png"; sourceTree = "<group>"; };
 		E5BB4A5616ADB2AB00030041 /* verbs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = verbs.plist; sourceTree = "<group>"; };
 		E5C2CA2C169C5F6600BEE2ED /* Referee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Referee.h; sourceTree = "<group>"; };
-		E5C2CA2D169C5F6600BEE2ED /* Referee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Referee.m; sourceTree = "<group>"; };
+		E5C2CA2D169C5F6600BEE2ED /* Referee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = Referee.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E5C2CA30169C6A0C00BEE2ED /* Verb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Verb.h; sourceTree = "<group>"; };
 		E5C2CA31169C6A0C00BEE2ED /* Verb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Verb.m; sourceTree = "<group>"; };
 		E5CAFA1F16A72EC00015B16E /* PreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesViewController.xib; sourceTree = "<group>"; };
+		E5DA21D116BBE8D100D30140 /* UIColor+IrregularVerbs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+IrregularVerbs.h"; sourceTree = "<group>"; };
+		E5DA21D216BBE8D100D30140 /* UIColor+IrregularVerbs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+IrregularVerbs.m"; sourceTree = "<group>"; };
 		E5DB039216A7E47900EE1E80 /* TSCVerbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCVerbCell.h; sourceTree = "<group>"; };
 		E5DB039316A7E47900EE1E80 /* TSCVerbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCVerbCell.m; sourceTree = "<group>"; };
 		E5DB039516A7E4C700EE1E80 /* TestScoreCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScoreCardViewController.h; sourceTree = "<group>"; };
@@ -261,7 +263,7 @@
 		E5DB039C16A7EDCE00EE1E80 /* TSCSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCSummaryCell.h; sourceTree = "<group>"; };
 		E5DB039D16A7EDCE00EE1E80 /* TSCSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCSummaryCell.m; sourceTree = "<group>"; };
 		E5DB03A316A7EEAC00EE1E80 /* PassFailGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassFailGraphView.h; sourceTree = "<group>"; };
-		E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassFailGraphView.m; sourceTree = "<group>"; };
+		E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PassFailGraphView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E5E05A8D16A6BE2400CEB889 /* TestSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSelectorViewController.h; sourceTree = "<group>"; };
 		E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSelectorViewController.m; sourceTree = "<group>"; };
 		E5E05B9516B2E98100F33CEC /* TestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCase.h; sourceTree = "<group>"; };
@@ -378,7 +380,6 @@
 		E52F436B16A81C6E00220CF1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				E5A0A7D016BBD81400ADC8E9 /* ColorsDefinition.h */,
 				0973DA0B16ADB9F700A8E30A /* HomeViewController.h */,
 				0973DA0C16ADB9F700A8E30A /* HomeViewController.m */,
 				0973DA0D16ADB9F700A8E30A /* HomeViewController.xib */,
@@ -501,6 +502,8 @@
 		E550A5ED169CC98500DCA8D6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E5DA21D116BBE8D100D30140 /* UIColor+IrregularVerbs.h */,
+				E5DA21D216BBE8D100D30140 /* UIColor+IrregularVerbs.m */,
 				E53DC4F216AC4EE3004CF825 /* UILabel+FrameExpand.h */,
 				E53DC4F316AC4EE3004CF825 /* UILabel+FrameExpand.m */,
 				E513C11C16A93D0F00467B5C /* UIColor+Saturation.h */,
@@ -762,6 +765,7 @@
 				0993D38416B7FAE5003B3206 /* ImgIndependentHelper.m in Sources */,
 				E5A272B116B98D1900F32524 /* RootTestViewController.m in Sources */,
 				E5A0A7CE16BBBD9F00ADC8E9 /* HintsPopupViewController.m in Sources */,
+				E5DA21D316BBE8D100D30140 /* UIColor+IrregularVerbs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
