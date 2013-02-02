@@ -26,8 +26,8 @@
 "Home" = "Home";
 
 //Learn View
-"alpha" = "Alpha";
-"hints" = "Hints";
+"alpha" = "By Name";
+"hints" = "By Hint";
 
 //test
 "TestOptions" = "Test Options";

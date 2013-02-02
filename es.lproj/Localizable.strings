@@ -25,8 +25,8 @@
 "Home" = "Principal";
 
 //Learn View
-"alpha" = "A-Z";
-"hints" = "por pistas";
+"alpha" = "Por nombre";
+"hints" = "Por pistas";
 
 //test
 "TestOptions" = "Opciones";
