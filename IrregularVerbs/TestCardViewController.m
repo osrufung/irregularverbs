@@ -11,26 +11,22 @@
 #import "TestCardViewController.h"
 #import "TestProgressView.h"
 #import "Referee.h"
+#import "HintsPopupViewController.h"
+#import  <QuartzCore/QuartzCore.h>
 
 #define TEST_TIMER_INTERVAL 1/60.0f
 
 @interface TestCardViewController ()
-{
-    float _beginTestTime;
-    float _endTestTime;
-    NSTimer * _testTimer;
-}
+
 @property (weak, nonatomic) IBOutlet UILabel *labelSimple;
 @property (weak, nonatomic) IBOutlet UILabel *labelTranslation;
 @property (weak, nonatomic) IBOutlet UILabel *labelPast;
 @property (weak, nonatomic) IBOutlet UILabel *labelParticiple;
 @property (weak, nonatomic) IBOutlet UILabel *labelTime;
-@property (weak, nonatomic) IBOutlet UIButton *buttonFail;
-@property (weak, nonatomic) IBOutlet UIButton *buttonPass;
-@property (weak, nonatomic) IBOutlet TestProgressView *testProgress;
-@property (weak, nonatomic) IBOutlet UIImageView *imageFail;
-@property (weak, nonatomic) IBOutlet UIImageView *imagePass;
 @property (weak, nonatomic) IBOutlet UILabel *labelHint;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundView;
+@property (weak, nonatomic) IBOutlet UILabel *historyLabel;
+@property (weak, nonatomic) IBOutlet UIButton *hintsButton;
 
 @property (nonatomic) BOOL useHintsInTest;
 
@@ -38,176 +34,111 @@
 
 @implementation TestCardViewController
 
-#pragma mark - Test events
-
-- (void)testTimerTick:(NSTimer *)timer {
-    float elapsedTime = CACurrentMediaTime() - _beginTestTime;
-    self.testProgress.progress=[[Referee sharedReferee] performanceForValue:elapsedTime];
-    self.testProgress.backgroundColor = [[Referee sharedReferee] colorForValue:elapsedTime];
-    if ((self.testProgress.progress>=0.5f)&&(self.useHintsInTest)) {
-        self.labelHint.text = [[VerbsStore sharedStore] hintForGroupIndex:self.verb.hint];
-        [UIView animateWithDuration:0.5 animations:^{ self.labelHint.alpha=1.0f; }];
-    }
-    if (self.testProgress.progress>=1.0f) {
-        [self endTestWithFailure:YES];
-        [self refreshUIForTestEnd:YES];
-    }
-}
-
-- (void)beginTest {
-    if (!_testTimer) {
-        _beginTestTime = CACurrentMediaTime();
-        _testTimer = [NSTimer timerWithTimeInterval:TEST_TIMER_INTERVAL
-                                             target:self
-                                           selector:@selector(testTimerTick:)
-                                           userInfo:nil
-                                            repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:_testTimer forMode:NSRunLoopCommonModes];
-        self.testProgress.hidden = NO;
-        self.testProgress.progress = 0.f;
-    }
-}
-
-- (void)endTestWithFailure:(BOOL)failure {
-    if (_testTimer) {
-        _endTestTime = CACurrentMediaTime();
-        [_testTimer invalidate];
-        _testTimer = nil;
-        self.testProgress.hidden=YES;
-        if (failure)
-            [self.verb failTest];
-        else
-            [self.verb passTestWithTime:self.responseTime];
-    } else if (failure) [self.verb failTest];
-}
-
-- (void)cancelTest {
-    if (_testTimer) {
-        [_testTimer invalidate];
-        _testTimer = nil;
-        self.testProgress.progress=0;
-    }
-}
-
-- (float)responseTime {
-    if (_endTestTime) {
-        return _endTestTime-_beginTestTime;
-    }
-    return 0.f;
-}
 
 #pragma mark - View lifecicle
 
+- (void)viewDidLoad {
+
+    self.backgroundView.backgroundColor = [UIColor clearColor];
+    self.backgroundView.image = [imgHomebuttonwochevron resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 4, 4)
+                                                              resizingMode:UIImageResizingModeStretch];
+    self.backgroundView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.backgroundView.layer.shadowOffset = CGSizeMake(0, 2);
+    self.backgroundView.layer.shadowRadius = 2;
+    self.backgroundView.layer.shadowOpacity = 0.6;
+    
+    CGPathRef path = CGPathCreateWithRect(self.backgroundView.bounds, nil);
+    self.backgroundView.layer.shadowPath = path;
+    CFRelease(path);
+}
+
 - (void)viewWillAppear:(BOOL)animated {
-    [self refreshUIForTestEnd:NO];
-    self.labelHint.alpha = 0;
     self.useHintsInTest = [[NSUserDefaults standardUserDefaults] boolForKey:@"hintsInTest"];
+    if ([self.delegate respondsToSelector:@selector(testCardWillApperar:)]) [self.delegate testCardWillApperar:self];
+    [self showCard];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if (self.verb.testPending) [self beginTest];
+    if ([self.delegate respondsToSelector:@selector(testCardDidApperar:)]) [self.delegate testCardDidApperar:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [self cancelTest];
+    if ([self.delegate respondsToSelector:@selector(testCardWillDisappear:)]) [self.delegate testCardWillDisappear:self];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    if ([self.delegate respondsToSelector:@selector(testCardDidDisappear:)]) [self.delegate testCardDidDisappear:self];
 }
 
 #pragma mark - UI
 
-/* 
- What want we show?
- 
- - ViewWillAppear
-    If test is done all the data without animations
-    If test is pendding only simple tense
- 
- - EndTestWithFailure
-    If is a new verb All verb data animated
-    If is a correction to a previous pass verb, change the data without animation
-    If is a failure show failure picture and remove all buttons
-    If is a pass show time, pass picture and remove pushUp button
- */
-
-
-- (void)refreshUIForTestEnd:(BOOL)testEnd {
-    
-    BOOL isACorrection = (self.imagePass.image!=nil)&&testEnd;
-    
+- (void)showCard {
     self.labelSimple.text = self.verb.simple;
-    
+    self.labelHint.text = @"";
     if (self.verb.testPending) {
         self.labelTranslation.text = @"";
         self.labelPast.text = @"";
         self.labelParticiple.text = @"";
         self.labelTime.text = @"";
-        self.imageFail.image = nil;
-        self.imagePass.image = nil;
+        self.historyLabel.text = @"";
+        [self.hintsButton setTitle:@"" forState:UIControlStateNormal];
+        self.labelSimple.layer.affineTransform = CGAffineTransformMakeTranslation(0, 0.5*self.backgroundView.bounds.size.height-self.labelSimple.bounds.size.height);
     } else {
         self.labelTranslation.text = self.verb.translation;
         self.labelPast.text = self.verb.past;
         self.labelParticiple.text = self.verb.participle;
+        self.historyLabel.text = [NSString stringWithFormat:@"%d/%d",self.verb.passCount,self.verb.testCount];
+        [self.hintsButton setTitle:[NSString stringWithFormat:@"%d",self.verb.hint] forState:UIControlStateNormal];
         if (self.verb.failed) {
-            if (isACorrection) {
-                [UIView animateWithDuration:0.4 animations:^{
-                    self.imageFail.image = [[Referee sharedReferee] imageForFail];
-                    self.imagePass.image = [[Referee sharedReferee] imageForValue:self.verb.responseTime];
-                    self.labelTime.alpha = 0;
-                    self.imageFail.alpha = 1;
-                    self.imagePass.alpha = 0.2;
-                }];
-            } else {
-                self.imageFail.image = [[Referee sharedReferee] imageForFail];
-                self.imagePass.image = [[Referee sharedReferee] imageForValue:self.verb.responseTime];
-                self.labelTime.text = @"";
-                self.buttonPass.alpha = 0;
-                self.buttonFail.alpha = 0;
-                self.imagePass.alpha = 0.2;
-            }
+            self.labelTime.text = @"";
         } else {
             self.labelTime.text = [NSString stringWithFormat:@"%.2fs",self.verb.responseTime];
-            self.labelTime.textColor = [[Referee sharedReferee] colorForValue:self.verb.responseTime];
-            self.imagePass.image = [[Referee sharedReferee] imageForValue:self.verb.responseTime];
-            self.imageFail.image = nil;
-            self.buttonPass.alpha = 0;
         }
     }
+}
 
-    if ((testEnd)&&(!isACorrection)) {
-        self.labelTranslation.alpha = 0;
-        self.labelPast.alpha = 0;
-        self.labelParticiple.alpha = 0;
-        self.labelTime.alpha = 0;
-        self.imageFail.alpha = 0;
-        self.imagePass.alpha = 0;
-        [UIView animateWithDuration:0.5 animations:^{
+- (void)revealResults {
+    self.labelTranslation.alpha = 0;
+    self.labelPast.alpha = 0;
+    self.labelParticiple.alpha = 0;
+    self.labelTime.alpha = 0;
+    self.historyLabel.alpha=0;
+    self.hintsButton.alpha=0;
+    [self showCard];
+    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.labelSimple.layer.affineTransform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished){
+        [UIView animateWithDuration:0.2 animations:^{
             self.labelTranslation.alpha = 1;
             self.labelPast.alpha = 1;
             self.labelParticiple.alpha = 1;
             self.labelTime.alpha = 1;
+            self.historyLabel.alpha = 1;
+            self.hintsButton.alpha=1;
             self.labelHint.alpha = 0;
-            if (self.verb.failed) {
-                self.buttonFail.alpha = 0;
-                self.buttonPass.alpha = 0;
-                self.imageFail.alpha = 1;
-                self.imagePass.alpha = 0.2;
-
-            } else {
-                self.buttonPass.alpha = 0;
-                self.imagePass.alpha = 1;
-            }
         }];
-    }
+    }];    
 }
 
-#pragma mark - User Interaction
-
-- (IBAction)chooseFail:(UIButton *)sender {
-    [self endTestWithFailure:YES];
-    [self refreshUIForTestEnd:YES];
+- (void)revealHint {
+    if (!self.verb.testPending) return;
+    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.labelSimple.layer.affineTransform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished){
+        self.labelHint.text = [[VerbsStore sharedStore] hintForGroupIndex:self.verb.hint];
+        [UIView animateWithDuration:0.2 animations:^{
+            self.labelHint.alpha = 1;
+        }];
+    }];
 }
-- (IBAction)choosePass:(UIButton *)sender {
-    [self endTestWithFailure:NO];
-    [self refreshUIForTestEnd:YES];
+
+- (void)hideTime {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.labelTime.alpha = 0;
+    }];
+}
+- (IBAction)showHintsPopup:(UIButton *)sender {
+    [HintsPopupViewController showPopupForHint:[sender.titleLabel.text integerValue]];
 }
 
 @end

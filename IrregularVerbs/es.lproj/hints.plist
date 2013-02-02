@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>Verbos sin reglas</string>
+	<string>Final irregular sin cambio de vocal. Pasado y participio iguales. Acabados en &apos;d&apos; cambian a &apos;t&apos; y &apos;ent&apos; cambia a &apos;end&apos;</string>
+	<string>Final irregular sin cambio de vocal. Pasado y participio iguales. Los verbos &apos;have&apos; y &apos;make&apos;</string>
+	<string>Final irregular sin cambio de vocal. Pasado y participio iguales. Pasado y participio regular en inglés US, irregular en inglés UK</string>
+	<string>Final irregular sin cambio de vocal. Pasado y participio iguales. Acabados en &apos;ay&apos; pasan a &apos;aid&apos;</string>
+	<string>Cambio de vocal con final irregular. Pasado y participio iguales. Termina en &apos;d&apos; o &apos;t&apos;</string>
+	<string>Cambio de vocal con final irregular. Pasado y participio iguales. Diferente pronunciacion de la mismavocal (Final en &apos;d&apos; o &apos;t&apos;)</string>
+	<string>Cambio de vocal con final irregular. Pasado y participio iguales. Acabados en &apos;ell&apos; pasan a &apos;old&apos;</string>
+	<string>Cambio de vocal con final irregular. Pasado y participio iguales. Termina en &apos;ought&apos; (o &apos;*aught&apos;)</string>
+	<string>Misma forma en presente, pasado y participio. Terminan en &apos;d&apos; o &apos;t&apos;</string>
+	<string>Cambio de vocal. Participio termina en &apos;(e)n&apos;. Pasado y participio suenan con /o/ larga</string>
+	<string>Cambio de vocal. Participio termina en &apos;(e)n&apos;. Pasado suena con /o/ larga, participio &apos;shirt&apos; /i/ sound</string>
+	<string>Cambio de vocal. Participio termina en &apos;(e)n&apos;. </string>
+	<string>Cambio de vocal. Participio termina en &apos;(e)n&apos;.  Patrón &apos;ear-ore-orn&apos;</string>
+	<string>Cambio de vocal. Participio termina en &apos;(e)n&apos;.  Presente con &apos;ow&apos;, pasado con &apos;ew&apos;, participio con &apos;own&apos;</string>
+	<string>Pasado regular, particpio regular o irregular</string>
+	<string>Cambio de vocal, sin final. Pasado y participio iguales. </string>
+	<string>Cambio de vocal, sin final. Pasado y participio iguales. Patrón de cambio i - ou - ou</string>
+	<string>Cambio de vocal, sin final. Pasado y participio iguales. Cambio de vocal ee - e - e</string>
+	<string>¡Los verbos más raros!. Patrón de cambio de vocal i - a - u</string>
+	<string>¡Los verbos más raros!. Cambio de vocal. Presente y participio son iguales</string>
+	<string>¡Los verbos más raros!. Otros</string>
+</array>
+</plist>

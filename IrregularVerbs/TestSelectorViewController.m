@@ -8,10 +8,11 @@
 
 #import "VerbsStore.h"
 #import "TestCase.h"
-#import "TestCardsStackViewController.h"
 #import "TestSelectorViewController.h"
 #import "Referee.h"
 #import "TestTypeButton.h"
+#import "ImgIndependentHelper.h"
+#import "RootTestViewController.h"
 
 @interface TestSelectorViewController ()
 
@@ -29,7 +30,7 @@
 
 - (void)viewDidLoad {
     self.title = NSLocalizedString(@"TestLabel", nil);
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"HomeViewbg"]];
+    [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
     [self setUpTestButtons];
     [self setUpOptions];
     [self setUpLabels];
@@ -40,24 +41,38 @@
 
 - (void)setUpTestButtons {
     NSArray *testTypes = [[VerbsStore sharedStore] testTypes];
+    UIFont *fontLabel = [UIFont fontWithName:@"Signika" size:18];
+    UIFont *fontBadge = [UIFont fontWithName:@"Signika" size:12];
     
-    CGRect rect = CGRectMake(20, 20, 280, 36);
+    CGRect rect = CGRectMake(20, 20, 280, 40);
     self.testButtons = [[NSMutableDictionary alloc] initWithCapacity:[testTypes count]];
     for (NSString *type in testTypes) {
         TestTypeButton *button = [[TestTypeButton alloc] initWithFrame:rect];
         [button setTitle:type forState:UIControlStateNormal];
         [button addTarget:self action:@selector(goToTest:) forControlEvents:UIControlEventTouchUpInside];
-        button.badgeLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:type];
+        button.detailLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:type];
+        button.titleLabel.font = fontLabel;
+        button.detailLabel.font = fontBadge;
         [self.view addSubview:button];
         [self.testButtons setObject:button forKey:type];
-        rect.origin.y += 42;
+        rect.origin.y += 44;
     }
 }
 
 - (void)setUpOptions {
     self.countStepper.minimumValue = 1;
     self.countStepper.maximumValue = [[[VerbsStore sharedStore] alphabetic] count];
-    self.countStepper.value = [[VerbsStore sharedStore] verbsNumberInTest];
+    
+    //error prevention #60
+    int numberInTest = [[VerbsStore sharedStore] verbsNumberInTest];
+    if(numberInTest> self.countStepper.maximumValue){
+       self.countStepper.value = self.countStepper.maximumValue;
+        [[VerbsStore sharedStore] setVerbsNumberInTest:self.countStepper.maximumValue];
+    }
+    else{
+        self.countStepper.value = numberInTest;
+    }
+    
 
     self.timeStepper.minimumValue = 1;
     self.timeStepper.maximumValue = 10;
@@ -83,6 +98,7 @@
 
 - (void)refreshLabels {
     int totalCount = [[[VerbsStore sharedStore] alphabetic] count];
+    
     int testCount = [[VerbsStore sharedStore] verbsNumberInTest];
     
     self.countLabel.text = [NSString stringWithFormat:NSLocalizedString(@"usexofy", "use x of y"),testCount, totalCount];
@@ -130,17 +146,17 @@
 
 - (void)openSelectedType:(NSString *) typeDescription{
     TestCase *testCase = [[VerbsStore sharedStore] testCaseForTestType:typeDescription];
-    TestCardsStackViewController *stack = [[TestCardsStackViewController alloc] initWithTestCase:testCase];
-    stack.presentedDelegate = self;
+    RootTestViewController *stack = [[RootTestViewController alloc] initWithTestCase:testCase andPresenterDelegate:self];
+    stack.useHints = self.useHintsSwitch.on;
     [self.navigationController pushViewController:stack animated:YES];
 }
 
 - (void)presentedViewControllerWillDisapear:(UIViewController *)controller {
-    if ([controller isKindOfClass:[TestCardsStackViewController class]]) {
-        TestCardsStackViewController *stack = (TestCardsStackViewController *)controller;
+    if ([controller isKindOfClass:[RootTestViewController class]]) {
+        RootTestViewController *stack = (RootTestViewController *)controller;
         NSString *badge = [self badgeForTestCase:stack.testCase];
         TestTypeButton *button = self.testButtons[stack.testCase.description];
-        button.badgeLabel.text = badge;
+        button.detailLabel.text = badge;
         [[NSUserDefaults standardUserDefaults] setObject:badge forKey:stack.testCase.description];
     }
 }

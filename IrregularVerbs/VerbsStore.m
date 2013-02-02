@@ -98,7 +98,9 @@
     }
     return _allVerbs;
 }
-
+/*
+ verbs hints extracted from http://www.whitesmoke.com/english-irregular-verbs
+ */
 - (NSArray *)hints {
     if (!_hints) {
         _hints  = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"hints" ofType:@"plist"]];
@@ -153,7 +155,7 @@
 }
 -(NSArray *)defaultFrequencyGroups
 {
-    return @[@0.4, @0.9, @1.0];
+    return @[@0.6, @0.8, @1.0];
 }
 -(int)currentFrequencyByGroup{
     float freq = [[NSUserDefaults standardUserDefaults] floatForKey:@"frequency"];
@@ -170,9 +172,9 @@
     }
     return 0;
 }
-- (int)lastTestFailedVerbsCount {
-    NSPredicate *isFailed = [NSPredicate predicateWithFormat:@"isPendingOrFailed == %d",TRUE];
-    return [[self.currentList filteredArrayUsingPredicate:isFailed] count];
+- (int)failedOrNotTestedVerbsCount {
+    NSPredicate *isPendingPred = [NSPredicate predicateWithFormat:@"(numberOfTests == 0) OR (numberOfFailures == numberOfTests) "];
+    return [[self.currentList filteredArrayUsingPredicate:isPendingPred] count];
     
 }
 
@@ -185,7 +187,7 @@
 }
 
 - (NSArray *)history {
-    return [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByHistoricalPerformance:)];
+    return [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByRecentFailure:)];
 }
 
 - (NSString *)hintForGroupIndex:(int)index {
@@ -199,6 +201,9 @@
 }
 
 - (void)resetHistory {
+    for (NSString *key in self.testTypes) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:key];
+    }
     for (Verb *verb in self.allVerbs) {
         [verb resetHistory];
     }
@@ -207,15 +212,24 @@
 
 #pragma mark - Test Types
 
++ (void)setSelector:(SEL)selector forKey:(NSString *)key inDictionary:(NSMutableDictionary *)dict {
+    NSMethodSignature *signature = [VerbsStore instanceMethodSignatureForSelector:selector];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    [invocation setSelector:selector];
+    [dict setObject:invocation forKey:key];
+}
+
 + (void)initializeTestTypes:(VerbsStore *)sharedStore
 {
+    
     sharedStore.testTypesMap = [[NSMutableDictionary alloc] init];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequency)) forKey:NSLocalizedString(@"mostcommon", nil)];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFrequencyDes)) forKey:NSLocalizedString(@"leastcommon", nil)];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByFailure)) forKey:NSLocalizedString(@"mostfailed", nil)];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByRandom)) forKey:NSLocalizedString(@"randomchose", nil)];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByTestNumber)) forKey:NSLocalizedString(@"leasttested", nil)];
-    [sharedStore.testTypesMap setObject:NSStringFromSelector(@selector(testByHint)) forKey:NSLocalizedString(@"byhintgroup", nil)];
+        
+    [self setSelector:@selector(testByFrequency) forKey:NSLocalizedString(@"mostcommon", nil) inDictionary:sharedStore.testTypesMap];
+    [self setSelector:@selector(testByFrequencyDes) forKey:NSLocalizedString(@"leastcommon", nil) inDictionary:sharedStore.testTypesMap];
+    [self setSelector:@selector(testByFailure) forKey:NSLocalizedString(@"mostfailed", nil) inDictionary:sharedStore.testTypesMap];
+    [self setSelector:@selector(testByRandom) forKey:NSLocalizedString(@"randomchose", nil) inDictionary:sharedStore.testTypesMap];
+    [self setSelector:@selector(testByTestNumber) forKey:NSLocalizedString(@"leasttested", nil) inDictionary:sharedStore.testTypesMap];
+    [self setSelector:@selector(testByHint) forKey:NSLocalizedString(@"byhintgroup", nil) inDictionary:sharedStore.testTypesMap];    
 }
 
 - (int)verbsNumberInTest {
@@ -291,16 +305,19 @@
     return [[[hints allObjects] objectAtIndex:arc4random()%[hints count]] integerValue];
 }
 
-
+/*
+ * The reason is that the invokation's return object is not retained, so it will go away, even if you immediately assign it to an object reference, 
+ * unless you first retain it and then tell ARC to transfer ownership.
+ * http://stackoverflow.com/questions/7078109/why-does-nsinvocation-getreturnvalue-loose-object
+ */
 - (TestCase *)testCaseForTestType:(NSString *)testType {
-    SEL selector = NSSelectorFromString([self.testTypesMap objectForKey:testType]);
-    if ([self respondsToSelector:selector]) {
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        NSArray * verbs = [self performSelector:selector];
-        return [[TestCase alloc] initWithArray:verbs description:testType];
-    }
-    return nil;
-    
+    NSInvocation *invocation = [self.testTypesMap objectForKey:testType];
+
+    CFTypeRef result;
+    [invocation invokeWithTarget:self];
+    [invocation getReturnValue:&result];
+    if (result) CFRetain(result);
+    return [[TestCase alloc] initWithArray:(__bridge_transfer NSArray*)result description:testType];
 }
 
 @end

@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelSimple;
 @property (weak, nonatomic) IBOutlet UILabel *labelTime;
 @property (weak, nonatomic) IBOutlet UILabel *labelExtendedForms;
-@property (weak, nonatomic) IBOutlet UILabel *labelFailed;
 @property (weak, nonatomic) IBOutlet PassFailGraphView *passFailGraph;
 
 @end

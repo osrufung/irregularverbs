@@ -28,7 +28,8 @@ static NSString *SummaryCell = @"SummaryCell";
 - (id)initWithTestCase:(TestCase *)testCase {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-        self.testCase = testCase;
+        // We need a copy if not, we will modify the order of the curren test
+        self.testCase = [[TestCase alloc] initWithTestCase:testCase];
     }
     return self;
 }

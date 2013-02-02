@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "VerbsStore.h" 
 #import "HomeViewController.h"
+#import "ColorsDefinition.h"
 
 
   
@@ -18,15 +19,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //load default Settings
+    [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]]];
     
- 
     self.window = [[UIWindow alloc] initWithFrame:[[ UIScreen mainScreen]bounds]];
     
     //not frequency? default frequency for a minimal verbs 
     float frequency = [[NSUserDefaults standardUserDefaults] floatForKey:@"frequency"];
-    if(frequency == 0.0)
-        [[NSUserDefaults standardUserDefaults] setFloat:0.4 forKey:@"frequency"];
     
+    if(frequency == 0.0){
+        int defFreq = [[[[VerbsStore sharedStore] defaultFrequencyGroups]objectAtIndex:0] intValue];    
+        [[NSUserDefaults standardUserDefaults] setFloat:defFreq forKey:@"frequency"];
+    }
     HomeViewController *hvc = [[HomeViewController alloc] init];
   
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:hvc];
@@ -61,8 +65,8 @@
         NSLog(@"Error saving VerbStore State");
     }
     
-    
-    [UIApplication sharedApplication].applicationIconBadgeNumber = [[[VerbsStore sharedStore] alphabetic] count];
+     
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [[VerbsStore sharedStore] failedOrNotTestedVerbsCount];
     
 }
 

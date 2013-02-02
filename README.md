@@ -31,6 +31,7 @@ You can contact us at:
 * OR - v0.9.1e internal Model changes. Compute the average time for every verb instead last time only. (9/1/2013)
 * OR - v0.9.2e App badge icon for pending/failed elements. Experimental TableView with SearchDisplayControler (11/1/2013)
 * v0.9.3e New UI layout (16/1/2013)
+* v0.9.5  New UI look&feel. Simplified layout. Better History info. Full Spanish translation. (1/2/2013)
 
 ## Screenshot
 ![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot1.png)

@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 //
 
+#import "ColorsDefinition.h"
 #import "HomeViewController.h"
 #import "VerbsStore.h"
 #import <QuartzCore/QuartzCore.h>
@@ -72,7 +73,6 @@
     self.buttonLearn.titleLabel.font = fontButton;
     
     [[self.buttonTest imageView] setContentMode: UIViewContentModeScaleAspectFit];
- ;
     [self.buttonTest setTitle:NSLocalizedString(@"TestLabel", nil) forState:UIControlStateNormal];
     self.buttonTest.titleLabel.font = fontButton;
     
@@ -81,15 +81,16 @@
     [self.buttonHistory setTitle:NSLocalizedString(@"HistoryLabel", nil) forState:UIControlStateNormal];
     self.buttonHistory.titleLabel.font = fontButton;
     
+    /*
     [[self.buttonSetup imageView] setContentMode: UIViewContentModeScaleAspectFit];
 
     [self.buttonSetup setTitle:NSLocalizedString(@"SetupLabel", nil) forState:UIControlStateNormal];
     self.buttonSetup.titleLabel.font = fontButton;
-    
+    */
     [self.buttonClosePopUp setTitle:NSLocalizedString(@"close", nil) forState:UIControlStateNormal];
 
     //We can change this system button for a custom button with a look more integrated
-    //UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    //
  
     //[button addTarget:self action:@selector(showInfo:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -100,7 +101,9 @@
     [self.labelHeader setTextAlignment:NSTextAlignmentCenter];
     self.navigationItem.titleView = self.labelHeader;
     self.navigationItem.rightBarButtonItem = rightButton;
- 
+    UIButton *hideButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [hideButton setHidden:YES];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hideButton];
     self.title = NSLocalizedString(@"Home", @"Title for Home screen and back buttons");
   
     }
@@ -191,5 +194,10 @@
 
 - (IBAction)closePopUp:(id)sender {
       [ASDepthModalViewController dismiss];
+}
+
+- (IBAction)showProjectInfo:(id)sender {
+    NSString *launchUrl= [[NSUserDefaults standardUserDefaults] stringForKey:@"aboutProjectURL"];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 }
 @end

@@ -13,10 +13,8 @@
 #import "TSCSummaryCell.h"
 #import "PassFailGraphView.h"
 #import "Referee.h"
-#import "HintsTableDelegate.h"
 #import "UIColor+Saturation.h"
-#import "ASDepthModalViewController.h"
-#import <QuartzCore/QuartzCore.h>
+#import "HintsPopupViewController.h"
 
 
 @interface HistoryViewController ()
@@ -24,7 +22,6 @@
 @property (nonatomic) int failCount;
 @property (nonatomic) int passCount;
 @property (nonatomic) float averageTime;
-@property (nonatomic,strong) HintsTableDelegate *hintsDelegate;
 
 @end
 
@@ -35,20 +32,10 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
 
 @implementation HistoryViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-  
-
-    }
-    return self;
-}
-
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
     [[self  tableView] registerNib:[UINib nibWithNibName:@"HistoryDataCell" bundle:nil]
             forCellReuseIdentifier:CellIdentifier];
 
@@ -62,15 +49,29 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
     [[self criteriaControl] setTitle:NSLocalizedString(@"averagetime_abrev", nil) forSegmentAtIndex:1];
     [[self criteriaControl] setTitle:NSLocalizedString(@"failures", nil) forSegmentAtIndex:2];
 
-    self.hintsDelegate = [[HintsTableDelegate alloc] init];
-    [self.tableHelp registerNib:[UINib nibWithNibName:@"HintsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"HintsCell"];
-    self.tableHelp.delegate = self.hintsDelegate;
-    self.tableHelp.dataSource = self.hintsDelegate;
-    self.tableHelp.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableHelp.backgroundColor = [UIColor whiteColor];
-    self.helpView.layer.cornerRadius = 8;
+    UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                                                                 target:self
+                                                                                 action:@selector(clearStatistics)];
+ 
+    self.navigationItem.rightBarButtonItem = resetButton;
 }
 
+- (IBAction)clearStatistics{
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"clearhistorydata", nil)
+                                                 message:NSLocalizedString(@"clearconsequence", nil)
+                                                delegate:self
+                                       cancelButtonTitle:NSLocalizedString(@"cancel", nil)
+                                       otherButtonTitles:NSLocalizedString(@"clearall", nil), nil];
+    [av show];
+}
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex==1) {
+        [[VerbsStore sharedStore] resetHistory];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+    }
+}
 - (void)viewWillAppear:(BOOL)animated {
     int historyView = [[NSUserDefaults standardUserDefaults] integerForKey:@"historyView"];
     self.criteriaControl.selectedSegmentIndex = historyView;
@@ -171,20 +172,10 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
         }
         
         int failCount, passCount;
-        if (v.testCount!=0) {
-            failCount = v.failureRatio*100;
-            passCount = 100-failCount;
-            if ((failCount!=0)&&(failCount!=100)) {
-                cell.labelFailed.text = [NSString stringWithFormat:@"%d%% fail",failCount];
-                cell.labelFailed.textColor = [UIColor whiteColor];
-            } else {
-                cell.labelFailed.text = @"";    
-            }
-        } else {
-            failCount = passCount = 0;
-            cell.labelFailed.text = @"";
-        }
-        
+        failCount = v.failureIndex*100;
+        passCount = 100-failCount;
+        if (failCount==0) passCount=0;
+
         [cell.passFailGraph setColorsSaturation:0.3f];
         [cell.passFailGraph setDataCount:100
                            withPassCount:passCount
@@ -200,17 +191,9 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
-        NSLog(@"Selected row %d",indexPath.row);
-        Verb *selectedVerb = _currentData[indexPath.row];
-        
-        [self.hintsDelegate populateWithVerbsInArray:[[VerbsStore sharedStore] verbsForGroupIndex:selectedVerb.hint]];
-        [self.tableHelp reloadData];
-        [ASDepthModalViewController presentView:self.helpView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationGrow];
+        Verb *selectedVerb = _currentData[indexPath.row];        
+        [HintsPopupViewController showPopupForHint:selectedVerb.hint];
     }
-}
-
-- (IBAction)closeHelpView:(UIButton *)sender {
-    [ASDepthModalViewController dismiss];
 }
 
 - (void)computeStatistics {
@@ -244,6 +227,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
             _currentData = nil;
             break;
     }
+    NSLog(@"%@",_currentData);
     [[NSUserDefaults standardUserDefaults] setInteger:criteriaId forKey:@"historyView"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

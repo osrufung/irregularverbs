@@ -6,16 +6,24 @@
   Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 */
 
-"InfoPopupHome" = "learn, test your knowledge with a small number of verbs, and check your progress. You can increase your level by increasing the number of verbs in Setup.";
+"InfoPopupHome" = "learn, test your knowledge with a small number of verbs, and check your progress. You can increase your level by setting the dial in Home.";
 "close" = "close";
+
+"LevelLabel_0" = "BEGINNER";
+"LevelLabel_1" = "MEDIUM";
+"LevelLabel_2" = "EXPERT";
+"whatyouneedtoknow" = "What you need to know";
+
 //home View
 "verbstolearn" = "%d verbs to learn";
 "back" = "Home";
-"LearnLabel" = "Learn";
+"Home" = "Home";
+"LearnLabel" = "Look up";
 "TestLabel" = "Test";
 "HistoryLabel" = "History";
 "SetupLabel" = "Setup";
 "selecttesttype" = "Select Test Type";
+"Home" = "Home";
 
 //Learn View
 "alpha" = "Alpha";
@@ -31,6 +39,8 @@
 "fail_format" = "%.0f%% fail";
 "avgtime_format"="Average time %.2fs";
 "nopassverbs" = "No pass verb!";
+"%d of %d" = "%d of %d";
+
 
 
 //Verbs Store
@@ -43,16 +53,15 @@
 
 //history
 "historyLabel" = "History";
-"averagetime_abrev" = "avg. time";
-"failures" = "Failures";
+"averagetime_abrev" = "Time";
+"failures" = "Mastery";
 
 //Setup
 "levelOfDifficulty" = "Level of difficulty";
 "includingverbs_format"=  "(including %d verbs)";
 "testtime_format" = "Test time is %d sec";
-"clearbuttontitle" = "Clear Statistics";
-"clearhistorydata" = "Clear Historical Data";
-"clearconsequence"= "You will clear all the data from old tests";
+"clearhistorydata" = "Reset progress";
+"clearconsequence"= "You will clear all the data from old tests. Are you sure?";
 "cancel" = "Cancel";
 "clearall" = "Clear All";
 "aboutbuttontitle" = "Show Project Info at GitHub";

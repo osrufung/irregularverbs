@@ -5,31 +5,40 @@
   Created by Oswaldo Rubio on 21/01/13.
   Copyright (c) 2013 Oswaldo Rubio. All rights reserved.
 */
-"InfoPopupHome" = "aprende, verifica tu conocimiento con un pequeño nº de verbos y comprueba tu progreso. Puedes incrementar el nivel aumentando el nº de verbos en Ajustes.";
+"InfoPopupHome" = "aprende, verifica tu conocimiento con un pequeño nº de verbos y comprueba tu progreso. Puedes incrementar el nivel ajustando el dial en la pantalla de inicio.";
 "close" = "cerrar";
+
+"LevelLabel_0" = "PRINCIPIANTE";
+"LevelLabel_1" = "MEDIO";
+"LevelLabel_2" = "EXPERTO";
+"whatyouneedtoknow" = "Algunas pistas para memorizar";
+
 //home View
 "verbstolearn" = "%d verbos para aprender";
 "back" = "Inicio";
-"LearnLabel" = "Aprender";
+"Home"= "Inicio";
+"LearnLabel" = "Consultar";
 "TestLabel" = "Evaluar";
 "HistoryLabel" = "Historial";
 "SetupLabel" = "Ajustes";
 "selecttesttype" = "Elige tipo de test";
+"Home" = "Principal";
 
 //Learn View
 "alpha" = "A-Z";
-"hints" = "por reglas";
+"hints" = "por pistas";
 
 //test
 "TestOptions" = "Opciones";
 "TestType" = "Tipo de test";
-"usexofy" = "Limitar a %d de %d";
-"usehints" = "Usar reglas";
+"usexofy" = "Usar %d de %d";
+"usehints" = "Usar pistas";
 "scoreboard"= "Marcador";
 "averagetime" ="tiempo de respuesta medio";
 "fail_format" = "%.0f%% fallos";
 "avgtime_format"="Tiempo medio %.2fs";
 "nopassverbs" = "Ningún verbo superado";
+"%d of %d" = "%d de %d";
 
 //Verbs Store
 "mostcommon" = "Más comunes";
@@ -37,21 +46,21 @@
 "mostfailed" = "Más falladas";
 "randomchose"= "Aleatorio";
 "leasttested"="Menos evaluadas";
-"byhintgroup" = "Por regla";
+"byhintgroup" = "Por pista";
 
 //history
 "historyLabel" = "Historial";
-"averagetime_abrev" = "T. medio";
-"failures" = "Nº fallos";
+"averagetime_abrev" = "Tiempo";
+"failures" = "Dominio";
 
 
 //Setup
 "levelOfDifficulty" = "Nivel de dificultad";
 "includingverbs_format"=  "(incluyendo %d verbos)";
-"testtime_format" = "Tiempo en test: %ds";
-"clearbuttontitle" = "Inicializar datos";
-"clearhistorydata" = "Inicializar datos";
-"clearconsequence"= "Se eliminarán los datos de los test anteriores";
+"testtime_format" = "Test de %d segundos";
+
+"clearhistorydata" = "Reiniciar progreso";
+"clearconsequence"= "Se eliminará las estadísticas de estudio. ¿Estás seguro?";
 "cancel" = "Cancelar";
-"clearall" = "Inicializar";
+"clearall" = "Reiniciar";
 "aboutbuttontitle" = "Ver info del proyecto en GitHub";

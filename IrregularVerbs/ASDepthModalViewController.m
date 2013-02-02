@@ -30,7 +30,8 @@
 @property (nonatomic, strong) UIViewController *rootViewController;
 @property (nonatomic, strong) UIView *coverView;
 @property (nonatomic, strong) UIView *popupView;
-@property (nonatomic, assign) CGAffineTransform initialPopupTransform;;
+@property (nonatomic, assign) CGAffineTransform initialPopupTransform;
+@property (nonatomic, strong) UIViewController *popupViewController;
 @end
 
 static NSTimeInterval const kModalViewAnimationDuration = 0.3;
@@ -72,6 +73,7 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.3;
                      }
                      completion:^(BOOL finished) {
                          [self restoreRootViewController];
+                         self.popupViewController = nil;
                      }];
 }
 
@@ -170,7 +172,7 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.3;
     self.coverView.alpha = 0;
     [UIView animateWithDuration:kModalViewAnimationDuration
                      animations:^{
-                         //self.rootViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8);
+                         self.rootViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8);
                          self.coverView.alpha = 1;
                      }];
     
@@ -189,12 +191,24 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.3;
     [self presentView:view withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationDefault];
 }
 
-+ (void)presentView:(UIView *)view withBackgroundColor:(UIColor *)color popupAnimationStyle:(ASDepthModalAnimationStyle)popupAnimationStyle;
++ (void)presentView:(UIView *)view withBackgroundColor:(UIColor *)color popupAnimationStyle:(ASDepthModalAnimationStyle)popupAnimationStyle
 {
     ASDepthModalViewController *modalViewController;
     
     modalViewController = [[ASDepthModalViewController alloc] init];
     [modalViewController presentView:view withBackgroundColor:(UIColor *)color popupAnimationStyle:popupAnimationStyle];
+}
+
++ (void)presentViewController:(UIViewController *)controller {
+    [self presentViewController:controller withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationDefault];
+}
+
++ (void)presentViewController:(UIViewController *)controller withBackgroundColor:(UIColor *)color popupAnimationStyle:(ASDepthModalAnimationStyle)popupAnimationStyle {
+    ASDepthModalViewController *modalViewController;
+    
+    modalViewController = [[ASDepthModalViewController alloc] init];
+    modalViewController.popupViewController = controller;
+    [modalViewController presentView:controller.view withBackgroundColor:(UIColor *)color popupAnimationStyle:popupAnimationStyle];
 }
 
 + (void)dismiss
