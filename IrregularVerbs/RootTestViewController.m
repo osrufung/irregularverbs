@@ -154,7 +154,7 @@
     [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
     
     self.helpImage  = [ImgIndependentHelper getTestHelpImageView];
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firsTimeAssistantShown"];
+   
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firsTimeAssistantShown"]){
         isHelpViewVisible = YES;
         [ASDepthModalViewController presentView:self.helpPopUpView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationNone];

@@ -31,12 +31,12 @@ return backgroundImageView;
     
     if ([[UIScreen mainScreen] bounds].size.height == 568) {
         
-        backgroundImageView = [[UIImageView alloc] initWithImage:imgTestscreenhelp4];
+        backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"testScreenHelp_4"]];
         [backgroundImageView setFrame:CGRectMake(0, 0, 320, 568)];
     }
     else{
         
-        backgroundImageView = [[UIImageView alloc] initWithImage:imgTestscreenhelp3dot5];
+        backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"testScreenHelp_3dot5"]];
         [backgroundImageView setFrame:CGRectMake(0, 0, 320, 480)];
     }
     return backgroundImageView;
