@@ -209,7 +209,7 @@
 }
 
 - (IBAction)showProjectInfo:(id)sender {
-    NSString *launchUrl= [[NSUserDefaults standardUserDefaults] stringForKey:@"aboutProjectURL"];
+    NSString *launchUrl= @"http://www.alistofverbsapp.com";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 }
 #pragma mark accesibility
