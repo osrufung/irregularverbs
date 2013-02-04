@@ -118,7 +118,7 @@ static float deltaAngle;
     CGAffineTransform t = CGAffineTransformRotate(container.transform, angleSize);
     container.transform = t;
     [UIView commitAnimations];
-    DLog(@"Current Segment %d",currentSector);
+ 
       [self.delegate dialDidChangeValue:currentSector];
     
 }
@@ -134,7 +134,7 @@ static float deltaAngle;
     CGAffineTransform t = CGAffineTransformRotate(container.transform, -angleSize);
     container.transform = t;
     [UIView commitAnimations];
-    DLog(@"Current Segment %d",currentSector);
+ 
     [self.delegate dialDidChangeValue:currentSector];
 }
  

@@ -226,4 +226,20 @@
     }
       return recognized;
 }
+- (NSInteger)accessibilityLineNumberForPoint:(CGPoint)point{
+    return NSNotFound;
+}
+-(NSString *)accessibilityContentForLineNumber:(NSInteger)lineNumber
+{
+    return nil;
+}
+ 
+-(NSString *)accessibilityPageContent{
+    return nil;
+}
+-(CGRect)accessibilityFrameForLineNumber:(NSInteger)lineNumber{
+    CGRect lineBounds;
+    return lineBounds;
+}
+
 @end
