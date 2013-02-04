@@ -67,8 +67,11 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex==1) {
+         
         [[VerbsStore sharedStore] resetHistory];
+         
         [self.navigationController popToRootViewControllerAnimated:YES];
+         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firsTimeAssistantShown"];
         
     }
 }

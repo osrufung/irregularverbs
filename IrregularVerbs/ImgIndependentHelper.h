@@ -10,4 +10,5 @@
 
 @interface ImgIndependentHelper : NSObject
 +(UIImageView *)getBackgroundImageView;
++(UIImageView *)getTestHelpImageView;
 @end

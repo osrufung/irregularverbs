@@ -170,12 +170,20 @@ static NSTimeInterval const kModalViewAnimationDuration = 0.3;
     self.popupView.center = CGPointMake(self.coverView.bounds.size.width/2, self.coverView.bounds.size.height/2);
     
     self.coverView.alpha = 0;
-    [UIView animateWithDuration:kModalViewAnimationDuration
+    
+    if(popupAnimationStyle != ASDepthModalAnimationNone){
+        [UIView animateWithDuration:kModalViewAnimationDuration
                      animations:^{
                          self.rootViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8);
                          self.coverView.alpha = 1;
                      }];
-    
+    }else{
+        [UIView animateWithDuration:kModalViewAnimationDuration
+                         animations:^{
+                             //self.rootViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8);
+                             self.coverView.alpha = 1;
+                         }];
+    }
     [self animatePopupWithStyle:popupAnimationStyle];
 }
 

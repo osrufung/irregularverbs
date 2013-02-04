@@ -15,10 +15,18 @@
 #import "Verb.h"
 #import "ImgIndependentHelper.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ASDepthModalViewController.h"
 
 #define TEST_TIMER_INTERVAL 1/60.0f
 
 @interface RootTestViewController ()
+{
+    BOOL isHelpViewVisible;
+}
+@property (strong, nonatomic) IBOutlet UIView *helpPopUpView;
+ 
+@property (weak, nonatomic) IBOutlet UIImageView *helpImage;
+ 
 
 @property (nonatomic,strong) UIPageViewController *pager;
 
@@ -35,6 +43,7 @@
 - (id)initWithTestCase:(TestCase *)testCase andPresenterDelegate:(id<PresentedViewControllerDelegate>) presenterDelegate {
     self = [super init];
     if (self) {
+        
         self.testCase = testCase;
         self.pager = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                                       navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
@@ -52,6 +61,7 @@
         statsButton.style = UIBarButtonItemStylePlain;
         self.navigationItem.rightBarButtonItem = statsButton;
         self.pageNumberLabel.font = [UIFont fontWithName:@"Signika" size:12];
+        isHelpViewVisible = NO;
     }
     return self;
 }
@@ -84,6 +94,7 @@
 
 - (void)beginTest {
     if (!self.testTimer) {
+        
         self.beginTime = CACurrentMediaTime();
         self.testTimer = [NSTimer timerWithTimeInterval:TEST_TIMER_INTERVAL
                                              target:self
@@ -139,15 +150,34 @@
     CGRect btFrame = self.passButton.frame;
     CGRect pagerFrame = CGRectMake(pbFrame.origin.x, pbFrame.origin.y,
                                    self.view.bounds.size.width, pbFrame.size.height-btFrame.size.height-pgFrame.size.height);
+    
+    [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
+    
+    self.helpImage  = [ImgIndependentHelper getTestHelpImageView];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firsTimeAssistantShown"];
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firsTimeAssistantShown"]){
+        isHelpViewVisible = YES;
+        [ASDepthModalViewController presentView:self.helpPopUpView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationNone];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firsTimeAssistantShown"];
+    }
+
     self.pager.view.frame = pagerFrame;
     [self.pager setViewControllers:@[[self testCardViewAtIndex:0]]
                          direction:UIPageViewControllerNavigationDirectionForward
                           animated:YES
                         completion:nil];
     self.pageNumberLabel.text = [self stringForPage:1 ofTotal:self.testCase.verbs.count+1];
-    [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];    
+
+    
+
+    
 }
 
+- (IBAction)closePopUp:(id)sender {
+    isHelpViewVisible = NO;
+    [ASDepthModalViewController dismiss];
+  
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -205,7 +235,12 @@
 }
 
 - (void)testCardDidApperar:(TestCardViewController *)cardView {
-    if (self.currentCard.verb.testPending) [self beginTest];
+ 
+    if(!isHelpViewVisible){
+
+        if (self.currentCard.verb.testPending) [self beginTest];
+    }
+
 }
 
 - (void)testCardWillDisappear:(TestCardViewController *)cardView {
