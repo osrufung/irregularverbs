@@ -14,6 +14,7 @@
 #import "Referee.h"
 #import "Verb.h"
 #import "ImgIndependentHelper.h"
+#import "ModalOverlay.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define TEST_TIMER_INTERVAL 1/60.0f
@@ -27,6 +28,7 @@
 @property (nonatomic) float endTime;
 @property (strong,nonatomic) NSTimer *testTimer;
 @property (weak,nonatomic) TestCardViewController *currentCard;
+@property (nonatomic) BOOL showHelp;
 
 @end
 
@@ -52,6 +54,7 @@
         statsButton.style = UIBarButtonItemStylePlain;
         self.navigationItem.rightBarButtonItem = statsButton;
         self.pageNumberLabel.font = [UIFont fontWithName:@"Signika" size:12];
+        self.showHelp = YES;
     }
     return self;
 }
@@ -148,6 +151,10 @@
     [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];    
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    if (self.showHelp)
+        [ModalOverlay showImage:@"testScreenHelp" completion:^{self.showHelp = NO;}];
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -207,7 +214,7 @@
 - (void)testCardDidApperar:(TestCardViewController *)cardView {
     self.currentCard = cardView;
     [self updateButtonStateForVerb:self.currentCard.verb];
-    if (self.currentCard.verb.testPending) [self beginTest];
+    if ((self.currentCard.verb.testPending)&&(!self.showHelp)) [self beginTest];
 }
 
 - (void)testCardWillDisappear:(TestCardViewController *)cardView {
