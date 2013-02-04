@@ -18,6 +18,7 @@
 		092CE66516B3CA260008A741 /* signikaregular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 092CE66416B3CA260008A741 /* signikaregular.ttf */; };
 		092CE66716B3CDBE0008A741 /* signikabold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 092CE66616B3CDBE0008A741 /* signikabold.ttf */; };
 		092CE66916B3CE210008A741 /* signikalight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 092CE66816B3CDCF0008A741 /* signikalight.ttf */; };
+		095BD20116C0225300FD62A1 /* StatisticsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5ED132716BFB06B00CC54AA /* StatisticsCell.xib */; };
 		096F287916BD775100073CAB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D372F21681BA4F00F80410 /* Default-568h@2x.png */; };
 		0973D9F216AD2C4500A8E30A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0973D9F416AD2C4500A8E30A /* Localizable.strings */; };
 		0973D9FE16AD4DBE00A8E30A /* ASDepthModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0973D9FD16AD4DBE00A8E30A /* ASDepthModalViewController.m */; };
@@ -108,7 +109,6 @@
 		E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */; };
 		E5E05B9716B2E98100F33CEC /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05B9616B2E98100F33CEC /* TestCase.m */; };
 		E5ED132416BFB03400CC54AA /* StatisticsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED132316BFB03400CC54AA /* StatisticsCell.m */; };
-		E5ED132816BFB06C00CC54AA /* StatisticsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5ED132716BFB06B00CC54AA /* StatisticsCell.xib */; };
 		E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */; };
 		E5F49E2116A5C89C0078EC5D /* TestCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -170,12 +170,12 @@
 		09D372EB1681BA4F00F80410 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		09D372EC1681BA4F00F80410 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		09D372F21681BA4F00F80410 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		09FFD4A716BFCE93001272F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/testScreenHelp_4.png; sourceTree = "<group>"; };
-		09FFD4A916BFCE97001272F5 /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/testScreenHelp_4.png; sourceTree = "<group>"; };
-		09FFD4AB16BFCEA3001272F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/testScreenHelp_3dot5.png; sourceTree = "<group>"; };
-		09FFD4AD16BFCEA7001272F5 /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/testScreenHelp_3dot5.png; sourceTree = "<group>"; };
-		09FFD4AF16BFCEAB001272F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/testScreenHelp_3dot5@2x.png"; sourceTree = "<group>"; };
-		09FFD4B116BFCEAD001272F5 /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = "es.lproj/testScreenHelp_3dot5@2x.png"; sourceTree = "<group>"; };
+		09FFD4A716BFCE93001272F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/testScreenHelp_4.png; sourceTree = "<group>"; };
+		09FFD4A916BFCE97001272F5 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = es; path = es.lproj/testScreenHelp_4.png; sourceTree = "<group>"; };
+		09FFD4AB16BFCEA3001272F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/testScreenHelp_3dot5.png; sourceTree = "<group>"; };
+		09FFD4AD16BFCEA7001272F5 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = es; path = es.lproj/testScreenHelp_3dot5.png; sourceTree = "<group>"; };
+		09FFD4AF16BFCEAB001272F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/testScreenHelp_3dot5@2x.png"; sourceTree = "<group>"; };
+		09FFD4B116BFCEAD001272F5 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = es; path = "es.lproj/testScreenHelp_3dot5@2x.png"; sourceTree = "<group>"; };
 		E513C11C16A93D0F00467B5C /* UIColor+Saturation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Saturation.h"; sourceTree = "<group>"; };
 		E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Saturation.m"; sourceTree = "<group>"; };
 		E513C12516A94CE700467B5C /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
@@ -742,6 +742,7 @@
 				09FFD4AA16BFCEA3001272F5 /* testScreenHelp_3dot5.png in Resources */,
 				09FFD4AE16BFCEAB001272F5 /* testScreenHelp_3dot5@2x.png in Resources */,
 				09FFD4A616BFCE93001272F5 /* testScreenHelp_4.png in Resources */,
+				095BD20116C0225300FD62A1 /* StatisticsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
