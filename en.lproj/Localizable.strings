@@ -13,7 +13,7 @@
 "LevelLabel_1" = "MEDIUM";
 "LevelLabel_2" = "EXPERT";
 "whatyouneedtoknow" = "What you need to know";
-
+"accesibility_dialselectorhint" = "swipe left or right to change level";
 //home View
 "verbstolearn" = "%d verbs to learn";
 "back" = "Home";

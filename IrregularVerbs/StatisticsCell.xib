@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">11G63</string>
+		<string key="IBDocument.SystemVersion">12C60</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1138.51</string>
-		<string key="IBDocument.HIToolboxVersion">569.00</string>
+		<string key="IBDocument.AppKitVersion">1187.34</string>
+		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -45,6 +45,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{20, 11}, {280, 38}}</string>
 								<reference key="NSSuperview" ref="665957234"/>
+								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -84,7 +85,7 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{0, 5}, {280, 30}}</string>
 										<reference key="NSSuperview" ref="94091002"/>
-										<reference key="NSNextKeyView"/>
+										<reference key="NSWindow"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<bool key="IBUIClipsSubviews">YES</bool>
@@ -112,6 +113,7 @@
 								</array>
 								<string key="NSFrame">{{20, 171}, {280, 40}}</string>
 								<reference key="NSSuperview" ref="665957234"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1011819776"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
@@ -125,6 +127,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{20, 133}, {280, 30}}</string>
 								<reference key="NSSuperview" ref="665957234"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="94091002"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -159,6 +162,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{20, 95}, {280, 30}}</string>
 								<reference key="NSSuperview" ref="665957234"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="927885875"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -180,6 +184,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{20, 57}, {280, 30}}</string>
 								<reference key="NSSuperview" ref="665957234"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="397006698"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -199,6 +204,7 @@
 						</array>
 						<string key="NSFrameSize">{320, 231}</string>
 						<reference key="NSSuperview" ref="716237178"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="905427004"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -214,6 +220,7 @@
 				</array>
 				<string key="NSFrameSize">{320, 232}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="665957234"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -359,7 +366,65 @@
 			<nil key="sourceID"/>
 			<int key="maxID">29</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">PassFailGraphView</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/PassFailGraphView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">StatisticsCell</string>
+					<string key="superclassName">UITableViewCell</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="averageTimeLabel">UILabel</string>
+						<string key="failCountLabel">UILabel</string>
+						<string key="failRatioLabel">UILabel</string>
+						<string key="passFailGraph">PassFailGraphView</string>
+						<string key="pendingLabel">UILabel</string>
+						<string key="testCountLabel">UILabel</string>
+						<string key="titleLabel">UILabel</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="averageTimeLabel">
+							<string key="name">averageTimeLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="failCountLabel">
+							<string key="name">failCountLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="failRatioLabel">
+							<string key="name">failRatioLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="passFailGraph">
+							<string key="name">passFailGraph</string>
+							<string key="candidateClassName">PassFailGraphView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="pendingLabel">
+							<string key="name">pendingLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="testCountLabel">
+							<string key="name">testCountLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="titleLabel">
+							<string key="name">titleLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/StatisticsCell.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
