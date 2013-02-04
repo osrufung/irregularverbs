@@ -12,7 +12,7 @@
 "LevelLabel_1" = "MEDIO";
 "LevelLabel_2" = "EXPERTO";
 "whatyouneedtoknow" = "Algunas pistas para memorizar";
-
+"accesibility_dialselectorhint" = "deslize a izquierda o derecha para cambiar de nivel";
 //home View
 "verbstolearn" = "%d verbos para aprender";
 "back" = "Inicio";

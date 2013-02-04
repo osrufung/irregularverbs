@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LevelDialSelectorControl.h"
 
-@interface HomeViewController : UIViewController <LevelDialSelectorProtocol>
+@interface HomeViewController : UIViewController <LevelDialSelectorProtocol,UIAccessibilityReadingContent>
 
 - (IBAction)showInfo:(id)sender;
 - (IBAction)openLearn:(id)sender;

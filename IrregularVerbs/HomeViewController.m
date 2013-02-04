@@ -19,6 +19,9 @@
 #import "ImgIndependentHelper.h"
 
 @interface HomeViewController ()
+{
+    LevelDialSelectorControl *dial;
+}
 @property (weak, nonatomic) IBOutlet UITextView *labelPopUp;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UILabel *headLabel;
@@ -52,7 +55,7 @@
  
     [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
  
-    LevelDialSelectorControl *dial =  [[LevelDialSelectorControl alloc] initWithFrame:CGRectMake(0, 0, 320, 440) andDelegate:self withSections:3 initialSection:[[VerbsStore sharedStore] currentFrequencyByGroup]];
+     dial =  [[LevelDialSelectorControl alloc] initWithFrame:CGRectMake(0, 0, 320, 440) andDelegate:self withSections:3 initialSection:[[VerbsStore sharedStore] currentFrequencyByGroup]];
     
     [[self bottomView] addSubview:dial];
     UIImageView *imView =  [[UIImageView alloc] initWithImage:imgWhiteCircularBg1];
@@ -209,5 +212,18 @@
     NSString *launchUrl= [[NSUserDefaults standardUserDefaults] stringForKey:@"aboutProjectURL"];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
 }
-
+#pragma mark accesibility
+- (BOOL)accessibilityScroll:(UIAccessibilityScrollDirection)direction
+{
+    BOOL recognized = NO;
+ 
+    if(direction == UIAccessibilityScrollDirectionLeft){
+        [dial turnRight];
+        recognized = YES;
+    }else if (direction == UIAccessibilityScrollDirectionRight){
+        [dial turnLeft];
+        recognized = YES;
+    }
+      return recognized;
+}
 @end

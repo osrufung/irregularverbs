@@ -68,6 +68,8 @@ static float deltaAngle;
     container.transform = CGAffineTransformRotate(startTransform, -angleDifference*1.5);
     return YES;
 }
+ 
+
 - (void)endTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event
 {
     // 1 - Get current container rotation in radians
@@ -103,7 +105,38 @@ static float deltaAngle;
     
      [self.delegate dialDidChangeValue:currentSector];
 }
-
+-(void)turnLeft
+{
+ if(currentSector ==0)
+     currentSector =numberOfSections -1;
+ else
+    currentSector--;
+     CGFloat angleSize = 2*M_PI/numberOfSections;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.2];
+    CGAffineTransform t = CGAffineTransformRotate(container.transform, angleSize);
+    container.transform = t;
+    [UIView commitAnimations];
+    DLog(@"Current Segment %d",currentSector);
+      [self.delegate dialDidChangeValue:currentSector];
+    
+}
+-(void)turnRight
+{
+   if(currentSector == numberOfSections-1)
+       currentSector = 0;
+    else
+        currentSector++;
+    CGFloat angleSize = 2*M_PI/numberOfSections;
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.2];
+    CGAffineTransform t = CGAffineTransformRotate(container.transform, -angleSize);
+    container.transform = t;
+    [UIView commitAnimations];
+    DLog(@"Current Segment %d",currentSector);
+    [self.delegate dialDidChangeValue:currentSector];
+}
  
 - (void) drawWheel {
     //the initial angle offset (top of the dial)
@@ -128,6 +161,7 @@ static float deltaAngle;
         [lbltxt setTextColor:[UIColor whiteColor]];
         [lbltxt setShadowColor:[UIColor lightGrayColor]];
         [lbltxt setShadowOffset:CGSizeMake(1.0, 1.0)];
+        [lbltxt setAccessibilityHint:[NSString stringWithFormat:@"%@ %@",NSLocalizedString(txt,nil) , NSLocalizedString(@"accesibility_dialselectorhint",nil)]];
 
         [im addSubview:lbltxt];
         
