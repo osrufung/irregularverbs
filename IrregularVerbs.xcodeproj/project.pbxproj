@@ -104,6 +104,8 @@
 		E5DB03A516A7EEAC00EE1E80 /* PassFailGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */; };
 		E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */; };
 		E5E05B9716B2E98100F33CEC /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05B9616B2E98100F33CEC /* TestCase.m */; };
+		E5ED132416BFB03400CC54AA /* StatisticsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED132316BFB03400CC54AA /* StatisticsCell.m */; };
+		E5ED132816BFB06C00CC54AA /* StatisticsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5ED132716BFB06B00CC54AA /* StatisticsCell.xib */; };
 		E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */; };
 		E5F49E2116A5C89C0078EC5D /* TestCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -266,6 +268,9 @@
 		E5E05B9516B2E98100F33CEC /* TestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCase.h; sourceTree = "<group>"; };
 		E5E05B9616B2E98100F33CEC /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCase.m; sourceTree = "<group>"; };
 		E5E05B9916B2FE2800F33CEC /* PresentedViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentedViewControllerDelegate.h; sourceTree = "<group>"; };
+		E5ED132216BFB03400CC54AA /* StatisticsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsCell.h; sourceTree = "<group>"; };
+		E5ED132316BFB03400CC54AA /* StatisticsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsCell.m; sourceTree = "<group>"; };
+		E5ED132716BFB06B00CC54AA /* StatisticsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatisticsCell.xib; sourceTree = "<group>"; };
 		E5F49E1D16A5C89C0078EC5D /* TestCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCardViewController.h; sourceTree = "<group>"; };
 		E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCardViewController.m; sourceTree = "<group>"; };
 		E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCardViewController.xib; sourceTree = "<group>"; };
@@ -435,6 +440,9 @@
 				090F8B3E16A7E52A002131E1 /* HistoryViewController.h */,
 				090F8B3F16A7E52B002131E1 /* HistoryViewController.m */,
 				090F8B4016A7E52B002131E1 /* HistoryViewController.xib */,
+				E5ED132216BFB03400CC54AA /* StatisticsCell.h */,
+				E5ED132316BFB03400CC54AA /* StatisticsCell.m */,
+				E5ED132716BFB06B00CC54AA /* StatisticsCell.xib */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -719,6 +727,7 @@
 				E5A2E3AA16BAD8EE009C7700 /* white-circular-bg1@2x.png in Resources */,
 				E5A0A7CF16BBBD9F00ADC8E9 /* HintsPopupViewController.xib in Resources */,
 				096F287916BD775100073CAB /* Default-568h@2x.png in Resources */,
+				E5ED132816BFB06C00CC54AA /* StatisticsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,6 +769,7 @@
 				E5A272B116B98D1900F32524 /* RootTestViewController.m in Sources */,
 				E5A0A7CE16BBBD9F00ADC8E9 /* HintsPopupViewController.m in Sources */,
 				E5DA21D316BBE8D100D30140 /* UIColor+IrregularVerbs.m in Sources */,
+				E5ED132416BFB03400CC54AA /* StatisticsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

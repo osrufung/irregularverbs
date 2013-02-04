@@ -10,7 +10,7 @@
 #import "HistoryDataCell.h"
 #import "VerbsStore.h"
 #import "Verb.h"
-#import "TSCSummaryCell.h"
+#import "StatisticsCell.h"
 #import "PassFailGraphView.h"
 #import "Referee.h"
 #import "UIColor+Saturation.h"
@@ -21,13 +21,15 @@
 
 @property (nonatomic) int failCount;
 @property (nonatomic) int passCount;
+@property (nonatomic) int testCount;
 @property (nonatomic) float averageTime;
+@property (nonatomic) int noTested;
 
 @end
 
 
 static NSString *CellIdentifier = @"HistoryDataCell";
-static NSString *SummaryIdentifier = @"TSCSummaryCell";
+static NSString *SummaryIdentifier = @"StatisticsCell";
 
 
 @implementation HistoryViewController
@@ -39,15 +41,17 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
     [[self  tableView] registerNib:[UINib nibWithNibName:@"HistoryDataCell" bundle:nil]
             forCellReuseIdentifier:CellIdentifier];
 
-    [[self  tableView] registerNib:[UINib nibWithNibName:@"TSCSummaryCell" bundle:nil]
+    [[self  tableView] registerNib:[UINib nibWithNibName:@"StatisticsCell" bundle:nil]
             forCellReuseIdentifier:SummaryIdentifier];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.title = NSLocalizedString(@"HistoryLabel", nil);
     
-    [[self criteriaControl] setTitle:NSLocalizedString(@"alpha", nil) forSegmentAtIndex:0];
-    [[self criteriaControl] setTitle:NSLocalizedString(@"averagetime_abrev", nil) forSegmentAtIndex:1];
-    [[self criteriaControl] setTitle:NSLocalizedString(@"failures", nil) forSegmentAtIndex:2];
+    [[self criteriaControl] setTitle:NSLocalizedString(@"hfailures", nil) forSegmentAtIndex:0];
+    [[self criteriaControl] setTitle:NSLocalizedString(@"haveragetime_abrev", nil) forSegmentAtIndex:1];
+    [[self criteriaControl] setTitle:NSLocalizedString(@"halpha", nil) forSegmentAtIndex:2];
+    [[self criteriaControl] setTitle:NSLocalizedString(@"herrors", nil) forSegmentAtIndex:3];
+    [[self criteriaControl] setTitle:NSLocalizedString(@"htest", nil) forSegmentAtIndex:4];
 
     UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
                                                                                  target:self
@@ -56,7 +60,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
     self.navigationItem.rightBarButtonItem = resetButton;
 }
 
-- (IBAction)clearStatistics{
+- (void)clearStatistics{
     UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"clearhistorydata", nil)
                                                  message:NSLocalizedString(@"clearconsequence", nil)
                                                 delegate:self
@@ -137,21 +141,24 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        TSCSummaryCell *cell = [tableView dequeueReusableCellWithIdentifier:SummaryIdentifier forIndexPath:indexPath];
+        StatisticsCell *cell = [tableView dequeueReusableCellWithIdentifier:SummaryIdentifier forIndexPath:indexPath];
                 
         [cell.passFailGraph setColorsSaturation:0.5f];
         [cell.passFailGraph setDataCount:self.passCount+self.failCount
                            withPassCount:self.passCount
                             andFailCount:self.failCount];
         
-        cell.labelAverageTime.attributedText = [self attributedAverageString];
+        cell.titleLabel.text = NSLocalizedString(@"HistoryLabel", nil);
+        cell.averageTimeLabel.attributedText = [self attributedAverageString];
         if ((self.passCount+self.failCount) > 0) {
-            cell.labelFailureRatio.text = [NSString stringWithFormat:@"%.0f%% fail",100.0*self.failCount/(self.passCount+self.failCount)];
+            cell.failRatioLabel.text = [NSString stringWithFormat:@"%.0f%%",100.0*self.failCount/(self.passCount+self.failCount)];
         }
         else
-            cell.labelFailureRatio.text =@"";
+            cell.failRatioLabel.text =@"";
 
-        cell.labelFailureRatio.textColor = [UIColor blackColor];
+        cell.failRatioLabel.textColor = [UIColor blackColor];
+        cell.pendingLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d verbs without test", @"{count} verbs without test"),self.noTested];
+        cell.testCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d fallos en %d tests", @"{#fail} failed verbs in {#test} tests"),self.failCount, self.testCount];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
@@ -171,16 +178,7 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
             cell.labelTime.textColor = [[Referee sharedReferee] colorForValue:v.averageResponseTime];
         }
         
-        int failCount, passCount;
-        failCount = v.failureIndex*100;
-        passCount = 100-failCount;
-        if (failCount==0) passCount=0;
-
-        [cell.passFailGraph setColorsSaturation:0.3f];
-        [cell.passFailGraph setDataCount:100
-                           withPassCount:passCount
-                            andFailCount:failCount];
-        
+        cell.failCountLabel.text = [NSString stringWithFormat:@"%d/%d",v.failCount,v.testCount];        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
         return cell;
@@ -200,8 +198,12 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
     self.passCount=0;
     self.failCount=0;
     self.averageTime=0;
+    self.noTested=0;
+    self.testCount=0;
     int newCount;
-    for (Verb * verb in _currentData) {        
+    for (Verb * verb in _currentData) {
+        if (verb.testCount==0) self.noTested++;
+        self.testCount += verb.testCount;
         self.failCount += verb.failCount;
         newCount = self.passCount+verb.passCount;
         if (newCount>0) {
@@ -215,13 +217,19 @@ static NSString *SummaryIdentifier = @"TSCSummaryCell";
 - (void)chooseDataSet:(int)criteriaId {
     switch (criteriaId) {
         case 0:
-            _currentData = [[VerbsStore sharedStore] alphabetic];
+            _currentData = [[VerbsStore sharedStore] history];
             break;
         case 1:
             _currentData = [[[VerbsStore sharedStore] alphabetic] sortedArrayUsingSelector:@selector(compareVerbsByAverageResponseTime:)];
             break;
         case 2:
-            _currentData = [[VerbsStore sharedStore] history];
+            _currentData = [[VerbsStore sharedStore] alphabetic];
+            break;
+        case 3:
+            _currentData = [[[VerbsStore sharedStore] alphabetic] sortedArrayUsingSelector:@selector(compareVerbsByHistoricalPerformance:)];
+            break;
+        case 4:
+            _currentData = [[[VerbsStore sharedStore] alphabetic] sortedArrayUsingSelector:@selector(compareVerbsByTestNumber:)];
             break;
         default:
             _currentData = nil;

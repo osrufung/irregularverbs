@@ -229,7 +229,11 @@
 }
 
 - (NSComparisonResult)compareVerbsByTestNumber:(Verb *)other {
-    return self.numberOfTests>other.numberOfTests;
+    if (self.numberOfTests == other.numberOfTests) {
+        return self.numberOfFailures<other.numberOfFailures;
+    } else {
+        return self.numberOfTests<other.numberOfTests;
+    }
 }
 
 - (NSComparisonResult)compareVerbsByHint:(Verb *)other {
