@@ -55,6 +55,9 @@
     LevelDialSelectorControl *dial =  [[LevelDialSelectorControl alloc] initWithFrame:CGRectMake(0, 0, 320, 440) andDelegate:self withSections:3 initialSection:[[VerbsStore sharedStore] currentFrequencyByGroup]];
     
     [[self bottomView] addSubview:dial];
+    UIImageView *imView =  [[UIImageView alloc] initWithImage:imgWhiteCircularBg1];
+    [[self bottomView] addSubview:imView];
+    
     
     self.popupView.layer.cornerRadius = 4;
     self.popupView.layer.shadowOpacity = 0.3;
