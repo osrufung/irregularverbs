@@ -122,7 +122,7 @@
         [self.currentCard.verb failTest];
         [self.currentCard hideTime];
     }
-    [self updateButtonState];
+    [self updateButtonStateForVerb:self.currentCard.verb];
 }
 
 - (void)cancelTest {
@@ -186,15 +186,16 @@
 
 #pragma mark - UI Status
 
-- (void)updateButtonState {
-    [UIView animateWithDuration:0.3 animations:^{
-        if (self.currentCard.verb.testPending) {
+- (void)updateButtonStateForVerb:(Verb *)verb
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        if (verb.testPending) {
             self.passButton.alpha = 1;
             self.failButton.alpha = 1;
             self.passImage.alpha = 1;
             self.failImage.alpha = 1;
         } else {
-            if (self.currentCard.verb.failed) {
+            if (verb.failed) {
                 self.passButton.alpha = 0;
                 self.failButton.alpha = 0;
                 self.passImage.alpha = 0.2;
@@ -230,21 +231,25 @@
 #pragma mark - TestCardViewControllerDelegate
 
 - (void)testCardWillApperar:(TestCardViewController *)cardView {
-    self.currentCard = cardView;
-    [self updateButtonState];
+    [self updateButtonStateForVerb:cardView.verb];
 }
 
 - (void)testCardDidApperar:(TestCardViewController *)cardView {
  
     if(!isHelpViewVisible){
 
-        if (self.currentCard.verb.testPending) [self beginTest];
+    self.currentCard = cardView;
+    [self updateButtonStateForVerb:self.currentCard.verb];
+    if (self.currentCard.verb.testPending) [self beginTest];
     }
+
 
 }
 
 - (void)testCardWillDisappear:(TestCardViewController *)cardView {
-    [self cancelTest];
+    if ([cardView isEqual:self.currentCard]) {
+        [self cancelTest];
+    }
 }
 
 #pragma mark - UIPageViewControllerDelegate
@@ -255,7 +260,7 @@
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
     if (completed) {
-        if ([pageViewController.viewControllers[0] isKindOfClass:[TestScoreCardViewController class]]) {
+        if ([[pageViewController.viewControllers lastObject] isKindOfClass:[TestScoreCardViewController class]]) {
             if (!self.buttonsHidden) {
                 self.buttonsHidden = YES;
                 [self updateButtonFrames];
@@ -269,10 +274,8 @@
             TestCardViewController *vc = (TestCardViewController *)pageViewController.viewControllers[0];
             int currentPage = [self.testCase.verbs indexOfObject:vc.verb]+1;
             self.pageNumberLabel.text = [self stringForPage:currentPage ofTotal:self.testCase.verbs.count+1];
-            NSLog(@"page");
         }
     }
-    NSLog(@"%@",pageViewController.viewControllers);
 }
 
 

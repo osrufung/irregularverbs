@@ -20,7 +20,7 @@
 "Home" = "Home";
 "LearnLabel" = "Look up";
 "TestLabel" = "Test";
-"HistoryLabel" = "History";
+"HistoryLabel" = "Statistics";
 "SetupLabel" = "Setup";
 "selecttesttype" = "Select Test Type";
 "Home" = "Home";
@@ -52,9 +52,16 @@
 "byhintgroup" = "By Hint Group";
 
 //history
-"historyLabel" = "History";
-"averagetime_abrev" = "Time";
-"failures" = "Mastery";
+"historyLabel" = "Statistics";
+"halpha" = "[A-Z]";
+"haveragetime_abrev" = "Time";
+"hfailures" = "Mastery";
+"herrors" = "Errors";
+"htest" = "Tests";
+
+"%d verbs without test" = "%d verbs without test";
+"%d failed verbs in %d tests" = "%d failed verbs in %d tests";
+
 
 //Setup
 "levelOfDifficulty" = "Level of difficulty";

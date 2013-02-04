@@ -281,7 +281,7 @@
 - (NSArray *)testByTestNumber {
     NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByTestNumber:)];
     NSLog(@"%@",list);
-    list = [list subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
+    list = [list subarrayWithRange:NSMakeRange(list.count-self.verbsNumberInTest, self.verbsNumberInTest)];
     return [list shuffledCopy];
 }
 

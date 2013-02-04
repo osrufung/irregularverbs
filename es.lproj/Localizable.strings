@@ -19,7 +19,7 @@
 "Home"= "Inicio";
 "LearnLabel" = "Consultar";
 "TestLabel" = "Evaluar";
-"HistoryLabel" = "Historial";
+"HistoryLabel" = "Estadísticas";
 "SetupLabel" = "Ajustes";
 "selecttesttype" = "Elige tipo de test";
 "Home" = "Principal";
@@ -49,9 +49,15 @@
 "byhintgroup" = "Por pista";
 
 //history
-"historyLabel" = "Historial";
-"averagetime_abrev" = "Tiempo";
-"failures" = "Dominio";
+"historyLabel" = "Estadísticas";
+"halpha" = "[A-Z]";
+"haveragetime_abrev" = "Tiempo";
+"hfailures" = "Dominio";
+"herrors" = "Errores";
+"htest" = "Tests";
+
+"%d verbs without test" = "%d verbos sin evaluar";
+"%d failed verbs in %d tests" = "%d fallos en %d tests";
 
 
 //Setup
