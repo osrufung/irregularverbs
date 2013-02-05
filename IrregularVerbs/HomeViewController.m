@@ -29,7 +29,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonLearn;
 @property (weak, nonatomic) IBOutlet UIButton *buttonTest;
 @property (weak, nonatomic) IBOutlet UIButton *buttonHistory;
-@property (weak, nonatomic) IBOutlet UIButton *buttonSetup;
 @property (weak, nonatomic) IBOutlet UIButton *buttonClosePopUp;
 @property (weak, nonatomic) IBOutlet UILabel *labelHeader;
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
@@ -130,11 +129,18 @@
     [[self headLabel] setAttributedText:[self attributedHomeLabel]];
     //How strange! if you set textAlignment in UIBuilder it doesn't work
     self.headLabel.textAlignment = NSTextAlignmentCenter;
-  
+}
+
+/*
+ * Showing a modal view in viewWillAppear will interfere with the show/hide mechanism and brings down the app with a recursive loop
+ * better to wait until the main view is on screen and then show the help popup
+ */
+- (void)viewDidAppear:(BOOL)animated {
     //firs time? show popupview assistant
-    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firsTimeAssistantShown"]){
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstTimeAssistantShownForHome"]){
         [ASDepthModalViewController presentView:self.popupView withBackgroundColor:nil popupAnimationStyle:ASDepthModalAnimationShrink];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firsTimeAssistantShown"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstTimeAssistantShownForHome"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 
