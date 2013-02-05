@@ -109,6 +109,7 @@
 		E5DB03A516A7EEAC00EE1E80 /* PassFailGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */; };
 		E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */; };
 		E5E05B9716B2E98100F33CEC /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05B9616B2E98100F33CEC /* TestCase.m */; };
+		E5E1AE0816C110F70048FF35 /* UIImage+H568.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1AE0716C110F70048FF35 /* UIImage+H568.m */; };
 		E5ED132416BFB03400CC54AA /* StatisticsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED132316BFB03400CC54AA /* StatisticsCell.m */; };
 		E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */; };
 		E5F49E2116A5C89C0078EC5D /* TestCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */; };
@@ -279,6 +280,8 @@
 		E5E05B9516B2E98100F33CEC /* TestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCase.h; sourceTree = "<group>"; };
 		E5E05B9616B2E98100F33CEC /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCase.m; sourceTree = "<group>"; };
 		E5E05B9916B2FE2800F33CEC /* PresentedViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentedViewControllerDelegate.h; sourceTree = "<group>"; };
+		E5E1AE0616C110F70048FF35 /* UIImage+H568.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+H568.h"; sourceTree = "<group>"; };
+		E5E1AE0716C110F70048FF35 /* UIImage+H568.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+H568.m"; sourceTree = "<group>"; };
 		E5ED132216BFB03400CC54AA /* StatisticsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsCell.h; sourceTree = "<group>"; };
 		E5ED132316BFB03400CC54AA /* StatisticsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsCell.m; sourceTree = "<group>"; };
 		E5ED132716BFB06B00CC54AA /* StatisticsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatisticsCell.xib; sourceTree = "<group>"; };
@@ -517,6 +520,8 @@
 			children = (
 				E5D17C8516C023DC00027408 /* ModalOverlay.h */,
 				E5D17C8616C023DC00027408 /* ModalOverlay.m */,
+				E5E1AE0616C110F70048FF35 /* UIImage+H568.h */,
+				E5E1AE0716C110F70048FF35 /* UIImage+H568.m */,
 				E5DA21D116BBE8D100D30140 /* UIColor+IrregularVerbs.h */,
 				E5DA21D216BBE8D100D30140 /* UIColor+IrregularVerbs.m */,
 				E53DC4F216AC4EE3004CF825 /* UILabel+FrameExpand.h */,
@@ -789,6 +794,7 @@
 				E5DA21D316BBE8D100D30140 /* UIColor+IrregularVerbs.m in Sources */,
 				E5ED132416BFB03400CC54AA /* StatisticsCell.m in Sources */,
 				E5D17C8716C023DC00027408 /* ModalOverlay.m in Sources */,
+				E5E1AE0816C110F70048FF35 /* UIImage+H568.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

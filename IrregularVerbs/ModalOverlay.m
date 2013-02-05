@@ -7,6 +7,7 @@
 //
 
 #import "ModalOverlay.h"
+#import "UIImage+H568.h"
 
 @interface ModalOverlay ()
 
@@ -18,30 +19,6 @@
 
 @implementation ModalOverlay
 
-- (NSString *)imageNameForThisDeviceFromImage:(NSString *)imageName {
-    if ([[UIScreen mainScreen] bounds].size.height == 568) {
-
-        NSMutableString *imageNameMutable = [imageName mutableCopy];
-        
-        //Delete png extension
-        NSRange extension = [imageName rangeOfString:@".png" options:NSBackwardsSearch | NSAnchoredSearch];
-        if (extension.location != NSNotFound) {
-            [imageNameMutable deleteCharactersInRange:extension];
-        }
-    
-        //Look for @2x to introduce -568h string
-        NSRange retinaAtSymbol = [imageName rangeOfString:@"@2x"];
-        if (retinaAtSymbol.location != NSNotFound) {
-            [imageNameMutable insertString:@"-568h" atIndex:retinaAtSymbol.location];
-        } else {
-            [imageNameMutable appendString:@"-568h@2x"];
-        }
-        return imageNameMutable;
-    } else {
-        return imageName;
-    }
-}
-
 - (void)showImage:(NSString *)imageName {
     
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
@@ -52,7 +29,7 @@
     [self.view addSubview:self.rootViewController.view];
     window.rootViewController = self;
     
-    self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self imageNameForThisDeviceFromImage:imageName]]];
+    self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageForDeviceHeightWithName:imageName]];
     self.imageView.frame = window.frame;
     self.imageView.alpha = 0.0;
     [self.view addSubview:self.imageView];
