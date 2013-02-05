@@ -75,7 +75,8 @@ static NSString *SummaryIdentifier = @"StatisticsCell";
         [[VerbsStore sharedStore] resetHistory];
          
         [self.navigationController popToRootViewControllerAnimated:YES];
-         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firsTimeAssistantShown"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstTimeAssistantShownForHome"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstTimeAssistantShownForTest"];
         
     }
 }

@@ -18,7 +18,32 @@
 
 @implementation ModalOverlay
 
+- (NSString *)imageNameForThisDeviceFromImage:(NSString *)imageName {
+    if ([[UIScreen mainScreen] bounds].size.height == 568) {
+
+        NSMutableString *imageNameMutable = [imageName mutableCopy];
+        
+        //Delete png extension
+        NSRange extension = [imageName rangeOfString:@".png" options:NSBackwardsSearch | NSAnchoredSearch];
+        if (extension.location != NSNotFound) {
+            [imageNameMutable deleteCharactersInRange:extension];
+        }
+    
+        //Look for @2x to introduce -568h string
+        NSRange retinaAtSymbol = [imageName rangeOfString:@"@2x"];
+        if (retinaAtSymbol.location != NSNotFound) {
+            [imageNameMutable insertString:@"-568h" atIndex:retinaAtSymbol.location];
+        } else {
+            [imageNameMutable appendString:@"-568h@2x"];
+        }
+        return imageNameMutable;
+    } else {
+        return imageName;
+    }
+}
+
 - (void)showImage:(NSString *)imageName {
+    
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     self.rootViewController = window.rootViewController;
     self.rootViewController.view.frame = CGRectOffset(self.rootViewController.view.frame,
@@ -27,7 +52,7 @@
     [self.view addSubview:self.rootViewController.view];
     window.rootViewController = self;
     
-    self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[self imageNameForThisDeviceFromImage:imageName]]];
     self.imageView.frame = window.frame;
     self.imageView.alpha = 0.0;
     [self.view addSubview:self.imageView];
@@ -38,6 +63,7 @@
     [self.view addSubview:closeButton];
     
     [UIView animateWithDuration:0.2 animations:^{
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
         self.imageView.alpha = 0.5;
     }];
 }
@@ -46,6 +72,7 @@
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     if ([window.rootViewController isEqual:self]) {
         [UIView animateWithDuration:0.2 animations:^{
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
             self.imageView.alpha = 0;
         } completion:^(BOOL finished) {
             if (finished) {

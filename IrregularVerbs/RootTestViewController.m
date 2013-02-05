@@ -54,7 +54,7 @@
         statsButton.style = UIBarButtonItemStylePlain;
         self.navigationItem.rightBarButtonItem = statsButton;
         self.pageNumberLabel.font = [UIFont fontWithName:@"Signika" size:12];
-        self.showHelp = YES;
+        
     }
     return self;
 }
@@ -148,12 +148,17 @@
                           animated:YES
                         completion:nil];
     self.pageNumberLabel.text = [self stringForPage:1 ofTotal:self.testCase.verbs.count+1];
-    [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];    
+    [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
+    self.showHelp = ![[NSUserDefaults standardUserDefaults] boolForKey:@"firstTimeAssistantShownForTest"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     if (self.showHelp)
-        [ModalOverlay showImage:@"testScreenHelp" completion:^{self.showHelp = NO;}];
+        [ModalOverlay showImage:@"testScreenHelp" completion:^{
+            self.showHelp = NO;
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstTimeAssistantShownForTest"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
