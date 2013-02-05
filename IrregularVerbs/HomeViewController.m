@@ -22,6 +22,7 @@
 {
     LevelDialSelectorControl *dial;
 }
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 @property (weak, nonatomic) IBOutlet UITextView *labelPopUp;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UILabel *headLabel;
@@ -95,12 +96,7 @@
     [self.buttonHistory setTitle:NSLocalizedString(@"HistoryLabel", nil) forState:UIControlStateNormal];
     self.buttonHistory.titleLabel.font = buttonFont;
     
-    /*
-    [[self.buttonSetup imageView] setContentMode: UIViewContentModeScaleAspectFit];
 
-    [self.buttonSetup setTitle:NSLocalizedString(@"SetupLabel", nil) forState:UIControlStateNormal];
-    self.buttonSetup.titleLabel.font = fontButton;
-    */
     [self.buttonClosePopUp setTitle:NSLocalizedString(@"close", nil) forState:UIControlStateNormal];
 
     //We can change this system button for a custom button with a look more integrated
@@ -119,7 +115,7 @@
     [hideButton setHidden:YES];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hideButton];
     self.title = NSLocalizedString(@"Home", @"Title for Home screen and back buttons");
-  
+    [self.versionLabel setText:[NSString stringWithFormat:@"v%@", [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"]] ];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
