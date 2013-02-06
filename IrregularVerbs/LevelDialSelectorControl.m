@@ -147,23 +147,37 @@ static float deltaAngle;
     int labelWidth= 130;
     int labelHeight= 30;
     CGFloat angleSize = 2*M_PI/numberOfSections;
+ 
     for (int i = 0; i < numberOfSections; i++) {
         // 4 - Create image view
         int absIndex = (i+currentSector)%numberOfSections ;
-        
-        UIImageView *im = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"sectorImage%i.png",absIndex ]]];
+ 
+        UIImageView *im = [[UIImageView alloc] initWithImage: imgSectorimage0];
         UILabel *lbltxt = [[UILabel alloc] init];
+       
         
         NSString *txt = [NSString stringWithFormat:@"LevelLabel_%i",absIndex];
         [lbltxt setText:NSLocalizedString(txt,nil) ];
         [lbltxt setFont:[UIFont fontWithName:@"Signika" size:16]];
         [lbltxt setBackgroundColor:[UIColor appTintColor]];
+      
         [lbltxt setTextColor:[UIColor whiteColor]];
         [lbltxt setShadowColor:[UIColor lightGrayColor]];
         [lbltxt setShadowOffset:CGSizeMake(1.0, 1.0)];
         [lbltxt setAccessibilityHint:[NSString stringWithFormat:@"%@ %@",NSLocalizedString(txt,nil) , NSLocalizedString(@"accesibility_dialselectorhint",nil)]];
 
         [im addSubview:lbltxt];
+        
+        int starSize = 12;
+      
+        for(int j=0;j<absIndex+1;j++){
+            UIImageView *star = [[UIImageView alloc] initWithImage:imgStar];
+            [im addSubview:star];
+            [star.layer setPosition:CGPointMake(25, im.bounds.size.height/2.0 + j*starSize - starSize*(absIndex+1)/2 +starSize/2) ];
+        }
+        
+        
+        
         
         im.layer.anchorPoint = CGPointMake(1.0f, 0.5f);
        
@@ -172,6 +186,10 @@ static float deltaAngle;
         
         [[lbltxt layer] setAnchorPoint:CGPointMake(0.0f, 1.0f)];
         [[lbltxt layer] setPosition:CGPointMake(64,im.bounds.size.height/2.0+labelWidth/2.0)];
+        
+        
+        
+        
         [lbltxt setBounds:CGRectMake(0, 0, labelWidth, labelHeight)];
         lbltxt.textAlignment = NSTextAlignmentCenter;
        
