@@ -41,7 +41,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor whiteColor];
     
-    [self.closeButton setTitleColor:[UIColor lightGrayColor]    forState:UIControlStateNormal];
+    [self.closeButton setTitleColor:[UIColor darkGrayColor]    forState:UIControlStateNormal];
     [self.closeButton setTitleColor:[UIColor whiteColor]        forState:UIControlStateHighlighted];
     self.closeButton.titleLabel.font = [UIFont fontWithName:@"Signika" size:18];
 
