@@ -162,7 +162,7 @@ static NSString *SummaryIdentifier = @"StatisticsCell";
 
         cell.failRatioLabel.textColor = [UIColor blackColor];
         cell.pendingLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d verbs without test", @"{count} verbs without test"),self.noTested];
-        cell.testCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d fallos en %d tests", @"{#fail} failed verbs in {#test} tests"),self.failCount, self.testCount];
+        cell.testCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d failed verbs in %d tests", @"{#fail} failed verbs in {#test} tests"),self.failCount, self.testCount];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
