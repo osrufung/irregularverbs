@@ -834,8 +834,8 @@
 				0973D9F516AD2C5000A8E30A /* es */,
 			);
 			name = Localizable.strings;
-			path = ..;
-			sourceTree = "<group>";
+			path = IrregularVerbs;
+			sourceTree = SOURCE_ROOT;
 		};
 		09AF755016BA67F80075FC0B /* hints.plist */ = {
 			isa = PBXVariantGroup;
