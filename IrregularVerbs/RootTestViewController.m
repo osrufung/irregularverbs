@@ -152,13 +152,20 @@
     self.showHelp = ![[NSUserDefaults standardUserDefaults] boolForKey:@"firstTimeAssistantShownForTest"];
 }
 
+- (UIView *)flexibleHelpView {
+    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"overlayHelpView" owner:nil options:nil];
+    return [nibContents lastObject];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     if (self.showHelp)
-        [ModalOverlay showImage:@"testScreenHelp" completion:^{
+    {
+        [ModalOverlay showView:[self flexibleHelpView] completion:^{
             self.showHelp = NO;
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstTimeAssistantShownForTest"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

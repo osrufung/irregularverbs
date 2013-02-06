@@ -38,12 +38,19 @@
 		09D372E71681BA4F00F80410 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09D372E51681BA4F00F80410 /* InfoPlist.strings */; };
 		09D372E91681BA4F00F80410 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D372E81681BA4F00F80410 /* main.m */; };
 		09D372ED1681BA4F00F80410 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D372EC1681BA4F00F80410 /* AppDelegate.m */; };
-		09FFD4A616BFCE93001272F5 /* testScreenHelp-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FFD4A816BFCE93001272F5 /* testScreenHelp-568h@2x.png */; };
-		09FFD4AA16BFCEA3001272F5 /* testScreenHelp.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FFD4AC16BFCEA3001272F5 /* testScreenHelp.png */; };
-		09FFD4AE16BFCEAB001272F5 /* testScreenHelp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FFD4B016BFCEAB001272F5 /* testScreenHelp@2x.png */; };
 		E513C11E16A93D0F00467B5C /* UIColor+Saturation.m in Sources */ = {isa = PBXBuildFile; fileRef = E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */; };
+		E51AEC6416C25723001AEC28 /* arrowDL.png in Resources */ = {isa = PBXBuildFile; fileRef = E51AEC5E16C25722001AEC28 /* arrowDL.png */; };
+		E51AEC6516C25723001AEC28 /* arrowDL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E51AEC5F16C25722001AEC28 /* arrowDL@2x.png */; };
+		E51AEC6616C25723001AEC28 /* arrowDR.png in Resources */ = {isa = PBXBuildFile; fileRef = E51AEC6016C25722001AEC28 /* arrowDR.png */; };
+		E51AEC6716C25723001AEC28 /* arrowDR@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E51AEC6116C25722001AEC28 /* arrowDR@2x.png */; };
+		E51AEC6816C25723001AEC28 /* arrowUR.png in Resources */ = {isa = PBXBuildFile; fileRef = E51AEC6216C25723001AEC28 /* arrowUR.png */; };
+		E51AEC6916C25723001AEC28 /* arrowUR@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E51AEC6316C25723001AEC28 /* arrowUR@2x.png */; };
+		E51AEC6E16C25F1C001AEC28 /* arrowUL.png in Resources */ = {isa = PBXBuildFile; fileRef = E51AEC6C16C25F1C001AEC28 /* arrowUL.png */; };
+		E51AEC6F16C25F1C001AEC28 /* arrowUL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E51AEC6D16C25F1C001AEC28 /* arrowUL@2x.png */; };
+		E51AEC7216C260B1001AEC28 /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = E51AEC7016C260B1001AEC28 /* thumb.png */; };
+		E51AEC7316C260B1001AEC28 /* thumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E51AEC7116C260B1001AEC28 /* thumb@2x.png */; };
+		E51AEC7816C2629E001AEC28 /* overlayHelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51AEC7616C26136001AEC28 /* overlayHelpView.xib */; };
 		E53DC4F016ABF9CB004CF825 /* HintsTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E53DC4EF16ABF9CB004CF825 /* HintsTableDelegate.m */; };
-		E53DC4F416AC4EE3004CF825 /* UILabel+FrameExpand.m in Sources */ = {isa = PBXBuildFile; fileRef = E53DC4F316AC4EE3004CF825 /* UILabel+FrameExpand.m */; };
 		E53DC4F716AC56B5004CF825 /* HintsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53DC4F616AC56B5004CF825 /* HintsCell.m */; };
 		E53DC4F916AC56C6004CF825 /* HintsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53DC4F816AC56C6004CF825 /* HintsCell.xib */; };
 		E53DC50216AC7D5B004CF825 /* verbs.plist in Resources */ = {isa = PBXBuildFile; fileRef = E53DC50116AC7D5B004CF825 /* verbs.plist */; };
@@ -107,7 +114,6 @@
 		E5DB03A516A7EEAC00EE1E80 /* PassFailGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DB03A416A7EEAC00EE1E80 /* PassFailGraphView.m */; };
 		E5E05A8F16A6BE2400CEB889 /* TestSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */; };
 		E5E05B9716B2E98100F33CEC /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E05B9616B2E98100F33CEC /* TestCase.m */; };
-		E5E1AE0816C110F70048FF35 /* UIImage+H568.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E1AE0716C110F70048FF35 /* UIImage+H568.m */; };
 		E5ED132416BFB03400CC54AA /* StatisticsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED132316BFB03400CC54AA /* StatisticsCell.m */; };
 		E5F49E2016A5C89C0078EC5D /* TestCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F49E1E16A5C89C0078EC5D /* TestCardViewController.m */; };
 		E5F49E2116A5C89C0078EC5D /* TestCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F49E1F16A5C89C0078EC5D /* TestCardViewController.xib */; };
@@ -171,12 +177,6 @@
 		09D372EB1681BA4F00F80410 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		09D372EC1681BA4F00F80410 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		09D372F21681BA4F00F80410 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		09FFD4A716BFCE93001272F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/testScreenHelp-568h@2x.png"; sourceTree = "<group>"; };
-		09FFD4A916BFCE97001272F5 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = es; path = "es.lproj/testScreenHelp-568h@2x.png"; sourceTree = "<group>"; };
-		09FFD4AB16BFCEA3001272F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/testScreenHelp.png; sourceTree = "<group>"; };
-		09FFD4AD16BFCEA7001272F5 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = es; path = es.lproj/testScreenHelp.png; sourceTree = "<group>"; };
-		09FFD4AF16BFCEAB001272F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/testScreenHelp@2x.png"; sourceTree = "<group>"; };
-		09FFD4B116BFCEAD001272F5 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = es; path = "es.lproj/testScreenHelp@2x.png"; sourceTree = "<group>"; };
 		E513C11C16A93D0F00467B5C /* UIColor+Saturation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Saturation.h"; sourceTree = "<group>"; };
 		E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Saturation.m"; sourceTree = "<group>"; };
 		E513C12516A94CE700467B5C /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
@@ -188,10 +188,20 @@
 		E513C12C16A94CE700467B5C /* screenshot8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot8.png; sourceTree = "<group>"; };
 		E513C12D16A94CE700467B5C /* screenshot9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot9.png; sourceTree = "<group>"; };
 		E513C13716A9509700467B5C /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
+		E51AEC5E16C25722001AEC28 /* arrowDL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowDL.png; sourceTree = "<group>"; };
+		E51AEC5F16C25722001AEC28 /* arrowDL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowDL@2x.png"; sourceTree = "<group>"; };
+		E51AEC6016C25722001AEC28 /* arrowDR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowDR.png; sourceTree = "<group>"; };
+		E51AEC6116C25722001AEC28 /* arrowDR@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowDR@2x.png"; sourceTree = "<group>"; };
+		E51AEC6216C25723001AEC28 /* arrowUR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowUR.png; sourceTree = "<group>"; };
+		E51AEC6316C25723001AEC28 /* arrowUR@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowUR@2x.png"; sourceTree = "<group>"; };
+		E51AEC6C16C25F1C001AEC28 /* arrowUL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowUL.png; sourceTree = "<group>"; };
+		E51AEC6D16C25F1C001AEC28 /* arrowUL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowUL@2x.png"; sourceTree = "<group>"; };
+		E51AEC7016C260B1001AEC28 /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
+		E51AEC7116C260B1001AEC28 /* thumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumb@2x.png"; sourceTree = "<group>"; };
+		E51AEC7516C26136001AEC28 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/overlayHelpView.xib; sourceTree = "<group>"; };
+		E51AEC7716C2613F001AEC28 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/overlayHelpView.xib; sourceTree = "<group>"; };
 		E53DC4EE16ABF9CB004CF825 /* HintsTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HintsTableDelegate.h; sourceTree = "<group>"; };
 		E53DC4EF16ABF9CB004CF825 /* HintsTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HintsTableDelegate.m; sourceTree = "<group>"; };
-		E53DC4F216AC4EE3004CF825 /* UILabel+FrameExpand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FrameExpand.h"; sourceTree = "<group>"; };
-		E53DC4F316AC4EE3004CF825 /* UILabel+FrameExpand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FrameExpand.m"; sourceTree = "<group>"; };
 		E53DC4F516AC56B5004CF825 /* HintsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HintsCell.h; sourceTree = "<group>"; };
 		E53DC4F616AC56B5004CF825 /* HintsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HintsCell.m; sourceTree = "<group>"; };
 		E53DC4F816AC56C6004CF825 /* HintsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HintsCell.xib; sourceTree = "<group>"; };
@@ -276,8 +286,6 @@
 		E5E05B9516B2E98100F33CEC /* TestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCase.h; sourceTree = "<group>"; };
 		E5E05B9616B2E98100F33CEC /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCase.m; sourceTree = "<group>"; };
 		E5E05B9916B2FE2800F33CEC /* PresentedViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentedViewControllerDelegate.h; sourceTree = "<group>"; };
-		E5E1AE0616C110F70048FF35 /* UIImage+H568.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+H568.h"; sourceTree = "<group>"; };
-		E5E1AE0716C110F70048FF35 /* UIImage+H568.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+H568.m"; sourceTree = "<group>"; };
 		E5ED132216BFB03400CC54AA /* StatisticsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsCell.h; sourceTree = "<group>"; };
 		E5ED132316BFB03400CC54AA /* StatisticsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsCell.m; sourceTree = "<group>"; };
 		E5ED132716BFB06B00CC54AA /* StatisticsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatisticsCell.xib; sourceTree = "<group>"; };
@@ -436,6 +444,7 @@
 				E5E05A8E16A6BE2400CEB889 /* TestSelectorViewController.m */,
 				E58AC2D516B66D570062D525 /* TestSelectorViewController.xib */,
 				E5E05B9916B2FE2800F33CEC /* PresentedViewControllerDelegate.h */,
+				E51AEC7616C26136001AEC28 /* overlayHelpView.xib */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -516,12 +525,8 @@
 			children = (
 				E5D17C8516C023DC00027408 /* ModalOverlay.h */,
 				E5D17C8616C023DC00027408 /* ModalOverlay.m */,
-				E5E1AE0616C110F70048FF35 /* UIImage+H568.h */,
-				E5E1AE0716C110F70048FF35 /* UIImage+H568.m */,
 				E5DA21D116BBE8D100D30140 /* UIColor+IrregularVerbs.h */,
 				E5DA21D216BBE8D100D30140 /* UIColor+IrregularVerbs.m */,
-				E53DC4F216AC4EE3004CF825 /* UILabel+FrameExpand.h */,
-				E53DC4F316AC4EE3004CF825 /* UILabel+FrameExpand.m */,
 				E513C11C16A93D0F00467B5C /* UIColor+Saturation.h */,
 				E513C11D16A93D0F00467B5C /* UIColor+Saturation.m */,
 				E550A5D1169CC83800DCA8D6 /* NSArray+Shuffling.h */,
@@ -542,6 +547,16 @@
 				09FFD4AC16BFCEA3001272F5 /* testScreenHelp.png */,
 				09FFD4B016BFCEAB001272F5 /* testScreenHelp@2x.png */,
 				09FFD4A816BFCE93001272F5 /* testScreenHelp-568h@2x.png */,
+				E51AEC7016C260B1001AEC28 /* thumb.png */,
+				E51AEC7116C260B1001AEC28 /* thumb@2x.png */,
+				E51AEC6C16C25F1C001AEC28 /* arrowUL.png */,
+				E51AEC6D16C25F1C001AEC28 /* arrowUL@2x.png */,
+				E51AEC5E16C25722001AEC28 /* arrowDL.png */,
+				E51AEC5F16C25722001AEC28 /* arrowDL@2x.png */,
+				E51AEC6016C25722001AEC28 /* arrowDR.png */,
+				E51AEC6116C25722001AEC28 /* arrowDR@2x.png */,
+				E51AEC6216C25723001AEC28 /* arrowUR.png */,
+				E51AEC6316C25723001AEC28 /* arrowUR@2x.png */,
 				E5A2E34016BAD8EE009C7700 /* check_nok_dark_grey.png */,
 				E5A2E34116BAD8EE009C7700 /* check_nok_dark_grey@2x.png */,
 				E5A2E34216BAD8EE009C7700 /* check_nok_grey.png */,
@@ -737,12 +752,20 @@
 				E5A2E3AA16BAD8EE009C7700 /* white-circular-bg1@2x.png in Resources */,
 				E5A0A7CF16BBBD9F00ADC8E9 /* HintsPopupViewController.xib in Resources */,
 				096F287916BD775100073CAB /* Default-568h@2x.png in Resources */,
-				09FFD4AA16BFCEA3001272F5 /* testScreenHelp.png in Resources */,
-				09FFD4AE16BFCEAB001272F5 /* testScreenHelp@2x.png in Resources */,
-				09FFD4A616BFCE93001272F5 /* testScreenHelp-568h@2x.png in Resources */,
 				095BD20116C0225300FD62A1 /* StatisticsCell.xib in Resources */,
 				0989907116C272F200927F80 /* star.png in Resources */,
 				0989907216C272F200927F80 /* star@2x.png in Resources */,
+				E51AEC6416C25723001AEC28 /* arrowDL.png in Resources */,
+				E51AEC6516C25723001AEC28 /* arrowDL@2x.png in Resources */,
+				E51AEC6616C25723001AEC28 /* arrowDR.png in Resources */,
+				E51AEC6716C25723001AEC28 /* arrowDR@2x.png in Resources */,
+				E51AEC6816C25723001AEC28 /* arrowUR.png in Resources */,
+				E51AEC6916C25723001AEC28 /* arrowUR@2x.png in Resources */,
+				E51AEC6E16C25F1C001AEC28 /* arrowUL.png in Resources */,
+				E51AEC6F16C25F1C001AEC28 /* arrowUL@2x.png in Resources */,
+				E51AEC7216C260B1001AEC28 /* thumb.png in Resources */,
+				E51AEC7316C260B1001AEC28 /* thumb@2x.png in Resources */,
+				E51AEC7816C2629E001AEC28 /* overlayHelpView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,7 +795,6 @@
 				E5DB03A516A7EEAC00EE1E80 /* PassFailGraphView.m in Sources */,
 				E513C11E16A93D0F00467B5C /* UIColor+Saturation.m in Sources */,
 				E53DC4F016ABF9CB004CF825 /* HintsTableDelegate.m in Sources */,
-				E53DC4F416AC4EE3004CF825 /* UILabel+FrameExpand.m in Sources */,
 				E53DC4F716AC56B5004CF825 /* HintsCell.m in Sources */,
 				0973D9FE16AD4DBE00A8E30A /* ASDepthModalViewController.m in Sources */,
 				0973DA0E16ADB9F700A8E30A /* HomeViewController.m in Sources */,
@@ -786,7 +808,6 @@
 				E5DA21D316BBE8D100D30140 /* UIColor+IrregularVerbs.m in Sources */,
 				E5ED132416BFB03400CC54AA /* StatisticsCell.m in Sources */,
 				E5D17C8716C023DC00027408 /* ModalOverlay.m in Sources */,
-				E5E1AE0816C110F70048FF35 /* UIImage+H568.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,34 +849,13 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		09FFD4A816BFCE93001272F5 /* testScreenHelp-568h@2x.png */ = {
+		E51AEC7616C26136001AEC28 /* overlayHelpView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				09FFD4A716BFCE93001272F5 /* en */,
-				09FFD4A916BFCE97001272F5 /* es */,
+				E51AEC7516C26136001AEC28 /* es */,
+				E51AEC7716C2613F001AEC28 /* en */,
 			);
-			name = "testScreenHelp-568h@2x.png";
-			path = images;
-			sourceTree = "<group>";
-		};
-		09FFD4AC16BFCEA3001272F5 /* testScreenHelp.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				09FFD4AB16BFCEA3001272F5 /* en */,
-				09FFD4AD16BFCEA7001272F5 /* es */,
-			);
-			name = testScreenHelp.png;
-			path = images;
-			sourceTree = "<group>";
-		};
-		09FFD4B016BFCEAB001272F5 /* testScreenHelp@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				09FFD4AF16BFCEAB001272F5 /* en */,
-				09FFD4B116BFCEAD001272F5 /* es */,
-			);
-			name = "testScreenHelp@2x.png";
-			path = images;
+			name = overlayHelpView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

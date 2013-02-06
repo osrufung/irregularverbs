@@ -10,7 +10,6 @@
 #import "Verb.h"
 #import "VerbsStore.h"
 #import "UIColor+Saturation.h"
-#import "UILabel+FrameExpand.h"
 #import "HintsCell.h"
 
 @interface HintsTableDelegate()
@@ -50,7 +49,8 @@
     lab.font = [UIFont fontWithName:@"Helvetica-Light" size:14.0f];
     lab.numberOfLines=0;
     lab.backgroundColor = [UIColor clearColor];
-    [lab sizeToFitText];
+    CGSize newSize = [lab sizeThatFits:CGSizeMake(lab.bounds.size.width, CGFLOAT_MAX)];
+    lab.frame = CGRectMake(lab.frame.origin.x, lab.frame.origin.y, lab.frame.size.width, newSize.height);
     currHeight += lab.frame.size.height+2;
 
     UILabel *simple = [[UILabel alloc] initWithFrame:CGRectMake(10, currHeight, 98, 21)];
