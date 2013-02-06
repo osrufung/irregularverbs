@@ -10,7 +10,9 @@
 
 @interface ModalOverlay : UIViewController
 
-+ (void)showImage:(NSString *)imageName completion:(void(^)(void))completionBlock;
++ (void)showView:(UIView *)view completion:(void(^)(void))completionBlock;
++ (void)showImage:(UIImage *)image completion:(void(^)(void))completionBlock;
++ (void)showImageWithName:(NSString *)imageName completion:(void(^)(void))completionBlock;
 + (void)dismiss;
 
 @end

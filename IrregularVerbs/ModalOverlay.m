@@ -7,11 +7,10 @@
 //
 
 #import "ModalOverlay.h"
-#import "UIImage+H568.h"
 
 @interface ModalOverlay ()
 
-@property (strong, nonatomic) UIImageView * imageView;
+@property (strong, nonatomic) UIView *viewToShow;
 @property (strong, nonatomic) UIViewController *rootViewController;
 @property (strong, nonatomic) void(^completionBlock)(void);
 
@@ -19,7 +18,7 @@
 
 @implementation ModalOverlay
 
-- (void)showImage:(NSString *)imageName {
+- (void)showView:(UIView *)view {
     
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     self.rootViewController = window.rootViewController;
@@ -29,19 +28,21 @@
     [self.view addSubview:self.rootViewController.view];
     window.rootViewController = self;
     
-    self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageForDeviceHeightWithName:imageName]];
-    self.imageView.frame = window.frame;
-    self.imageView.alpha = 0.0;
-    [self.view addSubview:self.imageView];
+    self.viewToShow = view;
+    self.viewToShow.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    self.viewToShow.frame = window.frame;
+    NSLog(@"%@",NSStringFromCGRect(window.frame));
+    self.viewToShow.alpha = 0.0;
+    [self.view addSubview:self.viewToShow];
     
     UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    closeButton.frame = self.imageView.frame;
+    closeButton.frame = self.viewToShow.frame;
     [closeButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:closeButton];
     
     [UIView animateWithDuration:0.2 animations:^{
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
-        self.imageView.alpha = 0.5;
+        self.viewToShow.alpha = 0.6;
     }];
 }
 
@@ -50,7 +51,7 @@
     if ([window.rootViewController isEqual:self]) {
         [UIView animateWithDuration:0.2 animations:^{
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-            self.imageView.alpha = 0;
+            self.viewToShow.alpha = 0;
         } completion:^(BOOL finished) {
             if (finished) {
                 [self.rootViewController.view removeFromSuperview];
@@ -61,14 +62,25 @@
     }
 }
 
-
-+ (void)showImage:(NSString *)imageName completion:(void(^)(void))completionBlock; {
++ (void)showView:(UIView *)view completion:(void(^)(void))completionBlock; {
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     if ([window.rootViewController isKindOfClass:[ModalOverlay class]]) return;
-    
+
     ModalOverlay * popup = [[ModalOverlay alloc] init];
     popup.completionBlock = completionBlock;
-    [popup showImage:imageName];
+    [popup showView:view];
+}
+
++ (void)showImage:(UIImage *)image completion:(void(^)(void))completionBlock; {
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.contentMode = UIViewContentModeScaleToFill;
+    NSLog(@"%@",NSStringFromCGRect(imageView.frame));
+    [self showView:imageView completion:completionBlock];
+}
+
++ (void)showImageWithName:(NSString *)imageName completion:(void(^)(void))completionBlock; {
+    UIImage *image = [UIImage imageNamed:imageName];
+    [self showImage:image completion:completionBlock];
 }
 
 + (void)dismiss {
