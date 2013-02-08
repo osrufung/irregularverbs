@@ -32,15 +32,13 @@ You can contact us at:
 * OR - v0.9.2e App badge icon for pending/failed elements. Experimental TableView with SearchDisplayControler (11/1/2013)
 * v0.9.3e New UI layout (16/1/2013)
 * v0.9.5  New UI look&feel. Simplified layout. Better History info. Full Spanish translation. (1/2/2013)
+* v1.0 - submitted version to the App Store (8/2/2013)
 
 ## Screenshot
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot1.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot2.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot2b.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot3.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot4.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot5.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot6.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot7.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot8.png)
-![Screenshot](https://raw.github.com/rbarbera/irregularverbs/master/screenshot9.png)
+![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot1.png)
+![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot2.png)
+![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot3.png)
+![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot4.png)
+![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot5.png)
+![Screenshot](https://raw.github.com/osrufung/irregularverbs/master/screenshot6.png)
+
