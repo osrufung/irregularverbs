@@ -53,8 +53,8 @@
     [super viewDidLoad];
    
  
-    [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
- 
+    //[[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:imgBackgroundpattern]];
      dial =  [[LevelDialSelectorControl alloc] initWithFrame:CGRectMake(0, 0, 320, 440) andDelegate:self withSections:3 initialSection:[[VerbsStore sharedStore] currentFrequencyByGroup]];
     
     [[self bottomView] addSubview:dial];
