@@ -165,7 +165,7 @@
 		09AF754F16BA67F80075FC0B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = es; path = es.lproj/hints.plist; sourceTree = "<group>"; };
 		09AF755116BA68060075FC0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/hints.plist; sourceTree = "<group>"; };
 		09CB352116AEDECC00995380 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		09D372D81681BA4F00F80410 /* A list of verbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A list of verbs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		09D372D81681BA4F00F80410 /* a list of Verbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "a list of Verbs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D372DC1681BA4F00F80410 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09D372DE1681BA4F00F80410 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09D372E01681BA4F00F80410 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -336,7 +336,7 @@
 		09D372D91681BA4F00F80410 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				09D372D81681BA4F00F80410 /* A list of verbs.app */,
+				09D372D81681BA4F00F80410 /* a list of Verbs.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -638,7 +638,7 @@
 			);
 			name = "a list of Verbs";
 			productName = IrregularVerbs;
-			productReference = 09D372D81681BA4F00F80410 /* A list of verbs.app */;
+			productReference = 09D372D81681BA4F00F80410 /* a list of Verbs.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -945,13 +945,15 @@
 		09D372FE1681BA4F00F80410 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IrregularVerbs/IrregularVerbs-Prefix.pch";
 				INFOPLIST_FILE = "IrregularVerbs/IrregularVerbs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
