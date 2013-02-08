@@ -13,7 +13,7 @@
 #import "TestProgressView.h"
 #import "Referee.h"
 #import "Verb.h"
-#import "ImgIndependentHelper.h"
+ 
 #import "ModalOverlay.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -148,7 +148,7 @@
                           animated:YES
                         completion:nil];
     self.pageNumberLabel.text = [self stringForPage:1 ofTotal:self.testCase.verbs.count+1];
-    [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
+ 
     self.showHelp = ![[NSUserDefaults standardUserDefaults] boolForKey:@"firstTimeAssistantShownForTest"];
 }
 

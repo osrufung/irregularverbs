@@ -31,7 +31,7 @@
     self.viewToShow = view;
     self.viewToShow.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     self.viewToShow.frame = window.frame;
-    NSLog(@"%@",NSStringFromCGRect(window.frame));
+    DLog(@"%@",NSStringFromCGRect(window.frame));
     self.viewToShow.alpha = 0.0;
     [self.view addSubview:self.viewToShow];
     
@@ -74,7 +74,7 @@
 + (void)showImage:(UIImage *)image completion:(void(^)(void))completionBlock; {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.contentMode = UIViewContentModeScaleToFill;
-    NSLog(@"%@",NSStringFromCGRect(imageView.frame));
+    DLog(@"%@",NSStringFromCGRect(imageView.frame));
     [self showView:imageView completion:completionBlock];
 }
 

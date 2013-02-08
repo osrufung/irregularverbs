@@ -174,7 +174,7 @@
 #pragma mark Content Filtering
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSInteger)scopeIndex {
     
-     NSLog(@"Scope %d", scopeIndex);
+  
     // Update the filtered array based on the search text and scope.
     // Remove all objects from the filtered search array
  
@@ -208,7 +208,7 @@
 //@TODO to implement scope based search (All, Most Common, Unusual)
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
     // Tells the table data source to reload when scope bar selection changes
-    NSLog(@"Not Implemented yet");
+    DLog(@"Not Implemented yet");
     //[self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:searchOption];
     // Return YES to cause the search result table view to be reloaded.
     return NO;

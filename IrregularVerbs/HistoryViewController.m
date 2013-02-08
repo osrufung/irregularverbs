@@ -239,7 +239,7 @@ static NSString *SummaryIdentifier = @"StatisticsCell";
             _currentData = nil;
             break;
     }
-    NSLog(@"%@",_currentData);
+    DLog(@"%@",_currentData);
     [[NSUserDefaults standardUserDefaults] setInteger:criteriaId forKey:@"historyView"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

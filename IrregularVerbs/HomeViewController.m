@@ -12,11 +12,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CardsTableViewController.h"
 #import "TestSelectorViewController.h"
-#import "PreferencesViewController.h"
 #import "HistoryViewController.h"
 #import "ASDepthModalViewController.h"
 #import "LevelDialSelectorControl.h"
-#import "ImgIndependentHelper.h"
+ 
 
 @interface HomeViewController ()
 {
@@ -51,9 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
- 
-    //[[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
+
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:imgBackgroundpattern]];
      dial =  [[LevelDialSelectorControl alloc] initWithFrame:CGRectMake(0, 0, 320, 440) andDelegate:self withSections:3 initialSection:[[VerbsStore sharedStore] currentFrequencyByGroup]];
     
@@ -202,9 +199,7 @@
        [[self navigationController] pushViewController:[[HistoryViewController alloc] init] animated:YES];
 }
 
-- (IBAction)openSetup:(id)sender {
-    [[self navigationController] pushViewController:[[PreferencesViewController alloc] init] animated:YES];
-}
+
 
 - (IBAction)closePopUp:(id)sender {
       [ASDepthModalViewController dismiss];

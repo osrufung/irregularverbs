@@ -62,7 +62,7 @@
 
 -(BOOL) saveChanges {
     NSString *path = [self mutableVerbsListPath];
-    NSLog(@"saving changes to Docs..");
+    DLog(@"saving changes to Docs..");
     
     return [NSKeyedArchiver archiveRootObject:self.allVerbs toFile:path];
 }
@@ -71,7 +71,7 @@
     NSError *error;
     BOOL success = [[NSFileManager defaultManager] removeItemAtPath:[self mutableVerbsListPath] error:&error];
     if (!success) {
-        NSLog(@"Error removing document path: %@", error.localizedDescription);
+        DLog(@"Error removing document path: %@", error.localizedDescription);
     }
     else{
         _currentList=nil;
@@ -89,7 +89,7 @@
             _allVerbs = [NSKeyedUnarchiver unarchiveObjectWithFile:verbsFilePath];
         }
         @catch (NSException *e) {
-            NSLog(@"Exception in %@: %@",NSStringFromSelector(_cmd), e);
+            DLog(@"Exception in %@: %@",NSStringFromSelector(_cmd), e);
             _allVerbs=nil;
         }
         if(!_allVerbs){
@@ -159,7 +159,7 @@
 }
 -(int)currentFrequencyByGroup{
     float freq = [[NSUserDefaults standardUserDefaults] floatForKey:@"frequency"];
-    NSLog(@"current freq %f ",freq);
+    DLog(@"current freq %f ",freq);
     if(freq == 0.0) return 0;   
     NSArray *freqsArray = [self defaultFrequencyGroups];
     float lastValue = 0.0;
@@ -253,34 +253,34 @@
 
 - (NSArray *)testByFrequency {
     NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByFrequency:)];
-    NSLog(@"%@",list);
+    DLog(@"%@",list);
     list = [list subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
     return [list shuffledCopy];
 }
 
 - (NSArray *)testByFrequencyDes {
     NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByFrequency:)];
-    NSLog(@"%@",list);
+    DLog(@"%@",list);
     list = [list subarrayWithRange:NSMakeRange(list.count-self.verbsNumberInTest, self.verbsNumberInTest)];
     return [list shuffledCopy];
 }
 
 - (NSArray *)testByFailure {
     NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByRecentFailure:)];
-    NSLog(@"%@",list);
+    DLog(@"%@",list);
     list = [list subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
     return [list shuffledCopy];
 }
 
 - (NSArray *)testByRandom {
     NSArray *list = [self.currentList shuffledCopy];
-    NSLog(@"%@",list);
+    DLog(@"%@",list);
     return [list subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
 }
 
 - (NSArray *)testByTestNumber {
     NSArray *list = [self.currentList sortedArrayUsingSelector:@selector(compareVerbsByTestNumber:)];
-    NSLog(@"%@",list);
+    DLog(@"%@",list);
     list = [list subarrayWithRange:NSMakeRange(list.count-self.verbsNumberInTest, self.verbsNumberInTest)];
     return [list shuffledCopy];
 }
@@ -290,7 +290,7 @@
     int hint=[self selectOneHintAtRandom:list];
     NSPredicate *query = [NSPredicate predicateWithFormat:@"hint==%d",hint];
     list = [list filteredArrayUsingPredicate:query];
-    NSLog(@"%@",list);
+    DLog(@"%@",list);
     if ([list count]>self.verbsNumberInTest) {
         list = [[list shuffledCopy] subarrayWithRange:NSMakeRange(0, self.verbsNumberInTest)];
     }

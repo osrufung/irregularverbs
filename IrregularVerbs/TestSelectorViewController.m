@@ -11,7 +11,6 @@
 #import "TestSelectorViewController.h"
 #import "Referee.h"
 #import "TestTypeButton.h"
-#import "ImgIndependentHelper.h"
 #import "RootTestViewController.h"
 
 @interface TestSelectorViewController ()
@@ -30,7 +29,8 @@
 
 - (void)viewDidLoad {
     self.title = NSLocalizedString(@"TestLabel", nil);
-    [[self view] insertSubview: [ImgIndependentHelper getBackgroundImageView] atIndex:0];
+ 
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:imgBackgroundpattern]];
     [self setUpTestButtons];
     [self setUpOptions];
     [self setUpLabels];
@@ -127,7 +127,7 @@
     NSString *badge = nil;
     if (test) {
         [test computeSummaryData];
-        NSLog(@"total %d pass %d fail %d time %.2f failRatio %.2f",test.totalCount,test.passCount,test.failCount,test.averageTime, test.failRatio);
+        DLog(@"total %d pass %d fail %d time %.2f failRatio %.2f",test.totalCount,test.passCount,test.failCount,test.averageTime, test.failRatio);
         if (test.failCount==0) {
             badge = [NSString stringWithFormat:@"%.2fs",test.averageTime];
         } else if (test.averageTime==0) {
