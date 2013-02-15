@@ -63,7 +63,7 @@
         [self computeAverageAddingSample:time];
         if (self.failureIndex==0) self.failureIndex=0.5;
         self.failureIndex = 0.9*self.failureIndex;
-        NSLog(@"%.2f %d",self.failureIndex,self.numberOfFailures);
+        DLog(@"%.2f %d",self.failureIndex,self.numberOfFailures);
     }
 }
 
@@ -73,7 +73,7 @@
         _failed = YES;
         if (self.failureIndex==0) self.failureIndex=0.5;
         self.failureIndex = self.failureIndex + 0.1*(1-self.failureIndex);
-        NSLog(@"%.2f %d",self.failureIndex,self.numberOfFailures);
+        DLog(@"%.2f %d",self.failureIndex,self.numberOfFailures);
         self.numberOfFailures++;
         self.numberOfTests++;
         
@@ -81,7 +81,7 @@
         _failed = YES;
         [self computeAverageRemovingSample:_responseTime];
         self.failureIndex = 0.9*self.failureIndex;
-        NSLog(@"%.2f %d",self.failureIndex,self.numberOfFailures);
+        DLog(@"%.2f %d",self.failureIndex,self.numberOfFailures);
         self.numberOfFailures++;
         self.numberOfTests++;
     }

@@ -44,7 +44,7 @@ static float deltaAngle;
     if (dist < 20 || dist > 200)
     {
         // forcing a tap to be on the ferrule
-        NSLog(@"ignoring tap (%f,%f)", touchPoint.x, touchPoint.y);
+        DLog(@"ignoring tap (%f,%f)", touchPoint.x, touchPoint.y);
         return NO;
     }
     // 2 - Calculate distance from center
