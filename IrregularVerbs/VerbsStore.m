@@ -97,9 +97,12 @@
         if(!_allVerbs){
             _allVerbs = [self loadVerbsFromTemplate];
         }
-        //v1.0.1 Bug Fix. Repair the bad translations
+       
         else{
+            
             NSArray *verbsFromTemplate = [self loadVerbsFromTemplate];
+            
+             //v1.0.1 Bug Fix. Repair the bad translations
             for(Verb *v1 in verbsFromTemplate){
                
                 for(Verb *vUser in _allVerbs){
@@ -110,6 +113,9 @@
                     }
                 }
             }
+            
+            //@TODO new verbs? We've to add to the existent model.
+            
         }
         
      
