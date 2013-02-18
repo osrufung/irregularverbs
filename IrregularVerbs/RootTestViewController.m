@@ -140,8 +140,8 @@
     CGRect pbFrame = self.view.frame;
     CGRect pgFrame = self.progressView.frame;
     CGRect btFrame = self.passButton.frame;
-    CGRect pagerFrame = CGRectMake(pbFrame.origin.x, pbFrame.origin.y,
-                                   self.view.bounds.size.width, pbFrame.size.height-btFrame.size.height-pgFrame.size.height);
+    CGRect pagerFrame = CGRectMake(CGRectGetMinX(pbFrame), CGRectGetMinY(pbFrame),
+                                   CGRectGetWidth(self.view.bounds),CGRectGetHeight(pbFrame)-CGRectGetHeight(btFrame)-CGRectGetHeight(pgFrame));
     self.pager.view.frame = pagerFrame;
     [self.pager setViewControllers:@[[self testCardViewAtIndex:0]]
                          direction:UIPageViewControllerNavigationDirectionForward
@@ -204,14 +204,16 @@
             self.navigationItem.rightBarButtonItem.enabled = NO;
             self.footerView.layer.affineTransform = CGAffineTransformMakeTranslation(0, self.footerView.frame.size.height);
             frameRect = self.pager.view.frame;
-            frameRect.size.height += self.footerView.frame.size.height;
+            frameRect.size.height += CGRectGetHeight(self.footerView.frame);
+            frameRect.size.height -= CGRectGetHeight(self.progressView.frame);
             self.pager.view.frame = frameRect;
             
         } else {
             self.navigationItem.rightBarButtonItem.enabled = YES;
             self.footerView.layer.affineTransform = CGAffineTransformIdentity;
             frameRect = self.pager.view.frame;
-            frameRect.size.height -= self.footerView.frame.size.height;
+            frameRect.size.height -= CGRectGetHeight(self.footerView.frame);
+            frameRect.size.height += CGRectGetHeight(self.progressView.frame);
             self.pager.view.frame = frameRect;
         }        
     }];

@@ -80,7 +80,8 @@
 }
 
 - (void)computeBadgeFrame {
-    CGSize detailSize = [self.detailLabel.text sizeWithFont:self.detailLabel.font];
+    
+    CGSize detailSize = [self.detailLabel sizeThatFits:self.frame.size];
     detailSize.width += BADGET_PADDING;
     if (detailSize.width==self.detailLabel.frame.size.width) return;
     
