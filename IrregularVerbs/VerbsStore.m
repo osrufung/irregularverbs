@@ -92,9 +92,28 @@
             DLog(@"Exception in %@: %@",NSStringFromSelector(_cmd), e);
             _allVerbs=nil;
         }
+        
+        
         if(!_allVerbs){
             _allVerbs = [self loadVerbsFromTemplate];
         }
+        //v1.0.1 Bug Fix. Repair the bad translations
+        else{
+            NSArray *verbsFromTemplate = [self loadVerbsFromTemplate];
+            for(Verb *v1 in verbsFromTemplate){
+               
+                for(Verb *vUser in _allVerbs){
+                    if([v1.simple caseInsensitiveCompare:vUser.simple] ==  NSOrderedSame){
+                        if([v1.translation caseInsensitiveCompare:vUser.translation] != NSOrderedSame){
+                            vUser.translation = v1.translation;
+                        }
+                    }
+                }
+            }
+        }
+        
+     
+        
     }
     return _allVerbs;
 }
