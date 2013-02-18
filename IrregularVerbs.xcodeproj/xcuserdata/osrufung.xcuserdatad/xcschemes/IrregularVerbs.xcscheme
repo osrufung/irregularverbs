@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "09D372D71681BA4F00F80410"
-               BuildableName = "A list of verbs.app"
+               BuildableName = "a list of Verbs.app"
                BlueprintName = "a list of Verbs"
                ReferencedContainer = "container:IrregularVerbs.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "09D372D71681BA4F00F80410"
-            BuildableName = "A list of verbs.app"
+            BuildableName = "a list of Verbs.app"
             BlueprintName = "a list of Verbs"
             ReferencedContainer = "container:IrregularVerbs.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "09D372D71681BA4F00F80410"
-            BuildableName = "A list of verbs.app"
+            BuildableName = "a list of Verbs.app"
             BlueprintName = "a list of Verbs"
             ReferencedContainer = "container:IrregularVerbs.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "09D372D71681BA4F00F80410"
-            BuildableName = "A list of verbs.app"
+            BuildableName = "a list of Verbs.app"
             BlueprintName = "a list of Verbs"
             ReferencedContainer = "container:IrregularVerbs.xcodeproj">
          </BuildableReference>
