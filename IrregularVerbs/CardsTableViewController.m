@@ -169,16 +169,8 @@
     
 }
 
- 
-
 #pragma mark Content Filtering
--(void)filterContentForSearchText:(NSString*)searchText scope:(NSInteger)scopeIndex {
-    
-  
-    // Update the filtered array based on the search text and scope.
-    // Remove all objects from the filtered search array
- 
-    
+-(void)filterContentForSearchText:(NSString*)searchText {
     if(searchText){
         NSMutableArray *filteredArray;
         NSArray *sorted = [[VerbsStore sharedStore] alphabetic];
@@ -189,29 +181,19 @@
     }
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+#pragma mark - UISearchDisplayController Delegate Methods
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString { 
+    [self filterContentForSearchText:searchString];
+    return YES;
+} 
+
+- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
     NSArray *allVerbs = [[VerbsStore sharedStore] alphabetic];
     [self makeIndexFor:allVerbs withSearchText:nil];
     CGRect currentFrame = self.tableView.frame;
-    self.tableView.frame=CGRectMake(0, currentFrame.origin.y-44, currentFrame.size.width, currentFrame.size.height+44);
+    self.tableView.frame=CGRectMake(0, CGRectGetMinY(currentFrame)-44, CGRectGetWidth(currentFrame), CGRectGetHeight(currentFrame)+44);
     self.searchBar.alpha=0;
 }
 
-#pragma mark - UISearchDisplayController Delegate Methods
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
- 
-    // Tells the table data source to reload when text changes
-    [self filterContentForSearchText:searchString scope: [self.searchDisplayController.searchBar selectedScopeButtonIndex]];
-    // Return YES to cause the search result table view to be reloaded.
-    return YES;
-}
-//@TODO to implement scope based search (All, Most Common, Unusual)
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    // Tells the table data source to reload when scope bar selection changes
-    DLog(@"Not Implemented yet");
-    //[self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:searchOption];
-    // Return YES to cause the search result table view to be reloaded.
-    return NO;
-}
- 
+
 @end
