@@ -109,6 +109,7 @@
                     if([v1.simple caseInsensitiveCompare:vUser.simple] ==  NSOrderedSame){
                         if([v1.translation caseInsensitiveCompare:vUser.translation] != NSOrderedSame){
                             vUser.translation = v1.translation;
+                            break;
                         }
                     }
                 }
