@@ -94,7 +94,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Pudedes terminar el test en cualquier momento</string>
+						<string key="IBUIText">Puedes terminar el test en cualquier momento</string>
 						<object class="NSColor" key="IBUITextColor" id="186525169">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
